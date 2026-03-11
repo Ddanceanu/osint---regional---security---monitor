@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment files
+.env
+
+# IDE
+.idea/
+
+# Local database / temp files
+*.sqlite3
+
+# Data folders
+data/raw/
+data/processed/
+data/exports/
