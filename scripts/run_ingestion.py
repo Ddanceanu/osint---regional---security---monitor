@@ -7,7 +7,7 @@ def main() -> None:
     print(f"Source: {scraper.source_name}")
     print(f"Type: {scraper.source_type}")
     print(f"Documents found: {len(documents)}")
-    print(documents)
+    print(documents[:10])
 
 if __name__ == "__main__":
     main()
