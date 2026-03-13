@@ -2,6 +2,9 @@ from app.ingestion.mae_scraper import MaeScraper
 import json
 from pathlib import Path
 
+from app.ingestion.nato_scraper import NatoScraper
+
+
 def main() -> None:
     scraper = MaeScraper()
     documents = scraper.fetch_documents()
@@ -15,6 +18,14 @@ def main() -> None:
 
     print(f"Source: {scraper.source_name}")
     print(f"Type: {scraper.source_type}")
+    print(f"Documents found: {len(documents)}")
+    print(documents[:10])
+
+    nato_scraper = NatoScraper()
+    documents = nato_scraper.fetch_documents()
+
+    print(f"Source: {nato_scraper.source_name}")
+    print(f"Type: {nato_scraper.source_type}")
     print(f"Documents found: {len(documents)}")
     print(documents[:10])
 
