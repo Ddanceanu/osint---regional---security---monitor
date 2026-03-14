@@ -1,6 +1,4 @@
 from app.ingestion.base_scraper import BaseScraper
-import requests
-from bs4 import BeautifulSoup
 
 class MaeScraper(BaseScraper):
     """
@@ -16,12 +14,6 @@ class MaeScraper(BaseScraper):
             source_type="official"
         )
         self.base_url = "https://www.mae.ro/en/taxonomy/term/952"
-        self.headers = {
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/122.0.0.0 Safari/537.36")
-        }
 
     def extract_publication_date(self, article_url: str) -> str | None:
         """
@@ -29,20 +21,16 @@ class MaeScraper(BaseScraper):
         Returns the date as text if found, otherwise None.
         """
 
-        try:
-            response = requests.get(article_url, headers=self.headers, timeout=10)
-            soup = BeautifulSoup(response.text, "html.parser")
+        soup = self.get_soup(article_url)
+        if not soup:
+            return None
 
-            date_fields = soup.find_all("div", class_="field field-type-text field-field-date")
+        date_fields = soup.find_all("div", class_="field field-type-text field-field-date")
 
-            if date_fields:
-                raw_text = date_fields[0].get_text(" ", strip=True)
-                cleaned_text = raw_text.replace("Date:", "").strip()
-                return cleaned_text
-
-        except requests.RequestException as e:
-            print(f"Failed to fetch article page: {article_url}")
-            print(f"Error: {e}")
+        if date_fields:
+            raw_text = date_fields[0].get_text(" ", strip=True)
+            cleaned_text = raw_text.replace("Date:", "").strip()
+            return cleaned_text
 
         return None
 
@@ -52,42 +40,36 @@ class MaeScraper(BaseScraper):
         and return standardized document records.
         """
 
-        try:
-            response = requests.get(self.base_url, headers=self.headers, timeout=10)
-            soup = BeautifulSoup(response.text, "html.parser")
+        soup = self.get_soup(self.base_url)
+        if not soup:
+            return []
 
-            links = soup.find_all("a")
+        links = soup.find_all("a")
 
-            article_candidates = []
-            seen_hrefs = set()
+        article_candidates = []
+        seen_hrefs = set()
 
-            for link in links:
-                href = link.get("href")
-                text = link.get_text(strip=True)
+        for link in links:
+            href = link.get("href")
+            text = link.get_text(strip=True)
 
-                if href and "/en/node/" in href and len(text) >= 30:
-                    if href not in seen_hrefs:
-                        article_candidates.append((text, href))
-                        seen_hrefs.add(href)
+            if href and "/en/node/" in href and len(text) >= 30:
+                if href not in seen_hrefs:
+                    article_candidates.append((text, href))
+                    seen_hrefs.add(href)
 
-            documents = []
-            for title, href in article_candidates:
-                article_url = f"https://www.mae.ro{href}"
-                publication_date = self.extract_publication_date(article_url)
+        documents = []
+        for title, href in article_candidates:
+            article_url = f"https://www.mae.ro{href}"
+            publication_date = self.extract_publication_date(article_url)
 
-                document = {
-                    "source_name": self.source_name,
-                    "source_type": self.source_type,
-                    "title": title,
-                    "url": article_url,
-                    "publication_date": publication_date,
-                }
-                documents.append(document)
+            document = {
+                "source_name": self.source_name,
+                "source_type": self.source_type,
+                "title": title,
+                "url": article_url,
+                "publication_date": publication_date,
+            }
+            documents.append(document)
 
-            return documents
-
-        except requests.RequestException as e:
-            print(f"Failed to fetch source: {self.base_url}")
-            print(f"Error: {e}")
-
-        return []
+        return documents
