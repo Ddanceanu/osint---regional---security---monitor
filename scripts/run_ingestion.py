@@ -6,28 +6,38 @@ from app.ingestion.nato_scraper import NatoScraper
 
 
 def main() -> None:
-    scraper = MaeScraper()
-    documents = scraper.fetch_documents()
-
     project_root = Path(__file__).resolve().parent.parent
-    output_path = project_root / "data" / "raw" / "mae_documents.json"
+    raw_data_dir = project_root / "data" / "raw"
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(documents, f, ensure_ascii=False, indent=4)
-        print(f"Documents saved to: {output_path}")
+    # MAE
+    mae_scraper = MaeScraper()
+    mae_documents = mae_scraper.fetch_documents()
 
-    print(f"Source: {scraper.source_name}")
-    print(f"Type: {scraper.source_type}")
-    print(f"Documents found: {len(documents)}")
-    print(documents[:10])
+    mae_output_path = raw_data_dir / "mae_documents.json"
 
+    with open(mae_output_path, "w", encoding="utf-8") as f:
+        json.dump(mae_documents, f, ensure_ascii=False, indent=4)
+        print(f"MAE documents saved to: {mae_output_path}")
+
+    print(f"Source: {mae_scraper.source_name}")
+    print(f"Type: {mae_scraper.source_type}")
+    print(f"Documents found: {len(mae_documents)}")
+    print(mae_documents[:10])
+
+    # NATO
     nato_scraper = NatoScraper()
-    documents = nato_scraper.fetch_documents()
+    nato_documents = nato_scraper.fetch_documents()
+
+    nato_output_path = raw_data_dir / "nato_documents.json"
+
+    with open(nato_output_path, "w", encoding="utf-8") as f:
+        json.dump(nato_documents, f, ensure_ascii=False, indent=4)
+        print(f"NATO documents saved to: {nato_output_path}")
 
     print(f"Source: {nato_scraper.source_name}")
     print(f"Type: {nato_scraper.source_type}")
-    print(f"Documents found: {len(documents)}")
-    print(documents[:10])
+    print(f"Documents found: {len(nato_documents)}")
+    print(nato_documents[:10])
 
 if __name__ == "__main__":
     main()
