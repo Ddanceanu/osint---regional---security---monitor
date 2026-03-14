@@ -1,6 +1,7 @@
 from app.ingestion.base_scraper import BaseScraper
 import requests
 from urllib.parse import urljoin
+import re
 
 class NatoScraper(BaseScraper):
     """
@@ -21,13 +22,42 @@ class NatoScraper(BaseScraper):
             "&pageSize=25&page=1&tags=&languages=&startDate=&endDate="
         )
 
-        self.headers = {
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/122.0.0.0 Safari/537.36"
-            )
-        }
+    def extract_publication_date(self, article_url: str) -> str | None:
+        """
+        Extract the publication date from an individual NATO article page.
+        Returns the date as text if found, otherwise returns None.
+        """
+        soup = self.get_soup(article_url)
+        if not soup:
+            return None
+
+        # 1. Try <time> tags
+        time_tag = soup.find("time")
+        if time_tag:
+            date_text = time_tag.get_text(" ", strip=True)
+            if date_text:
+                return date_text
+
+        # 2. Try common meta tags
+        meta_candidates = [
+            {"property": "article:published_time"},
+            {"name": "date"},
+            {"name": "publish-date"},
+            {"name": "publication_date"},
+        ]
+
+        for attrs in meta_candidates:
+            meta_tag = soup.find("meta", attrs=attrs)
+            if meta_tag and meta_tag.get("content"):
+                return meta_tag["content"].strip()
+
+        # 3. Fallback: look for a text date pattern in page text
+        page_text = soup.get_text("\n", strip=True)
+        match = re.search(r"\b\d{1,2}\s+[A-Z][a-z]+\s+\d{4}\b", page_text)
+        if match:
+            return match.group(0)
+
+        return None
 
     def fetch_documents(self) -> list[dict]:
         """
@@ -50,12 +80,15 @@ class NatoScraper(BaseScraper):
             for page in pages:
                 title = page.get("title", "").strip()
                 relative_link = page.get("link", "").strip()
-                publication_date = page.get("pageDate", "").strip()
 
-                if not title or not relative_link:
+                if not title or not  relative_link:
                     continue
 
+                publication_date = page.get("pageDate", "").strip()
                 full_url = urljoin(self.base_url, relative_link)
+
+                if not publication_date:
+                    publication_date = self.extract_publication_date(full_url) or ""
 
                 documents.append({
                     "source_name": self.source_name,
