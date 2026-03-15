@@ -1,8 +1,9 @@
 from datetime import datetime
+import hashlib
 
 def normalize_source_key(source_name: str) -> str:
     """
-    Convert a human-redable source name into a stable internal source key.
+    Convert a human-readable source name into a stable internal source key.
     """
     source_map = {
         "MAE Romania": "mae",
@@ -29,6 +30,12 @@ def normalize_document(document: dict) -> dict:
         normalized_document["source_key"]
     )
 
+    url = normalized_document.get("url", "")
+    normalized_document["document_id"] = generate_document_id(
+        normalized_document["source_key"],
+        url
+    )
+
     return normalized_document
 
 def normalize_documents(documents: list[dict]) -> list[dict]:
@@ -44,7 +51,7 @@ def normalize_publication_date(publication_date: str, source_key: str) -> str:
     """
     Convert a source-specific publication date into ISO format: YYYY-MM-DD.
 
-    Returns an empty strict if the date connot be parsed.
+    Returns an empty string if the date cannot be parsed.
     """
 
     if not publication_date:
@@ -64,3 +71,17 @@ def normalize_publication_date(publication_date: str, source_key: str) -> str:
     except ValueError:
         return ""
 
+
+def generate_document_id(source_key: str, url: str) -> str:
+    """
+    Generate a stable document ID based on the source key and URL.
+
+    Returns an empty string if the input is incomplete.
+    """
+    if not source_key or not url:
+        return ""
+
+    raw_value = f"{source_key}:{url}"
+    hash_value = hashlib.sha256(raw_value.encode("utf-8")).hexdigest()
+
+    return f"{source_key}_{hash_value[:12]}"
