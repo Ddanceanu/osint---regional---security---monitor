@@ -85,3 +85,26 @@ def generate_document_id(source_key: str, url: str) -> str:
     hash_value = hashlib.sha256(raw_value.encode("utf-8")).hexdigest()
 
     return f"{source_key}_{hash_value[:12]}"
+
+def sort_documents_by_date(documents: list[dict]) -> list[dict]:
+    """
+    Returns documents sorted by publication_date_iso in descending order.
+
+    Documents without a valid ISO date are placed at the end.
+    """
+
+    documents_with_date = []
+    documents_without_date = []
+
+    for doc in documents:
+        if doc.get("publication_date_iso", ""):
+            documents_with_date.append(doc)
+        else:
+            documents_without_date.append(doc)
+
+    documents_with_date.sort(
+        key=lambda doc: doc["publication_date_iso"],
+        reverse=True
+    )
+
+    return documents_with_date + documents_without_date

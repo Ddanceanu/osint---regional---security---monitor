@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from app.processing.normalizer import normalize_documents
+from app.processing.normalizer import normalize_documents, sort_documents_by_date
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -20,16 +20,17 @@ def main() -> None:
 
     all_documents = mae_documents + nato_documents
     normalized_documents = normalize_documents(all_documents)
+    sorted_documents = sort_documents_by_date(normalized_documents)
 
     processed_data_dir.mkdir(parents=True, exist_ok=True)
 
     with open(output_path, "w", encoding="utf-8") as output_file:
-        json.dump(normalized_documents, output_file, ensure_ascii=False, indent=4)
+        json.dump(sorted_documents, output_file, ensure_ascii=False, indent=4)
 
     print(f"Processed documents saved to: {output_path}")
     print(f"Total raw documents loaded: {len(all_documents)}")
     print(f"Total normalized documents saved: {len(normalized_documents)}")
-    print(normalized_documents[:5])
+    print(sorted_documents[:5])
 
 if __name__ == "__main__":
     main()
