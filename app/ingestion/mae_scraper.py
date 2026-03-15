@@ -62,6 +62,7 @@ class MaeScraper(BaseScraper):
         for title, href in article_candidates:
             article_url = f"https://www.mae.ro{href}"
             publication_date = self.extract_publication_date(article_url)
+            content = self.extract_content(article_url)
 
             document = {
                 "source_name": self.source_name,
@@ -69,7 +70,41 @@ class MaeScraper(BaseScraper):
                 "title": title,
                 "url": article_url,
                 "publication_date": publication_date,
+                "content": content,
             }
             documents.append(document)
 
         return documents
+
+
+    def extract_content(self, article_url: str) -> str:
+        """
+        Extract the main textual content from a MAE article page.
+
+        Returns a cleaned text string, or an empty string if extraction fails.
+        """
+
+        soup = self.get_soup(article_url)
+        if not soup:
+            return ""
+
+        article_container = soup.select_one("div.art")
+        if not article_container:
+            return ""
+
+        paragraphs = []
+
+        for p in article_container.find_all("p", recursive=False):
+            text = p.get_text(" ", strip=True)
+            text = text.replace("\xa0", " ").strip()
+
+            if not text:
+                continue
+
+            if text == "&nbsp;":
+                continue
+
+            paragraphs.append(text)
+            # print(text[:120])
+
+        return "\n\n".join(paragraphs).strip()
