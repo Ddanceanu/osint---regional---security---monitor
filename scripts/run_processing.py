@@ -1,7 +1,11 @@
 import json
 from pathlib import Path
 
-from app.processing.normalizer import normalize_documents, sort_documents_by_date
+from app.processing.normalizer import (
+    normalize_documents,
+    sort_documents_by_date,
+    deduplicate_documents,
+)
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -20,7 +24,8 @@ def main() -> None:
 
     all_documents = mae_documents + nato_documents
     normalized_documents = normalize_documents(all_documents)
-    sorted_documents = sort_documents_by_date(normalized_documents)
+    deduplicated_documents = deduplicate_documents(normalized_documents)
+    sorted_documents = sort_documents_by_date(deduplicated_documents)
 
     processed_data_dir.mkdir(parents=True, exist_ok=True)
 

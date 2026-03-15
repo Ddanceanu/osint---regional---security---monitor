@@ -108,3 +108,27 @@ def sort_documents_by_date(documents: list[dict]) -> list[dict]:
     )
 
     return documents_with_date + documents_without_date
+
+
+def deduplicate_documents(documents: list[dict]) -> list[dict]:
+    """
+    Return a new list with duplicate documents remove.
+
+    Duplicare are identified by document_id.
+    The first occurrence is kept.
+    """
+    unique_documents = []
+    seen_documents_ids = set()
+
+    for doc in documents:
+        document_id = doc.get("document_id", "")
+
+        if not document_id:
+            unique_documents.append(doc)
+            continue
+
+        if document_id not in seen_documents_ids:
+            unique_documents.append(doc)
+            seen_documents_ids.add(document_id)
+
+    return unique_documents
