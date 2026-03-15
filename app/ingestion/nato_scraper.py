@@ -86,6 +86,7 @@ class NatoScraper(BaseScraper):
 
                 publication_date = page.get("pageDate", "").strip()
                 full_url = urljoin(self.base_url, relative_link)
+                content = self.extract_content(full_url)
 
                 if not publication_date:
                     publication_date = self.extract_publication_date(full_url) or ""
@@ -95,7 +96,8 @@ class NatoScraper(BaseScraper):
                     "source_type": self.source_type,
                     "title": title,
                     "url": full_url,
-                    "publication_date": publication_date
+                    "publication_date": publication_date,
+                    "content": content
                 }
                 )
             return documents
@@ -107,3 +109,33 @@ class NatoScraper(BaseScraper):
             print("Response is not valid JSON")
             print(f"Error: {e}")
             return []
+
+
+    def extract_content(self, article_url: str) -> str:
+        """
+        Extract the main content from an individual NATO article page.
+        Returns a cleaned text string, or an empty string if extraction fails.
+        """
+
+        soup = self.get_soup(article_url)
+        if not soup:
+            return ""
+
+        content_container = soup.select_one(
+            "div.ca04-rich-text div.cmp-text__background-container"
+        )
+        if not content_container:
+            return ""
+
+        blocks = []
+
+        for tag in content_container.find_all(["p", "li"]):
+            text = tag.get_text(" ", strip=True)
+            text = text.replace("\xa0", " ").strip()  # \xa0 -> caracter unicode non-breaking space
+
+            if not text:
+                continue
+
+            blocks.append(text)
+
+        return "\n\n".join(blocks).strip()
