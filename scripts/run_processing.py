@@ -8,6 +8,7 @@ from app.processing.normalizer import (
 )
 
 from app.processing.quality_checks import collect_quality_warnings, build_quality_report
+from app.processing.theme_classifier import classify_document
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -31,17 +32,19 @@ def main() -> None:
     deduplicated_documents = deduplicate_documents(normalized_documents)
     sorted_documents = sort_documents_by_date(deduplicated_documents)
 
-    quality_warnings = collect_quality_warnings(sorted_documents)
+    classified_documents = [classify_document(document) for document in sorted_documents]
+
+    quality_warnings = collect_quality_warnings(classified_documents)
     quality_report = build_quality_report(
         all_documents,
         normalized_documents,
-        sorted_documents,
+        classified_documents,
     )
 
     processed_data_dir.mkdir(parents=True, exist_ok=True)
 
     with open(output_path, "w", encoding="utf-8") as output_file:
-        json.dump(sorted_documents, output_file, ensure_ascii=False, indent=4)
+        json.dump(classified_documents, output_file, ensure_ascii=False, indent=4)
 
     with open(quality_warnings_path, "w", encoding="utf-8") as quality_warnings_file:
         json.dump(quality_warnings, quality_warnings_file, ensure_ascii=False, indent=4)
@@ -51,8 +54,8 @@ def main() -> None:
 
     print(f"Processed documents saved to: {output_path}")
     print(f"Total raw documents loaded: {len(all_documents)}")
-    print(f"Total final documents saved: {len(sorted_documents)}")
-    print(sorted_documents[:5])
+    print(f"Total final documents saved: {len(classified_documents)}")
+    print(classified_documents[:5])
 
 if __name__ == "__main__":
     main()
