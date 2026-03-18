@@ -41,3 +41,62 @@ def load_table_dataframe(file_path: str) -> pd.DataFrame:
 
     table_rows = load_table_rows(file_path)
     return pd.DataFrame(table_rows)
+
+
+def format_list_cell(value) -> str:
+    """
+    Convert a list-like table cell into a readable display string.
+    """
+    if not value:
+        return "—"
+
+    if isinstance(value, list):
+        return ", ".join(str(item) for item in value) if value else "—"
+
+    return str(value)
+
+
+def build_display_dataframe(dataframe: pd.DataFrame) -> pd.DataFrame:
+    """
+    Build the final display dataframe for the Document Explorer table.
+
+    This function keeps only the UI-facing columns, formats list values for
+    readable display, and renames the columns for presentation.
+    """
+
+    display_columns = [
+        "date",
+        "source",
+        "title",
+        "main_theme",
+        "secondary_themes",
+        "countries",
+        "organizations",
+        "content_preview",
+    ]
+
+    display_dataframe = dataframe[display_columns].copy()
+
+    list_columns = [
+        "secondary_themes",
+        "countries",
+        "organizations",
+    ]
+
+    for column in list_columns:
+        display_dataframe[column] = display_dataframe[column].apply(format_list_cell)
+
+    display_dataframe = display_dataframe.rename(
+        columns={
+            "date": "Date",
+            "source": "Source",
+            "title": "Title",
+            "main_theme": "Main Theme",
+            "secondary_themes": "Secondary Themes",
+            "countries": "Countries",
+            "organizations": "Organizations",
+            "content_preview": "Content Preview",
+        }
+    )
+
+    return display_dataframe

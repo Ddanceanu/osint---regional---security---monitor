@@ -1,5 +1,6 @@
 import re
 
+
 THEME_LABELS = {
     "support_ukraine": "Support for Ukraine",
     "eastern_flank_nato_deterrence": "Eastern Flank NATO Deterrence",
@@ -10,11 +11,12 @@ THEME_LABELS = {
     "other_mixed": "Other / Mixed",
 }
 
+
 def format_theme_label(theme_key: str) -> str:
     """
-    Transform a theme key into a human-readable label for display in the dashboard.
+    Transform a theme key into a human-readable label for dashboard display.
 
-    If the theme key is not recognized, we use a simple fallback.
+    If the theme key is missing or not recognized, a readable fallback is used.
     """
     if not theme_key:
         return "—"
@@ -29,7 +31,6 @@ def build_content_preview(content: str, max_chars: int = 140) -> str:
     The function normalizes whitespace, trims the text to a maximum length,
     and appends an ellipsis only when truncation is applied.
     """
-
     if not content:
         return "—"
 
@@ -43,7 +44,7 @@ def build_content_preview(content: str, max_chars: int = 140) -> str:
 
     truncated_content = normalized_content[:max_chars].rstrip()
 
-    last_space_index = truncated_content.rfind("  ")
+    last_space_index = truncated_content.rfind(" ")
     if last_space_index > 0:
         truncated_content = truncated_content[:last_space_index]
 
@@ -51,9 +52,9 @@ def build_content_preview(content: str, max_chars: int = 140) -> str:
 
 
 def extract_entity_values(
-        document: dict,
-        entity_type: str,
-        max_items: int = 2,
+    document: dict,
+    entity_type: str,
+    max_items: int = 2,
 ) -> tuple[list[str], int]:
     """
     Extract a limited number of entity values from a document for dashboard display.
@@ -63,7 +64,6 @@ def extract_entity_values(
         - the visible entity values (up to max_items)
         - the number of remaining hidden values
     """
-
     entities = document.get("entities", {})
     values = entities.get(entity_type, [])
 
@@ -77,18 +77,17 @@ def extract_entity_values(
 
 
 def format_theme_list(
-        theme_keys: list[str],
-        max_items: int = 2,
+    theme_keys: list[str],
+    max_items: int = 2,
 ) -> tuple[list[str], int]:
     """
     Format a list of internal theme keys into dashboard-ready labels.
 
     Returns:
         A tuple containing:
-        - the visible formatted theme labers (up to max_items)
-        - the number of remaining formatted theme labers
+        - the visible formatted theme labels (up to max_items)
+        - the number of remaining hidden theme labels
     """
-
     if not theme_keys:
         return [], 0
 
@@ -112,24 +111,23 @@ def build_table_row(document: dict) -> dict:
     Transform a raw document into a dashboard-ready table row.
 
     The returned dictionary contains both:
-        - formatted fields for table display
-        - tehnical / raw fields needed for selection and detail rendering
+    - formatted fields for table display
+    - technical/raw fields needed for selection and detail rendering
     """
-
-    secondary_theme_labels, secondary_theme_hidden_count = format_theme_list(
-        document.get("secondary_theme_labels", []),
+    secondary_themes, secondary_themes_hidden_count = format_theme_list(
+        document.get("secondary_themes", []),
         max_items=2,
     )
 
-    country_values, country_hidden_count = extract_entity_values(
+    country_values, countries_hidden_count = extract_entity_values(
         document,
-        entity_type="country",
+        entity_type="countries",
         max_items=2,
     )
 
-    organisation_values, organisation_hidden_count = extract_entity_values(
+    organization_values, organizations_hidden_count = extract_entity_values(
         document,
-        entity_type="organisation",
+        entity_type="organizations",
         max_items=2,
     )
 
@@ -139,22 +137,22 @@ def build_table_row(document: dict) -> dict:
         "source": document.get("source_name", "—"),
         "title": document.get("title", "—"),
         "main_theme": format_theme_label(document.get("main_theme", "")),
-        "secondary_theme": secondary_theme_labels,
-        "secondary_theme_hidden_count": secondary_theme_hidden_count,
+        "secondary_themes": secondary_themes,
+        "secondary_themes_hidden_count": secondary_themes_hidden_count,
         "countries": country_values,
-        "countries_hidden_count": country_hidden_count,
-        "organisations": organisation_values,
-        "organisations_hidden_count": organisation_hidden_count,
+        "countries_hidden_count": countries_hidden_count,
+        "organizations": organization_values,
+        "organizations_hidden_count": organizations_hidden_count,
         "content_preview": build_content_preview(document.get("content", "")),
 
-        # Tehnical fields for detail panel / selection
+        # Technical fields for detail panel / selection
         "document_id": document.get("document_id", ""),
         "source_key": document.get("source_key", ""),
         "url": document.get("url", ""),
         "content": document.get("content", ""),
         "main_theme_key": document.get("main_theme", ""),
-        "secondary_theme_key": document.get("secondary_themes", []),
-        "theme_socres": document.get("theme_socres", {}),
+        "secondary_theme_keys": document.get("secondary_themes", []),
+        "theme_scores": document.get("theme_scores", {}),
         "entities": document.get("entities", {}),
     }
 
@@ -163,7 +161,6 @@ def build_table_rows(documents: list[dict]) -> list[dict]:
     """
     Transform a list of raw documents into dashboard-ready table rows.
     """
-
     if not documents:
         return []
 
