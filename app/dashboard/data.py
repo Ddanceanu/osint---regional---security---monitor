@@ -90,6 +90,11 @@ def build_table_row(document: dict) -> dict:
         "content_preview": build_content_preview(document.get("content", "")),
         "url": document.get("url", ""),
         "entities": document.get("entities", {}),
+        "document_id": document.get("document_id", ""),
+        "content": document.get("content", ""),
+        "source_type": document.get("source_type", ""),
+        "secondary_theme_keys": document.get("secondary_themes", []),
+        "theme_scores": document.get("theme_scores", {}),
     }
 
 

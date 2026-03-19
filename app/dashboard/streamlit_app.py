@@ -112,6 +112,15 @@ def render_sidebar(dataframe) -> dict:
         "organizations": selected_organizations if selected_organizations else None,
     }
 
+def init_session_state():
+    """
+    Initialize session state defaults for filter persistence across reruns.
+    """
+    if "search" not in st.session_state:
+        st.session_state["search"] = ""
+    if "selected_doc_id" not in st.session_state:
+        st.session_state["selected_doc_id"] = ""
+
 
 def main() -> None:
     """
@@ -123,7 +132,9 @@ def main() -> None:
         layout="wide",
         initial_sidebar_state="expanded",
     )
+    init_session_state()
 
+    selected_doc_id = st.query_params.get("doc", "")
     dataframe = load_table_dataframe(str(DOCUMENTS_FILE_PATH))
     filters = render_sidebar(dataframe)
 

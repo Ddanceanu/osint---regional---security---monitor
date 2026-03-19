@@ -74,7 +74,7 @@ def _get_table_css() -> str:
 
     /* ── Wrapper & Scroll ── */
     .doc-table-wrapper{border:1px solid #182A42;border-radius:1rem;overflow:hidden;background:#0D1828;box-shadow:0 16px 48px rgba(0,0,0,.3);}
-    .doc-table-scroll{overflow-x:auto;overflow-y:auto;max-height:650px;scrollbar-width:thin;scrollbar-color:#223D60 transparent;}
+    .doc-table-scroll{overflow-x:auto;overflow-y:auto;max-height:680px;scrollbar-width:thin;scrollbar-color:#223D60 transparent;padding-right:4px;}
     .doc-table-scroll::-webkit-scrollbar{width:6px;height:6px;}
     .doc-table-scroll::-webkit-scrollbar-thumb{background:#223D60;border-radius:3px;}
 
@@ -89,10 +89,15 @@ def _get_table_css() -> str:
     .col-countries{width:115px;} .col-orgs{width:135px;} .col-preview{width:auto;}
 
     /* ── Rows ── */
-    .doc-row{background:#0D1828;transition:background .12s ease;}
+    .doc-row{background:#0D1828;transition:background .12s ease;cursor:pointer;}
     .doc-row-alt{background:#0B1522;}
     .doc-row:hover{background:#132030 !important;}
+    .doc-row.expanded{background:#0F1E35 !important;}
     .doc-table tbody td{padding:.875rem;color:#C8D8EA;font-size:.8125rem;line-height:1.45;vertical-align:top;border-bottom:1px solid #162033;word-break:break-word;}
+
+    /* ── Expand Indicator ── */
+    .expand-indicator{display:inline-block;font-size:.7rem;color:#3E5570;margin-left:6px;transition:transform .2s ease;vertical-align:middle;}
+    .doc-row.expanded .expand-indicator{transform:rotate(90deg);color:#5B95FF;}
 
     /* ── Cell Elements ── */
     .cell-muted{color:#3E5570;font-style:italic;font-size:.7rem;}
@@ -101,13 +106,36 @@ def _get_table_css() -> str:
     .source-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#5B95FF;background:#0F2050;border:1px solid rgba(59,123,255,.2);border-radius:4px;padding:2px 6px;}
     .title-text{font-weight:500;color:#E4EDF8;font-size:.8125rem;line-height:1.4;display:block;}
     .theme-badge{display:inline-block;font-size:.7rem;font-weight:600;padding:.25rem .5rem;border-radius:4px;border:1px solid;line-height:1.4;word-break:break-word;}
-    .sec-theme-tag{display:inline-block;font-size:.675rem;font-weight:500;padding:.175rem .4375rem;border-radius:4px;border:1px solid;line-height:1.35;}
     .pills-row{display:flex;flex-wrap:wrap;gap:.25rem;}
     .entity-pill{display:inline-block;font-size:.675rem;font-weight:500;color:#7A9DC0;background:#111F32;border:1px solid #182A42;border-radius:4px;padding:.175rem .4375rem;}
     .entity-more{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:#3E5570;padding:.175rem .25rem;}
     .preview-text{font-size:.75rem;color:#7A9DC0;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-    """
 
+    /* ── Detail Panel ── */
+    .detail-row{display:none;}
+    .detail-row.open{display:table-row;}
+    .detail-panel{background:#0A1628;border-top:1px solid #223D60;border-bottom:2px solid #3B7BFF;padding:1.25rem 1.5rem 1.5rem;}
+
+    .detail-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;}
+    .detail-title{font-size:.9375rem;font-weight:600;color:#E4EDF8;line-height:1.4;flex:1;}
+    .detail-meta{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem;padding-bottom:.875rem;border-bottom:1px solid #182A42;}
+    .detail-meta-item{display:flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:#3E5570;}
+    .detail-meta-item span{color:#7A9DC0;}
+    .detail-link{display:inline-flex;align-items:center;gap:4px;font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:#3B7BFF;text-decoration:none;border:1px solid rgba(59,123,255,.25);border-radius:4px;padding:2px 8px;transition:all .15s ease;}
+    .detail-link:hover{background:rgba(59,123,255,.08);border-color:#3B7BFF;}
+
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+    .detail-section-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3E5570;margin-bottom:.5rem;}
+    .detail-section-content{display:flex;flex-wrap:wrap;gap:.375rem;}
+
+    .detail-content-block{margin-top:.25rem;}
+    .detail-content-text{font-size:.8rem;color:#7A9DC0;line-height:1.7;max-height:180px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#223D60 transparent;padding-right:4px;}
+    .detail-content-text::-webkit-scrollbar{width:4px;}
+    .detail-content-text::-webkit-scrollbar-thumb{background:#223D60;border-radius:2px;}
+
+    .close-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;border:1px solid #223D60;background:transparent;color:#3E5570;font-size:.85rem;cursor:pointer;transition:all .15s ease;flex-shrink:0;}
+    .close-btn:hover{border-color:#3B7BFF;color:#5B95FF;background:rgba(59,123,255,.08);}
+    """
 
 def _theme_badge_html(theme_key: str) -> str:
     cfg = THEME_BADGES.get(theme_key, THEME_BADGES["other_mixed"])
@@ -133,7 +161,7 @@ def _pills_html(values: list, hidden_count: int) -> str:
 
 def build_table_html(dataframe) -> str:
     if dataframe is None or dataframe.empty:
-        return '<div class="doc-table-empty">No documents to display.</div>'
+        return '<div style="padding:2rem;text-align:center;color:#3E5570;font-family:IBM Plex Sans,sans-serif;font-size:.875rem;">No documents match the current filters.</div>'
 
     headers = [
         ("col-date",      "Date"),
@@ -153,6 +181,8 @@ def build_table_html(dataframe) -> str:
     rows_html = ""
     for index, (_, row) in enumerate(dataframe.iterrows()):
         row_class = "doc-row" + (" doc-row-alt" if index % 2 == 1 else "")
+        row_id = f"row-{index}"
+        detail_id = f"detail-{index}"
 
         theme_key  = str(row.get("main_theme_key", ""))
         sec_themes = row.get("secondary_themes", [])
@@ -162,17 +192,123 @@ def build_table_html(dataframe) -> str:
         orgs       = row.get("organizations", [])
         o_hidden   = int(row.get("organizations_hidden_count", 0) or 0)
 
+        # Detail panel data
+        full_entities = row.get("entities", {})
+        all_countries = full_entities.get("countries", []) if isinstance(full_entities, dict) else []
+        all_orgs      = full_entities.get("organizations", []) if isinstance(full_entities, dict) else []
+        all_persons   = full_entities.get("persons", []) if isinstance(full_entities, dict) else []
+        all_locations = full_entities.get("locations", []) if isinstance(full_entities, dict) else []
+        sec_keys      = row.get("secondary_theme_keys", [])
+        content       = str(row.get("content", "") or "")
+        url           = html_lib.escape(str(row.get("url", "") or ""))
+        source_type   = html_lib.escape(str(row.get("source_type", "") or ""))
+        date_val      = html_lib.escape(str(row.get("date", "—")))
+        source_val    = html_lib.escape(str(row.get("source", "—")))
+        title_val     = html_lib.escape(str(row.get("title", "—")))
+
+        # Main theme badge for detail
+        main_theme_badge = _theme_badge_html(theme_key)
+
+        # Secondary themes for detail
+        if sec_keys:
+            sec_badges = "".join(_theme_badge_html(k) for k in sec_keys if k)
+        else:
+            sec_badges = '<span class="cell-muted">—</span>'
+
+        # Entity pills for detail
+        def _entity_pills(values):
+            if not values:
+                return '<span class="cell-muted">—</span>'
+            return "".join(
+                f'<span class="entity-pill">{html_lib.escape(str(v))}</span>'
+                for v in values if v
+            )
+
+        # Content for detail
+        content_preview_full = html_lib.escape(content[:1200]) if content else "—"
+        if len(content) > 1200:
+            content_preview_full += "..."
+
+        # Source link
+        source_link = f'<a class="detail-link" href="{url}" target="_blank">↗ Open source</a>' if url else ""
+
         rows_html += f"""
-        <tr class="{row_class}">
-            <td class="cell-date"><span class="date-mono">{html_lib.escape(str(row.get("date", "—")))}</span></td>
-            <td class="cell-source"><span class="source-tag">{html_lib.escape(str(row.get("source", "—")))}</span></td>
-            <td><span class="title-text">{html_lib.escape(str(row.get("title", "—")))}</span></td>
+        <tr id="{row_id}" class="{row_class}" onclick="toggleDetail('{row_id}', '{detail_id}')">
+            <td class="cell-date"><span class="date-mono">{date_val}</span></td>
+            <td class="cell-source"><span class="source-tag">{source_val}</span></td>
+            <td>
+                <span class="title-text">{title_val}</span>
+                <span class="expand-indicator">▶</span>
+            </td>
             <td>{_theme_badge_html(theme_key)}</td>
             <td>{_pills_html(sec_themes, sec_hidden)}</td>
             <td>{_pills_html(countries, c_hidden)}</td>
             <td>{_pills_html(orgs, o_hidden)}</td>
             <td><span class="preview-text">{html_lib.escape(str(row.get("content_preview", "—")))}</span></td>
+        </tr>
+        <tr id="{detail_id}" class="detail-row">
+            <td colspan="8" style="padding:0;border-bottom:2px solid #1A3A6A;">
+                <div class="detail-panel">
+                    <div class="detail-header">
+                        <div class="detail-title">{title_val}</div>
+                        <button class="close-btn" onclick="event.stopPropagation(); toggleDetail('{row_id}', '{detail_id}')">✕</button>
+                    </div>
+                    <div class="detail-meta">
+                        <div class="detail-meta-item">📅 <span>{date_val}</span></div>
+                        <div class="detail-meta-item">📰 <span>{source_val}</span></div>
+                        <div class="detail-meta-item">🏷 <span>{source_type}</span></div>
+                        {source_link}
+                    </div>
+                    <div class="detail-grid">
+                        <div>
+                            <div class="detail-section-label">Main Theme</div>
+                            <div class="detail-section-content">{main_theme_badge}</div>
+                        </div>
+                        <div>
+                            <div class="detail-section-label">Secondary Themes</div>
+                            <div class="detail-section-content">{sec_badges}</div>
+                        </div>
+                        <div>
+                            <div class="detail-section-label">Countries</div>
+                            <div class="detail-section-content">{_entity_pills(all_countries)}</div>
+                        </div>
+                        <div>
+                            <div class="detail-section-label">Organizations</div>
+                            <div class="detail-section-content">{_entity_pills(all_orgs)}</div>
+                        </div>
+                        <div>
+                            <div class="detail-section-label">Persons</div>
+                            <div class="detail-section-content">{_entity_pills(all_persons)}</div>
+                        </div>
+                        <div>
+                            <div class="detail-section-label">Locations</div>
+                            <div class="detail-section-content">{_entity_pills(all_locations)}</div>
+                        </div>
+                    </div>
+                    <div class="detail-content-block">
+                        <div class="detail-section-label">Content</div>
+                        <div class="detail-content-text">{content_preview_full}</div>
+                    </div>
+                </div>
+            </td>
         </tr>"""
+
+    js = """
+    <script>
+    function toggleDetail(rowId, detailId) {
+        var row = document.getElementById(rowId);
+        var detail = document.getElementById(detailId);
+        var isOpen = detail.classList.contains('open');
+        if (isOpen) {
+            detail.classList.remove('open');
+            row.classList.remove('expanded');
+        } else {
+            detail.classList.add('open');
+            row.classList.add('expanded');
+        }
+    }
+    </script>
+    """
 
     fonts = "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
 
@@ -190,6 +326,7 @@ def build_table_html(dataframe) -> str:
             </table>
         </div>
     </div>
+    {js}
 </body></html>"""
 
 
