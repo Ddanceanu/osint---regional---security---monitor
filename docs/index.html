@@ -6,7 +6,9 @@
     <title>OSINT Regional Security Monitor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2"></head>
+    <link rel="stylesheet" href="style.css?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
 <body>
 
     <main class="main-content">
@@ -113,11 +115,94 @@
 
         <!-- PAGE: Overview -->
         <div class="page" id="page-overview">
-            <div class="coming-soon">
-                <div class="coming-soon-icon">📊</div>
-                <div class="coming-soon-title">Overview</div>
-                <div class="coming-soon-sub">Distribution charts, temporal trends and source comparison — coming soon.</div>
+
+            <!-- Corpus summary strip -->
+            <div class="ov-summary-strip" id="ov-summary-strip"></div>
+
+            <!-- Row 1: Timeline (full width) -->
+            <div class="ov-section">
+                <div class="ov-section-header">
+                    <div class="ov-section-bar"></div>
+                    <div>
+                        <div class="ov-section-title">Collection Timeline</div>
+                        <div class="ov-section-sub">Document volume by week across the monitoring period</div>
+                    </div>
+                </div>
+                <div class="ov-chart-card ov-chart-wide">
+                    <canvas id="chart-timeline"></canvas>
+                </div>
             </div>
+
+            <!-- Row 2: Source + Theme distribution -->
+            <div class="ov-grid-2">
+                <div class="ov-section">
+                    <div class="ov-section-header">
+                        <div class="ov-section-bar"></div>
+                        <div>
+                            <div class="ov-section-title">Source Distribution</div>
+                            <div class="ov-section-sub">Document volume per institutional source</div>
+                        </div>
+                    </div>
+                    <div class="ov-chart-card">
+                        <canvas id="chart-sources"></canvas>
+                    </div>
+                </div>
+                <div class="ov-section">
+                    <div class="ov-section-header">
+                        <div class="ov-section-bar"></div>
+                        <div>
+                            <div class="ov-section-title">Thematic Classification</div>
+                            <div class="ov-section-sub">Primary theme assigned per document</div>
+                        </div>
+                    </div>
+                    <div class="ov-chart-card">
+                        <canvas id="chart-themes"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Countries + Organizations -->
+            <div class="ov-grid-2">
+                <div class="ov-section">
+                    <div class="ov-section-header">
+                        <div class="ov-section-bar"></div>
+                        <div>
+                            <div class="ov-section-title">Country Frequency</div>
+                            <div class="ov-section-sub">Most referenced countries across the corpus</div>
+                        </div>
+                    </div>
+                    <div class="ov-chart-card">
+                        <canvas id="chart-countries"></canvas>
+                    </div>
+                </div>
+                <div class="ov-section">
+                    <div class="ov-section-header">
+                        <div class="ov-section-bar"></div>
+                        <div>
+                            <div class="ov-section-title">Organization Frequency</div>
+                            <div class="ov-section-sub">Most referenced organizations across the corpus</div>
+                        </div>
+                    </div>
+                    <div class="ov-chart-card">
+                        <canvas id="chart-orgs"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4: Theme evolution over time -->
+            <div class="ov-section">
+                <div class="ov-section-header">
+                    <div class="ov-section-bar"></div>
+                    <div>
+                        <div class="ov-section-title">Thematic Evolution</div>
+                        <div class="ov-section-sub">How primary themes distribute across the collection period</div>
+                    </div>
+                </div>
+                <div class="ov-chart-card ov-chart-wide">
+                    <canvas id="chart-theme-evolution"></canvas>
+                </div>
+            </div>
+
         </div>
 
         <!-- PAGE: Themes -->
