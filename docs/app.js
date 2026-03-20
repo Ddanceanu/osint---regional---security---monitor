@@ -43,6 +43,13 @@ const state = {
 // NAVIGATION
 // ════════════════════════════════════════
 
+const pageSubtitles = {
+    explorer: 'Document Explorer — analysis workspace',
+    overview: 'Corpus summary and analytical context',
+    themes: 'Thematic breakdown and trend analysis',
+    entities: 'Actors, locations and organizations across the corpus'
+};
+
 document.querySelectorAll('.nav-tab').forEach(tab => {
     tab.addEventListener('click', () => {
         const targetPage = tab.dataset.page;
@@ -50,6 +57,8 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         tab.classList.add('active');
         document.getElementById('page-' + targetPage).classList.add('active');
+        const subtitleEl = document.getElementById('page-subtitle');
+        if (subtitleEl && pageSubtitles[targetPage]) subtitleEl.textContent = pageSubtitles[targetPage];
     });
 });
 
@@ -60,8 +69,6 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
 function updateTimestamp() {
     const now = new Date();
     const formatted = now.toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
-    const el = document.getElementById('last-updated');
-    if (el) el.textContent = formatted;
     const ts = document.getElementById('explorer-timestamp');
     if (ts) ts.textContent = formatted;
 }
@@ -84,7 +91,6 @@ async function loadDocuments() {
         renderTable(filteredDocuments);
         renderKPIs(filteredDocuments);
         renderDatasetStrip();
-        renderResultsStrip();
 
     } catch (error) {
         console.error('Failed to load documents:', error);
@@ -178,7 +184,6 @@ function refresh() {
     applyFilters();
     renderTable(filteredDocuments);
     renderKPIs(filteredDocuments);
-    renderResultsStrip();
 }
 
 // ════════════════════════════════════════
@@ -298,20 +303,6 @@ function renderDatasetStrip() {
 }
 
 // ════════════════════════════════════════
-// RESULTS STRIP
-// ════════════════════════════════════════
-
-function renderResultsStrip() {
-    const strip = document.getElementById('results-strip');
-    if (!strip) return;
-    if (filteredDocuments.length === allDocuments.length) {
-        strip.innerHTML = `Showing all <span>${allDocuments.length}</span> documents`;
-    } else {
-        strip.innerHTML = `Showing <span>${filteredDocuments.length}</span> of <span>${allDocuments.length}</span> documents`;
-    }
-}
-
-// ════════════════════════════════════════
 // TABLE RENDER
 // ════════════════════════════════════════
 
@@ -428,7 +419,6 @@ function renderTable(docs) {
         </tr>`;
     }).join('');
 
-    renderResultsStrip();
 }
 
 // ════════════════════════════════════════

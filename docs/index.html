@@ -9,36 +9,30 @@
     <link rel="stylesheet" href="style.css?v=2"></head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-brand">
-            <span class="navbar-dot"></span>
-            <span class="navbar-title">OSINT · Regional Security Monitor</span>
-        </div>
-        <div class="navbar-tabs">
-            <button class="nav-tab active" data-page="explorer">Document Explorer</button>
-            <button class="nav-tab" data-page="overview">Overview</button>
-            <button class="nav-tab" data-page="themes">Themes</button>
-            <button class="nav-tab" data-page="entities">Entities</button>
-        </div>
-        <div class="navbar-meta" id="last-updated"></div>
-    </nav>
-
     <main class="main-content">
 
-        <!-- PAGE: Explorer -->
-        <div class="page active" id="page-explorer">
-
-            <div class="page-header">
-                <div class="header-row">
-                    <div>
-                        <div class="eyebrow"><span class="dot-live"></span>OSINT · Regional Security Intelligence</div>
-                        <div class="page-title">Regional Security Monitor</div>
-                        <div class="page-subtitle">Document Explorer — analysis workspace</div>
+        <!-- Shared page header: title + navigation tabs -->
+        <div class="page-header">
+            <div class="header-row">
+                <div>
+                    <div class="eyebrow"><span class="dot-live"></span>OSINT · Regional Security Intelligence</div>
+                    <div class="page-title">Regional Security Monitor</div>
+                    <div class="page-subtitle" id="page-subtitle">Document Explorer — analysis workspace</div>
+                </div>
+                <div class="header-right">
+                    <div class="navbar-tabs">
+                        <button class="nav-tab active" data-page="explorer">Document Explorer</button>
+                        <button class="nav-tab" data-page="overview">Overview</button>
+                        <button class="nav-tab" data-page="themes">Themes</button>
+                        <button class="nav-tab" data-page="entities">Entities</button>
                     </div>
                     <div class="ts-badge"><span class="ts-dot"></span><span id="explorer-timestamp"></span></div>
                 </div>
             </div>
+        </div>
+
+        <!-- PAGE: Explorer -->
+        <div class="page active" id="page-explorer">
 
             <div class="kpi-grid" id="kpi-grid"></div>
 
@@ -68,8 +62,8 @@
                     <div class="filter-section">
                         <div class="filter-section-label">Date Range</div>
                         <div class="filter-date-group">
-                            <input type="text" id="date-from" placeholder="From YYYY-MM-DD" class="filter-date-input">
-                            <input type="text" id="date-to" placeholder="To YYYY-MM-DD" class="filter-date-input">
+                            <input type="date" id="date-from" class="filter-date-input">
+                            <input type="date" id="date-to" class="filter-date-input">
                         </div>
                     </div>
 
@@ -78,12 +72,12 @@
                         <div class="filter-checklist" id="theme-list"></div>
                     </div>
 
-                    <div class="filter-section">
+                    <div class="filter-section growable">
                         <div class="filter-section-label">Country</div>
                         <div class="filter-checklist scrollable" id="country-list"></div>
                     </div>
 
-                    <div class="filter-section">
+                    <div class="filter-section growable">
                         <div class="filter-section-label">Organization</div>
                         <div class="filter-checklist scrollable" id="org-list"></div>
                     </div>
@@ -91,7 +85,6 @@
 
 <!-- Table Area -->
 <div class="table-area">
-    <div class="results-strip" id="results-strip" style="margin-bottom:.5rem;"></div>
     <div class="doc-table-wrapper">
         <div class="doc-table-scroll">
             <table class="doc-table" id="doc-table">
@@ -120,15 +113,6 @@
 
         <!-- PAGE: Overview -->
         <div class="page" id="page-overview">
-            <div class="page-header">
-                <div class="header-row">
-                    <div>
-                        <div class="eyebrow"><span class="dot-live"></span>OSINT · Regional Security Intelligence</div>
-                        <div class="page-title">Overview</div>
-                        <div class="page-subtitle">Corpus summary and analytical context</div>
-                    </div>
-                </div>
-            </div>
             <div class="coming-soon">
                 <div class="coming-soon-icon">📊</div>
                 <div class="coming-soon-title">Overview</div>
@@ -138,15 +122,6 @@
 
         <!-- PAGE: Themes -->
         <div class="page" id="page-themes">
-            <div class="page-header">
-                <div class="header-row">
-                    <div>
-                        <div class="eyebrow"><span class="dot-live"></span>OSINT · Regional Security Intelligence</div>
-                        <div class="page-title">Themes</div>
-                        <div class="page-subtitle">Thematic breakdown and trend analysis</div>
-                    </div>
-                </div>
-            </div>
             <div class="coming-soon">
                 <div class="coming-soon-icon">🏷️</div>
                 <div class="coming-soon-title">Themes</div>
@@ -156,15 +131,6 @@
 
         <!-- PAGE: Entities -->
         <div class="page" id="page-entities">
-            <div class="page-header">
-                <div class="header-row">
-                    <div>
-                        <div class="eyebrow"><span class="dot-live"></span>OSINT · Regional Security Intelligence</div>
-                        <div class="page-title">Entities</div>
-                        <div class="page-subtitle">Actors, locations and organizations across the corpus</div>
-                    </div>
-                </div>
-            </div>
             <div class="coming-soon">
                 <div class="coming-soon-icon">🌍</div>
                 <div class="coming-soon-title">Entities</div>
