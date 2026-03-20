@@ -35,47 +35,44 @@ class MaeScraper(BaseScraper):
         return None
 
     def fetch_documents(self) -> list[dict]:
-        """
-        Fetch article candidates from the MAE press releases page
-        and return standardized document records.
-        """
-
-        soup = self.get_soup(self.base_url)
-        if not soup:
-            return []
-
-        links = soup.find_all("a")
-
-        article_candidates = []
+        documents = []
         seen_hrefs = set()
 
-        for link in links:
-            href = link.get("href")
-            text = link.get_text(strip=True)
+        for page_num in range(0, 3):
+            if page_num == 0:
+                page_url = self.base_url
+            else:
+                page_url = f"{self.base_url}?page={page_num}"
 
-            if href and "/en/node/" in href and len(text) >= 30:
-                if href not in seen_hrefs:
-                    article_candidates.append((text, href))
-                    seen_hrefs.add(href)
+            soup = self.get_soup(page_url)
+            if not soup:
+                print(f"Failed to fetch page {page_num}")
+                continue
 
-        documents = []
-        for title, href in article_candidates:
-            article_url = f"https://www.mae.ro{href}"
-            publication_date = self.extract_publication_date(article_url)
-            content = self.extract_content(article_url)
+            links = soup.find_all("a")
 
-            document = {
-                "source_name": self.source_name,
-                "source_type": self.source_type,
-                "title": title,
-                "url": article_url,
-                "publication_date": publication_date,
-                "content": content,
-            }
-            documents.append(document)
+            for link in links:
+                href = link.get("href")
+                text = link.get_text(strip=True)
+
+                if href and "/en/node/" in href and len(text) >= 30:
+                    if href not in seen_hrefs:
+                        seen_hrefs.add(href)
+
+                        article_url = f"https://www.mae.ro{href}"
+                        publication_date = self.extract_publication_date(article_url)
+                        content = self.extract_content(article_url)
+
+                        documents.append({
+                            "source_name": self.source_name,
+                            "source_type": self.source_type,
+                            "title": text,
+                            "url": article_url,
+                            "publication_date": publication_date,
+                            "content": content,
+                        })
 
         return documents
-
 
     def extract_content(self, article_url: str) -> str:
         """

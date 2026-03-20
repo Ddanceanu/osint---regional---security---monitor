@@ -19,7 +19,7 @@ class NatoScraper(BaseScraper):
             "https://www.nato.int/content/nato/en/news-and-events/events/"
             "media-advisories/jcr:content/root/container/"
             "general_search.search.json?query=&searchType=wcm&sortBy=dateDesc"
-            "&pageSize=25&page=1&tags=&languages=&startDate=&endDate="
+            "&pageSize=60&page=1&tags=&languages=&startDate=&endDate="
         )
 
     def extract_publication_date(self, article_url: str) -> str | None:
