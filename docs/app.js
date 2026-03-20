@@ -30,13 +30,13 @@ let allDocuments = [];
 let filteredDocuments = [];
 
 const state = {
-    search: "",
-    sources: new Set(),
-    themes: new Set(),
-    countries: new Set(),
+    search:        "",
+    sources:       new Set(),
+    themes:        new Set(),
+    countries:     new Set(),
     organizations: new Set(),
-    dateFrom: "",
-    dateTo: "",
+    dateFrom:      "",
+    dateTo:        "",
 };
 
 // ════════════════════════════════════════
@@ -74,13 +74,17 @@ updateTimestamp();
 
 async function loadDocuments() {
     try {
+        console.log('Fetching documents...');
         const response = await fetch('data/documents.json');
         allDocuments = await response.json();
+        console.log('Documents loaded:', allDocuments.length);
 
         initFilters();
         applyFilters();
+        renderTable(filteredDocuments);
         renderKPIs(filteredDocuments);
         renderDatasetStrip();
+        renderResultsStrip();
 
     } catch (error) {
         console.error('Failed to load documents:', error);
@@ -94,13 +98,12 @@ async function loadDocuments() {
 // ════════════════════════════════════════
 
 function initFilters() {
-    // Collect unique values
-    const sources       = [...new Set(allDocuments.map(d => d.source_name).filter(Boolean))].sort();
-    const themeKeys     = [...new Set(allDocuments.map(d => d.main_theme).filter(Boolean))];
-    const allCountries  = [...new Set(allDocuments.flatMap(d => (d.entities?.countries || [])))].sort();
-    const allOrgs       = [...new Set(allDocuments.flatMap(d => (d.entities?.organizations || [])))].sort();
+    const sources      = [...new Set(allDocuments.map(d => d.source_name).filter(Boolean))].sort();
+    const themeKeys    = [...new Set(allDocuments.map(d => d.main_theme).filter(Boolean))];
+    const allCountries = [...new Set(allDocuments.flatMap(d => d.entities?.countries || []))].sort();
+    const allOrgs      = [...new Set(allDocuments.flatMap(d => d.entities?.organizations || []))].sort();
 
-    // Default: all selected
+    // Default: sources and themes all selected, countries/orgs none
     sources.forEach(s => state.sources.add(s));
     themeKeys.forEach(t => state.themes.add(t));
 
@@ -113,116 +116,70 @@ function initFilters() {
         document.getElementById('date-to').value   = state.dateTo;
     }
 
-    // Build dropdown panels
-    buildDropdown('dd-source-panel',  sources,      state.sources,       'source');
-    buildDropdown('dd-theme-panel',   themeKeys,    state.themes,        'theme', k => THEME_LABELS[k] || k);
-    buildDropdown('dd-country-panel', allCountries, state.countries,     'country');
-    buildDropdown('dd-org-panel',     allOrgs,      state.organizations, 'org');
+    // Build checklists
+    buildChecklist('source-list', sources, state.sources, true);
+    buildChecklist('theme-list',  themeKeys, state.themes, true, k => THEME_LABELS[k] || k);
+    buildChecklist('country-list', allCountries, state.countries, false);
+    buildChecklist('org-list',     allOrgs,      state.organizations, false);
 
-    updateFilterCounts();
-
-    // Search input
+    // Search
     document.getElementById('search-input').addEventListener('input', e => {
         state.search = e.target.value;
-        applyFilters();
-        renderTable(filteredDocuments);
-        renderKPIs(filteredDocuments);
-        renderResultsStrip();
+        refresh();
     });
 
-    // Date inputs
+    // Dates
     document.getElementById('date-from').addEventListener('change', e => {
         state.dateFrom = e.target.value;
-        applyFilters();
-        renderTable(filteredDocuments);
-        renderKPIs(filteredDocuments);
-        renderResultsStrip();
+        refresh();
     });
 
     document.getElementById('date-to').addEventListener('change', e => {
         state.dateTo = e.target.value;
-        applyFilters();
-        renderTable(filteredDocuments);
-        renderKPIs(filteredDocuments);
-        renderResultsStrip();
+        refresh();
     });
 }
 
-function buildDropdown(panelId, items, selectedSet, type, labelFn = null) {
-    const panel = document.getElementById(panelId);
-    if (!panel) return;
-    panel.innerHTML = '';
+function buildChecklist(containerId, items, selectedSet, defaultChecked, labelFn = null) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
 
     items.forEach(item => {
-        const label = labelFn ? labelFn(item) : item;
-        const isChecked = type === 'country' || type === 'org' ? false : selectedSet.has(item);
+        const label     = labelFn ? labelFn(item) : item;
+        const isChecked = defaultChecked ? true : selectedSet.has(item);
+        if (isChecked) selectedSet.add(item);
 
-        const option = document.createElement('div');
-        option.className = 'dd-option' + (isChecked ? ' checked' : '');
-        option.innerHTML = `
-            <div class="dd-checkbox">${isChecked ? '✓' : ''}</div>
+        const el = document.createElement('div');
+        el.className = 'check-item' + (isChecked ? ' checked' : '');
+        el.innerHTML = `
+            <div class="check-box">${isChecked ? '✓' : ''}</div>
             <span>${escapeHtml(label)}</span>
         `;
-        option.addEventListener('click', (e) => {
-            e.stopPropagation();
+
+        el.addEventListener('click', () => {
             if (selectedSet.has(item)) {
                 selectedSet.delete(item);
-                option.classList.remove('checked');
-                option.querySelector('.dd-checkbox').textContent = '';
+                el.classList.remove('checked');
+                el.querySelector('.check-box').textContent = '';
             } else {
                 selectedSet.add(item);
-                option.classList.add('checked');
-                option.querySelector('.dd-checkbox').textContent = '✓';
+                el.classList.add('checked');
+                el.querySelector('.check-box').textContent = '✓';
             }
-            updateFilterCounts();
-            applyFilters();
-            renderTable(filteredDocuments);
-            renderKPIs(filteredDocuments);
-            renderResultsStrip();
+            refresh();
         });
 
-        panel.appendChild(option);
+        container.appendChild(el);
     });
 }
 
-function updateFilterCounts() {
-    const allSources  = [...new Set(allDocuments.map(d => d.source_name).filter(Boolean))];
-    const allThemes   = [...new Set(allDocuments.map(d => d.main_theme).filter(Boolean))];
-
-    setCount('source-count',  state.sources.size,        allSources.length);
-    setCount('theme-count',   state.themes.size,          allThemes.length);
-    setCount('country-count', state.countries.size,       0);
-    setCount('org-count',     state.organizations.size,   0);
+function refresh() {
+    applyFilters();
+    renderTable(filteredDocuments);
+    renderKPIs(filteredDocuments);
+    renderResultsStrip();
 }
-
-function setCount(id, selected, total) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (selected === 0) {
-        el.textContent = '';
-        el.style.display = 'none';
-    } else {
-        el.textContent = selected;
-        el.style.display = 'inline-flex';
-    }
-}
-
-// ════════════════════════════════════════
-// DROPDOWN TOGGLE
-// ════════════════════════════════════════
-
-function toggleDropdown(id) {
-    const dd = document.getElementById(id);
-    const isOpen = dd.classList.contains('open');
-    document.querySelectorAll('.filter-dropdown.open').forEach(d => d.classList.remove('open'));
-    if (!isOpen) dd.classList.add('open');
-}
-
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.filter-dropdown')) {
-        document.querySelectorAll('.filter-dropdown.open').forEach(d => d.classList.remove('open'));
-    }
-});
 
 // ════════════════════════════════════════
 // RESET FILTERS
@@ -246,20 +203,16 @@ function resetFilters() {
         state.dateTo   = dates[dates.length - 1];
     }
 
-    document.getElementById('search-input').value = state.search;
+    document.getElementById('search-input').value = '';
     document.getElementById('date-from').value    = state.dateFrom;
     document.getElementById('date-to').value      = state.dateTo;
 
-    buildDropdown('dd-source-panel',  allSources,  state.sources,       'source');
-    buildDropdown('dd-theme-panel',   allThemes,   state.themes,        'theme', k => THEME_LABELS[k] || k);
-    buildDropdown('dd-country-panel', [...new Set(allDocuments.flatMap(d => (d.entities?.countries || [])))].sort(), state.countries, 'country');
-    buildDropdown('dd-org-panel',     [...new Set(allDocuments.flatMap(d => (d.entities?.organizations || [])))].sort(), state.organizations, 'org');
+    buildChecklist('source-list',  [...new Set(allDocuments.map(d => d.source_name).filter(Boolean))].sort(), state.sources, true);
+    buildChecklist('theme-list',   [...new Set(allDocuments.map(d => d.main_theme).filter(Boolean))], state.themes, true, k => THEME_LABELS[k] || k);
+    buildChecklist('country-list', [...new Set(allDocuments.flatMap(d => d.entities?.countries || []))].sort(), state.countries, false);
+    buildChecklist('org-list',     [...new Set(allDocuments.flatMap(d => d.entities?.organizations || []))].sort(), state.organizations, false);
 
-    updateFilterCounts();
-    applyFilters();
-    renderTable(filteredDocuments);
-    renderKPIs(filteredDocuments);
-    renderResultsStrip();
+    refresh();
 }
 
 // ════════════════════════════════════════
@@ -268,7 +221,6 @@ function resetFilters() {
 
 function applyFilters() {
     filteredDocuments = allDocuments.filter(doc => {
-        // Search
         if (state.search.trim()) {
             const term = state.search.trim().toLowerCase();
             const inTitle   = (doc.title || '').toLowerCase().includes(term);
@@ -276,30 +228,20 @@ function applyFilters() {
             if (!inTitle && !inContent) return false;
         }
 
-        // Sources
         if (state.sources.size > 0 && !state.sources.has(doc.source_name)) return false;
+        if (state.themes.size > 0  && !state.themes.has(doc.main_theme))   return false;
 
-        // Themes
-        if (state.themes.size > 0 && !state.themes.has(doc.main_theme)) return false;
-
-        // Date from
         if (state.dateFrom && doc.publication_date_iso && doc.publication_date_iso < state.dateFrom) return false;
+        if (state.dateTo   && doc.publication_date_iso && doc.publication_date_iso > state.dateTo)   return false;
 
-        // Date to
-        if (state.dateTo && doc.publication_date_iso && doc.publication_date_iso > state.dateTo) return false;
-
-        // Countries
         if (state.countries.size > 0) {
             const docCountries = doc.entities?.countries || [];
-            const hasMatch = [...state.countries].some(c => docCountries.includes(c));
-            if (!hasMatch) return false;
+            if (![...state.countries].some(c => docCountries.includes(c))) return false;
         }
 
-        // Organizations
         if (state.organizations.size > 0) {
             const docOrgs = doc.entities?.organizations || [];
-            const hasMatch = [...state.organizations].some(o => docOrgs.includes(o));
-            if (!hasMatch) return false;
+            if (![...state.organizations].some(o => docOrgs.includes(o))) return false;
         }
 
         return true;
@@ -316,10 +258,10 @@ function renderKPIs(docs) {
     const orgs    = new Set(docs.flatMap(d => d.entities?.organizations || []).filter(Boolean));
 
     const items = [
-        { abbr: "DOC", value: docs.length,     label: "Total Documents",    accent: "#3B7BFF", glow: "rgba(59,123,255,0.18)"  },
-        { abbr: "SRC", value: sources.size,    label: "Sources",            accent: "#00CFFF", glow: "rgba(0,207,255,0.15)"   },
-        { abbr: "THM", value: themes.size,     label: "Main Themes",        accent: "#A78BFA", glow: "rgba(167,139,250,0.15)" },
-        { abbr: "ORG", value: orgs.size,       label: "Organizations",      accent: "#34D399", glow: "rgba(52,211,153,0.15)"  },
+        { abbr: "DOC", value: docs.length,  label: "Total Documents", accent: "#3B7BFF", glow: "rgba(59,123,255,0.18)"  },
+        { abbr: "SRC", value: sources.size, label: "Sources",         accent: "#00CFFF", glow: "rgba(0,207,255,0.15)"   },
+        { abbr: "THM", value: themes.size,  label: "Main Themes",     accent: "#A78BFA", glow: "rgba(167,139,250,0.15)" },
+        { abbr: "ORG", value: orgs.size,    label: "Organizations",   accent: "#34D399", glow: "rgba(52,211,153,0.15)"  },
     ];
 
     const grid = document.getElementById('kpi-grid');
@@ -341,9 +283,7 @@ function renderKPIs(docs) {
 
 function renderDatasetStrip() {
     const dates = allDocuments.map(d => d.publication_date_iso).filter(Boolean).sort();
-    const dateRange = dates.length
-        ? `${dates[0]} → ${dates[dates.length - 1]}`
-        : 'N/A';
+    const dateRange = dates.length ? `${dates[0]} → ${dates[dates.length - 1]}` : 'N/A';
 
     const strip = document.getElementById('dataset-strip');
     if (!strip) return;
@@ -385,70 +325,49 @@ function renderTable(docs) {
     }
 
     tbody.innerHTML = docs.map((doc, index) => {
-        const rowClass   = 'doc-row' + (index % 2 === 1 ? ' doc-row-alt' : '');
-        const rowId      = `row-${index}`;
-        const detailId   = `detail-${index}`;
-        const themeKey   = doc.main_theme || 'other_mixed';
-        const secKeys    = doc.secondary_themes || [];
-        const entities   = doc.entities || {};
-        const countries  = entities.countries  || [];
-        const orgs       = entities.organizations || [];
-        const persons    = entities.persons    || [];
-        const locations  = entities.locations  || [];
-        const content    = doc.content || '';
-        const url        = doc.url || '';
-        const date       = doc.publication_date_iso || '—';
-        const source     = doc.source_name || '—';
-        const title      = doc.title || '—';
-        const sourceType = doc.source_type || '';
+        const rowClass  = 'doc-row' + (index % 2 === 1 ? ' doc-row-alt' : '');
+        const rowId     = `row-${index}`;
+        const detailId  = `detail-${index}`;
+        const themeKey  = doc.main_theme || 'other_mixed';
+        const secKeys   = doc.secondary_themes || [];
+        const entities  = doc.entities || {};
+        const countries = entities.countries      || [];
+        const orgs      = entities.organizations  || [];
+        const persons   = entities.persons        || [];
+        const locations = entities.locations      || [];
+        const content   = doc.content || '';
+        const url       = doc.url || '';
+        const date      = doc.publication_date_iso || '—';
+        const source    = doc.source_name || '—';
+        const title     = doc.title || '—';
+        const srcType   = doc.source_type || '';
 
-        // Content preview
-        const previewText = buildPreview(content, 140);
-
-        // Theme badge
-        const mainBadge = themeBadgeHtml(themeKey);
-
-        // Secondary themes (max 2)
-        const secBadges = secKeys.length
+        const previewText  = buildPreview(content, 140);
+        const mainBadge    = themeBadgeHtml(themeKey);
+        const secBadges    = secKeys.length
             ? secKeys.slice(0, 2).map(k => themeBadgeHtml(k)).join('')
-                + (secKeys.length > 2 ? `<span class="entity-more">+${secKeys.length - 2}</span>` : '')
+              + (secKeys.length > 2 ? `<span class="entity-more">+${secKeys.length - 2}</span>` : '')
             : '<span class="cell-muted">—</span>';
 
-        // Entity pills
         const countryPills = pillsHtml(countries, 2);
         const orgPills     = pillsHtml(orgs, 2);
 
-        // Detail panel
         const sourceLink = url
             ? `<a class="detail-link" href="${escapeHtml(url)}" target="_blank">↗ Open source</a>`
             : '';
 
-        const allCountryPills = countries.length
-            ? countries.map(v => `<span class="entity-pill">${escapeHtml(v)}</span>`).join('')
-            : '<span class="cell-muted">—</span>';
-
-        const allOrgPills = orgs.length
-            ? orgs.map(v => `<span class="entity-pill">${escapeHtml(v)}</span>`).join('')
-            : '<span class="cell-muted">—</span>';
-
-        const allPersonPills = persons.length
-            ? persons.map(v => `<span class="entity-pill">${escapeHtml(v)}</span>`).join('')
-            : '<span class="cell-muted">—</span>';
-
-        const allLocationPills = locations.length
-            ? locations.map(v => `<span class="entity-pill">${escapeHtml(v)}</span>`).join('')
-            : '<span class="cell-muted">—</span>';
-
-        const allSecBadges = secKeys.length
-            ? secKeys.map(k => themeBadgeHtml(k)).join('')
-            : '<span class="cell-muted">—</span>';
+        const allSecBadges      = secKeys.length ? secKeys.map(k => themeBadgeHtml(k)).join('') : '<span class="cell-muted">—</span>';
+        const allCountryPills   = entityPillsAll(countries);
+        const allOrgPills       = entityPillsAll(orgs);
+        const allPersonPills    = entityPillsAll(persons);
+        const allLocationPills  = entityPillsAll(locations);
 
         const contentFull = content
             ? escapeHtml(content.slice(0, 1500)) + (content.length > 1500 ? '...' : '')
             : '—';
 
         return `
-        <tr id="${rowId}" class="${rowClass}" onclick="toggleDetail('${rowId}', '${detailId}')">
+        <tr id="${rowId}" class="${rowClass}" onclick="toggleDetail('${rowId}','${detailId}')">
             <td><span class="date-mono">${escapeHtml(date)}</span></td>
             <td><span class="source-tag">${escapeHtml(source)}</span></td>
             <td>
@@ -471,7 +390,7 @@ function renderTable(docs) {
                     <div class="detail-meta">
                         <div class="detail-meta-item">📅 <span>${escapeHtml(date)}</span></div>
                         <div class="detail-meta-item">📰 <span>${escapeHtml(source)}</span></div>
-                        <div class="detail-meta-item">🏷 <span>${escapeHtml(sourceType)}</span></div>
+                        <div class="detail-meta-item">🏷 <span>${escapeHtml(srcType)}</span></div>
                         ${sourceLink}
                     </div>
                     <div class="detail-grid">
@@ -519,8 +438,8 @@ function renderTable(docs) {
 function toggleDetail(rowId, detailId) {
     const row    = document.getElementById(rowId);
     const detail = document.getElementById(detailId);
+    if (!row || !detail) return;
     const isOpen = detail.classList.contains('open');
-
     if (isOpen) {
         detail.classList.remove('open');
         row.classList.remove('expanded');
@@ -566,6 +485,11 @@ function pillsHtml(values, max) {
     const pills   = visible.map(v => `<span class="entity-pill">${escapeHtml(v)}</span>`).join('');
     const more    = hidden > 0 ? `<span class="entity-more">+${hidden}</span>` : '';
     return `<div class="pills-row">${pills}${more}</div>`;
+}
+
+function entityPillsAll(values) {
+    if (!values || !values.length) return '<span class="cell-muted">—</span>';
+    return values.map(v => `<span class="entity-pill">${escapeHtml(v)}</span>`).join('');
 }
 
 // ════════════════════════════════════════

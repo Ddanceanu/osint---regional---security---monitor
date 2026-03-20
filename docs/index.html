@@ -6,32 +6,29 @@
     <title>OSINT Regional Security Monitor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css?v=2"></head>
 <body>
 
-    <!-- ── Navbar ── -->
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-brand">
             <span class="navbar-dot"></span>
             <span class="navbar-title">OSINT · Regional Security Monitor</span>
         </div>
         <div class="navbar-tabs">
-            <button class="nav-tab active" data-page="explorer">📋 Document Explorer</button>
-            <button class="nav-tab" data-page="overview">📊 Overview</button>
-            <button class="nav-tab" data-page="themes">🏷️ Themes</button>
-            <button class="nav-tab" data-page="entities">🌍 Entities</button>
+            <button class="nav-tab active" data-page="explorer">Document Explorer</button>
+            <button class="nav-tab" data-page="overview">Overview</button>
+            <button class="nav-tab" data-page="themes">Themes</button>
+            <button class="nav-tab" data-page="entities">Entities</button>
         </div>
         <div class="navbar-meta" id="last-updated"></div>
     </nav>
 
-    <!-- ── Main ── -->
     <main class="main-content">
 
-        <!-- ══ PAGE: Explorer ══ -->
+        <!-- PAGE: Explorer -->
         <div class="page active" id="page-explorer">
 
-            <!-- Header -->
             <div class="page-header">
                 <div class="header-row">
                     <div>
@@ -43,90 +40,85 @@
                 </div>
             </div>
 
-            <!-- KPI Row -->
             <div class="kpi-grid" id="kpi-grid"></div>
 
-            <!-- Dataset Strip -->
-            <div class="dataset-strip" id="dataset-strip"></div>
+            <!-- Explorer Body -->
+            <div class="explorer-body">
 
-            <!-- Section Header -->
-            <div class="sec-hdr" style="margin-bottom:1rem;">
-                <div class="sec-bar"></div>
-                <div>
-                    <div class="sec-title">Document Explorer</div>
-                    <div class="sec-sub">Browse and inspect the full document corpus</div>
-                </div>
+                <!-- Sidebar -->
+                <aside class="filter-sidebar">
+                    <div class="sidebar-header">
+                        <span class="sidebar-title">Filters</span>
+                        <button class="filter-reset-btn" onclick="resetFilters()">✕ Reset</button>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-label">Search</div>
+                        <div class="filter-search">
+                            <span class="filter-icon">⌕</span>
+                            <input type="text" id="search-input" placeholder="Titles and content..." class="filter-input">
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-label">Source</div>
+                        <div class="filter-checklist" id="source-list"></div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-label">Date Range</div>
+                        <div class="filter-date-group">
+                            <input type="text" id="date-from" placeholder="From YYYY-MM-DD" class="filter-date-input">
+                            <input type="text" id="date-to" placeholder="To YYYY-MM-DD" class="filter-date-input">
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-label">Main Theme</div>
+                        <div class="filter-checklist" id="theme-list"></div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-label">Country</div>
+                        <div class="filter-checklist scrollable" id="country-list"></div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-label">Organization</div>
+                        <div class="filter-checklist scrollable" id="org-list"></div>
+                    </div>
+                </aside>
+
+<!-- Table Area -->
+<div class="table-area">
+    <div class="results-strip" id="results-strip" style="margin-bottom:.5rem;"></div>
+    <div class="doc-table-wrapper">
+        <div class="doc-table-scroll">
+            <table class="doc-table" id="doc-table">
+                <thead>
+                    <tr class="doc-header-row">
+                        <th class="col-date">Date</th>
+                        <th class="col-source">Source</th>
+                        <th class="col-title">Title</th>
+                        <th class="col-theme">Main Theme</th>
+                        <th class="col-secondary">Secondary Themes</th>
+                        <th class="col-countries">Countries</th>
+                        <th class="col-orgs">Organizations</th>
+                        <th class="col-preview">Content Preview</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr><td colspan="8" class="table-loading">Loading documents...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
             </div>
-
-            <!-- Filter Bar -->
-            <div class="filter-bar">
-                <div class="filter-search">
-                    <span class="filter-icon">🔍</span>
-                    <input type="text" id="search-input" placeholder="Search titles and content..." class="filter-input">
-                </div>
-                <div class="filter-dropdowns">
-                    <div class="filter-dropdown" id="dd-source">
-                        <button class="filter-btn" onclick="toggleDropdown('dd-source')">
-                            Source <span class="filter-count" id="source-count"></span> <span class="dd-arrow">▾</span>
-                        </button>
-                        <div class="dropdown-panel" id="dd-source-panel"></div>
-                    </div>
-                    <div class="filter-dropdown" id="dd-theme">
-                        <button class="filter-btn" onclick="toggleDropdown('dd-theme')">
-                            Theme <span class="filter-count" id="theme-count"></span> <span class="dd-arrow">▾</span>
-                        </button>
-                        <div class="dropdown-panel" id="dd-theme-panel"></div>
-                    </div>
-                    <div class="filter-dropdown" id="dd-country">
-                        <button class="filter-btn" onclick="toggleDropdown('dd-country')">
-                            Country <span class="filter-count" id="country-count"></span> <span class="dd-arrow">▾</span>
-                        </button>
-                        <div class="dropdown-panel" id="dd-country-panel"></div>
-                    </div>
-                    <div class="filter-dropdown" id="dd-org">
-                        <button class="filter-btn" onclick="toggleDropdown('dd-org')">
-                            Organization <span class="filter-count" id="org-count"></span> <span class="dd-arrow">▾</span>
-                        </button>
-                        <div class="dropdown-panel" id="dd-org-panel"></div>
-                    </div>
-                    <div class="filter-dates">
-                        <input type="text" id="date-from" placeholder="From YYYY-MM-DD" class="filter-date-input">
-                        <span style="color:var(--text-muted);font-size:.75rem;">→</span>
-                        <input type="text" id="date-to" placeholder="To YYYY-MM-DD" class="filter-date-input">
-                    </div>
-                    <button class="filter-reset-btn" onclick="resetFilters()">✕ Reset</button>
-                </div>
-            </div>
-
-            <!-- Results count -->
-            <div class="results-strip" id="results-strip"></div>
-
-            <!-- Table -->
-            <div class="doc-table-wrapper">
-                <div class="doc-table-scroll">
-                    <table class="doc-table" id="doc-table">
-                        <thead>
-                            <tr class="doc-header-row">
-                                <th class="col-date">Date</th>
-                                <th class="col-source">Source</th>
-                                <th class="col-title">Title</th>
-                                <th class="col-theme">Main Theme</th>
-                                <th class="col-secondary">Secondary Themes</th>
-                                <th class="col-countries">Countries</th>
-                                <th class="col-orgs">Organizations</th>
-                                <th class="col-preview">Content Preview</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-body">
-                            <tr><td colspan="8" class="table-loading">Loading documents...</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
         </div>
 
-        <!-- ══ PAGE: Overview ══ -->
+        <!-- PAGE: Overview -->
         <div class="page" id="page-overview">
             <div class="page-header">
                 <div class="header-row">
@@ -144,7 +136,7 @@
             </div>
         </div>
 
-        <!-- ══ PAGE: Themes ══ -->
+        <!-- PAGE: Themes -->
         <div class="page" id="page-themes">
             <div class="page-header">
                 <div class="header-row">
@@ -162,7 +154,7 @@
             </div>
         </div>
 
-        <!-- ══ PAGE: Entities ══ -->
+        <!-- PAGE: Entities -->
         <div class="page" id="page-entities">
             <div class="page-header">
                 <div class="header-row">
@@ -182,6 +174,6 @@
 
     </main>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=3"></script>
 </body>
 </html>
