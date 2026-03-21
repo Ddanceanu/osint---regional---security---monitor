@@ -4,6 +4,7 @@ from pathlib import Path
 
 from app.ingestion.nato_scraper import NatoScraper
 from app.ingestion.eu_council_scraper import EuCouncilScraper
+from app.ingestion.eeas_scraper import EeasScraper
 
 
 def main() -> None:
@@ -54,6 +55,22 @@ def main() -> None:
     print(f"Type: {eu_council_scraper.source_type}")
     print(f"Documents found: {len(eu_council_documents)}")
     print(eu_council_documents[:10])
+
+
+    # EEAS Scraper
+    eeas_scraper = EeasScraper()
+    eeas_documents = eeas_scraper.fetch_documents()
+
+    eeas_output_path = raw_data_dir / "eeas_documents.json"
+
+    with open(eeas_output_path, "w", encoding="utf-8") as f:
+        json.dump(eeas_documents, f, ensure_ascii=False, indent=4)
+        print(f"EEAS documents saved to: {eeas_output_path}")
+
+    print(f"Source: {eeas_scraper.source_name}")
+    print(f"Type: {eeas_scraper.source_type}")
+    print(f"Documents found: {len(eeas_documents)}")
+    print(eeas_documents[:10])
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ def normalize_source_key(source_name: str) -> str:
         "MAE Romania": "mae",
         "NATO": "nato",
         "EU Council": "eu_council",
+        "EEAS": "eeas",
     }
 
     return source_map.get(source_name, "unknown")
@@ -71,6 +72,11 @@ def normalize_publication_date(publication_date: str, source_key: str) -> str:
             date_part = publication_date.split(" ")[0]
             parsed_date = datetime.strptime(date_part, "%m/%d/%Y")
             return parsed_date.strftime("%Y-%m-%d")
+
+        if source_key == "eeas":
+            parsed_date = datetime.strptime(publication_date, "%d.%m.%Y")
+            return parsed_date.strftime("%Y-%m-%d")
+
         return ""
 
     except ValueError:
