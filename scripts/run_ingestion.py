@@ -5,6 +5,7 @@ from pathlib import Path
 from app.ingestion.nato_scraper import NatoScraper
 from app.ingestion.eu_council_scraper import EuCouncilScraper
 from app.ingestion.eeas_scraper import EeasScraper
+from app.ingestion.ecfr_scraper import EcfrScraper
 
 
 def main() -> None:
@@ -71,6 +72,21 @@ def main() -> None:
     print(f"Type: {eeas_scraper.source_type}")
     print(f"Documents found: {len(eeas_documents)}")
     print(eeas_documents[:10])
+
+
+    # ECFR Scraper
+    ecfr_scraper = EcfrScraper()
+    ecfr_documents = ecfr_scraper.fetch_documents()
+
+    ecfr_output_path = raw_data_dir / "ecfr_documents.json"
+
+    with open(ecfr_output_path, "w", encoding="utf-8") as f:
+        json.dump(ecfr_documents, f, ensure_ascii=False, indent=4)
+        print(f"ECFR documents saved to: {ecfr_output_path}")
+
+    print(f"Source: {ecfr_scraper.source_name}")
+    print(f"Type: {ecfr_scraper.source_type}")
+    print(f"Documents found: {len(ecfr_documents)}")
 
 
 if __name__ == "__main__":

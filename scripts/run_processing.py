@@ -20,6 +20,7 @@ def main() -> None:
     nato_input_path = raw_data_dir / "nato_documents.json"
     eu_council_input_path = raw_data_dir / "eu_council_documents.json"
     eeas_input_path = raw_data_dir / "eeas_documents.json"
+    ecfr_input_path = raw_data_dir / "ecfr_documents.json"
     output_path = processed_data_dir / "combined_documents.json"
     quality_report_path = processed_data_dir / "quality_report.json"
     quality_warnings_path = processed_data_dir / "quality_warnings.json"
@@ -37,7 +38,10 @@ def main() -> None:
     with open(eeas_input_path, "r", encoding="utf-8") as eeas_file:
         eeas_documents = json.load(eeas_file)
 
-    all_documents = mae_documents + nato_documents + eu_council_documents + eeas_documents
+    with open(ecfr_input_path, "r", encoding="utf-8") as ecfr_file:
+        ecfr_documents = json.load(ecfr_file)
+
+    all_documents = mae_documents + nato_documents + eu_council_documents + eeas_documents + ecfr_documents
     normalized_documents = normalize_documents(all_documents)
     deduplicated_documents = deduplicate_documents(normalized_documents)
     sorted_documents = sort_documents_by_date(deduplicated_documents)
