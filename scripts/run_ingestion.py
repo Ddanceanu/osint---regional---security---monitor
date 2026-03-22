@@ -6,6 +6,7 @@ from app.ingestion.nato_scraper import NatoScraper
 from app.ingestion.eu_council_scraper import EuCouncilScraper
 from app.ingestion.eeas_scraper import EeasScraper
 from app.ingestion.ecfr_scraper import EcfrScraper
+from app.ingestion.isw_scraper import IswScraper
 
 
 def main() -> None:
@@ -87,6 +88,21 @@ def main() -> None:
     print(f"Source: {ecfr_scraper.source_name}")
     print(f"Type: {ecfr_scraper.source_type}")
     print(f"Documents found: {len(ecfr_documents)}")
+
+
+    # ISW Scraper
+    isw_scraper = IswScraper()
+    isw_documents = isw_scraper.fetch_documents()
+
+    isw_output_path = raw_data_dir / "isw_documents.json"
+
+    with open(isw_output_path, "w", encoding="utf-8") as f:
+        json.dump(isw_documents, f, ensure_ascii=False, indent=4)
+        print(f"ISW documents saved to: {isw_output_path}")
+
+    print(f"Source: {isw_scraper.source_name}")
+    print(f"Type: {isw_scraper.source_type}")
+    print(f"Documents found: {len(isw_documents)}")
 
 
 if __name__ == "__main__":
