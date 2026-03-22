@@ -10,6 +10,7 @@ from app.processing.normalizer import (
 from app.processing.quality_checks import collect_quality_warnings, build_quality_report
 from app.processing.theme_classifier import classify_document
 from app.processing.entity_extractor import enrich_document_with_entities
+from app.processing.trending import compute_trending
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -27,6 +28,7 @@ def main() -> None:
     quality_report_path = processed_data_dir / "quality_report.json"
     quality_warnings_path = processed_data_dir / "quality_warnings.json"
     docs_output_path = project_root / "docs" / "data" / "documents.json"
+    trending_output_path = project_root / "docs" / "data" / "trending.json"
 
     with open(mae_input_path, "r", encoding="utf-8") as mae_file:
         mae_documents = json.load(mae_file)
@@ -90,6 +92,16 @@ def main() -> None:
         json.dump(document_with_entities, output_file, ensure_ascii=False, indent=4)
 
     print("Dashboard data saved to: {docs_output_path}")
+
+    trending_data = compute_trending(document_with_entities)
+
+    with open(trending_output_path, "w", encoding="utf-8") as trending_file:
+        json.dump(trending_data, trending_file, ensure_ascii=False, indent=4)
+
+    print(f"Trending data saved to: {trending_output_path}")
+    print(f"  Period: {trending_data['period_start']} -> {trending_data['period_end']}")
+    print(f"  Documents in period: {trending_data['total_documents_in_period']}")
+
 
 if __name__ == "__main__":
     main()
