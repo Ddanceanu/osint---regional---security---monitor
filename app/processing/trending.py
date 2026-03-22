@@ -110,7 +110,7 @@ def _build_sparkline(documents, entity_or_theme, category, period_days):
     return sparkline
 
 
-def _build_category_result(documents, frequency_dict, cateogory, period_days, total_documents):
+def _build_category_result(documents, frequency_dict, cateogory, period_days, total_documents, prev_frequency_dict):
     """
     Build the final result structure for a category (top + runners-up with sparklines and percentages).
     """
@@ -126,14 +126,17 @@ def _build_category_result(documents, frequency_dict, cateogory, period_days, to
 
     for idx, (entity_or_theme, mentions) in enumerate(top_3):
         sparkline = _build_sparkline(documents, entity_or_theme, cateogory, period_days)
-
         percentage = round((mentions / total_documents) * 100, 1)
+
+        prev_mentions = prev_frequency_dict.get(entity_or_theme, 0)
+        trend = _compute_trend(mentions, prev_mentions)
 
         entry = {
             "name": entity_or_theme,
             "mentions": mentions,
             "percentage": percentage,
             "sparkline": sparkline,
+            "trend": trend,
         }
 
         if idx == 0:
@@ -143,12 +146,72 @@ def _build_category_result(documents, frequency_dict, cateogory, period_days, to
 
     return result
 
+def _compute_trend(current_mentions, previous_mentions):
+    """
+    Compare current period mentions with previous period to determine trend direction.
+    """
+    if previous_mentions == 0 and current_mentions == 0:
+        return {"direction": "stable", "change_pct": 0.0}
+
+    if previous_mentions < 3:
+        diff = current_mentions - previous_mentions
+        if diff > 5:
+            direction = "up"
+        elif diff < -5:
+            direction = "down"
+        else:
+            direction = "stable"
+
+        if previous_mentions == 0:
+            change_pct = min(round(current_mentions * 10.0, 1), 100.0)
+        else:
+            change_pct = min(round(((current_mentions - previous_mentions) / previous_mentions) * 100, 1), 100.0)
+            change_pct = max(change_pct, -100.0)
+
+        return {"direction": direction, "change_pct": change_pct}
+
+    change_pct = round(((current_mentions - previous_mentions) / previous_mentions) * 100, 1)
+
+    if change_pct > 10:
+        direction = "up"
+    elif change_pct < -10:
+        direction = "down"
+    else:
+        direction = "stable"
+
+    return {"direction": direction, "change_pct": change_pct}
+
+
+def _filter_previous_period(documents, period_days=14):
+    """
+    Filter documents from the period before the current trending window.
+    """
+    today = date.today()
+    current_start = today - timedelta(days=period_days - 1)
+    previous_start = current_start - timedelta(days=period_days)
+
+    filtered = []
+    for doc in documents:
+        if not doc.get('publication_date_iso'):
+            continue
+
+        try:
+            pub_date = date.fromisoformat(doc['publication_date_iso'])
+        except (ValueError, TypeError):
+            continue
+
+        if previous_start <= pub_date <= current_start:
+            filtered.append(doc)
+
+    return filtered
+
 
 def compute_trending(documents, period_days=14):
     """
     Compute trending entities and themes for the given period.
     """
     period_docs = _filter_by_period(documents, period_days)
+    prev_docs = _filter_previous_period(period_docs, period_days)
     total = len(period_docs)
 
     if total == 0:
@@ -165,11 +228,16 @@ def compute_trending(documents, period_days=14):
     org_freq = _count_entity_frequency(period_docs, "organizations")
     theme_freq = _count_theme_frequency(period_docs)
 
+    prev_person_freq = _count_entity_frequency(prev_docs, "persons")
+    prev_country_freq = _count_entity_frequency(prev_docs, "countries")
+    prev_org_freq = _count_entity_frequency(prev_docs, "organizations")
+    prev_theme_freq = _count_theme_frequency(prev_docs)
+
     categories = {
-        "persons": _build_category_result(period_docs, person_freq, "persons", period_days, total),
-        "countries": _build_category_result(period_docs, country_freq, "countries", period_days, total),
-        "organizations": _build_category_result(period_docs, org_freq, "organizations", period_days, total),
-        "themes": _build_category_result(period_docs, theme_freq, "theme", period_days, total),
+        "persons": _build_category_result(period_docs, person_freq, "persons", period_days, total, prev_person_freq),
+        "countries": _build_category_result(period_docs, country_freq, "countries", period_days, total, prev_country_freq),
+        "organizations": _build_category_result(period_docs, org_freq, "organizations", period_days, total, prev_org_freq),
+        "themes": _build_category_result(period_docs, theme_freq, "theme", period_days, total, prev_theme_freq),
     }
 
     today = date.today()

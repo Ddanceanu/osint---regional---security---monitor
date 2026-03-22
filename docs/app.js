@@ -92,6 +92,7 @@ async function loadDocuments() {
         renderKPIs(filteredDocuments);
         renderDatasetStrip();
         renderOverview(allDocuments);
+        renderTrending();
 
     } catch (error) {
         console.error('Failed to load documents:', error);
@@ -520,6 +521,325 @@ function configureChartDefaults() {
     Chart.defaults.plugins.tooltip.padding = 10;
     Chart.defaults.plugins.tooltip.cornerRadius = 8;
 }
+
+// ════════════════════════════════════════
+// TRENDING PANEL
+// ════════════════════════════════════════
+
+// Mapping entity names to image files in docs/assets/entities/
+const ENTITY_IMAGES = {
+    // Persons
+    'Donald Trump':        'assets/entities/donald_trump.png',
+    'Volodymyr Zelenskyy': 'assets/entities/volodymyr_zelenskyy.png',
+    'Kaja Kallas':         'assets/entities/kaja_kallas.png',
+    // Countries
+    'Ukraine':             'assets/entities/ukraine.png',
+    'Russia':              'assets/entities/russia.png',
+    'United Kingdom':      'assets/entities/united_kingdom.png',
+    // Organizations
+    'European Union':      'assets/entities/european_union.png',
+    'United Nations':      'assets/entities/united_nations.png',
+    'European Council':    'assets/entities/european_council.png',
+};
+
+function renderTrending() {
+    fetch('data/trending.json')
+        .then(res => res.json())
+        .then(data => {
+            // Update period label
+            const periodEl = document.getElementById('trending-period');
+            if (periodEl) {
+                periodEl.textContent = `${data.period_start} → ${data.period_end}  ·  ${data.total_documents_in_period} docs`;
+            }
+
+            // Render each category
+            renderTrendingCategory('trending-persons', data.categories.persons);
+            renderTrendingCategory('trending-countries', data.categories.countries);
+            renderTrendingCategory('trending-organizations', data.categories.organizations);
+            renderTrendingCategory('trending-themes', data.categories.themes, true);
+
+            // Draw line charts for each category
+            drawTrendingChart('chart-trending-persons', data.categories.persons, data.period_days, data.period_start);
+            drawTrendingChart('chart-trending-countries', data.categories.countries, data.period_days, data.period_start);
+            drawTrendingChart('chart-trending-organizations', data.categories.organizations, data.period_days, data.period_start);
+            drawTrendingChart('chart-trending-themes', data.categories.themes, data.period_days, data.period_start, true);
+        })
+        .catch(err => console.error('Failed to load trending data:', err));
+}
+
+function renderTrendingCategory(containerId, categoryData, isTheme = false) {
+    const container = document.getElementById(containerId);
+    if (!container || !categoryData || !categoryData.top) return;
+
+    const topEl = container.querySelector('.trending-top');
+    const runnersEl = container.querySelector('.trending-runners');
+
+    // Render top item
+    const top = categoryData.top;
+    const topDisplayName = isTheme ? (THEME_LABELS[top.name] || top.name) : top.name;
+
+    topEl.innerHTML = `
+        <div class="trending-top-item">
+            ${buildAvatar(top.name, topDisplayName, false)}
+            <div class="trending-top-info">
+                <div class="trending-top-name">${topDisplayName}</div>
+                <div class="trending-top-stats">
+                    <span class="trending-mentions">${top.mentions} mentions</span>
+                    <span class="trending-pct">[${top.percentage}% of docs]</span>
+                </div>
+            </div>
+            <div class="trending-right">
+                ${buildTrendBadge(top.trend)}
+                <canvas class="trending-spark" id="spark-${containerId}-top"></canvas>
+            </div>
+        </div>
+    `;
+
+    drawSparkline(`spark-${containerId}-top`, top.sparkline);
+
+    // Render runners-up
+    runnersEl.innerHTML = '';
+    (categoryData.runners_up || []).forEach((runner, idx) => {
+        const runnerDisplayName = isTheme ? (THEME_LABELS[runner.name] || runner.name) : runner.name;
+
+        const div = document.createElement('div');
+        div.className = 'trending-runner-item';
+        div.innerHTML = `
+            ${buildAvatar(runner.name, runnerDisplayName, true)}
+            <div class="trending-runner-info">
+                <div class="trending-runner-name">${runnerDisplayName}</div>
+                <div class="trending-runner-stats">
+                    <span class="trending-runner-mentions">${runner.mentions} mentions</span>
+                    <span class="trending-runner-pct">[${runner.percentage}%]</span>
+                </div>
+            </div>
+            <div class="trending-right-small">
+                ${buildTrendBadge(runner.trend)}
+                <canvas class="trending-runner-spark" id="spark-${containerId}-r${idx}"></canvas>
+            </div>
+        `;
+        runnersEl.appendChild(div);
+
+        drawSparkline(`spark-${containerId}-r${idx}`, runner.sparkline);
+    });
+}
+
+function buildTrendBadge(trend) {
+    if (!trend) return '';
+
+    const dir = trend.direction;
+    let arrow, cls;
+
+    if (dir === 'up') {
+        arrow = '▲';
+        cls = 'trend-up';
+    } else if (dir === 'down') {
+        arrow = '▼';
+        cls = 'trend-down';
+    } else {
+        arrow = '—';
+        cls = 'trend-stable';
+    }
+
+    // Cap display percentage
+    const pct = Math.abs(trend.change_pct);
+    let pctLabel;
+    if (pct > 200) {
+        const sign = trend.change_pct >= 0 ? '+' : '-';
+        pctLabel = `${sign}>200%`;
+    } else {
+        const sign = trend.change_pct >= 0 ? '+' : '';
+        pctLabel = `${sign}${trend.change_pct}%`;
+    }
+
+    return `<div class="trend-badge ${cls}">
+        <span class="trend-arrow">${arrow}</span>
+        <span class="trend-pct-value">${pctLabel}</span>
+        <span class="trend-context">vs prev 14d</span>
+    </div>`;
+}
+
+function buildAvatar(entityName, displayName, isSmall) {
+    const imgPath = ENTITY_IMAGES[entityName];
+
+    if (imgPath) {
+        const cls = isSmall ? 'trending-runner-avatar' : 'trending-avatar';
+        return `<img class="${cls}" src="${imgPath}" alt="${displayName}">`;
+    }
+
+    // Fallback: first letter placeholder
+    const cls = isSmall ? 'trending-runner-placeholder' : 'trending-avatar-placeholder';
+    const letter = displayName.charAt(0).toUpperCase();
+    return `<div class="${cls}">${letter}</div>`;
+}
+
+function drawSparkline(canvasId, data) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || !data || !data.length) return;
+
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width = canvas.offsetWidth * 2;
+    const h = canvas.height = canvas.offsetHeight * 2;
+    ctx.scale(2, 2);
+
+    const drawW = canvas.offsetWidth;
+    const drawH = canvas.offsetHeight;
+
+    const max = Math.max(...data, 1);
+    const step = drawW / (data.length - 1 || 1);
+
+    // Draw line
+    ctx.beginPath();
+    ctx.strokeStyle = '#00CFFF';
+    ctx.lineWidth = 1.5;
+    ctx.lineJoin = 'round';
+
+    data.forEach((val, i) => {
+        const x = i * step;
+        const y = drawH - (val / max) * (drawH - 4) - 2;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Draw fill
+    ctx.lineTo((data.length - 1) * step, drawH);
+    ctx.lineTo(0, drawH);
+    ctx.closePath();
+    const gradient = ctx.createLinearGradient(0, 0, 0, drawH);
+    gradient.addColorStop(0, 'rgba(0, 207, 255, 0.15)');
+    gradient.addColorStop(1, 'rgba(0, 207, 255, 0)');
+    ctx.fillStyle = gradient;
+    ctx.fill();
+}
+
+// ════════════════════════════════════════
+// TRENDING — LINE CHARTS
+// ════════════════════════════════════════
+
+const trendingChartInstances = {};
+
+function drawTrendingChart(canvasId, categoryData, periodDays, periodStart, isTheme = false) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || !categoryData || !categoryData.top) return;
+
+    // Destroy previous chart instance if it exists
+    if (trendingChartInstances[canvasId]) {
+        trendingChartInstances[canvasId].destroy();
+    }
+
+    // Build day labels (Mar 9, Mar 10, ...)
+    const labels = [];
+    const startDate = new Date(periodStart + 'T00:00:00');
+    for (let i = 0; i < periodDays; i++) {
+        const d = new Date(startDate);
+        d.setDate(d.getDate() + i);
+        const month = d.toLocaleString('en', { month: 'short' });
+        labels.push(`${month} ${d.getDate()}`);
+    }
+
+    // Collect datasets: top (solid) + runners-up (dashed)
+    const top = categoryData.top;
+    const topName = isTheme ? (THEME_LABELS[top.name] || top.name) : top.name;
+    const datasets = [
+        {
+            label: topName,
+            data: top.sparkline,
+            borderColor: '#00CFFF',
+            backgroundColor: 'rgba(0, 207, 255, 0.08)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3,
+            pointRadius: 2,
+            pointBackgroundColor: '#00CFFF'
+        }
+    ];
+
+    const runnerColors = ['#a78bfa', '#f59e0b'];
+    (categoryData.runners_up || []).forEach((runner, idx) => {
+        const runnerName = isTheme ? (THEME_LABELS[runner.name] || runner.name) : runner.name;
+        datasets.push({
+            label: runnerName,
+            data: runner.sparkline,
+            borderColor: runnerColors[idx] || '#94a3b8',
+            backgroundColor: 'transparent',
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            fill: false,
+            tension: 0.3,
+            pointRadius: 1.5,
+            pointBackgroundColor: runnerColors[idx] || '#94a3b8'
+        });
+    });
+
+    trendingChartInstances[canvasId] = new Chart(canvas, {
+        type: 'line',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        color: '#8892a4',
+                        font: { size: 9, family: "'JetBrains Mono', monospace" },
+                        boxWidth: 12,
+                        padding: 8,
+                        usePointStyle: true,
+                        pointStyle: 'line'
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#0d1b2a',
+                    borderColor: '#1e3a5f',
+                    borderWidth: 1,
+                    titleFont: { size: 10 },
+                    bodyFont: { size: 10 },
+                    callbacks: {
+                        label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y} mentions`
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#5a6577',
+                        font: { size: 8, family: "'JetBrains Mono', monospace" },
+                        maxRotation: 45,
+                        maxTicksLimit: 7
+                    },
+                    grid: {
+                        color: 'rgba(30, 58, 95, 0.3)',
+                        drawBorder: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#5a6577',
+                        font: { size: 8, family: "'JetBrains Mono', monospace" },
+                        stepSize: 1,
+                        precision: 0
+                    },
+                    grid: {
+                        color: 'rgba(30, 58, 95, 0.3)',
+                        drawBorder: false
+                    }
+                }
+            }
+        }
+    });
+}
+
+// ════════════════════════════════════════
+// OVERVIEW
+// ════════════════════════════════════════
 
 function renderOverview(docs) {
     if (!docs || !docs.length) return;
