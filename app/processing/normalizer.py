@@ -12,6 +12,7 @@ def normalize_source_key(source_name: str) -> str:
         "EEAS": "eeas",
         "ECFR": "ecfr",
         "ISW": "isw",
+        "Chatham House": "chatham_house",
     }
 
     return source_map.get(source_name, "unknown")
@@ -85,6 +86,11 @@ def normalize_publication_date(publication_date: str, source_key: str) -> str:
 
         if source_key == "isw":
             parsed_date = datetime.strptime(publication_date, "%b %d, %Y")
+            return parsed_date.strftime("%Y-%m-%d")
+
+        if source_key == "chatham_house":
+            date_part = publication_date.split("T")[0]
+            parsed_date = datetime.strptime(date_part, "%Y-%m-%d")
             return parsed_date.strftime("%Y-%m-%d")
 
         return ""

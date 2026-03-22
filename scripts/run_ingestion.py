@@ -7,6 +7,7 @@ from app.ingestion.eu_council_scraper import EuCouncilScraper
 from app.ingestion.eeas_scraper import EeasScraper
 from app.ingestion.ecfr_scraper import EcfrScraper
 from app.ingestion.isw_scraper import IswScraper
+from app.ingestion.chathamhouse_scraper import ChathamHouseScraper
 
 
 def main() -> None:
@@ -103,6 +104,21 @@ def main() -> None:
     print(f"Source: {isw_scraper.source_name}")
     print(f"Type: {isw_scraper.source_type}")
     print(f"Documents found: {len(isw_documents)}")
+
+
+    # Chatham House
+    chathamhouse_scraper = ChathamHouseScraper()
+    chathamhouse_documents = chathamhouse_scraper.fetch_documents()
+
+    chathamhouse_output_path = raw_data_dir / "chathamhouse_documents.json"
+
+    with open(chathamhouse_output_path, "w", encoding="utf-8") as f:
+        json.dump(chathamhouse_documents, f, ensure_ascii=False, indent=4)
+        print(f"Chatham House documents saved to: {chathamhouse_output_path}")
+
+    print(f"Source: {chathamhouse_scraper.source_name}")
+    print(f"Type: {chathamhouse_scraper.source_type}")
+    print(f"Documents found: {len(chathamhouse_documents)}")
 
 
 if __name__ == "__main__":
