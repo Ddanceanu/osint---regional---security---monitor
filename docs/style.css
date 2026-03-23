@@ -1069,8 +1069,8 @@ html, body {
 .trending-pct {
     font-family: var(--font-mono);
     font-size: 0.6rem;
-    color: var(--text-muted);
-    opacity: 0.7;
+    color: #6d8da8;
+    opacity: 1;
 }
 
 /* Right side: trend badge + sparkline stacked */
@@ -1188,7 +1188,7 @@ html, body {
 .trending-runner-name {
     font-family: var(--font-base);
     font-size: 0.75rem;
-    color: var(--text-secondary);
+    color: #b0c8e0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1204,7 +1204,7 @@ html, body {
 .trending-runner-mentions {
     font-family: var(--font-mono);
     font-size: 0.6rem;
-    color: var(--text-secondary);
+    color: #8faabe;
 }
 
 .trending-runner-pct {

@@ -1,15 +1,28 @@
 {
     "period_days": 14,
-    "period_start": "2026-03-09",
-    "period_end": "2026-03-22",
-    "total_documents_in_period": 189,
+    "period_start": "2026-03-10",
+    "period_end": "2026-03-23",
+    "total_documents_in_period": 177,
     "categories": {
         "persons": {
             "top": {
                 "name": "Donald Trump",
-                "mentions": 20,
-                "percentage": 10.6,
+                "mentions": 17,
+                "percentage": 9.6,
                 "sparkline": [
+                    1,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    0,
+                    2,
+                    0,
+                    1,
+                    19,
+                    0,
+                    0,
                     3,
                     4,
                     1,
@@ -23,19 +36,35 @@
                     2,
                     2,
                     0,
+                    0,
                     0
                 ],
                 "trend": {
-                    "direction": "up",
-                    "change_pct": 566.7
+                    "direction": "down",
+                    "change_pct": -73.3,
+                    "current_rate": 9.6,
+                    "previous_rate": 35.9
                 }
             },
             "runners_up": [
                 {
                     "name": "Volodymyr Zelenskyy",
-                    "mentions": 16,
+                    "mentions": 15,
                     "percentage": 8.5,
                     "sparkline": [
+                        2,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        0,
+                        1,
                         1,
                         1,
                         1,
@@ -49,18 +78,34 @@
                         1,
                         1,
                         1,
+                        0,
                         0
                     ],
                     "trend": {
-                        "direction": "up",
-                        "change_pct": 100.0
+                        "direction": "down",
+                        "change_pct": -39.7,
+                        "current_rate": 8.5,
+                        "previous_rate": 14.1
                     }
                 },
                 {
                     "name": "Kaja Kallas",
-                    "mentions": 14,
-                    "percentage": 7.4,
+                    "mentions": 13,
+                    "percentage": 7.3,
                     "sparkline": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
                         1,
                         1,
                         0,
@@ -74,11 +119,14 @@
                         1,
                         0,
                         0,
+                        0,
                         0
                     ],
                     "trend": {
                         "direction": "up",
-                        "change_pct": 100.0
+                        "change_pct": 180.8,
+                        "current_rate": 7.3,
+                        "previous_rate": 2.6
                     }
                 }
             ]
@@ -86,9 +134,22 @@
         "countries": {
             "top": {
                 "name": "Ukraine",
-                "mentions": 68,
-                "percentage": 36.0,
+                "mentions": 64,
+                "percentage": 36.2,
                 "sparkline": [
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    4,
+                    12,
+                    1,
+                    1,
                     4,
                     3,
                     3,
@@ -102,19 +163,35 @@
                     10,
                     5,
                     1,
+                    0,
                     0
                 ],
                 "trend": {
-                    "direction": "up",
-                    "change_pct": 1600.0
+                    "direction": "down",
+                    "change_pct": -17.0,
+                    "current_rate": 36.2,
+                    "previous_rate": 43.6
                 }
             },
             "runners_up": [
                 {
                     "name": "Russia",
-                    "mentions": 50,
-                    "percentage": 26.5,
+                    "mentions": 47,
+                    "percentage": 26.6,
                     "sparkline": [
+                        2,
+                        1,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        2,
+                        1,
+                        4,
+                        18,
+                        1,
+                        1,
                         3,
                         4,
                         2,
@@ -128,18 +205,34 @@
                         5,
                         3,
                         1,
+                        0,
                         0
                     ],
                     "trend": {
-                        "direction": "up",
-                        "change_pct": 1566.7
+                        "direction": "down",
+                        "change_pct": -46.8,
+                        "current_rate": 26.6,
+                        "previous_rate": 50.0
                     }
                 },
                 {
                     "name": "United Kingdom",
-                    "mentions": 29,
+                    "mentions": 27,
                     "percentage": 15.3,
                     "sparkline": [
+                        1,
+                        1,
+                        2,
+                        1,
+                        0,
+                        1,
+                        1,
+                        1,
+                        1,
+                        0,
+                        15,
+                        0,
+                        1,
                         2,
                         4,
                         1,
@@ -153,11 +246,14 @@
                         4,
                         1,
                         1,
+                        0,
                         0
                     ],
                     "trend": {
-                        "direction": "up",
-                        "change_pct": 100.0
+                        "direction": "down",
+                        "change_pct": -55.8,
+                        "current_rate": 15.3,
+                        "previous_rate": 34.6
                     }
                 }
             ]
@@ -165,9 +261,22 @@
         "organizations": {
             "top": {
                 "name": "European Union",
-                "mentions": 131,
-                "percentage": 69.3,
+                "mentions": 123,
+                "percentage": 69.5,
                 "sparkline": [
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    5,
+                    6,
+                    8,
+                    0,
+                    0,
                     8,
                     2,
                     6,
@@ -181,19 +290,35 @@
                     17,
                     10,
                     0,
+                    0,
                     0
                 ],
                 "trend": {
                     "direction": "up",
-                    "change_pct": 1537.5
+                    "change_pct": 75.1,
+                    "current_rate": 69.5,
+                    "previous_rate": 39.7
                 }
             },
             "runners_up": [
                 {
                     "name": "United Nations",
-                    "mentions": 34,
-                    "percentage": 18.0,
+                    "mentions": 33,
+                    "percentage": 18.6,
                     "sparkline": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        1,
+                        1,
+                        0,
+                        0,
+                        1,
+                        1,
+                        5,
+                        0,
+                        0,
                         1,
                         2,
                         2,
@@ -207,18 +332,34 @@
                         5,
                         1,
                         0,
+                        0,
                         0
                     ],
                     "trend": {
                         "direction": "up",
-                        "change_pct": 100.0
+                        "change_pct": 31.9,
+                        "current_rate": 18.6,
+                        "previous_rate": 14.1
                     }
                 },
                 {
                     "name": "European Council",
-                    "mentions": 24,
-                    "percentage": 12.7,
+                    "mentions": 23,
+                    "percentage": 13.0,
                     "sparkline": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        2,
+                        1,
+                        5,
+                        0,
+                        0,
                         1,
                         1,
                         2,
@@ -232,11 +373,14 @@
                         5,
                         4,
                         0,
+                        0,
                         0
                     ],
                     "trend": {
-                        "direction": "up",
-                        "change_pct": 100.0
+                        "direction": "stable",
+                        "change_pct": 1.6,
+                        "current_rate": 13.0,
+                        "previous_rate": 12.8
                     }
                 }
             ]
@@ -244,9 +388,22 @@
         "themes": {
             "top": {
                 "name": "eu_regional_security",
-                "mentions": 133,
-                "percentage": 70.4,
+                "mentions": 125,
+                "percentage": 70.6,
                 "sparkline": [
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    6,
+                    7,
+                    23,
+                    1,
+                    1,
                     10,
                     5,
                     10,
@@ -260,19 +417,35 @@
                     22,
                     16,
                     1,
+                    0,
                     0
                 ],
                 "trend": {
                     "direction": "up",
-                    "change_pct": 1562.5
+                    "change_pct": 57.2,
+                    "current_rate": 70.6,
+                    "previous_rate": 44.9
                 }
             },
             "runners_up": [
                 {
                     "name": "russia_regional_implications",
-                    "mentions": 28,
-                    "percentage": 14.8,
+                    "mentions": 26,
+                    "percentage": 14.7,
                     "sparkline": [
+                        2,
+                        1,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        2,
+                        1,
+                        4,
+                        18,
+                        1,
+                        1,
                         3,
                         4,
                         2,
@@ -286,18 +459,34 @@
                         5,
                         3,
                         1,
+                        0,
                         0
                     ],
                     "trend": {
-                        "direction": "up",
-                        "change_pct": 100.0
+                        "direction": "down",
+                        "change_pct": -52.3,
+                        "current_rate": 14.7,
+                        "previous_rate": 30.8
                     }
                 },
                 {
                     "name": "other_mixed",
-                    "mentions": 13,
-                    "percentage": 6.9,
+                    "mentions": 11,
+                    "percentage": 6.2,
                     "sparkline": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        1,
+                        2,
+                        0,
+                        7,
+                        0,
+                        0,
                         2,
                         0,
                         0,
@@ -311,11 +500,14 @@
                         0,
                         1,
                         0,
+                        0,
                         0
                     ],
                     "trend": {
-                        "direction": "up",
-                        "change_pct": 100.0
+                        "direction": "down",
+                        "change_pct": -65.4,
+                        "current_rate": 6.2,
+                        "previous_rate": 17.9
                     }
                 }
             ]

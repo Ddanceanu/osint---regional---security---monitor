@@ -549,7 +549,12 @@ function renderTrending() {
             // Update period label
             const periodEl = document.getElementById('trending-period');
             if (periodEl) {
-                periodEl.textContent = `${data.period_start} → ${data.period_end}  ·  ${data.total_documents_in_period} docs`;
+                // Calculate previous period start for display
+                const currStart = new Date(data.period_start + 'T00:00:00');
+                const prevStart = new Date(currStart);
+                prevStart.setDate(prevStart.getDate() - data.period_days);
+                const prevStartStr = prevStart.toISOString().slice(0, 10);
+                periodEl.textContent = `${prevStartStr} → ${data.period_end}  ·  28 days  ·  ${data.total_documents_in_period} docs (current 14d)`;
             }
 
             // Render each category
@@ -728,11 +733,16 @@ function drawTrendingChart(canvasId, categoryData, periodDays, periodStart, isTh
         trendingChartInstances[canvasId].destroy();
     }
 
-    // Build day labels (Mar 9, Mar 10, ...)
+    // Sparklines now cover 28 days (previous period + current period)
+    const totalDays = periodDays * 2;
+
+    // Build day labels starting from (periodStart - periodDays) to cover both periods
     const labels = [];
-    const startDate = new Date(periodStart + 'T00:00:00');
-    for (let i = 0; i < periodDays; i++) {
-        const d = new Date(startDate);
+    const currentStart = new Date(periodStart + 'T00:00:00');
+    const fullStart = new Date(currentStart);
+    fullStart.setDate(fullStart.getDate() - periodDays);
+    for (let i = 0; i < totalDays; i++) {
+        const d = new Date(fullStart);
         d.setDate(d.getDate() + i);
         const month = d.toLocaleString('en', { month: 'short' });
         labels.push(`${month} ${d.getDate()}`);
@@ -772,9 +782,47 @@ function drawTrendingChart(canvasId, categoryData, periodDays, periodStart, isTh
         });
     });
 
+    // Plugin: vertical line separating previous and current periods
+    const periodSeparator = {
+        id: 'periodSeparator',
+        afterDraw(chart) {
+            const xScale = chart.scales.x;
+            const yScale = chart.scales.y;
+            // The separator is at index periodDays (boundary between prev and current)
+            const separatorIndex = periodDays;
+            if (separatorIndex >= xScale.ticks.length) return;
+
+            const xPos = xScale.getPixelForValue(separatorIndex);
+            const ctx = chart.ctx;
+
+            // Draw dashed vertical line
+            ctx.save();
+            ctx.beginPath();
+            ctx.setLineDash([4, 4]);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+            ctx.lineWidth = 1;
+            ctx.moveTo(xPos, yScale.top);
+            ctx.lineTo(xPos, yScale.bottom);
+            ctx.stroke();
+
+            // Draw period labels
+            ctx.setLineDash([]);
+            ctx.font = "8px 'JetBrains Mono', monospace";
+            ctx.textAlign = 'center';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+
+            const prevCenter = (xScale.getPixelForValue(0) + xPos) / 2;
+            const currCenter = (xPos + xScale.getPixelForValue(totalDays - 1)) / 2;
+            ctx.fillText('prev 14d', prevCenter, yScale.top + 12);
+            ctx.fillText('current 14d', currCenter, yScale.top + 12);
+            ctx.restore();
+        }
+    };
+
     trendingChartInstances[canvasId] = new Chart(canvas, {
         type: 'line',
         data: { labels, datasets },
+        plugins: [periodSeparator],
         options: {
             responsive: true,
             maintainAspectRatio: false,
@@ -812,7 +860,7 @@ function drawTrendingChart(canvasId, categoryData, periodDays, periodStart, isTh
                         color: '#5a6577',
                         font: { size: 8, family: "'JetBrains Mono', monospace" },
                         maxRotation: 45,
-                        maxTicksLimit: 7
+                        maxTicksLimit: 10
                     },
                     grid: {
                         color: 'rgba(30, 58, 95, 0.3)',
