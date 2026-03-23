@@ -110,7 +110,7 @@ def _build_sparkline(documents, entity_or_theme, category, period_days):
     return sparkline
 
 
-def _build_category_result(documents, frequency_dict, cateogory, period_days, total_documents, prev_frequency_dict, prev_total_documents):
+def _build_category_result(documents, frequency_dict, category, period_days, total_documents, prev_frequency_dict, prev_total_documents):
     """
     Build the final result structure for a category (top + runners-up with sparklines and percentages).
     """
@@ -125,11 +125,18 @@ def _build_category_result(documents, frequency_dict, cateogory, period_days, to
     result = {"top": None, "runners_up": []}
 
     for idx, (entity_or_theme, mentions) in enumerate(top_3):
-        sparkline = _build_sparkline(documents, entity_or_theme, cateogory, period_days)
+        sparkline = _build_sparkline(documents, entity_or_theme, category, period_days)
         percentage = round((mentions / total_documents) * 100, 1)
 
         prev_mentions = prev_frequency_dict.get(entity_or_theme, 0)
         trend = _compute_trend(mentions, total_documents, prev_mentions, prev_total_documents)
+
+        # compute source diversity (how many distinct sources mention this entry)
+        source_diversity = _count_source_diversity(documents, entity_or_theme, category)
+
+        # compute momentul score (volume x direction)
+        momentum = _compute_momentum_score(trend['current_rate'], trend['change_pct'])
+
 
         entry = {
             "name": entity_or_theme,
@@ -137,6 +144,8 @@ def _build_category_result(documents, frequency_dict, cateogory, period_days, to
             "percentage": percentage,
             "sparkline": sparkline,
             "trend": trend,
+            "source_diversity": source_diversity,
+            "momentum_score": momentum,
         }
 
         if idx == 0:
@@ -145,6 +154,87 @@ def _build_category_result(documents, frequency_dict, cateogory, period_days, to
             result["runners_up"].append(entry)
 
     return result
+
+
+def _build_momentum_board(period_docs, prev_docs, total, prev_total):
+    """
+    Build a cross-category ranking of ALL entities by momentum.
+
+    Computes normalized trend for every entity and theme in the corpus,
+    then returns the top 5 rising and top 5 falling signals.
+    """
+    all_entries = []
+
+    for category in ["persons", "countries", "organizations"]:
+        current_freq = _count_entity_frequency(period_docs, category)
+        prev_freq = _count_entity_frequency(prev_docs, category)
+
+        all_entities = set(list(current_freq.keys()) + list(prev_freq.keys()))
+
+        for entity in all_entities:
+            curr_mentions = current_freq.get(entity, 0)
+            prev_mentions = prev_freq.get(entity, 0)
+
+            if curr_mentions + prev_mentions < 8:
+                continue
+
+            trend = _compute_trend(curr_mentions, total, prev_mentions, prev_total)
+            momentum = _compute_momentum_score(trend['current_rate'], trend['change_pct'])
+            source_div = _count_source_diversity(period_docs, entity, category)
+
+            all_entries.append({
+                "name": entity,
+                "category": category,
+                "momentum_score": momentum,
+                "change_pct": trend['change_pct'],
+                "current_rate": trend['current_rate'],
+                "previous_rate": trend['previous_rate'],
+                "source_diversity": source_div,
+                "mentions": curr_mentions
+            })
+
+    current_theme_freq = _count_theme_frequency(period_docs)
+    prev_theme_freq = _count_theme_frequency(prev_docs)
+    all_themes = set(list(current_theme_freq.keys()) + list(prev_theme_freq.keys()))
+
+    for theme in all_themes:
+        curr_mentions = current_theme_freq.get(theme, 0)
+        prev_mentions = prev_theme_freq.get(theme, 0)
+
+        if curr_mentions + prev_mentions < 3:
+            continue
+
+        trend = _compute_trend(curr_mentions, total, prev_mentions, prev_total)
+        momentum = _compute_momentum_score(trend['current_rate'], trend['change_pct'])
+        source_div = _count_source_diversity(period_docs, theme, "theme")
+
+        all_entries.append({
+            "name": theme,
+            "category": "themes",
+            "momentum_score": momentum,
+            "change_pct": trend['change_pct'],
+            "current_rate": trend['current_rate'],
+            "previous_rate": trend['previous_rate'],
+            "source_diversity": source_div,
+            "mentions": curr_mentions
+        })
+
+    # Sort by momentum_score (combines volume with direction)
+    sorted_by_momentum = sorted(all_entries, key=lambda e: e['momentum_score'], reverse=True)
+
+    # Risers: top 5 by highest momentum
+    risers = sorted_by_momentum[:5]
+
+    # Fallers: top 5 by lowest momentum (but only those with negative change)
+    fallers_pool = [e for e in all_entries if e['change_pct'] < 0]
+    fallers_pool.sort(key=lambda e: e['change_pct'])
+    fallers = fallers_pool[:5]
+
+    return {
+        "risers": risers,
+        "fallers": fallers
+    }
+
 
 def _compute_trend(current_mentions, current_total, previous_mentions, previous_total):
     """
@@ -189,6 +279,21 @@ def _compute_trend(current_mentions, current_total, previous_mentions, previous_
     }
 
 
+def _compute_momentum_score(current_rate, change_pct):
+    """
+    Compute momentul score combining volume (current_rate) with direction (change_pct)
+
+    Formula: momentul = current_rate * (1 + change_pct / 100)
+
+    A high momentul means the entity is both frequently mentioned and gaining traction.
+    A low or negative momentul means the entity is losing relevance.
+    """
+
+    momentum = current_rate * (1 + change_pct / 100)
+
+    return round(momentum, 1)
+
+
 def _filter_previous_period(documents, period_days=14):
     """
     Filter documents from the period before the current trending window.
@@ -211,6 +316,35 @@ def _filter_previous_period(documents, period_days=14):
             filtered.append(doc)
 
     return filtered
+
+def _count_source_diversity(documents, entity_or_theme, category):
+    """
+    Count how many distinct sources mention a given entity or theme.
+
+    A higher diversity means the signal is corroborated across multiple
+    independent sources, making it analytically more reliable.
+    """
+    sources = set()
+
+    for doc in documents:
+        contains = False
+
+        if category == "theme":
+            if doc.get('main_theme') == entity_or_theme:
+                contains = True
+            elif entity_or_theme in doc.get('secondary_themes', []):
+                contains = True
+        else:
+            entities = doc.get('entities', {}).get(category, [])
+            if entity_or_theme in entities:
+                contains = True
+
+        if contains:
+            source = doc.get('source_key')
+            if source:
+                sources.add(source)
+
+    return len(sources)
 
 
 def compute_trending(documents, period_days=14):
@@ -250,6 +384,8 @@ def compute_trending(documents, period_days=14):
         "themes": _build_category_result(all_period_docs, theme_freq, "theme", period_days, total, prev_theme_freq, prev_total),
     }
 
+    momentum_board = _build_momentum_board(period_docs, prev_docs, total, prev_total)
+
     today = date.today()
     period_start = today - timedelta(days=period_days - 1)
 
@@ -259,6 +395,7 @@ def compute_trending(documents, period_days=14):
         "period_end": str(today),
         "total_documents_in_period": total,
         "categories": categories,
+        "momentum_board": momentum_board
     }
 
     return trending

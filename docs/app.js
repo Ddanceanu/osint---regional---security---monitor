@@ -568,6 +568,11 @@ function renderTrending() {
             drawTrendingChart('chart-trending-countries', data.categories.countries, data.period_days, data.period_start);
             drawTrendingChart('chart-trending-organizations', data.categories.organizations, data.period_days, data.period_start);
             drawTrendingChart('chart-trending-themes', data.categories.themes, data.period_days, data.period_start, true);
+
+            // Render momentum board
+            if (data.momentum_board) {
+                renderMomentumBoard(data.momentum_board);
+            }
         })
         .catch(err => console.error('Failed to load trending data:', err));
 }
@@ -627,6 +632,79 @@ function renderTrendingCategory(containerId, categoryData, isTheme = false) {
 
         drawSparkline(`spark-${containerId}-r${idx}`, runner.sparkline);
     });
+}
+
+const CATEGORY_LABELS = {
+    persons: 'person',
+    countries: 'country',
+    organizations: 'org',
+    themes: 'theme'
+};
+
+function renderMomentumBoard(board) {
+    const risersEl = document.getElementById('momentum-risers-list');
+    const fallersEl = document.getElementById('momentum-fallers-list');
+    if (!risersEl || !fallersEl) return;
+
+    const maxSources = 7;
+
+    function buildMomentumItem(entry, rank, type) {
+        const catLabel = CATEGORY_LABELS[entry.category] || entry.category;
+        const changeClass = type === 'rise' ? 'rise' : 'fall';
+        const displayName = entry.category === 'themes'
+            ? (THEME_LABELS[entry.name] || entry.name)
+            : entry.name;
+
+        // Build source dots (filled = active, dim = inactive)
+        let dotsHtml = '';
+        for (let i = 0; i < maxSources; i++) {
+            dotsHtml += `<div class="momentum-source-dot ${i < entry.source_diversity ? '' : 'inactive'}"></div>`;
+        }
+
+        // Show rate shift: previous_rate → current_rate
+        const prevRate = entry.previous_rate != null ? entry.previous_rate : '?';
+        const currRate = entry.current_rate != null ? entry.current_rate : '?';
+        const rateShift = `${prevRate}% → ${currRate}%`;
+
+        // Momentum score display
+        const momentumDisplay = entry.momentum_score.toFixed(1);
+
+        return `
+            <div class="momentum-item">
+                <span class="momentum-rank">${rank}.</span>
+                <span class="momentum-item-name">${displayName}</span>
+                <span class="momentum-item-category">${catLabel}</span>
+                <span class="momentum-rate-shift" title="Presence rate: previous → current period">${rateShift}</span>
+                <span class="momentum-score-badge ${changeClass}" title="Momentum score (rate × direction)">${momentumDisplay}</span>
+                <div class="momentum-sources" title="${entry.source_diversity} of ${maxSources} sources">${dotsHtml}</div>
+            </div>
+        `;
+    }
+
+    const columnHeaders = `
+        <div class="momentum-col-headers">
+            <span class="mch-rank">#</span>
+            <span class="mch-name">ENTITY</span>
+            <span class="mch-cat">TYPE</span>
+            <span class="mch-rate">PRESENCE</span>
+            <span class="mch-score">SCORE</span>
+            <span class="mch-sources">SOURCES</span>
+        </div>
+    `;
+
+    // Render risers
+    if (board.risers && board.risers.length > 0) {
+        risersEl.innerHTML = columnHeaders + board.risers.map((e, i) => buildMomentumItem(e, i + 1, 'rise')).join('');
+    } else {
+        risersEl.innerHTML = columnHeaders + '<div class="momentum-empty">No significant risers in this period</div>';
+    }
+
+    // Render fallers
+    if (board.fallers && board.fallers.length > 0) {
+        fallersEl.innerHTML = columnHeaders + board.fallers.map((e, i) => buildMomentumItem(e, i + 1, 'fall')).join('');
+    } else {
+        fallersEl.innerHTML = columnHeaders + '<div class="momentum-empty">No significant fallers in this period</div>';
+    }
 }
 
 function buildTrendBadge(trend) {

@@ -19,12 +19,12 @@
                 <div>
                     <div class="eyebrow"><span class="dot-live"></span>OSINT · Regional Security Intelligence</div>
                     <div class="page-title">Regional Security Monitor</div>
-                    <div class="page-subtitle" id="page-subtitle">Document Explorer — analysis workspace</div>
+                    <div class="page-subtitle" id="page-subtitle">Corpus summary and analytical context</div>
                 </div>
                 <div class="header-right">
                     <div class="navbar-tabs">
-                        <button class="nav-tab active" data-page="explorer">Document Explorer</button>
-                        <button class="nav-tab" data-page="overview">Overview</button>
+                        <button class="nav-tab active" data-page="overview">Overview</button>
+                        <button class="nav-tab" data-page="explorer">Document Explorer</button>
                         <button class="nav-tab" data-page="themes">Themes</button>
                         <button class="nav-tab" data-page="entities">Entities</button>
                     </div>
@@ -34,7 +34,7 @@
         </div>
 
         <!-- PAGE: Explorer -->
-        <div class="page active" id="page-explorer">
+        <div class="page" id="page-explorer">
 
             <div class="kpi-grid" id="kpi-grid"></div>
 
@@ -114,14 +114,14 @@
         </div>
 
         <!-- PAGE: Overview -->
-        <div class="page" id="page-overview">
+        <div class="page active" id="page-overview">
 
             <!-- Trending Now Panel -->
             <div class="trending-panel" id="trending-panel">
                 <div class="trending-header">
                     <div class="trending-title-row">
                         <span class="trending-pulse"></span>
-                        <h2 class="trending-title">Trending Now</h2>
+                        <h2 class="trending-title">Strategic Pulse</h2>
                     </div>
                     <div class="trending-period" id="trending-period">Last 14 days</div>
                 </div>
@@ -165,6 +165,25 @@
                         <div class="trending-chart-wrap">
                             <canvas id="chart-trending-themes"></canvas>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Momentum Board -->
+                <div class="momentum-board" id="momentum-board">
+                    <div class="momentum-section momentum-risers">
+                        <div class="momentum-header">
+                            <span class="momentum-arrow rise">▲</span>
+                            <span class="momentum-label">TOP RISING ENTITIES</span>
+                        </div>
+                        <div class="momentum-list" id="momentum-risers-list"></div>
+                    </div>
+                    <div class="momentum-divider"></div>
+                    <div class="momentum-section momentum-fallers">
+                        <div class="momentum-header">
+                            <span class="momentum-arrow fall">▼</span>
+                            <span class="momentum-label">TOP FALLING ENTITIES</span>
+                        </div>
+                        <div class="momentum-list" id="momentum-fallers-list"></div>
                     </div>
                 </div>
             </div>

@@ -44,7 +44,9 @@
                     "change_pct": -73.3,
                     "current_rate": 9.6,
                     "previous_rate": 35.9
-                }
+                },
+                "source_diversity": 3,
+                "momentum_score": 2.6
             },
             "runners_up": [
                 {
@@ -86,7 +88,9 @@
                         "change_pct": -39.7,
                         "current_rate": 8.5,
                         "previous_rate": 14.1
-                    }
+                    },
+                    "source_diversity": 4,
+                    "momentum_score": 5.1
                 },
                 {
                     "name": "Kaja Kallas",
@@ -127,7 +131,9 @@
                         "change_pct": 180.8,
                         "current_rate": 7.3,
                         "previous_rate": 2.6
-                    }
+                    },
+                    "source_diversity": 2,
+                    "momentum_score": 20.5
                 }
             ]
         },
@@ -171,7 +177,9 @@
                     "change_pct": -17.0,
                     "current_rate": 36.2,
                     "previous_rate": 43.6
-                }
+                },
+                "source_diversity": 6,
+                "momentum_score": 30.0
             },
             "runners_up": [
                 {
@@ -213,7 +221,9 @@
                         "change_pct": -46.8,
                         "current_rate": 26.6,
                         "previous_rate": 50.0
-                    }
+                    },
+                    "source_diversity": 5,
+                    "momentum_score": 14.2
                 },
                 {
                     "name": "United Kingdom",
@@ -254,7 +264,9 @@
                         "change_pct": -55.8,
                         "current_rate": 15.3,
                         "previous_rate": 34.6
-                    }
+                    },
+                    "source_diversity": 6,
+                    "momentum_score": 6.8
                 }
             ]
         },
@@ -298,7 +310,9 @@
                     "change_pct": 75.1,
                     "current_rate": 69.5,
                     "previous_rate": 39.7
-                }
+                },
+                "source_diversity": 6,
+                "momentum_score": 121.7
             },
             "runners_up": [
                 {
@@ -340,7 +354,9 @@
                         "change_pct": 31.9,
                         "current_rate": 18.6,
                         "previous_rate": 14.1
-                    }
+                    },
+                    "source_diversity": 4,
+                    "momentum_score": 24.5
                 },
                 {
                     "name": "European Council",
@@ -381,7 +397,9 @@
                         "change_pct": 1.6,
                         "current_rate": 13.0,
                         "previous_rate": 12.8
-                    }
+                    },
+                    "source_diversity": 4,
+                    "momentum_score": 13.2
                 }
             ]
         },
@@ -425,7 +443,9 @@
                     "change_pct": 57.2,
                     "current_rate": 70.6,
                     "previous_rate": 44.9
-                }
+                },
+                "source_diversity": 6,
+                "momentum_score": 111.0
             },
             "runners_up": [
                 {
@@ -467,7 +487,9 @@
                         "change_pct": -52.3,
                         "current_rate": 14.7,
                         "previous_rate": 30.8
-                    }
+                    },
+                    "source_diversity": 5,
+                    "momentum_score": 7.0
                 },
                 {
                     "name": "other_mixed",
@@ -508,9 +530,117 @@
                         "change_pct": -65.4,
                         "current_rate": 6.2,
                         "previous_rate": 17.9
-                    }
+                    },
+                    "source_diversity": 3,
+                    "momentum_score": 2.1
                 }
             ]
         }
+    },
+    "momentum_board": {
+        "risers": [
+            {
+                "name": "European Union",
+                "category": "organizations",
+                "momentum_score": 121.7,
+                "change_pct": 75.1,
+                "current_rate": 69.5,
+                "previous_rate": 39.7,
+                "source_diversity": 5,
+                "mentions": 123
+            },
+            {
+                "name": "eu_regional_security",
+                "category": "themes",
+                "momentum_score": 111.0,
+                "change_pct": 57.2,
+                "current_rate": 70.6,
+                "previous_rate": 44.9,
+                "source_diversity": 5,
+                "mentions": 125
+            },
+            {
+                "name": "Albania",
+                "category": "countries",
+                "momentum_score": 55.6,
+                "change_pct": 553.8,
+                "current_rate": 8.5,
+                "previous_rate": 1.3,
+                "source_diversity": 2,
+                "mentions": 15
+            },
+            {
+                "name": "Montenegro",
+                "category": "countries",
+                "momentum_score": 55.6,
+                "change_pct": 553.8,
+                "current_rate": 8.5,
+                "previous_rate": 1.3,
+                "source_diversity": 2,
+                "mentions": 15
+            },
+            {
+                "name": "EEAS",
+                "category": "organizations",
+                "momentum_score": 44.0,
+                "change_pct": 311.5,
+                "current_rate": 10.7,
+                "previous_rate": 2.6,
+                "source_diversity": 2,
+                "mentions": 19
+            }
+        ],
+        "fallers": [
+            {
+                "name": "Poland",
+                "category": "countries",
+                "momentum_score": 0.0,
+                "change_pct": -94.8,
+                "current_rate": 0.6,
+                "previous_rate": 11.5,
+                "source_diversity": 1,
+                "mentions": 1
+            },
+            {
+                "name": "Turkey",
+                "category": "countries",
+                "momentum_score": 0.0,
+                "change_pct": -94.2,
+                "current_rate": 0.6,
+                "previous_rate": 10.3,
+                "source_diversity": 1,
+                "mentions": 1
+            },
+            {
+                "name": "Vladimir Putin",
+                "category": "persons",
+                "momentum_score": 1.1,
+                "change_pct": -76.6,
+                "current_rate": 4.5,
+                "previous_rate": 19.2,
+                "source_diversity": 2,
+                "mentions": 8
+            },
+            {
+                "name": "Canada",
+                "category": "countries",
+                "momentum_score": 1.0,
+                "change_pct": -76.0,
+                "current_rate": 4.0,
+                "previous_rate": 16.7,
+                "source_diversity": 3,
+                "mentions": 7
+            },
+            {
+                "name": "Japan",
+                "category": "countries",
+                "momentum_score": 0.6,
+                "change_pct": -74.4,
+                "current_rate": 2.3,
+                "previous_rate": 9.0,
+                "source_diversity": 3,
+                "mentions": 4
+            }
+        ]
     }
 }
