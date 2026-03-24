@@ -1,0 +1,20 @@
+:root {
+    --bg-primary:      #060C16;
+    --bg-secondary:    #0D1828;
+    --surface:         #111C30;
+    --surface-alt:     #0B1522;
+    --surface-hover:   #132030;
+    --surface-expanded:#0F1E35;
+    --border:          #182A42;
+    --border-strong:   #223D60;
+    --text-primary:    #E4EDF8;
+    --text-secondary:  #7A9DC0;
+    --text-muted:      #3E5570;
+    --accent:          #3B7BFF;
+    --accent-hover:    #5B95FF;
+    --accent-soft:     #0F2050;
+    --cyan:            #00CFFF;
+    --font-base:       'IBM Plex Sans', 'Segoe UI', sans-serif;
+    --font-mono:       'IBM Plex Mono', monospace;
+    --font-display:    'Exo 2', 'IBM Plex Sans', sans-serif;
+}

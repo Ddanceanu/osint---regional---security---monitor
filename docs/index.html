@@ -6,7 +6,16 @@
     <title>OSINT Regional Security Monitor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/kpi.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/explorer.css">
+    <link rel="stylesheet" href="css/overview.css">
+    <link rel="stylesheet" href="css/strategic-pulse.css">
+    <link rel="stylesheet" href="css/theme-shift.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -188,6 +197,28 @@
                 </div>
             </div>
 
+            <!-- Thematic Shift (analytical panel #2) -->
+            <div class="theme-shift-panel" id="theme-shift-panel">
+                <div class="theme-shift-header">
+                    <div class="theme-shift-title-row">
+                        <div class="theme-shift-icon"></div>
+                        <div>
+                            <h2 class="theme-shift-title">Thematic Shift</h2>
+                            <div class="theme-shift-sub">Weekly distribution of primary themes — how the analytical focus evolved over time</div>
+                        </div>
+                    </div>
+                    <div class="theme-shift-controls">
+                        <div class="theme-shift-toggle" id="theme-shift-toggle">
+                            <button class="ts-toggle-btn active" data-mode="share">Share %</button>
+                            <button class="ts-toggle-btn" data-mode="absolute">Absolute</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="theme-shift-chart-container">
+                    <canvas id="chart-theme-evolution"></canvas>
+                </div>
+            </div>
+
             <!-- Corpus summary strip -->
             <div class="ov-summary-strip" id="ov-summary-strip"></div>
 
@@ -261,20 +292,6 @@
                 </div>
             </div>
 
-            <!-- Row 4: Theme evolution over time -->
-            <div class="ov-section">
-                <div class="ov-section-header">
-                    <div class="ov-section-bar"></div>
-                    <div>
-                        <div class="ov-section-title">Thematic Evolution</div>
-                        <div class="ov-section-sub">How primary themes distribute across the collection period</div>
-                    </div>
-                </div>
-                <div class="ov-chart-card ov-chart-wide">
-                    <canvas id="chart-theme-evolution"></canvas>
-                </div>
-            </div>
-
         </div>
 
         <!-- PAGE: Themes -->
@@ -297,6 +314,6 @@
 
     </main>
 
-    <script src="app.js?v=3"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

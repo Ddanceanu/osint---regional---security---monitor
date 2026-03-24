@@ -11,6 +11,7 @@ from app.processing.quality_checks import collect_quality_warnings, build_qualit
 from app.processing.theme_classifier import classify_document
 from app.processing.entity_extractor import enrich_document_with_entities
 from app.processing.trending import compute_trending
+from app.processing.theme_shift import compute_theme_shift
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -101,6 +102,16 @@ def main() -> None:
     print(f"Trending data saved to: {trending_output_path}")
     print(f"  Period: {trending_data['period_start']} -> {trending_data['period_end']}")
     print(f"  Documents in period: {trending_data['total_documents_in_period']}")
+
+    theme_shift_data = compute_theme_shift(document_with_entities)
+
+    theme_shift_output_path = project_root / "docs" / "data" / "theme_shift.json"
+    with open(theme_shift_output_path, "w", encoding="utf-8") as theme_shift_file:
+        json.dump(theme_shift_data, theme_shift_file, ensure_ascii=False, indent=4)
+
+    print(f"Theme shift data saved to: {theme_shift_output_path}")
+    print(f"  Weeks covered: {len(theme_shift_data['weeks'])}")
+    print(f"  Themes tracked: {len(theme_shift_data['themes'])}")
 
 
 if __name__ == "__main__":

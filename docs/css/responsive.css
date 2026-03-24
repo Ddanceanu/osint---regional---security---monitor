@@ -1,0 +1,19 @@
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .explorer-body { grid-template-columns: 1fr; }
+    .filter-sidebar { position: static; max-height: none; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .ov-grid-2 { grid-template-columns: 1fr; }
+    .trending-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+    .trending-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .navbar-title { display: none; }
+    .main-content { padding: 1rem; }
+}

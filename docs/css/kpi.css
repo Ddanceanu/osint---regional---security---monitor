@@ -1,0 +1,59 @@
+/* ════════════════════════════════════════
+   KPI CARDS
+════════════════════════════════════════ */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.kpi-card {
+    position: relative;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .55rem 1rem .5rem;
+    overflow: hidden;
+}
+
+.kpi-glow {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    filter: blur(28px);
+    pointer-events: none;
+    opacity: .55;
+}
+
+.kpi-abbr {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: .55rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-bottom: 6px;
+    opacity: .85;
+}
+
+.kpi-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -.025em;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.kpi-label {
+    font-size: .625rem;
+    color: var(--text-muted);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
