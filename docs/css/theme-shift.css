@@ -98,3 +98,33 @@
     width: 100% !important;
     height: 100% !important;
 }
+
+/* Trends sub-chart */
+.theme-shift-trends-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.theme-shift-trends-label {
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.theme-shift-trends-sub {
+    font-size: .65rem;
+    color: var(--text-muted);
+    letter-spacing: .02em;
+}
+
+.theme-shift-trends-container {
+    height: 240px;
+}
