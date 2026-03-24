@@ -12,6 +12,7 @@ from app.processing.theme_classifier import classify_document
 from app.processing.entity_extractor import enrich_document_with_entities
 from app.processing.trending import compute_trending
 from app.processing.theme_shift import compute_theme_shift
+from app.processing.source_divergence import compute_source_divergence
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -112,6 +113,17 @@ def main() -> None:
     print(f"Theme shift data saved to: {theme_shift_output_path}")
     print(f"  Weeks covered: {len(theme_shift_data['weeks'])}")
     print(f"  Themes tracked: {len(theme_shift_data['themes'])}")
+
+    divergence_data = compute_source_divergence(document_with_entities)
+
+    divergence_output_path = project_root / "docs" / "data" / "source_divergence.json"
+    with open(divergence_output_path, "w", encoding="utf-8") as divergence_file:
+        json.dump(divergence_data, divergence_file, ensure_ascii=False, indent=4)
+
+    print(f"Source divergence data saved to: {divergence_output_path}")
+    print(f"  Official: {divergence_data['official']['total_documents']} docs from {len(divergence_data['official']['sources'])} sources")
+    print(f"  Think tank: {divergence_data['think_tank']['total_documents']} docs from {len(divergence_data['think_tank']['sources'])} sources")
+    print(f"  Theme gaps computed: {len(divergence_data['divergence']['theme_gaps'])}")
 
 
 if __name__ == "__main__":

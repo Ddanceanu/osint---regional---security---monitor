@@ -1,0 +1,610 @@
+{
+    "official": {
+        "total_documents": 243,
+        "sources": [
+            "EEAS",
+            "EU Council",
+            "MAE Romania",
+            "NATO"
+        ],
+        "theme_distribution": {
+            "eu_regional_security": {
+                "count": 163,
+                "share": 67.1
+            },
+            "support_ukraine": {
+                "count": 21,
+                "share": 8.6
+            },
+            "other_mixed": {
+                "count": 38,
+                "share": 15.6
+            },
+            "romania_republic_of_moldova": {
+                "count": 10,
+                "share": 4.1
+            },
+            "russia_regional_implications": {
+                "count": 9,
+                "share": 3.7
+            },
+            "eastern_flank_nato_deterrence": {
+                "count": 2,
+                "share": 0.8
+            }
+        },
+        "top_entities": {
+            "countries": [
+                {
+                    "name": "Ukraine",
+                    "count": 75,
+                    "share": 30.9
+                },
+                {
+                    "name": "Russia",
+                    "count": 40,
+                    "share": 16.5
+                },
+                {
+                    "name": "Republic of Moldova",
+                    "count": 34,
+                    "share": 14.0
+                },
+                {
+                    "name": "Romania",
+                    "count": 34,
+                    "share": 14.0
+                },
+                {
+                    "name": "France",
+                    "count": 22,
+                    "share": 9.1
+                },
+                {
+                    "name": "Germany",
+                    "count": 20,
+                    "share": 8.2
+                },
+                {
+                    "name": "Montenegro",
+                    "count": 19,
+                    "share": 7.8
+                },
+                {
+                    "name": "Albania",
+                    "count": 18,
+                    "share": 7.4
+                },
+                {
+                    "name": "North Macedonia",
+                    "count": 16,
+                    "share": 6.6
+                },
+                {
+                    "name": "United Kingdom",
+                    "count": 14,
+                    "share": 5.8
+                }
+            ],
+            "organizations": [
+                {
+                    "name": "European Union",
+                    "count": 161,
+                    "share": 66.3
+                },
+                {
+                    "name": "NATO",
+                    "count": 67,
+                    "share": 27.6
+                },
+                {
+                    "name": "European Council",
+                    "count": 30,
+                    "share": 12.3
+                },
+                {
+                    "name": "European Commission",
+                    "count": 28,
+                    "share": 11.5
+                },
+                {
+                    "name": "United Nations",
+                    "count": 26,
+                    "share": 10.7
+                },
+                {
+                    "name": "European Parliament",
+                    "count": 22,
+                    "share": 9.1
+                },
+                {
+                    "name": "EEAS",
+                    "count": 21,
+                    "share": 8.6
+                },
+                {
+                    "name": "Council of the European Union",
+                    "count": 6,
+                    "share": 2.5
+                },
+                {
+                    "name": "OSCE",
+                    "count": 3,
+                    "share": 1.2
+                },
+                {
+                    "name": "Kremlin",
+                    "count": 3,
+                    "share": 1.2
+                }
+            ],
+            "persons": [
+                {
+                    "name": "Mark Rutte",
+                    "count": 43,
+                    "share": 17.7
+                },
+                {
+                    "name": "Oana Toiu",
+                    "count": 21,
+                    "share": 8.6
+                },
+                {
+                    "name": "Kaja Kallas",
+                    "count": 20,
+                    "share": 8.2
+                },
+                {
+                    "name": "Ursula von der Leyen",
+                    "count": 14,
+                    "share": 5.8
+                },
+                {
+                    "name": "Mihai Popsoi",
+                    "count": 7,
+                    "share": 2.9
+                },
+                {
+                    "name": "Volodymyr Zelenskyy",
+                    "count": 6,
+                    "share": 2.5
+                },
+                {
+                    "name": "Vladimir Putin",
+                    "count": 2,
+                    "share": 0.8
+                },
+                {
+                    "name": "Marco Rubio",
+                    "count": 2,
+                    "share": 0.8
+                },
+                {
+                    "name": "Emmanuel Macron",
+                    "count": 2,
+                    "share": 0.8
+                },
+                {
+                    "name": "Yvette Cooper",
+                    "count": 1,
+                    "share": 0.4
+                }
+            ]
+        }
+    },
+    "think_tank": {
+        "total_documents": 142,
+        "sources": [
+            "Chatham House",
+            "ECFR",
+            "ISW"
+        ],
+        "theme_distribution": {
+            "russia_regional_implications": {
+                "count": 79,
+                "share": 55.6
+            },
+            "other_mixed": {
+                "count": 10,
+                "share": 7.0
+            },
+            "support_ukraine": {
+                "count": 6,
+                "share": 4.2
+            },
+            "eastern_flank_nato_deterrence": {
+                "count": 6,
+                "share": 4.2
+            },
+            "eu_regional_security": {
+                "count": 40,
+                "share": 28.2
+            },
+            "romania_republic_of_moldova": {
+                "count": 1,
+                "share": 0.7
+            }
+        },
+        "top_entities": {
+            "countries": [
+                {
+                    "name": "Russia",
+                    "count": 111,
+                    "share": 78.2
+                },
+                {
+                    "name": "Ukraine",
+                    "count": 100,
+                    "share": 70.4
+                },
+                {
+                    "name": "United States",
+                    "count": 86,
+                    "share": 60.6
+                },
+                {
+                    "name": "United Kingdom",
+                    "count": 82,
+                    "share": 57.7
+                },
+                {
+                    "name": "France",
+                    "count": 49,
+                    "share": 34.5
+                },
+                {
+                    "name": "Germany",
+                    "count": 44,
+                    "share": 31.0
+                },
+                {
+                    "name": "Belarus",
+                    "count": 28,
+                    "share": 19.7
+                },
+                {
+                    "name": "Poland",
+                    "count": 28,
+                    "share": 19.7
+                },
+                {
+                    "name": "Canada",
+                    "count": 26,
+                    "share": 18.3
+                },
+                {
+                    "name": "Italy",
+                    "count": 22,
+                    "share": 15.5
+                }
+            ],
+            "organizations": [
+                {
+                    "name": "Kremlin",
+                    "count": 64,
+                    "share": 45.1
+                },
+                {
+                    "name": "NATO",
+                    "count": 61,
+                    "share": 43.0
+                },
+                {
+                    "name": "European Union",
+                    "count": 51,
+                    "share": 35.9
+                },
+                {
+                    "name": "European Council",
+                    "count": 26,
+                    "share": 18.3
+                },
+                {
+                    "name": "European Commission",
+                    "count": 22,
+                    "share": 15.5
+                },
+                {
+                    "name": "United Nations",
+                    "count": 20,
+                    "share": 14.1
+                },
+                {
+                    "name": "European Parliament",
+                    "count": 10,
+                    "share": 7.0
+                },
+                {
+                    "name": "EEAS",
+                    "count": 5,
+                    "share": 3.5
+                },
+                {
+                    "name": "Council of the European Union",
+                    "count": 3,
+                    "share": 2.1
+                },
+                {
+                    "name": "OSCE",
+                    "count": 1,
+                    "share": 0.7
+                }
+            ],
+            "persons": [
+                {
+                    "name": "Donald Trump",
+                    "count": 79,
+                    "share": 55.6
+                },
+                {
+                    "name": "Vladimir Putin",
+                    "count": 52,
+                    "share": 36.6
+                },
+                {
+                    "name": "Volodymyr Zelenskyy",
+                    "count": 41,
+                    "share": 28.9
+                },
+                {
+                    "name": "Emmanuel Macron",
+                    "count": 13,
+                    "share": 9.2
+                },
+                {
+                    "name": "Marco Rubio",
+                    "count": 11,
+                    "share": 7.7
+                },
+                {
+                    "name": "Mark Rutte",
+                    "count": 7,
+                    "share": 4.9
+                },
+                {
+                    "name": "Ursula von der Leyen",
+                    "count": 7,
+                    "share": 4.9
+                },
+                {
+                    "name": "J.D. Vance",
+                    "count": 5,
+                    "share": 3.5
+                },
+                {
+                    "name": "Kaja Kallas",
+                    "count": 3,
+                    "share": 2.1
+                }
+            ]
+        }
+    },
+    "divergence": {
+        "theme_gaps": [
+            {
+                "theme": "russia_regional_implications",
+                "official_share": 3.7,
+                "think_tank_share": 55.6,
+                "gap": 51.9
+            },
+            {
+                "theme": "eu_regional_security",
+                "official_share": 67.1,
+                "think_tank_share": 28.2,
+                "gap": -38.9
+            },
+            {
+                "theme": "other_mixed",
+                "official_share": 15.6,
+                "think_tank_share": 7.0,
+                "gap": -8.6
+            },
+            {
+                "theme": "support_ukraine",
+                "official_share": 8.6,
+                "think_tank_share": 4.2,
+                "gap": -4.4
+            },
+            {
+                "theme": "romania_republic_of_moldova",
+                "official_share": 4.1,
+                "think_tank_share": 0.7,
+                "gap": -3.4
+            },
+            {
+                "theme": "eastern_flank_nato_deterrence",
+                "official_share": 0.8,
+                "think_tank_share": 4.2,
+                "gap": 3.4
+            }
+        ],
+        "entity_gaps": {
+            "countries": [
+                {
+                    "name": "Russia",
+                    "official_share": 16.5,
+                    "think_tank_share": 78.2,
+                    "gap": 61.7
+                },
+                {
+                    "name": "United States",
+                    "official_share": 0.0,
+                    "think_tank_share": 60.6,
+                    "gap": 60.6
+                },
+                {
+                    "name": "United Kingdom",
+                    "official_share": 5.8,
+                    "think_tank_share": 57.7,
+                    "gap": 51.9
+                },
+                {
+                    "name": "Ukraine",
+                    "official_share": 30.9,
+                    "think_tank_share": 70.4,
+                    "gap": 39.5
+                },
+                {
+                    "name": "France",
+                    "official_share": 9.1,
+                    "think_tank_share": 34.5,
+                    "gap": 25.4
+                },
+                {
+                    "name": "Germany",
+                    "official_share": 8.2,
+                    "think_tank_share": 31.0,
+                    "gap": 22.8
+                },
+                {
+                    "name": "Poland",
+                    "official_share": 0.0,
+                    "think_tank_share": 19.7,
+                    "gap": 19.7
+                },
+                {
+                    "name": "Belarus",
+                    "official_share": 0.0,
+                    "think_tank_share": 19.7,
+                    "gap": 19.7
+                },
+                {
+                    "name": "Canada",
+                    "official_share": 0.0,
+                    "think_tank_share": 18.3,
+                    "gap": 18.3
+                },
+                {
+                    "name": "Italy",
+                    "official_share": 0.0,
+                    "think_tank_share": 15.5,
+                    "gap": 15.5
+                }
+            ],
+            "organizations": [
+                {
+                    "name": "Kremlin",
+                    "official_share": 1.2,
+                    "think_tank_share": 45.1,
+                    "gap": 43.9
+                },
+                {
+                    "name": "European Union",
+                    "official_share": 66.3,
+                    "think_tank_share": 35.9,
+                    "gap": -30.4
+                },
+                {
+                    "name": "NATO",
+                    "official_share": 27.6,
+                    "think_tank_share": 43.0,
+                    "gap": 15.4
+                },
+                {
+                    "name": "European Council",
+                    "official_share": 12.3,
+                    "think_tank_share": 18.3,
+                    "gap": 6.0
+                },
+                {
+                    "name": "EEAS",
+                    "official_share": 8.6,
+                    "think_tank_share": 3.5,
+                    "gap": -5.1
+                },
+                {
+                    "name": "European Commission",
+                    "official_share": 11.5,
+                    "think_tank_share": 15.5,
+                    "gap": 4.0
+                },
+                {
+                    "name": "United Nations",
+                    "official_share": 10.7,
+                    "think_tank_share": 14.1,
+                    "gap": 3.4
+                },
+                {
+                    "name": "European Parliament",
+                    "official_share": 9.1,
+                    "think_tank_share": 7.0,
+                    "gap": -2.1
+                },
+                {
+                    "name": "OSCE",
+                    "official_share": 1.2,
+                    "think_tank_share": 0.7,
+                    "gap": -0.5
+                },
+                {
+                    "name": "Council of the European Union",
+                    "official_share": 2.5,
+                    "think_tank_share": 2.1,
+                    "gap": -0.4
+                }
+            ],
+            "persons": [
+                {
+                    "name": "Donald Trump",
+                    "official_share": 0.0,
+                    "think_tank_share": 55.6,
+                    "gap": 55.6
+                },
+                {
+                    "name": "Vladimir Putin",
+                    "official_share": 0.8,
+                    "think_tank_share": 36.6,
+                    "gap": 35.8
+                },
+                {
+                    "name": "Volodymyr Zelenskyy",
+                    "official_share": 2.5,
+                    "think_tank_share": 28.9,
+                    "gap": 26.4
+                },
+                {
+                    "name": "Mark Rutte",
+                    "official_share": 17.7,
+                    "think_tank_share": 4.9,
+                    "gap": -12.8
+                },
+                {
+                    "name": "Oana Toiu",
+                    "official_share": 8.6,
+                    "think_tank_share": 0.0,
+                    "gap": -8.6
+                },
+                {
+                    "name": "Emmanuel Macron",
+                    "official_share": 0.8,
+                    "think_tank_share": 9.2,
+                    "gap": 8.4
+                },
+                {
+                    "name": "Marco Rubio",
+                    "official_share": 0.8,
+                    "think_tank_share": 7.7,
+                    "gap": 6.9
+                },
+                {
+                    "name": "Kaja Kallas",
+                    "official_share": 8.2,
+                    "think_tank_share": 2.1,
+                    "gap": -6.1
+                },
+                {
+                    "name": "J.D. Vance",
+                    "official_share": 0.0,
+                    "think_tank_share": 3.5,
+                    "gap": 3.5
+                },
+                {
+                    "name": "Mihai Popsoi",
+                    "official_share": 2.9,
+                    "think_tank_share": 0.0,
+                    "gap": -2.9
+                }
+            ]
+        }
+    }
+}

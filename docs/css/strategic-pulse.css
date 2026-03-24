@@ -8,6 +8,7 @@
     background: linear-gradient(135deg, var(--bg-secondary) 0%, #0B1522 100%);
     border: 1px solid var(--border);
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .trending-header {
@@ -51,7 +52,7 @@
 
 .trending-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
 }
 

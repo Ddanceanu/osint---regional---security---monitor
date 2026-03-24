@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/overview.css">
     <link rel="stylesheet" href="css/strategic-pulse.css">
     <link rel="stylesheet" href="css/theme-shift.css">
+    <link rel="stylesheet" href="css/source-divergence.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -223,6 +224,52 @@
                 </div>
                 <div class="theme-shift-chart-container theme-shift-trends-container">
                     <canvas id="chart-theme-trends"></canvas>
+                </div>
+            </div>
+
+            <!-- Source Divergence (analytical panel #3) -->
+            <div class="source-divergence-panel" id="source-divergence-panel">
+                <div class="sd-header">
+                    <div class="sd-title-row">
+                        <div class="sd-icon"></div>
+                        <div>
+                            <h2 class="sd-title">Source Divergence</h2>
+                            <div class="sd-sub">Comparing thematic emphasis and entity focus between official institutions and think tanks</div>
+                        </div>
+                    </div>
+                    <div class="sd-badges">
+                        <span class="sd-badge sd-badge-official" id="sd-badge-official">Official · 0 docs</span>
+                        <span class="sd-badge sd-badge-thinktank" id="sd-badge-thinktank">Think Tank · 0 docs</span>
+                    </div>
+                </div>
+
+                <div class="sd-section-header">
+                    <span class="sd-section-label">Theme Comparison</span>
+                    <span class="sd-section-sub">Share of each theme in official vs think tank sources</span>
+                </div>
+                <div class="sd-chart-container">
+                    <canvas id="chart-sd-themes"></canvas>
+                </div>
+                <div class="sd-legend">
+                    <div class="sd-legend-item"><span class="sd-legend-dot official"></span>Official</div>
+                    <div class="sd-legend-item"><span class="sd-legend-dot thinktank"></span>Think Tank</div>
+                </div>
+
+                <div class="sd-entity-header">
+                    <span class="sd-section-label">Entity Comparison</span>
+                    <span class="sd-section-sub">Entity coverage in official vs think tank sources</span>
+                    <div class="sd-entity-tabs" id="sd-entity-tabs">
+                        <button class="sd-entity-tab active" data-category="countries">Countries</button>
+                        <button class="sd-entity-tab" data-category="organizations">Organizations</button>
+                        <button class="sd-entity-tab" data-category="persons">Persons</button>
+                    </div>
+                </div>
+                <div class="sd-entity-chart-container">
+                    <canvas id="chart-sd-entities"></canvas>
+                </div>
+                <div class="sd-legend">
+                    <div class="sd-legend-item"><span class="sd-legend-dot official"></span>Official</div>
+                    <div class="sd-legend-item"><span class="sd-legend-dot thinktank"></span>Think Tank</div>
                 </div>
             </div>
 

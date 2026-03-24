@@ -8,6 +8,7 @@ import { initFilters, applyFilters, renderTable, renderKPIs, renderDatasetStrip,
 import { renderOverview } from './overview.js';
 import { renderTrending } from './strategic-pulse.js';
 import { renderThemeEvolutionChart, initThemeShiftToggle } from './theme-shift.js';
+import { renderSourceDivergence, initDivergenceTabs } from './source-divergence.js';
 
 // ════════════════════════════════════════
 // EXPOSE GLOBALS (needed for onclick handlers in HTML)
@@ -23,6 +24,7 @@ window.resetFilters = resetFilters;
 initNavigation();
 updateTimestamp();
 initThemeShiftToggle();
+initDivergenceTabs();
 
 // ════════════════════════════════════════
 // LOAD DOCUMENTS
@@ -43,6 +45,7 @@ async function loadDocuments() {
         renderOverview(appState.allDocuments);
         renderTrending();
         renderThemeEvolutionChart();
+        renderSourceDivergence();
 
     } catch (error) {
         console.error('Failed to load documents:', error);
