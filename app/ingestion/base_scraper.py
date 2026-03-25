@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
 
 class BaseScraper(ABC):
     """
@@ -15,6 +16,8 @@ class BaseScraper(ABC):
     from a public source, without performing NLP or deeper analysis.
     """
 
+    LOOKBACK_DAYS: int = 90  # set the time for collecting documents (90 days back from now)
+
     def __init__(self, source_name: str, source_type: str) -> None:
         self.source_name = source_name
         self.source_type = source_type
@@ -25,6 +28,7 @@ class BaseScraper(ABC):
                 "Chrome/122.0.0.0 Safari/537.36"
             )
         }
+        self.cutoff_date = datetime.now() - timedelta(days=self.LOOKBACK_DAYS)
 
     def get_soup(self, url: str) -> BeautifulSoup | None:
         """
