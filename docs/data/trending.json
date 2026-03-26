@@ -9,6 +9,7 @@
                 "name": "Volodymyr Zelenskyy",
                 "mentions": 2.8,
                 "percentage": 18.43,
+                "lead": 4.58,
                 "sparkline": [
                     0.0,
                     0.0,
@@ -46,13 +47,14 @@
                     "previous_rate": 13.69
                 },
                 "source_diversity": 4,
-                "momentum_score": 24.8
+                "momentum_score": 4.74
             },
             "runners_up": [
                 {
                     "name": "Mark Rutte",
                     "mentions": 1.8,
                     "percentage": 13.85,
+                    "lead": 2.99,
                     "sparkline": [
                         0.0,
                         0.0,
@@ -90,12 +92,13 @@
                         "previous_rate": 18.48
                     },
                     "source_diversity": 2,
-                    "momentum_score": 10.4
+                    "momentum_score": -4.63
                 },
                 {
                     "name": "Donald Trump",
                     "mentions": 2.0,
                     "percentage": 10.86,
+                    "lead": null,
                     "sparkline": [
                         0.0,
                         20.0,
@@ -133,7 +136,7 @@
                         "previous_rate": 20.25
                     },
                     "source_diversity": 2,
-                    "momentum_score": 5.8
+                    "momentum_score": -9.39
                 }
             ]
         },
@@ -142,6 +145,7 @@
                 "name": "Ukraine",
                 "mentions": 13.6,
                 "percentage": 40.46,
+                "lead": 6.63,
                 "sparkline": [
                     20.0,
                     30.0,
@@ -179,13 +183,14 @@
                     "previous_rate": 40.81
                 },
                 "source_diversity": 5,
-                "momentum_score": 40.1
+                "momentum_score": -0.35
             },
             "runners_up": [
                 {
                     "name": "Russia",
                     "mentions": 9.6,
                     "percentage": 33.83,
+                    "lead": 6.31,
                     "sparkline": [
                         20.0,
                         20.0,
@@ -223,12 +228,13 @@
                         "previous_rate": 37.56
                     },
                     "source_diversity": 4,
-                    "momentum_score": 30.5
+                    "momentum_score": -3.73
                 },
                 {
                     "name": "United Kingdom",
                     "mentions": 5.8,
                     "percentage": 27.52,
+                    "lead": null,
                     "sparkline": [
                         20.0,
                         0.0,
@@ -266,7 +272,7 @@
                         "previous_rate": 21.47
                     },
                     "source_diversity": 5,
-                    "momentum_score": 35.3
+                    "momentum_score": 6.05
                 }
             ]
         },
@@ -275,6 +281,7 @@
                 "name": "European Union",
                 "mentions": 29.8,
                 "percentage": 41.99,
+                "lead": 14.7,
                 "sparkline": [
                     10.0,
                     20.0,
@@ -312,13 +319,14 @@
                     "previous_rate": 41.27
                 },
                 "source_diversity": 5,
-                "momentum_score": 42.7
+                "momentum_score": 0.72
             },
             "runners_up": [
                 {
                     "name": "NATO",
                     "mentions": 3.8,
                     "percentage": 27.29,
+                    "lead": 10.68,
                     "sparkline": [
                         20.0,
                         0.0,
@@ -356,12 +364,13 @@
                         "previous_rate": 32.11
                     },
                     "source_diversity": 4,
-                    "momentum_score": 23.2
+                    "momentum_score": -4.82
                 },
                 {
                     "name": "Kremlin",
                     "mentions": 2.8,
                     "percentage": 16.61,
+                    "lead": null,
                     "sparkline": [
                         20.0,
                         20.0,
@@ -399,7 +408,7 @@
                         "previous_rate": 20.04
                     },
                     "source_diversity": 4,
-                    "momentum_score": 13.8
+                    "momentum_score": -3.43
                 }
             ]
         },
@@ -408,6 +417,7 @@
                 "name": "eu_regional_security",
                 "mentions": 30.2,
                 "percentage": 69.92,
+                "lead": 29.46,
                 "sparkline": [
                     40.0,
                     40.0,
@@ -445,13 +455,14 @@
                     "previous_rate": 73.91
                 },
                 "source_diversity": 5,
-                "momentum_score": 66.1
+                "momentum_score": -3.99
             },
             "runners_up": [
                 {
                     "name": "support_ukraine",
                     "mentions": 2.0,
                     "percentage": 40.46,
+                    "lead": 6.17,
                     "sparkline": [
                         20.0,
                         30.0,
@@ -489,12 +500,13 @@
                         "previous_rate": 40.81
                     },
                     "source_diversity": 5,
-                    "momentum_score": 40.1
+                    "momentum_score": -0.35
                 },
                 {
                     "name": "russia_regional_implications",
                     "mentions": 4.8,
                     "percentage": 34.29,
+                    "lead": null,
                     "sparkline": [
                         20.0,
                         20.0,
@@ -532,7 +544,7 @@
                         "previous_rate": 38.18
                     },
                     "source_diversity": 4,
-                    "momentum_score": 30.8
+                    "momentum_score": -3.89
                 }
             ]
         }
@@ -540,106 +552,96 @@
     "momentum_board": {
         "risers": [
             {
-                "name": "eu_regional_security",
-                "category": "themes",
-                "momentum_score": 66.1,
-                "change_pct": -5.4,
-                "current_rate": 69.92,
-                "previous_rate": 73.91,
-                "source_diversity": 5,
-                "mentions": 30.2
-            },
-            {
-                "name": "European Union",
-                "category": "organizations",
-                "momentum_score": 42.7,
-                "change_pct": 1.7,
-                "current_rate": 41.99,
-                "previous_rate": 41.27,
-                "source_diversity": 5,
-                "mentions": 29.8
-            },
-            {
-                "name": "Ukraine",
+                "name": "Belarus",
                 "category": "countries",
-                "momentum_score": 40.1,
-                "change_pct": -0.9,
-                "current_rate": 40.46,
-                "previous_rate": 40.81,
-                "source_diversity": 5,
-                "mentions": 13.6
-            },
-            {
-                "name": "support_ukraine",
-                "category": "themes",
-                "momentum_score": 40.1,
-                "change_pct": -0.9,
-                "current_rate": 40.46,
-                "previous_rate": 40.81,
-                "source_diversity": 5,
-                "mentions": 2.0
+                "pp_change": 7.59,
+                "change_pct": 150.6,
+                "current_rate": 12.63,
+                "previous_rate": 5.04,
+                "source_diversity": 3
             },
             {
                 "name": "United Kingdom",
                 "category": "countries",
-                "momentum_score": 35.3,
+                "pp_change": 6.05,
                 "change_pct": 28.2,
                 "current_rate": 27.52,
                 "previous_rate": 21.47,
-                "source_diversity": 5,
-                "mentions": 5.8
+                "source_diversity": 5
+            },
+            {
+                "name": "Volodymyr Zelenskyy",
+                "category": "persons",
+                "pp_change": 4.74,
+                "change_pct": 34.6,
+                "current_rate": 18.43,
+                "previous_rate": 13.69,
+                "source_diversity": 3
+            },
+            {
+                "name": "European Council",
+                "category": "organizations",
+                "pp_change": 4.55,
+                "change_pct": 75.0,
+                "current_rate": 10.62,
+                "previous_rate": 6.07,
+                "source_diversity": 2
+            },
+            {
+                "name": "EEAS",
+                "category": "organizations",
+                "pp_change": 3.49,
+                "change_pct": 279.2,
+                "current_rate": 4.74,
+                "previous_rate": 1.25,
+                "source_diversity": 2
             }
         ],
         "fallers": [
             {
-                "name": "Netherlands",
+                "name": "United States",
                 "category": "countries",
-                "momentum_score": 0.9,
-                "change_pct": -68.7,
-                "current_rate": 2.91,
-                "previous_rate": 9.29,
-                "source_diversity": 3,
-                "mentions": 1.0
+                "pp_change": -14.36,
+                "change_pct": -51.3,
+                "current_rate": 13.64,
+                "previous_rate": 28.0,
+                "source_diversity": 4
             },
             {
-                "name": "Belgium",
-                "category": "countries",
-                "momentum_score": 0.7,
-                "change_pct": -61.8,
-                "current_rate": 1.79,
-                "previous_rate": 4.69,
-                "source_diversity": 2,
-                "mentions": 1.2
+                "name": "United Nations",
+                "category": "organizations",
+                "pp_change": -10.07,
+                "change_pct": -53.4,
+                "current_rate": 8.78,
+                "previous_rate": 18.85,
+                "source_diversity": 3
             },
             {
-                "name": "Georgia",
-                "category": "countries",
-                "momentum_score": 0.9,
-                "change_pct": -58.0,
-                "current_rate": 2.15,
-                "previous_rate": 5.12,
-                "source_diversity": 1,
-                "mentions": 2.8
+                "name": "Donald Trump",
+                "category": "persons",
+                "pp_change": -9.39,
+                "change_pct": -46.4,
+                "current_rate": 10.86,
+                "previous_rate": 20.25,
+                "source_diversity": 2
             },
             {
-                "name": "North Macedonia",
-                "category": "countries",
-                "momentum_score": 1.7,
-                "change_pct": -56.8,
-                "current_rate": 3.95,
-                "previous_rate": 9.14,
-                "source_diversity": 2,
-                "mentions": 4.0
+                "name": "romania_republic_of_moldova",
+                "category": "themes",
+                "pp_change": -8.63,
+                "change_pct": -36.0,
+                "current_rate": 15.37,
+                "previous_rate": 24.0,
+                "source_diversity": 4
             },
             {
                 "name": "Germany",
                 "category": "countries",
-                "momentum_score": 2.1,
+                "pp_change": -6.4,
                 "change_pct": -56.7,
                 "current_rate": 4.89,
                 "previous_rate": 11.29,
-                "source_diversity": 3,
-                "mentions": 3.0
+                "source_diversity": 3
             }
         ]
     }

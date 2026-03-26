@@ -283,6 +283,15 @@ def _build_category_result(documents, norm_freq, raw_freq, category, period_days
 
     result = {"top": None, "runners_up": []}
 
+    # Pre-compute leads: difference to the next entity in ranking
+    rates = [rate for _, rate in top_3]
+    leads = []
+    for i in range(len(rates)):
+        if i < len(rates) - 1:
+            leads.append(round(rates[i] - rates[i + 1], 2))
+        else:
+            leads.append(None)  # last in top 3 has no lead
+
     for idx, (entity_or_theme, normalized_rate) in enumerate(top_3):
         sparkline = _build_sparkline(documents, entity_or_theme, category, period_days, active_sources)
 
@@ -290,7 +299,7 @@ def _build_category_result(documents, norm_freq, raw_freq, category, period_days
         trend = _compute_trend(normalized_rate, prev_rate)
 
         source_diversity = _count_source_diversity(documents, entity_or_theme, category)
-        momentum = _compute_momentum_score(trend['current_rate'], trend['change_pct'])
+        momentum = _compute_momentum_score(trend['current_rate'], trend['previous_rate'])
 
         raw_mentions = raw_freq.get(entity_or_theme, 0)
         mentions_per_source = round(raw_mentions / num_sources, 1) if num_sources > 0 else 0
@@ -299,6 +308,7 @@ def _build_category_result(documents, norm_freq, raw_freq, category, period_days
             "name": entity_or_theme,
             "mentions": mentions_per_source,
             "percentage": normalized_rate,
+            "lead": leads[idx],
             "sparkline": sparkline,
             "trend": trend,
             "source_diversity": source_diversity,
@@ -342,20 +352,21 @@ def _build_momentum_board(period_docs, prev_docs, curr_source_groups, prev_sourc
             prev_rate = prev_norm.get(entity, 0.0)
 
             trend = _compute_trend(curr_rate, prev_rate)
-            momentum = _compute_momentum_score(trend['current_rate'], trend['change_pct'])
+            pp_change = _compute_momentum_score(trend['current_rate'], trend['previous_rate'])
             source_div = _count_source_diversity(period_docs, entity, category)
 
-            mentions_per_source = round(raw_mentions / num_sources, 1) if num_sources > 0 else 0
+            # Filter: at least one period must have >= 2% visibility
+            if trend['current_rate'] < 2.0 and trend['previous_rate'] < 2.0:
+                continue
 
             all_entries.append({
                 "name": entity,
                 "category": category,
-                "momentum_score": momentum,
+                "pp_change": pp_change,
                 "change_pct": trend['change_pct'],
                 "current_rate": trend['current_rate'],
                 "previous_rate": trend['previous_rate'],
                 "source_diversity": source_div,
-                "mentions": mentions_per_source
             })
 
     curr_theme_norm = _compute_source_normalized_theme_freq(curr_source_groups)
@@ -375,27 +386,32 @@ def _build_momentum_board(period_docs, prev_docs, curr_source_groups, prev_sourc
         prev_rate = prev_theme_norm.get(theme, 0.0)
 
         trend = _compute_trend(curr_rate, prev_rate)
-        momentum = _compute_momentum_score(trend['current_rate'], trend['change_pct'])
+        pp_change = _compute_momentum_score(trend['current_rate'], trend['previous_rate'])
         source_div = _count_source_diversity(period_docs, theme, "theme")
 
-        mentions_per_source = round(raw_mentions / num_sources, 1) if num_sources > 0 else 0
+        # Filter: at least one period must have >= 2% visibility
+        if trend['current_rate'] < 2.0 and trend['previous_rate'] < 2.0:
+            continue
 
         all_entries.append({
             "name": theme,
             "category": "themes",
-            "momentum_score": momentum,
+            "pp_change": pp_change,
             "change_pct": trend['change_pct'],
             "current_rate": trend['current_rate'],
             "previous_rate": trend['previous_rate'],
             "source_diversity": source_div,
-            "mentions": mentions_per_source
         })
 
-    sorted_by_momentum = sorted(all_entries, key=lambda e: e['momentum_score'], reverse=True)
-    risers = sorted_by_momentum[:5]
+    # Symmetric sorting: both use pp_change (absolute difference in percentage points)
+    # Rising = largest positive pp_change (gained the most ground)
+    # Falling = largest negative pp_change (lost the most ground)
+    risers_pool = [e for e in all_entries if e['pp_change'] > 0]
+    risers_pool.sort(key=lambda e: e['pp_change'], reverse=True)
+    risers = risers_pool[:5]
 
-    fallers_pool = [e for e in all_entries if e['change_pct'] < 0]
-    fallers_pool.sort(key=lambda e: e['change_pct'])
+    fallers_pool = [e for e in all_entries if e['pp_change'] < 0]
+    fallers_pool.sort(key=lambda e: e['pp_change'])
     fallers = fallers_pool[:5]
 
     return {
@@ -445,19 +461,19 @@ def _compute_trend(current_rate, previous_rate):
     }
 
 
-def _compute_momentum_score(current_rate, change_pct):
+def _compute_momentum_score(current_rate, previous_rate):
     """
-    Compute momentul score combining volume (current_rate) with direction (change_pct)
+    Compute momentum as absolute change in percentage points (pp).
 
-    Formula: momentul = current_rate * (1 + change_pct / 100)
+    Formula: momentum = current_rate - previous_rate
 
-    A high momentul means the entity is both frequently mentioned and gaining traction.
-    A low or negative momentul means the entity is losing relevance.
+    Positive = entity is gaining visibility.
+    Negative = entity is losing visibility.
+    This measures how much real ground an entity gained or lost,
+    regardless of its base level.
     """
 
-    momentum = current_rate * (1 + change_pct / 100)
-
-    return round(momentum, 1)
+    return round(current_rate - previous_rate, 2)
 
 
 def _filter_previous_period(documents, period_days=14):

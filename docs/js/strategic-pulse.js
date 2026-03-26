@@ -69,7 +69,7 @@ function renderTrendingCategory(containerId, categoryData, isTheme = false) {
                 </div>
             </div>
             <div class="trending-right">
-                ${buildTrendBadge(top.trend)}
+                ${buildLeadBadge(top.lead)}
                 <canvas class="trending-spark" id="spark-${containerId}-top"></canvas>
             </div>
         </div>
@@ -93,7 +93,7 @@ function renderTrendingCategory(containerId, categoryData, isTheme = false) {
                 </div>
             </div>
             <div class="trending-right-small">
-                ${buildTrendBadge(runner.trend)}
+                ${buildLeadBadge(runner.lead)}
                 <canvas class="trending-runner-spark" id="spark-${containerId}-r${idx}"></canvas>
             </div>
         `;
@@ -126,18 +126,23 @@ function renderMomentumBoard(board) {
             dotsHtml += `<div class="momentum-source-dot ${i < entry.source_diversity ? '' : 'inactive'}"></div>`;
         }
 
-        const prevRate = entry.previous_rate != null ? entry.previous_rate : '?';
-        const currRate = entry.current_rate != null ? entry.current_rate : '?';
+        const prevRate = entry.previous_rate != null ? Number(entry.previous_rate).toFixed(1) : '?';
+        const currRate = entry.current_rate != null ? Number(entry.current_rate).toFixed(1) : '?';
         const rateShift = `${prevRate}% → ${currRate}%`;
-        const momentumDisplay = entry.momentum_score.toFixed(1);
+
+        const ppChange = entry.pp_change != null ? entry.pp_change : 0;
+        const ppSign = ppChange >= 0 ? '+' : '';
+        const ppDisplay = `${ppSign}${ppChange.toFixed(1)}pp`;
 
         return `
             <div class="momentum-item">
                 <span class="momentum-rank">${rank}.</span>
-                <span class="momentum-item-name">${displayName}</span>
-                <span class="momentum-item-category">${catLabel}</span>
-                <span class="momentum-rate-shift" title="Presence rate: previous → current period">${rateShift}</span>
-                <span class="momentum-score-badge ${changeClass}" title="Momentum score (rate × direction)">${momentumDisplay}</span>
+                <div class="momentum-name-group">
+                    <span class="momentum-item-name" title="${displayName}">${displayName}</span>
+                    <span class="momentum-item-category">${catLabel}</span>
+                </div>
+                <span class="momentum-rate-shift" title="Source-normalized visibility: previous 14 days → current 14 days">${rateShift}</span>
+                <span class="momentum-score-badge ${changeClass}" title="Absolute change in percentage points">${ppDisplay}</span>
                 <div class="momentum-sources" title="${entry.source_diversity} of ${maxSources} sources">${dotsHtml}</div>
             </div>
         `;
@@ -147,9 +152,8 @@ function renderMomentumBoard(board) {
         <div class="momentum-col-headers">
             <span class="mch-rank">#</span>
             <span class="mch-name">ENTITY</span>
-            <span class="mch-cat">TYPE</span>
-            <span class="mch-rate">PRESENCE</span>
-            <span class="mch-score">SCORE</span>
+            <span class="mch-rate" title="Source-normalized visibility: previous 14 days → current 14 days">PREV → NOW</span>
+            <span class="mch-score" title="Absolute change in percentage points">CHANGE</span>
             <span class="mch-sources">SOURCES</span>
         </div>
     `;
@@ -203,6 +207,29 @@ function buildTrendBadge(trend) {
         <span class="trend-pct-value">${pctLabel}</span>
         <span class="trend-context">vs prev 14d</span>
     </div>`;
+}
+
+function buildLeadBadge(lead) {
+    if (lead == null) return '';
+
+    const leadDisplay = lead.toFixed(1);
+
+    if (lead >= 5) {
+        return `<div class="lead-badge lead-strong" title="+${leadDisplay}pp ahead of next">
+            <span class="lead-value">+${leadDisplay}pp</span>
+            <span class="lead-context">lead</span>
+        </div>`;
+    } else if (lead >= 1) {
+        return `<div class="lead-badge lead-moderate" title="+${leadDisplay}pp ahead of next">
+            <span class="lead-value">+${leadDisplay}pp</span>
+            <span class="lead-context">lead</span>
+        </div>`;
+    } else {
+        return `<div class="lead-badge lead-tight" title="+${leadDisplay}pp ahead of next">
+            <span class="lead-value">+${leadDisplay}pp</span>
+            <span class="lead-context">lead</span>
+        </div>`;
+    }
 }
 
 function buildAvatar(entityName, displayName, isSmall) {
