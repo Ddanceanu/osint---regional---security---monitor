@@ -1,4 +1,6 @@
 from app.ingestion.base_scraper import BaseScraper
+from datetime import datetime
+
 
 class EcfrScraper(BaseScraper):
     """
@@ -17,27 +19,71 @@ class EcfrScraper(BaseScraper):
         self.base_url = "https://ecfr.eu"
         self.listing_url = f"{self.base_url}/publications/"
 
+
+    def _parse_date(self, date_str: str | None) -> datetime | None:
+        """
+        Parse ECFR date string into datetime.
+        Supports formats like '25 March 2026' and '2026-03-25'.
+        Returns None on failure.
+        """
+        if not date_str:
+            return None
+        for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d", "%d %B %Y", "%B %d, %Y"):
+            try:
+                return datetime.strptime(date_str.strip(), fmt)
+            except ValueError:
+                continue
+        return None
+
+
+    def _fetch_article_content(self, article_url: str) -> str:
+        """
+        Extract the main text content from an individual ECFR article page.
+        """
+        soup = self.get_soup(article_url)
+        if not soup:
+            return ""
+
+        content_div = soup.find("div", class_="text-body")
+        if not content_div:
+            return ""
+
+        paragraphs = content_div.find_all("p")
+        text_blocks = []
+
+        for p in paragraphs:
+            text = p.get_text(" ", strip=True)
+            if text:
+                text_blocks.append(text)
+
+        return "\n\n".join(text_blocks)
+
+
     def fetch_documents(self) -> list[dict]:
         """
-        Fetch publications from multiple pages of the ECFR listing.
+        Collect ECFR publications published within the last LOOKBACK_DAYS.
+        Uses dynamic pagination — stops when documents older than the cutoff are found.
         """
         documents = []
-        total_pages = 3
+        page_num = 1
 
-        for page_num in range(1, total_pages + 1):
-            if page_num == 1:
-                page_url = self.listing_url
-            else:
-                page_url = f"{self.listing_url}page/{page_num}"
+        while page_num <= self.MAX_PAGES:
+            page_url = self.listing_url if page_num == 1 else f"{self.listing_url}page/{page_num}"
+            print(f"[ECFR] Fetching page {page_num}: {page_url}")
 
             soup = self.get_soup(page_url)
-
             if not soup:
-                print(f"Failed to fetch page {page_num}")
-                continue
+                print(f"[ECFR] Failed to fetch page {page_num} — stopping.")
+                break
 
             cards = soup.find_all("article")
 
+            if not cards:
+                print(f"[ECFR] No articles on page {page_num} — stopping.")
+                break
+
+            # Parse listing metadata
+            article_meta = []
             for card in cards:
                 title_tag = card.find("h2", class_="post-title")
                 if not title_tag:
@@ -61,57 +107,43 @@ class EcfrScraper(BaseScraper):
                 publication_date = ""
                 time_tag = card.find("time")
                 if time_tag:
-                    publication = time_tag.get("datetime", "").strip()
+                    publication_date = time_tag.get("datetime", "").strip()
                     if not publication_date:
                         publication_date = time_tag.get_text(strip=True)
 
-                content = self.extract_content(full_url)
+                article_meta.append((full_url, title, publication_date))
 
-                documents.append({
-                    "source_name": "ECFR",
-                    "source_type": "think_tank",
+            print(f"[ECFR] Found {len(article_meta)} articles — fetching sequentially...")
+
+            found_older_doc = False
+            page_docs = []
+
+            for full_url, title, publication_date in article_meta:
+                parsed_date = self._parse_date(publication_date)
+
+                if parsed_date is not None and parsed_date < self.cutoff_date:
+                    found_older_doc = True
+                    continue
+
+                content = self._fetch_article_content(full_url)
+
+                page_docs.append({
+                    "source_name": self.source_name,
+                    "source_type": self.source_type,
                     "title": title,
                     "url": full_url,
                     "publication_date": publication_date,
-                    "content": content
+                    "content": content,
                 })
 
+            documents.extend(page_docs)
+            print(f"[ECFR] Kept {len(page_docs)} document(s) from page {page_num}.")
+
+            if found_older_doc:
+                print(f"[ECFR] Reached cutoff date on page {page_num} — stopping.")
+                break
+
+            page_num += 1
+
+        print(f"[ECFR] Done. Total: {len(documents)} documents.")
         return documents
-
-
-    def extract_content(self, article_url: str) -> str:
-        """
-        Extract the main text content from an individual ECFR article page.
-        """
-        soup = self.get_soup(article_url)
-        if not soup:
-            return ""
-
-        content_div = soup.find("div", class_="text-body")
-        if not content_div:
-            return ""
-
-        paragraphs = content_div.find_all("p")
-        text_blocks = []
-
-        for p in paragraphs:
-            text = p.get_text(" ", strip=True)
-            if text:
-                text_blocks.append(text)
-
-        return "\n\n".join(text_blocks)
-
-if __name__ == "__main__":
-    scraper = EcfrScraper()
-    documents = scraper.fetch_documents()
-    print(f"\nSource: {scraper.source_name}")
-    print(f"Type: {scraper.source_type}")
-    print(f"Documents found: {len(documents)}")
-
-    for i, doc in enumerate(documents[:3]):
-        print(f"\n{'='*60}")
-        print(f"Document {i + 1}")
-        print(f"Title: {doc['title']}")
-        print(f"URL: {doc['url']}")
-        print(f"Publication Date: {doc['publication_date']}")
-        print(f"Content preview: {doc['content'][:200]}")

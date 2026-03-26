@@ -2,7 +2,9 @@ import xml.etree.ElementTree as ET
 
 from bs4 import BeautifulSoup
 import requests
+from datetime import datetime
 from app.ingestion.base_scraper import BaseScraper
+
 
 class ChathamHouseScraper(BaseScraper):
     """
@@ -10,6 +12,10 @@ class ChathamHouseScraper(BaseScraper):
 
     Chatham House publishes expert comments, research papers and analyses
     focused on European security, Russia, Ukraine and Black Sea regional dynamics.
+
+    Unlike other scrapers, this one uses an RSS feed (single request)
+    so there is no pagination or parallel fetching needed —
+    content comes directly from the feed description field.
     """
 
     def __init__(self) -> None:
@@ -20,52 +26,27 @@ class ChathamHouseScraper(BaseScraper):
         self.base_url = "https://www.chathamhouse.org"
         self.feed_url = f"{self.base_url}/path/whatsnew.xml"
 
-    def fetch_documents(self) -> list[dict]:
+
+    def _parse_date(self, date_str: str | None) -> datetime | None:
         """
-        Fetch publications from the Chatham House RSS feed.
+        Parse Chatham House date string into datetime.
+        Supports ISO with timezone (2026-03-23T15:22:14+00:00) and display format (25 March 2026).
+        Returns None on failure.
         """
+        if not date_str:
+            return None
 
-        try:
-            response = requests.get(self.feed_url, headers=self.headers, timeout=10)
-            response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"Failed to fetch RSS feed: {self.feed_url}")
-            print(f"Error: {e}")
-            return []
+        # Handle ISO with timezone: strip timezone suffix for parsing
+        clean = date_str.strip()
+        if "T" in clean:
+            clean = clean.split("T")[0]
 
-        root = ET.fromstring(response.content)
-        channel = root.find("channel")
-
-        if not channel:
-            print("No channel found in RSS feed")
-            return []
-
-        items = channel.findall("item")
-        print(f"Total items in feed: {len(items)}")
-
-        documents = []
-
-        for item in items:
-            title = item.findtext("title", "").strip()
-            url = item.findtext("link", "").strip()
-
-            if not title or not url:
+        for fmt in ("%Y-%m-%d", "%d %B %Y", "%B %d, %Y"):
+            try:
+                return datetime.strptime(clean, fmt)
+            except ValueError:
                 continue
-
-            description_raw = item.findtext("description", "")
-            publication_date = self.extract_date_from_description(description_raw)
-            content = self.extract_text_from_description(description_raw)
-
-            documents.append({
-                "source_name": self.source_name,
-                "source_type": self.source_type,
-                "title": title,
-                "url": url,
-                "publication_date": publication_date,
-                "content": content
-            })
-
-        return documents
+        return None
 
 
     def extract_date_from_description(self, description_raw: str) -> str:
@@ -103,17 +84,56 @@ class ChathamHouseScraper(BaseScraper):
         return "\n\n".join(text_blocks)
 
 
-if __name__ == "__main__":
-    scraper = ChathamHouseScraper()
-    documents = scraper.fetch_documents()
-    print(f"\nSource: {scraper.source_name}")
-    print(f"Type: {scraper.source_type}")
-    print(f"Documents found: {len(documents)}")
+    def fetch_documents(self) -> list[dict]:
+        """
+        Collect Chatham House publications published within the last LOOKBACK_DAYS.
+        Fetches the RSS feed and filters by cutoff date.
+        """
+        print(f"[Chatham House] Fetching RSS feed: {self.feed_url}")
 
-    for i, doc in enumerate(documents[:3]):
-        print(f"\n{'='*60}")
-        print(f"Document {i + 1}")
-        print(f"Title: {doc['title']}")
-        print(f"URL: {doc['url']}")
-        print(f"Publication Date: {doc['publication_date']}")
-        print(f"Content preview: {doc['content'][:200]}")
+        try:
+            response = requests.get(self.feed_url, headers=self.headers, timeout=10)
+            response.raise_for_status()
+        except requests.exceptions.RequestException as e:
+            print(f"[Chatham House] Failed to fetch RSS feed: {e}")
+            return []
+
+        root = ET.fromstring(response.content)
+        channel = root.find("channel")
+
+        if not channel:
+            print("[Chatham House] No channel found in RSS feed — stopping.")
+            return []
+
+        items = channel.findall("item")
+        print(f"[Chatham House] {len(items)} item(s) in feed — filtering by cutoff...")
+
+        documents = []
+
+        for item in items:
+            title = item.findtext("title", "").strip()
+            url = item.findtext("link", "").strip()
+
+            if not title or not url:
+                continue
+
+            description_raw = item.findtext("description", "")
+            publication_date = self.extract_date_from_description(description_raw)
+
+            parsed_date = self._parse_date(publication_date)
+            if parsed_date is not None and parsed_date < self.cutoff_date:
+                continue
+
+            content = self.extract_text_from_description(description_raw)
+
+            documents.append({
+                "source_name": self.source_name,
+                "source_type": self.source_type,
+                "title": title,
+                "url": url,
+                "publication_date": publication_date,
+                "content": content,
+            })
+
+        print(f"[Chatham House] Done. Total: {len(documents)} documents.")
+        return documents

@@ -1,4 +1,5 @@
 from app.ingestion.base_scraper import BaseScraper
+from datetime import datetime
 
 
 class IswScraper(BaseScraper):
@@ -19,6 +20,23 @@ class IswScraper(BaseScraper):
         self.listing_url = f"{self.base_url}/research/"
         self.relevant_tags = {"RUSSIA & UKRAINE", "UKRAINE"}
 
+
+    def _parse_date(self, date_str: str | None) -> datetime | None:
+        """
+        Parse ISW date string into datetime.
+        Supports formats like 'March 25, 2026' and '25 March 2026'.
+        Returns None on failure.
+        """
+        if not date_str:
+            return None
+        for fmt in ("%b %d, %Y", "%B %d, %Y", "%d %B %Y", "%Y-%m-%d"):
+            try:
+                return datetime.strptime(date_str.strip(), fmt)
+            except ValueError:
+                continue
+        return None
+
+
     def is_relevant(self, card) -> bool:
         """
         Return True if the card contains at least one relevant tag.
@@ -35,28 +53,57 @@ class IswScraper(BaseScraper):
 
         return False
 
+
+    def _fetch_article_content(self, article_url: str) -> str:
+        """
+        Extract the main text content from an individual ISW article page.
+        """
+        soup = self.get_soup(article_url)
+        if not soup:
+            return ""
+
+        content_div = soup.find("div", class_="dynamic-entry-content")
+        if not content_div:
+            return ""
+
+        paragraphs = content_div.find_all("p")
+        text_blocks = []
+
+        for p in paragraphs:
+            text = p.get_text(" ", strip=True)
+            if text:
+                text_blocks.append(text)
+
+        return "\n\n".join(text_blocks)
+
+
     def fetch_documents(self) -> list[dict]:
         """
-        Fetch Russia-Ukraine reports from multiple pages of the ISW listing.
+        Collect ISW Russia-Ukraine reports published within the last LOOKBACK_DAYS.
+        Uses dynamic pagination — stops when documents older than the cutoff are found.
         """
         documents = []
-        total_pages = 5
+        page_num = 1
 
-        for page_num in range(1, total_pages + 1):
-            if page_num == 1:
-                page_url = self.listing_url
-            else:
-                page_url = f"{self.listing_url}?_paged={page_num}"
+        while page_num <= self.MAX_PAGES:
+            page_url = self.listing_url if page_num == 1 else f"{self.listing_url}?_paged={page_num}"
+            print(f"[ISW] Fetching page {page_num}: {page_url}")
 
             soup = self.get_soup(page_url)
-
             if not soup:
-                print(f"Failed to fetch page {page_num}")
-                continue
+                print(f"[ISW] Failed to fetch page {page_num} — stopping.")
+                break
 
             cards = soup.find_all("div", class_="research-card-loop-item-3colgrid")
-            print(f"Page {page_num}: {len(cards)} cards found")
 
+            if not cards:
+                print(f"[ISW] No articles on page {page_num} — stopping.")
+                break
+
+            print(f"[ISW] Found {len(cards)} cards — filtering relevant articles...")
+
+            # Parse listing metadata, applying relevance filter
+            article_meta = []
             for card in cards:
                 if not self.is_relevant(card):
                     continue
@@ -85,53 +132,43 @@ class IswScraper(BaseScraper):
                 if date_tag:
                     publication_date = date_tag.get_text(strip=True)
 
-                content = self.extract_content(full_url)
+                article_meta.append((full_url, title, publication_date))
 
-                documents.append({
+            if not article_meta:
+                print(f"[ISW] No relevant articles on page {page_num} — stopping.")
+                break
+
+            print(f"[ISW] {len(article_meta)} relevant article(s) — fetching sequentially...")
+
+            found_older_doc = False
+            page_docs = []
+
+            for full_url, title, publication_date in article_meta:
+                parsed_date = self._parse_date(publication_date)
+
+                if parsed_date is not None and parsed_date < self.cutoff_date:
+                    found_older_doc = True
+                    continue
+
+                content = self._fetch_article_content(full_url)
+
+                page_docs.append({
                     "source_name": self.source_name,
                     "source_type": self.source_type,
                     "title": title,
                     "url": full_url,
                     "publication_date": publication_date,
-                    "content": content
+                    "content": content,
                 })
 
+            documents.extend(page_docs)
+            print(f"[ISW] Kept {len(page_docs)} document(s) from page {page_num}.")
+
+            if found_older_doc:
+                print(f"[ISW] Reached cutoff date on page {page_num} — stopping.")
+                break
+
+            page_num += 1
+
+        print(f"[ISW] Done. Total: {len(documents)} documents.")
         return documents
-
-    def extract_content(self, article_url: str) -> str:
-        """
-        Extract the main text content from an individual ISW article page.
-        """
-        soup = self.get_soup(article_url)
-        if not soup:
-            return ""
-
-        content_div = soup.find("div", class_="dynamic-entry-content")
-        if not content_div:
-            return ""
-
-        paragraphs = content_div.find_all("p")
-        text_blocks = []
-
-        for p in paragraphs:
-            text = p.get_text(" ", strip=True)
-            if text:
-                text_blocks.append(text)
-
-        return "\n\n".join(text_blocks)
-
-
-if __name__ == "__main__":
-    scraper = IswScraper()
-    documents = scraper.fetch_documents()
-    print(f"\nSource: {scraper.source_name}")
-    print(f"Type: {scraper.source_type}")
-    print(f"Documents found: {len(documents)}")
-
-    for i, doc in enumerate(documents[:3]):
-        print(f"\n{'='*60}")
-        print(f"Document {i + 1}")
-        print(f"Title: {doc['title']}")
-        print(f"URL: {doc['url']}")
-        print(f"Publication Date: {doc['publication_date']}")
-        print(f"Content preview: {doc['content'][:200]}")
