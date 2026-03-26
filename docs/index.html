@@ -235,42 +235,38 @@
                         <div>
                             <h2 class="sd-title">Source Divergence</h2>
                             <div class="sd-sub">Comparing thematic emphasis and entity focus between official institutions and think tanks</div>
+                            <div class="sd-period" id="sd-period"></div>
                         </div>
                     </div>
-                    <div class="sd-badges">
-                        <span class="sd-badge sd-badge-official" id="sd-badge-official">Official · 0 docs</span>
-                        <span class="sd-badge sd-badge-thinktank" id="sd-badge-thinktank">Think Tank · 0 docs</span>
+                </div>
+
+                <!-- Split header: Official vs Think Tank -->
+                <div class="sd-split-header">
+                    <div class="sd-split-left">
+                        <span class="sd-split-label official">Official</span>
+                        <span class="sd-split-meta" id="sd-meta-official"></span>
+                    </div>
+                    <div class="sd-split-center-label">GAP</div>
+                    <div class="sd-split-right">
+                        <span class="sd-split-label thinktank">Think Tank</span>
+                        <span class="sd-split-meta" id="sd-meta-thinktank"></span>
                     </div>
                 </div>
 
-                <div class="sd-section-header">
-                    <span class="sd-section-label">Theme Comparison</span>
-                    <span class="sd-section-sub">Share of each theme in official vs think tank sources</span>
-                </div>
-                <div class="sd-chart-container">
-                    <canvas id="chart-sd-themes"></canvas>
-                </div>
-                <div class="sd-legend">
-                    <div class="sd-legend-item"><span class="sd-legend-dot official"></span>Official</div>
-                    <div class="sd-legend-item"><span class="sd-legend-dot thinktank"></span>Think Tank</div>
-                </div>
+                <!-- Theme butterfly chart -->
+                <div class="sd-section-tag">THEMATIC FOCUS</div>
+                <div class="sd-butterfly" id="sd-butterfly-themes"></div>
 
+                <!-- Entity butterfly chart -->
                 <div class="sd-entity-header">
-                    <span class="sd-section-label">Entity Comparison</span>
-                    <span class="sd-section-sub">Entity coverage in official vs think tank sources</span>
+                    <div class="sd-section-tag">ENTITY FOCUS</div>
                     <div class="sd-entity-tabs" id="sd-entity-tabs">
                         <button class="sd-entity-tab active" data-category="countries">Countries</button>
                         <button class="sd-entity-tab" data-category="organizations">Organizations</button>
                         <button class="sd-entity-tab" data-category="persons">Persons</button>
                     </div>
                 </div>
-                <div class="sd-entity-chart-container">
-                    <canvas id="chart-sd-entities"></canvas>
-                </div>
-                <div class="sd-legend">
-                    <div class="sd-legend-item"><span class="sd-legend-dot official"></span>Official</div>
-                    <div class="sd-legend-item"><span class="sd-legend-dot thinktank"></span>Think Tank</div>
-                </div>
+                <div class="sd-butterfly" id="sd-butterfly-entities"></div>
             </div>
 
             <!-- Corpus summary strip -->

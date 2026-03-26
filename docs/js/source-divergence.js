@@ -1,26 +1,11 @@
 // ════════════════════════════════════════
 // SOURCE DIVERGENCE
-// Official vs Think Tank comparison charts
+// Split Intelligence View — butterfly charts
 // ════════════════════════════════════════
 
 import { THEME_LABELS } from './constants.js';
-import { chartInstances } from './state.js';
 
-const SD_COLORS = {
-    official:  '#4A9E78',
-    thinkTank: '#B56060',
-};
-
-const FONT = "'IBM Plex Mono', monospace";
-const TOOLTIP_BASE = {
-    backgroundColor: 'rgba(8,17,30,0.95)',
-    borderColor: 'rgba(59,123,255,0.2)',
-    borderWidth: 1,
-    titleFont: { family: FONT, size: 10.5, weight: '600' },
-    bodyFont: { family: FONT, size: 10 },
-    padding: 10,
-};
-
+console.log('[SD] Source divergence module v2 loaded');
 let cachedData = null;
 let activeEntityTab = 'countries';
 
@@ -43,82 +28,57 @@ async function loadDivergenceData() {
 }
 
 // ════════════════════════════════════════
-// SHARED: build a paired horizontal bar chart
-// (official green + think tank red, side by side)
+// BUTTERFLY ROW BUILDER
 // ════════════════════════════════════════
 
-function buildPairedBarChart(ctx, labels, officialValues, thinkTankValues, tooltipCb) {
-    return new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels,
-            datasets: [
-                {
-                    label: 'Official',
-                    data: officialValues,
-                    backgroundColor: SD_COLORS.official,
-                    borderColor: 'rgba(6,12,22,0.4)',
-                    borderWidth: 0.5,
-                    borderRadius: 2,
-                    barPercentage: 0.7,
-                    categoryPercentage: 0.75,
-                },
-                {
-                    label: 'Think Tank',
-                    data: thinkTankValues,
-                    backgroundColor: SD_COLORS.thinkTank,
-                    borderColor: 'rgba(6,12,22,0.4)',
-                    borderWidth: 0.5,
-                    borderRadius: 2,
-                    barPercentage: 0.7,
-                    categoryPercentage: 0.75,
-                },
-            ],
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'nearest', axis: 'y', intersect: false },
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    ...TOOLTIP_BASE,
-                    callbacks: tooltipCb,
-                },
-            },
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    ticks: {
-                        font: { family: FONT, size: 9 },
-                        color: '#3E5570',
-                        callback: v => v + '%',
-                    },
-                    grid: { color: 'rgba(24,42,66,.2)', lineWidth: 0.5 },
-                    border: { display: false },
-                },
-                y: {
-                    ticks: {
-                        font: { family: FONT, size: 9 },
-                        color: '#7A9DC0',
-                    },
-                    grid: { display: false },
-                    border: { color: 'rgba(24,42,66,.4)' },
-                },
-            },
-        },
-    });
+function buildButterflyRow(name, offShare, ttShare, maxShare) {
+    const offWidth = maxShare > 0 ? (offShare / maxShare) * 100 : 0;
+    const ttWidth = maxShare > 0 ? (ttShare / maxShare) * 100 : 0;
+
+    const gap = +(ttShare - offShare).toFixed(1);
+    const absGap = Math.abs(gap);
+    let gapClass, gapText;
+
+    if (absGap < 1) {
+        gapClass = 'gap-neutral';
+        gapText = '≈';
+    } else if (gap > 0) {
+        gapClass = 'gap-thinktank';
+        gapText = `+${absGap}`;
+    } else {
+        gapClass = 'gap-official';
+        gapText = `+${absGap}`;
+    }
+
+    return `
+        <div class="sd-butterfly-row">
+            <div class="sd-butterfly-left">
+                <span class="sd-bar-label">${offShare > 0 ? offShare + '%' : ''}</span>
+                <div class="sd-bar-track">
+                    <div class="sd-bar-fill" style="width: ${offWidth}%"></div>
+                </div>
+            </div>
+            <div class="sd-butterfly-center">
+                <span class="sd-butterfly-name">${name}</span>
+                <span class="sd-gap-badge ${gapClass}">${gapText}</span>
+            </div>
+            <div class="sd-butterfly-right">
+                <div class="sd-bar-track">
+                    <div class="sd-bar-fill" style="width: ${ttWidth}%"></div>
+                </div>
+                <span class="sd-bar-label">${ttShare > 0 ? ttShare + '%' : ''}</span>
+            </div>
+        </div>
+    `;
 }
 
 // ════════════════════════════════════════
-// THEME COMPARISON
+// THEME BUTTERFLY
 // ════════════════════════════════════════
 
-function renderThemeComparison(data) {
-    const ctx = document.getElementById('chart-sd-themes');
-    if (!ctx) return;
-    if (chartInstances.sdThemes) chartInstances.sdThemes.destroy();
+function renderThemeButterfly(data) {
+    const container = document.getElementById('sd-butterfly-themes');
+    if (!container) return;
 
     const gaps = data.divergence.theme_gaps;
 
@@ -129,38 +89,22 @@ function renderThemeComparison(data) {
         return maxB - maxA;
     });
 
-    const labels = sorted.map(g => THEME_LABELS[g.theme] || g.theme);
-    const officialData = sorted.map(g => g.official_share);
-    const thinkTankData = sorted.map(g => g.think_tank_share);
+    const maxShare = Math.max(...sorted.map(g => Math.max(g.official_share, g.think_tank_share)), 1);
 
-    chartInstances.sdThemes = buildPairedBarChart(ctx, labels, officialData, thinkTankData, {
-        title: items => {
-            if (!items.length) return '';
-            return labels[items[0].dataIndex];
-        },
-        afterTitle: items => {
-            if (!items.length) return '';
-            const g = sorted[items[0].dataIndex];
-            const sign = g.gap > 0 ? '+' : '';
-            return `Gap: ${sign}${g.gap}pp`;
-        },
-        label: item => {
-            const val = item.parsed.x;
-            return ` ${item.dataset.label}:  ${val}%`;
-        },
-    });
+    container.innerHTML = sorted.map(g => {
+        const displayName = THEME_LABELS[g.theme] || g.theme;
+        return buildButterflyRow(displayName, g.official_share, g.think_tank_share, maxShare);
+    }).join('');
 }
 
 // ════════════════════════════════════════
-// ENTITY COMPARISON — same paired bar approach
+// ENTITY BUTTERFLY
 // ════════════════════════════════════════
 
-function renderEntityComparison(data, category) {
-    const ctx = document.getElementById('chart-sd-entities');
-    if (!ctx) return;
-    if (chartInstances.sdEntities) chartInstances.sdEntities.destroy();
+function renderEntityButterfly(data, category) {
+    const container = document.getElementById('sd-butterfly-entities');
+    if (!container) return;
 
-    // Get top entities from both groups, merged by name
     const offEntities = data.official.top_entities[category] || [];
     const ttEntities = data.think_tank.top_entities[category] || [];
 
@@ -181,39 +125,35 @@ function renderEntityComparison(data, category) {
     merged.sort((a, b) => b.combined - a.combined);
     const top = merged.slice(0, MAX_ENTITIES);
 
-    const labels = top.map(e => e.name);
-    const officialData = top.map(e => e.official);
-    const thinkTankData = top.map(e => e.thinkTank);
+    const maxShare = Math.max(...top.map(e => Math.max(e.official, e.thinkTank)), 1);
 
-    chartInstances.sdEntities = buildPairedBarChart(ctx, labels, officialData, thinkTankData, {
-        title: items => {
-            if (!items.length) return '';
-            return top[items[0].dataIndex].name;
-        },
-        afterTitle: items => {
-            if (!items.length) return '';
-            const e = top[items[0].dataIndex];
-            const gap = +(e.thinkTank - e.official).toFixed(1);
-            const sign = gap > 0 ? '+' : '';
-            const dir = gap > 0 ? 'Think Tank emphasis' : gap < 0 ? 'Official emphasis' : 'Equal';
-            return `Gap: ${sign}${gap}pp · ${dir}`;
-        },
-        label: item => {
-            const val = item.parsed.x;
-            return ` ${item.dataset.label}:  ${val}%`;
-        },
-    });
+    container.innerHTML = top.map(e =>
+        buildButterflyRow(e.name, e.official, e.thinkTank, maxShare)
+    ).join('');
 }
 
 // ════════════════════════════════════════
-// BADGES
+// UPDATE HEADER INFO
 // ════════════════════════════════════════
 
-function updateBadges(data) {
-    const offBadge = document.getElementById('sd-badge-official');
-    const ttBadge = document.getElementById('sd-badge-thinktank');
-    if (offBadge) offBadge.textContent = `Official · ${data.official.total_documents} docs`;
-    if (ttBadge) ttBadge.textContent = `Think Tank · ${data.think_tank.total_documents} docs`;
+function updateHeader(data) {
+    // Period
+    const periodEl = document.getElementById('sd-period');
+    if (periodEl && data.period_start && data.period_end) {
+        periodEl.textContent = `Analysis period: ${data.period_start} → ${data.period_end}  ·  ${data.total_documents} documents`;
+    }
+
+    // Official meta
+    const offMeta = document.getElementById('sd-meta-official');
+    if (offMeta) {
+        offMeta.textContent = `${data.official.num_sources} sources · ${data.official.total_documents} docs`;
+    }
+
+    // Think tank meta
+    const ttMeta = document.getElementById('sd-meta-thinktank');
+    if (ttMeta) {
+        ttMeta.textContent = `${data.think_tank.num_sources} sources · ${data.think_tank.total_documents} docs`;
+    }
 }
 
 // ════════════════════════════════════════
@@ -229,7 +169,7 @@ export function initDivergenceTabs() {
             btn.classList.add('active');
             activeEntityTab = btn.dataset.category;
             const data = await loadDivergenceData();
-            if (data) renderEntityComparison(data, activeEntityTab);
+            if (data) renderEntityButterfly(data, activeEntityTab);
         });
     });
 }
@@ -239,10 +179,13 @@ export function initDivergenceTabs() {
 // ════════════════════════════════════════
 
 export async function renderSourceDivergence() {
+    console.log('[SD] renderSourceDivergence called');
     const data = await loadDivergenceData();
-    if (!data) return;
+    if (!data) { console.log('[SD] no data'); return; }
+    console.log('[SD] data loaded, themes:', data.divergence?.theme_gaps?.length);
 
-    updateBadges(data);
-    renderThemeComparison(data);
-    renderEntityComparison(data, activeEntityTab);
+    updateHeader(data);
+    renderThemeButterfly(data);
+    renderEntityButterfly(data, activeEntityTab);
+    console.log('[SD] render complete');
 }
