@@ -120,13 +120,15 @@ export async function renderThemeEvolutionChart() {
                         label: item => {
                             const w = weeks[item.dataIndex];
                             const tk = themes[item.datasetIndex];
-                            const count = w.counts[tk];
-                            const share = w.shares[tk];
-                            return ` ${item.dataset.label}:  ${count} docs  (${share}%)`;
+                            if (isShare) {
+                                return ` ${item.dataset.label}:  ${w.shares[tk]}%`;
+                            }
+                            return ` ${item.dataset.label}:  ${w.counts[tk]} docs`;
                         },
                         afterBody: items => {
                             if (!items.length) return '';
-                            return `\n  Total: ${weeks[items[0].dataIndex].total} documents`;
+                            const w = weeks[items[0].dataIndex];
+                            return `\n  ${w.num_sources} sources · ${w.total} total docs`;
                         }
                     }
                 }
@@ -214,11 +216,16 @@ function renderThemeTrendsChart(weeks, themes) {
                         label: item => {
                             const w = weeks[item.dataIndex];
                             const tk = themes[item.datasetIndex];
-                            const count = w.counts[tk];
-                            const share = w.shares[tk];
-                            const suffix = isShare ? '%' : ' docs';
-                            return ` ${item.dataset.label}:  ${item.parsed.y}${suffix}  (${count} docs, ${share}%)`;
+                            if (isShare) {
+                                return ` ${item.dataset.label}:  ${w.shares[tk]}%`;
+                            }
+                            return ` ${item.dataset.label}:  ${w.counts[tk]} docs`;
                         },
+                        afterBody: items => {
+                            if (!items.length) return '';
+                            const w = weeks[items[0].dataIndex];
+                            return `\n  ${w.num_sources} sources · ${w.total} total docs`;
+                        }
                     }
                 }
             },
