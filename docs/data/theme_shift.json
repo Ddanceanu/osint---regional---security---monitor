@@ -10,13 +10,13 @@
     "weeks": [
         {
             "week": "2025-W52",
-            "total": 3,
+            "total": 2,
             "counts": {
                 "eastern_flank_nato_deterrence": 0,
                 "eu_regional_security": 0,
                 "other_mixed": 0,
                 "romania_republic_of_moldova": 0,
-                "russia_regional_implications": 3,
+                "russia_regional_implications": 2,
                 "support_ukraine": 0
             },
             "shares": {
@@ -210,42 +210,42 @@
         },
         {
             "week": "2026-W10",
-            "total": 53,
+            "total": 49,
             "counts": {
-                "eastern_flank_nato_deterrence": 3,
-                "eu_regional_security": 27,
-                "other_mixed": 9,
+                "eastern_flank_nato_deterrence": 2,
+                "eu_regional_security": 25,
+                "other_mixed": 8,
                 "romania_republic_of_moldova": 0,
                 "russia_regional_implications": 13,
                 "support_ukraine": 1
             },
             "shares": {
-                "eastern_flank_nato_deterrence": 5.7,
-                "eu_regional_security": 50.9,
-                "other_mixed": 17.0,
+                "eastern_flank_nato_deterrence": 4.1,
+                "eu_regional_security": 51.0,
+                "other_mixed": 16.3,
                 "romania_republic_of_moldova": 0.0,
-                "russia_regional_implications": 24.5,
-                "support_ukraine": 1.9
+                "russia_regional_implications": 26.5,
+                "support_ukraine": 2.0
             }
         },
         {
             "week": "2026-W11",
-            "total": 102,
+            "total": 88,
             "counts": {
                 "eastern_flank_nato_deterrence": 1,
-                "eu_regional_security": 74,
-                "other_mixed": 11,
+                "eu_regional_security": 65,
+                "other_mixed": 6,
                 "romania_republic_of_moldova": 2,
                 "russia_regional_implications": 12,
                 "support_ukraine": 2
             },
             "shares": {
-                "eastern_flank_nato_deterrence": 1.0,
-                "eu_regional_security": 72.5,
-                "other_mixed": 10.8,
-                "romania_republic_of_moldova": 2.0,
-                "russia_regional_implications": 11.8,
-                "support_ukraine": 2.0
+                "eastern_flank_nato_deterrence": 1.1,
+                "eu_regional_security": 73.9,
+                "other_mixed": 6.8,
+                "romania_republic_of_moldova": 2.3,
+                "russia_regional_implications": 13.6,
+                "support_ukraine": 2.3
             }
         },
         {
@@ -270,22 +270,22 @@
         },
         {
             "week": "2026-W13",
-            "total": 44,
+            "total": 68,
             "counts": {
                 "eastern_flank_nato_deterrence": 0,
-                "eu_regional_security": 31,
-                "other_mixed": 7,
-                "romania_republic_of_moldova": 1,
-                "russia_regional_implications": 3,
-                "support_ukraine": 2
+                "eu_regional_security": 51,
+                "other_mixed": 8,
+                "romania_republic_of_moldova": 2,
+                "russia_regional_implications": 4,
+                "support_ukraine": 3
             },
             "shares": {
                 "eastern_flank_nato_deterrence": 0.0,
-                "eu_regional_security": 70.5,
-                "other_mixed": 15.9,
-                "romania_republic_of_moldova": 2.3,
-                "russia_regional_implications": 6.8,
-                "support_ukraine": 4.5
+                "eu_regional_security": 75.0,
+                "other_mixed": 11.8,
+                "romania_republic_of_moldova": 2.9,
+                "russia_regional_implications": 5.9,
+                "support_ukraine": 4.4
             }
         }
     ]

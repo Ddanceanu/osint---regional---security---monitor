@@ -87,7 +87,7 @@ def main() -> None:
     print(f"Processed documents saved to: {output_path}")
     print(f"Total raw documents loaded: {len(all_documents)}")
     print(f"Total final documents saved: {len(document_with_entities)}")
-    print(document_with_entities[:5])
+    # print(document_with_entities[:5])  # disabled due to encoding issues
 
     # salvare in documentul final de unde se incarca tabelul html
     with open(docs_output_path, "w", encoding="utf-8") as output_file:

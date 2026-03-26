@@ -65,8 +65,7 @@ function renderTrendingCategory(containerId, categoryData, isTheme = false) {
             <div class="trending-top-info">
                 <div class="trending-top-name">${topDisplayName}</div>
                 <div class="trending-top-stats">
-                    <span class="trending-mentions">${top.mentions} mentions</span>
-                    <span class="trending-pct">[${top.percentage}% of docs]</span>
+                    <span class="trending-pct">${top.percentage}% visibility</span>
                 </div>
             </div>
             <div class="trending-right">
@@ -90,8 +89,7 @@ function renderTrendingCategory(containerId, categoryData, isTheme = false) {
             <div class="trending-runner-info">
                 <div class="trending-runner-name">${runnerDisplayName}</div>
                 <div class="trending-runner-stats">
-                    <span class="trending-runner-mentions">${runner.mentions} mentions</span>
-                    <span class="trending-runner-pct">[${runner.percentage}%]</span>
+                    <span class="trending-runner-pct">${runner.percentage}% visibility</span>
                 </div>
             </div>
             <div class="trending-right-small">
@@ -377,7 +375,7 @@ function drawTrendingChart(canvasId, categoryData, periodDays, periodStart, isTh
                     titleFont: { size: 10 },
                     bodyFont: { size: 10 },
                     callbacks: {
-                        label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y} mentions`
+                        label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y}%`
                     }
                 }
             },
@@ -396,8 +394,7 @@ function drawTrendingChart(canvasId, categoryData, periodDays, periodStart, isTh
                     ticks: {
                         color: '#5a6577',
                         font: { size: 8, family: "'JetBrains Mono', monospace" },
-                        stepSize: 1,
-                        precision: 0
+                        callback: value => value + '%'
                     },
                     grid: { color: 'rgba(30, 58, 95, 0.3)', drawBorder: false }
                 }
