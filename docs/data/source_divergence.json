@@ -12,29 +12,33 @@
             "NATO"
         ],
         "theme_distribution": {
-            "russia_regional_implications": {
-                "count": 12,
-                "share": 1.7
+            "support_ukraine": {
+                "count": 76,
+                "share": 14.2
             },
             "eastern_flank_nato_deterrence": {
-                "count": 1,
-                "share": 0.6
+                "count": 2,
+                "share": 0.3
             },
             "other_mixed": {
-                "count": 32,
-                "share": 16.7
+                "count": 197,
+                "share": 68.6
             },
-            "eu_regional_security": {
-                "count": 320,
-                "share": 74.1
+            "black_sea_regional_security": {
+                "count": 4,
+                "share": 0.6
             },
-            "support_ukraine": {
-                "count": 21,
-                "share": 5.9
+            "russia_regional_implications": {
+                "count": 28,
+                "share": 3.9
             },
             "romania_republic_of_moldova": {
-                "count": 3,
-                "share": 0.9
+                "count": 15,
+                "share": 2.8
+            },
+            "eu_regional_security": {
+                "count": 67,
+                "share": 9.6
             }
         },
         "top_entities": {
@@ -85,26 +89,6 @@
                     "share": 10.2
                 },
                 {
-                    "name": "Ireland",
-                    "count": 9,
-                    "share": 9.5
-                },
-                {
-                    "name": "Venezuela",
-                    "count": 6,
-                    "share": 9.1
-                },
-                {
-                    "name": "Moldova",
-                    "count": 57,
-                    "share": 8.7
-                },
-                {
-                    "name": "Cyprus",
-                    "count": 57,
-                    "share": 7.8
-                },
-                {
                     "name": "Montenegro",
                     "count": 54,
                     "share": 7.7
@@ -125,16 +109,6 @@
                     "share": 7.0
                 },
                 {
-                    "name": "Iceland",
-                    "count": 42,
-                    "share": 6.4
-                },
-                {
-                    "name": "Bosnia and Herzegovina",
-                    "count": 41,
-                    "share": 6.3
-                },
-                {
                     "name": "France",
                     "count": 33,
                     "share": 5.7
@@ -148,11 +122,6 @@
                     "name": "Serbia",
                     "count": 38,
                     "share": 5.4
-                },
-                {
-                    "name": "Liechtenstein",
-                    "count": 36,
-                    "share": 5.1
                 },
                 {
                     "name": "Germany",
@@ -180,16 +149,6 @@
                     "share": 2.9
                 },
                 {
-                    "name": "Lebanon",
-                    "count": 20,
-                    "share": 2.8
-                },
-                {
-                    "name": "Portugal",
-                    "count": 17,
-                    "share": 2.8
-                },
-                {
                     "name": "India",
                     "count": 20,
                     "share": 2.8
@@ -201,8 +160,8 @@
                 },
                 {
                     "name": "China",
-                    "count": 18,
-                    "share": 2.6
+                    "count": 17,
+                    "share": 2.5
                 },
                 {
                     "name": "Spain",
@@ -220,23 +179,8 @@
                     "share": 2.3
                 },
                 {
-                    "name": "Syria",
-                    "count": 14,
-                    "share": 2.0
-                },
-                {
                     "name": "Sweden",
                     "count": 10,
-                    "share": 1.9
-                },
-                {
-                    "name": "Luxembourg",
-                    "count": 10,
-                    "share": 1.9
-                },
-                {
-                    "name": "Palestine",
-                    "count": 13,
                     "share": 1.9
                 },
                 {
@@ -252,21 +196,6 @@
                 {
                     "name": "Azerbaijan",
                     "count": 9,
-                    "share": 1.7
-                },
-                {
-                    "name": "Sudan",
-                    "count": 12,
-                    "share": 1.7
-                },
-                {
-                    "name": "Switzerland",
-                    "count": 8,
-                    "share": 1.7
-                },
-                {
-                    "name": "Jordan",
-                    "count": 12,
                     "share": 1.7
                 },
                 {
@@ -290,24 +219,9 @@
                     "share": 1.5
                 },
                 {
-                    "name": "Australia",
-                    "count": 9,
-                    "share": 1.3
-                },
-                {
                     "name": "Belarus",
                     "count": 9,
                     "share": 1.3
-                },
-                {
-                    "name": "Afghanistan",
-                    "count": 8,
-                    "share": 1.1
-                },
-                {
-                    "name": "Austria",
-                    "count": 8,
-                    "share": 1.1
                 },
                 {
                     "name": "Estonia",
@@ -315,69 +229,9 @@
                     "share": 1.1
                 },
                 {
-                    "name": "Brazil",
-                    "count": 8,
-                    "share": 1.1
-                },
-                {
-                    "name": "Ecuador",
-                    "count": 7,
-                    "share": 1.1
-                },
-                {
                     "name": "Slovakia",
                     "count": 8,
                     "share": 1.1
-                },
-                {
-                    "name": "Nigeria",
-                    "count": 7,
-                    "share": 1.1
-                },
-                {
-                    "name": "Thailand",
-                    "count": 7,
-                    "share": 1.0
-                },
-                {
-                    "name": "Vietnam",
-                    "count": 7,
-                    "share": 1.0
-                },
-                {
-                    "name": "Egypt",
-                    "count": 7,
-                    "share": 1.0
-                },
-                {
-                    "name": "Paraguay",
-                    "count": 7,
-                    "share": 1.0
-                },
-                {
-                    "name": "Mauritania",
-                    "count": 3,
-                    "share": 0.9
-                },
-                {
-                    "name": "Indonesia",
-                    "count": 6,
-                    "share": 0.9
-                },
-                {
-                    "name": "Argentina",
-                    "count": 6,
-                    "share": 0.9
-                },
-                {
-                    "name": "South Africa",
-                    "count": 6,
-                    "share": 0.9
-                },
-                {
-                    "name": "United Arab Emirates",
-                    "count": 6,
-                    "share": 0.8
                 },
                 {
                     "name": "North Korea",
@@ -390,22 +244,7 @@
                     "share": 0.7
                 },
                 {
-                    "name": "Mexico",
-                    "count": 5,
-                    "share": 0.7
-                },
-                {
-                    "name": "Philippines",
-                    "count": 5,
-                    "share": 0.7
-                },
-                {
                     "name": "Slovenia",
-                    "count": 5,
-                    "share": 0.7
-                },
-                {
-                    "name": "Malta",
                     "count": 5,
                     "share": 0.7
                 },
@@ -415,382 +254,12 @@
                     "share": 0.7
                 },
                 {
-                    "name": "Uruguay",
-                    "count": 5,
-                    "share": 0.7
-                },
-                {
-                    "name": "San Marino",
-                    "count": 4,
-                    "share": 0.6
-                },
-                {
-                    "name": "Andorra",
-                    "count": 4,
-                    "share": 0.6
-                },
-                {
-                    "name": "Myanmar",
-                    "count": 4,
-                    "share": 0.6
-                },
-                {
-                    "name": "Mali",
-                    "count": 4,
-                    "share": 0.6
-                },
-                {
-                    "name": "Haiti",
-                    "count": 4,
-                    "share": 0.6
-                },
-                {
-                    "name": "Zimbabwe",
-                    "count": 4,
-                    "share": 0.6
-                },
-                {
-                    "name": "Oman",
-                    "count": 4,
-                    "share": 0.6
-                },
-                {
-                    "name": "Peru",
-                    "count": 3,
-                    "share": 0.5
-                },
-                {
-                    "name": "Uzbekistan",
-                    "count": 3,
-                    "share": 0.5
-                },
-                {
-                    "name": "Kyrgyzstan",
-                    "count": 3,
-                    "share": 0.5
-                },
-                {
-                    "name": "Cambodia",
-                    "count": 3,
-                    "share": 0.4
-                },
-                {
-                    "name": "Democratic Republic of the Congo",
-                    "count": 3,
-                    "share": 0.4
-                },
-                {
-                    "name": "Bangladesh",
-                    "count": 3,
-                    "share": 0.4
-                },
-                {
-                    "name": "Central African Republic",
-                    "count": 3,
-                    "share": 0.4
-                },
-                {
-                    "name": "Colombia",
-                    "count": 3,
-                    "share": 0.4
-                },
-                {
-                    "name": "Guatemala",
-                    "count": 3,
-                    "share": 0.4
-                },
-                {
-                    "name": "Morocco",
-                    "count": 3,
-                    "share": 0.4
-                },
-                {
-                    "name": "Cuba",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Gambia",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Nicaragua",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Monaco",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Turkmenistan",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Malawi",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Kenya",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Ghana",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Chile",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Singapore",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Kuwait",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Pakistan",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "South Sudan",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Angola",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Saudi Arabia",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Malaysia",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Kosovo",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Mozambique",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Vanuatu",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Panama",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Samoa",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Namibia",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Guinea",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Bahrain",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Tunisia",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
-                    "name": "Mongolia",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Sierra Leone",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Burkina Faso",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Togo",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Uganda",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Madagascar",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "El Salvador",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Congo",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Tajikistan",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Liberia",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Taiwan",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Libya",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Burundi",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Chad",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
                     "name": "Kazakhstan",
                     "count": 1,
                     "share": 0.2
                 },
                 {
-                    "name": "Niger",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Ethiopia",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Jamaica",
-                    "count": 1,
-                    "share": 0.2
-                },
-                {
-                    "name": "Senegal",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Bolivia",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
                     "name": "Turkey",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Palau",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Cameroon",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Qatar",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Iraq",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Trinidad and Tobago",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "New Zealand",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Brunei",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Fiji",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Guinea-Bissau",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Rwanda",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Seychelles",
-                    "count": 1,
-                    "share": 0.1
-                },
-                {
-                    "name": "Antigua and Barbuda",
                     "count": 1,
                     "share": 0.1
                 }
@@ -798,8 +267,8 @@
             "organizations": [
                 {
                     "name": "European Union",
-                    "count": 212,
-                    "share": 47.1
+                    "count": 211,
+                    "share": 47.0
                 },
                 {
                     "name": "NATO",
@@ -808,8 +277,8 @@
                 },
                 {
                     "name": "European Commission",
-                    "count": 64,
-                    "share": 17.8
+                    "count": 62,
+                    "share": 17.5
                 },
                 {
                     "name": "United Nations",
@@ -832,6 +301,11 @@
                     "share": 8.5
                 },
                 {
+                    "name": "Ministry of Foreign Affairs of Romania",
+                    "count": 1,
+                    "share": 8.3
+                },
+                {
                     "name": "Government of Romania",
                     "count": 1,
                     "share": 8.3
@@ -842,14 +316,9 @@
                     "share": 8.3
                 },
                 {
-                    "name": "Ministry of Foreign Affairs of Romania",
-                    "count": 1,
-                    "share": 8.3
-                },
-                {
                     "name": "European Parliament",
-                    "count": 50,
-                    "share": 7.9
+                    "count": 48,
+                    "share": 7.6
                 },
                 {
                     "name": "EEAS",
@@ -862,12 +331,12 @@
                     "share": 2.0
                 },
                 {
-                    "name": "North Atlantic Council",
+                    "name": "Atlantic Council",
                     "count": 3,
                     "share": 1.9
                 },
                 {
-                    "name": "Atlantic Council",
+                    "name": "North Atlantic Council",
                     "count": 3,
                     "share": 1.9
                 },
@@ -875,11 +344,6 @@
                     "name": "Council of the European Union",
                     "count": 13,
                     "share": 1.8
-                },
-                {
-                    "name": "SHAPE",
-                    "count": 12,
-                    "share": 1.7
                 },
                 {
                     "name": "Council of Europe",
@@ -922,12 +386,12 @@
                     "share": 0.3
                 },
                 {
-                    "name": "IAEA",
+                    "name": "International Court of Justice",
                     "count": 2,
                     "share": 0.3
                 },
                 {
-                    "name": "International Court of Justice",
+                    "name": "IAEA",
                     "count": 2,
                     "share": 0.3
                 },
@@ -942,12 +406,12 @@
                     "share": 0.1
                 },
                 {
-                    "name": "Armed Forces of Ukraine",
+                    "name": "European Court of Justice",
                     "count": 1,
                     "share": 0.1
                 },
                 {
-                    "name": "European Court of Justice",
+                    "name": "Armed Forces of Ukraine",
                     "count": 1,
                     "share": 0.1
                 }
@@ -974,12 +438,12 @@
                     "share": 8.3
                 },
                 {
-                    "name": "Marco Rubio",
+                    "name": "J.D. Vance",
                     "count": 1,
                     "share": 8.3
                 },
                 {
-                    "name": "J.D. Vance",
+                    "name": "Marco Rubio",
                     "count": 1,
                     "share": 8.3
                 },
@@ -1019,12 +483,12 @@
                     "share": 0.7
                 },
                 {
-                    "name": "Edgars Rinkevics",
+                    "name": "Mihai Popsoi",
                     "count": 1,
                     "share": 0.6
                 },
                 {
-                    "name": "Mihai Popsoi",
+                    "name": "Edgars Rinkevics",
                     "count": 1,
                     "share": 0.6
                 },
@@ -1034,22 +498,22 @@
                     "share": 0.3
                 },
                 {
-                    "name": "Roberta Metsola",
-                    "count": 2,
-                    "share": 0.3
-                },
-                {
                     "name": "Aleksandar Vucic",
                     "count": 2,
                     "share": 0.3
                 },
                 {
-                    "name": "Dmytro Kuleba",
+                    "name": "Roberta Metsola",
+                    "count": 2,
+                    "share": 0.3
+                },
+                {
+                    "name": "Denys Shmyhal",
                     "count": 1,
                     "share": 0.2
                 },
                 {
-                    "name": "Denys Shmyhal",
+                    "name": "Dmytro Kuleba",
                     "count": 1,
                     "share": 0.2
                 },
@@ -1075,29 +539,25 @@
             "ISW"
         ],
         "theme_distribution": {
-            "russia_regional_implications": {
-                "count": 112,
-                "share": 47.7
+            "support_ukraine": {
+                "count": 8,
+                "share": 5.0
             },
             "eastern_flank_nato_deterrence": {
                 "count": 4,
                 "share": 2.7
             },
             "other_mixed": {
-                "count": 12,
-                "share": 8.0
+                "count": 24,
+                "share": 16.0
+            },
+            "russia_regional_implications": {
+                "count": 124,
+                "share": 71.7
             },
             "eu_regional_security": {
-                "count": 26,
-                "share": 36.0
-            },
-            "support_ukraine": {
-                "count": 7,
-                "share": 4.3
-            },
-            "romania_republic_of_moldova": {
-                "count": 2,
-                "share": 1.3
+                "count": 3,
+                "share": 4.7
             }
         },
         "top_entities": {
@@ -1114,18 +574,18 @@
                 },
                 {
                     "name": "United States",
-                    "count": 86,
-                    "share": 63.8
+                    "count": 85,
+                    "share": 63.4
                 },
                 {
                     "name": "United Kingdom",
-                    "count": 92,
-                    "share": 58.3
+                    "count": 87,
+                    "share": 56.7
                 },
                 {
                     "name": "China",
-                    "count": 55,
-                    "share": 55.4
+                    "count": 53,
+                    "share": 54.8
                 },
                 {
                     "name": "Iran",
@@ -1139,13 +599,13 @@
                 },
                 {
                     "name": "France",
-                    "count": 30,
-                    "share": 38.9
+                    "count": 28,
+                    "share": 38.2
                 },
                 {
                     "name": "Israel",
-                    "count": 37,
-                    "share": 30.2
+                    "count": 35,
+                    "share": 29.5
                 },
                 {
                     "name": "Poland",
@@ -1154,8 +614,8 @@
                 },
                 {
                     "name": "Canada",
-                    "count": 15,
-                    "share": 25.3
+                    "count": 14,
+                    "share": 25.0
                 },
                 {
                     "name": "Hungary",
@@ -1168,23 +628,8 @@
                     "share": 23.3
                 },
                 {
-                    "name": "Venezuela",
-                    "count": 24,
-                    "share": 21.9
-                },
-                {
-                    "name": "United Arab Emirates",
-                    "count": 25,
-                    "share": 21.8
-                },
-                {
                     "name": "Spain",
                     "count": 10,
-                    "share": 21.6
-                },
-                {
-                    "name": "Saudi Arabia",
-                    "count": 16,
                     "share": 21.6
                 },
                 {
@@ -1198,34 +643,14 @@
                     "share": 19.3
                 },
                 {
-                    "name": "India",
-                    "count": 13,
-                    "share": 16.9
-                },
-                {
                     "name": "Belarus",
                     "count": 42,
                     "share": 16.6
                 },
                 {
-                    "name": "Taiwan",
-                    "count": 10,
-                    "share": 16.0
-                },
-                {
-                    "name": "Mexico",
-                    "count": 7,
-                    "share": 15.3
-                },
-                {
-                    "name": "Iraq",
+                    "name": "India",
                     "count": 11,
-                    "share": 15.3
-                },
-                {
-                    "name": "Brazil",
-                    "count": 7,
-                    "share": 15.0
+                    "share": 16.3
                 },
                 {
                     "name": "Finland",
@@ -1233,33 +658,13 @@
                     "share": 14.9
                 },
                 {
-                    "name": "Qatar",
-                    "count": 14,
-                    "share": 14.6
-                },
-                {
                     "name": "Sweden",
                     "count": 13,
                     "share": 13.9
                 },
                 {
-                    "name": "Australia",
-                    "count": 9,
-                    "share": 13.7
-                },
-                {
-                    "name": "Indonesia",
-                    "count": 4,
-                    "share": 13.3
-                },
-                {
                     "name": "Netherlands",
                     "count": 10,
-                    "share": 13.3
-                },
-                {
-                    "name": "Switzerland",
-                    "count": 12,
                     "share": 13.3
                 },
                 {
@@ -1283,54 +688,9 @@
                     "share": 11.6
                 },
                 {
-                    "name": "Jordan",
-                    "count": 11,
-                    "share": 11.3
-                },
-                {
                     "name": "Slovakia",
                     "count": 5,
                     "share": 11.0
-                },
-                {
-                    "name": "Syria",
-                    "count": 15,
-                    "share": 11.0
-                },
-                {
-                    "name": "South Africa",
-                    "count": 4,
-                    "share": 10.7
-                },
-                {
-                    "name": "Mali",
-                    "count": 21,
-                    "share": 10.5
-                },
-                {
-                    "name": "Afghanistan",
-                    "count": 8,
-                    "share": 10.3
-                },
-                {
-                    "name": "Panama",
-                    "count": 11,
-                    "share": 10.3
-                },
-                {
-                    "name": "Egypt",
-                    "count": 8,
-                    "share": 9.6
-                },
-                {
-                    "name": "Argentina",
-                    "count": 4,
-                    "share": 8.0
-                },
-                {
-                    "name": "Democratic Republic of the Congo",
-                    "count": 4,
-                    "share": 7.7
                 },
                 {
                     "name": "Czech Republic",
@@ -1338,22 +698,7 @@
                     "share": 7.7
                 },
                 {
-                    "name": "Malaysia",
-                    "count": 3,
-                    "share": 7.3
-                },
-                {
-                    "name": "Zambia",
-                    "count": 3,
-                    "share": 7.3
-                },
-                {
                     "name": "Greece",
-                    "count": 4,
-                    "share": 7.3
-                },
-                {
-                    "name": "Ethiopia",
                     "count": 4,
                     "share": 7.3
                 },
@@ -1363,78 +708,8 @@
                     "share": 7.2
                 },
                 {
-                    "name": "Kenya",
-                    "count": 3,
-                    "share": 7.0
-                },
-                {
-                    "name": "Lebanon",
-                    "count": 8,
-                    "share": 7.0
-                },
-                {
-                    "name": "Yemen",
-                    "count": 6,
-                    "share": 6.7
-                },
-                {
-                    "name": "Thailand",
-                    "count": 2,
-                    "share": 6.7
-                },
-                {
-                    "name": "Angola",
-                    "count": 2,
-                    "share": 6.7
-                },
-                {
-                    "name": "Portugal",
-                    "count": 2,
-                    "share": 6.7
-                },
-                {
-                    "name": "Bahrain",
-                    "count": 8,
-                    "share": 6.6
-                },
-                {
-                    "name": "Kuwait",
-                    "count": 8,
-                    "share": 6.3
-                },
-                {
-                    "name": "Cuba",
-                    "count": 6,
-                    "share": 6.0
-                },
-                {
-                    "name": "Moldova",
-                    "count": 8,
-                    "share": 5.9
-                },
-                {
-                    "name": "Nigeria",
-                    "count": 5,
-                    "share": 5.7
-                },
-                {
-                    "name": "Vietnam",
-                    "count": 6,
-                    "share": 5.6
-                },
-                {
                     "name": "South Korea",
                     "count": 4,
-                    "share": 5.3
-                },
-                {
-                    "name": "Chile",
-                    "count": 4,
-                    "share": 5.3
-                },
-                {
-                    "name": "Morocco",
-                    "count": 5,
                     "share": 5.3
                 },
                 {
@@ -1443,64 +718,9 @@
                     "share": 5.3
                 },
                 {
-                    "name": "Burkina Faso",
-                    "count": 4,
-                    "share": 5.0
-                },
-                {
-                    "name": "Libya",
-                    "count": 4,
-                    "share": 5.0
-                },
-                {
-                    "name": "Philippines",
-                    "count": 3,
-                    "share": 4.7
-                },
-                {
-                    "name": "Austria",
-                    "count": 3,
-                    "share": 4.7
-                },
-                {
                     "name": "Georgia",
                     "count": 3,
                     "share": 4.7
-                },
-                {
-                    "name": "Ghana",
-                    "count": 3,
-                    "share": 4.7
-                },
-                {
-                    "name": "Palestine",
-                    "count": 3,
-                    "share": 4.7
-                },
-                {
-                    "name": "Algeria",
-                    "count": 3,
-                    "share": 4.7
-                },
-                {
-                    "name": "Somalia",
-                    "count": 3,
-                    "share": 4.3
-                },
-                {
-                    "name": "Colombia",
-                    "count": 2,
-                    "share": 4.0
-                },
-                {
-                    "name": "Peru",
-                    "count": 2,
-                    "share": 4.0
-                },
-                {
-                    "name": "Tunisia",
-                    "count": 2,
-                    "share": 4.0
                 },
                 {
                     "name": "Latvia",
@@ -1508,69 +728,9 @@
                     "share": 4.0
                 },
                 {
-                    "name": "Gabon",
-                    "count": 2,
-                    "share": 3.7
-                },
-                {
-                    "name": "Sudan",
-                    "count": 2,
-                    "share": 3.7
-                },
-                {
-                    "name": "New Zealand",
-                    "count": 2,
-                    "share": 3.7
-                },
-                {
-                    "name": "Congo",
-                    "count": 2,
-                    "share": 3.7
-                },
-                {
-                    "name": "Djibouti",
-                    "count": 2,
-                    "share": 3.7
-                },
-                {
                     "name": "Bulgaria",
                     "count": 2,
                     "share": 3.7
-                },
-                {
-                    "name": "Rwanda",
-                    "count": 2,
-                    "share": 3.7
-                },
-                {
-                    "name": "Barbados",
-                    "count": 2,
-                    "share": 3.7
-                },
-                {
-                    "name": "Tanzania",
-                    "count": 2,
-                    "share": 3.7
-                },
-                {
-                    "name": "Eritrea",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Senegal",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Pakistan",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Uzbekistan",
-                    "count": 1,
-                    "share": 3.3
                 },
                 {
                     "name": "Azerbaijan",
@@ -1578,49 +738,9 @@
                     "share": 3.3
                 },
                 {
-                    "name": "Cambodia",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Bosnia and Herzegovina",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Uganda",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Chad",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Vatican City",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Liberia",
-                    "count": 4,
-                    "share": 2.3
-                },
-                {
                     "name": "Belgium",
                     "count": 5,
                     "share": 2.3
-                },
-                {
-                    "name": "Niger",
-                    "count": 3,
-                    "share": 1.7
-                },
-                {
-                    "name": "Oman",
-                    "count": 2,
-                    "share": 1.3
                 },
                 {
                     "name": "Kazakhstan",
@@ -1628,206 +748,21 @@
                     "share": 1.3
                 },
                 {
-                    "name": "Guyana",
-                    "count": 2,
-                    "share": 1.0
-                },
-                {
-                    "name": "Cyprus",
-                    "count": 2,
-                    "share": 1.0
-                },
-                {
-                    "name": "Iceland",
-                    "count": 2,
-                    "share": 1.0
-                },
-                {
-                    "name": "Mozambique",
-                    "count": 2,
-                    "share": 1.0
-                },
-                {
-                    "name": "Guatemala",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Sierra Leone",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Bolivia",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Bahamas",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Ecuador",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Honduras",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "El Salvador",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Trinidad and Tobago",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Dominica",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
                     "name": "Slovenia",
                     "count": 1,
                     "share": 0.7
-                },
-                {
-                    "name": "Brunei",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Costa Rica",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Sri Lanka",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Dominican Republic",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Zimbabwe",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Paraguay",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Belize",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Ireland",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Jamaica",
-                    "count": 1,
-                    "share": 0.7
-                },
-                {
-                    "name": "Comoros",
-                    "count": 2,
-                    "share": 0.6
-                },
-                {
-                    "name": "Guinea",
-                    "count": 2,
-                    "share": 0.6
-                },
-                {
-                    "name": "Timor-Leste",
-                    "count": 2,
-                    "share": 0.6
-                },
-                {
-                    "name": "Saint Vincent and the Grenadines",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Palau",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Cameroon",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Equatorial Guinea",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "San Marino",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Tonga",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Kyrgyzstan",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Malawi",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Tuvalu",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Bangladesh",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Malta",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Singapore",
-                    "count": 1,
-                    "share": 0.3
                 }
             ],
             "organizations": [
                 {
                     "name": "NATO",
-                    "count": 65,
-                    "share": 47.9
+                    "count": 63,
+                    "share": 47.2
                 },
                 {
                     "name": "Kremlin",
-                    "count": 98,
-                    "share": 38.1
+                    "count": 96,
+                    "share": 37.4
                 },
                 {
                     "name": "European Council on Foreign Relations",
@@ -1841,8 +776,8 @@
                 },
                 {
                     "name": "Armed Forces of the Russian Federation",
-                    "count": 99,
-                    "share": 32.4
+                    "count": 98,
+                    "share": 32.1
                 },
                 {
                     "name": "European Council",
@@ -1855,19 +790,14 @@
                     "share": 27.3
                 },
                 {
-                    "name": "SHAPE",
-                    "count": 15,
-                    "share": 26.3
-                },
-                {
                     "name": "Ministry of Defence of the Russian Federation",
-                    "count": 69,
-                    "share": 22.3
+                    "count": 67,
+                    "share": 21.7
                 },
                 {
                     "name": "Parliamentary Assembly of the Council of Europe",
-                    "count": 15,
-                    "share": 20.6
+                    "count": 14,
+                    "share": 20.3
                 },
                 {
                     "name": "GRU",
@@ -1876,18 +806,8 @@
                 },
                 {
                     "name": "White House",
-                    "count": 16,
-                    "share": 13.3
-                },
-                {
-                    "name": "UN Security Council",
-                    "count": 25,
-                    "share": 11.4
-                },
-                {
-                    "name": "State Duma",
-                    "count": 34,
-                    "share": 11.3
+                    "count": 14,
+                    "share": 12.6
                 },
                 {
                     "name": "Chatham House",
@@ -1900,14 +820,24 @@
                     "share": 11.3
                 },
                 {
+                    "name": "UN Security Council",
+                    "count": 23,
+                    "share": 10.8
+                },
+                {
+                    "name": "State Duma",
+                    "count": 28,
+                    "share": 9.4
+                },
+                {
                     "name": "Security Service of Ukraine",
                     "count": 26,
                     "share": 8.4
                 },
                 {
                     "name": "Federal Security Service",
-                    "count": 23,
-                    "share": 7.8
+                    "count": 22,
+                    "share": 7.5
                 },
                 {
                     "name": "European Union",
@@ -1915,19 +845,14 @@
                     "share": 7.3
                 },
                 {
-                    "name": "Ministry of Defence of Ukraine",
-                    "count": 22,
-                    "share": 7.1
-                },
-                {
-                    "name": "Ministry of Foreign Affairs of the Russian Federation",
-                    "count": 21,
-                    "share": 6.8
-                },
-                {
                     "name": "EEAS",
                     "count": 2,
                     "share": 6.7
+                },
+                {
+                    "name": "Ministry of Defence of Ukraine",
+                    "count": 20,
+                    "share": 6.5
                 },
                 {
                     "name": "U.S. Department of Defense",
@@ -1935,24 +860,24 @@
                     "share": 6.0
                 },
                 {
-                    "name": "United Nations",
-                    "count": 12,
-                    "share": 4.9
-                },
-                {
                     "name": "Security Council of the Russian Federation",
                     "count": 15,
                     "share": 4.9
                 },
                 {
-                    "name": "Verkhovna Rada",
+                    "name": "Ministry of Foreign Affairs of the Russian Federation",
                     "count": 14,
                     "share": 4.5
                 },
                 {
-                    "name": "U.S. National Security Council",
-                    "count": 3,
-                    "share": 4.0
+                    "name": "United Nations",
+                    "count": 10,
+                    "share": 4.3
+                },
+                {
+                    "name": "Verkhovna Rada",
+                    "count": 13,
+                    "share": 4.2
                 },
                 {
                     "name": "U.S. Department of State",
@@ -1960,12 +885,17 @@
                     "share": 3.7
                 },
                 {
-                    "name": "Frontex",
+                    "name": "U.S. National Security Council",
                     "count": 1,
                     "share": 3.3
                 },
                 {
                     "name": "Venice Commission",
+                    "count": 1,
+                    "share": 3.3
+                },
+                {
+                    "name": "Frontex",
                     "count": 1,
                     "share": 3.3
                 },
@@ -1976,17 +906,12 @@
                 },
                 {
                     "name": "Bucharest Nine",
-                    "count": 7,
-                    "share": 2.3
+                    "count": 5,
+                    "share": 1.6
                 },
                 {
                     "name": "UN General Assembly",
                     "count": 2,
-                    "share": 1.3
-                },
-                {
-                    "name": "IAEA",
-                    "count": 4,
                     "share": 1.3
                 },
                 {
@@ -1995,9 +920,14 @@
                     "share": 1.3
                 },
                 {
-                    "name": "Foreign Intelligence Service of Russia",
+                    "name": "IAEA",
                     "count": 4,
                     "share": 1.3
+                },
+                {
+                    "name": "Foreign Intelligence Service of Russia",
+                    "count": 3,
+                    "share": 1.0
                 },
                 {
                     "name": "Armed Forces of Ukraine",
@@ -2010,22 +940,22 @@
                     "share": 0.7
                 },
                 {
-                    "name": "Rosgvardiya",
-                    "count": 2,
-                    "share": 0.6
-                },
-                {
-                    "name": "OSCE",
-                    "count": 2,
-                    "share": 0.6
-                },
-                {
                     "name": "Commonwealth of Independent States",
                     "count": 2,
                     "share": 0.6
                 },
                 {
                     "name": "CSTO",
+                    "count": 1,
+                    "share": 0.3
+                },
+                {
+                    "name": "Rosgvardiya",
+                    "count": 1,
+                    "share": 0.3
+                },
+                {
+                    "name": "OSCE",
                     "count": 1,
                     "share": 0.3
                 },
@@ -2038,18 +968,18 @@
             "persons": [
                 {
                     "name": "Donald Trump",
-                    "count": 74,
-                    "share": 60.6
+                    "count": 67,
+                    "share": 58.4
                 },
                 {
                     "name": "Vladimir Putin",
-                    "count": 77,
-                    "share": 35.7
+                    "count": 71,
+                    "share": 33.7
                 },
                 {
                     "name": "Volodymyr Zelenskyy",
-                    "count": 71,
-                    "share": 26.3
+                    "count": 65,
+                    "share": 24.4
                 },
                 {
                     "name": "Joe Biden",
@@ -2068,8 +998,8 @@
                 },
                 {
                     "name": "Emmanuel Macron",
-                    "count": 9,
-                    "share": 11.9
+                    "count": 8,
+                    "share": 11.6
                 },
                 {
                     "name": "J.D. Vance",
@@ -2077,19 +1007,14 @@
                     "share": 10.0
                 },
                 {
-                    "name": "Sergei Lavrov",
-                    "count": 25,
-                    "share": 8.4
-                },
-                {
-                    "name": "Dmitry Peskov",
-                    "count": 26,
-                    "share": 8.4
-                },
-                {
                     "name": "Mark Rutte",
                     "count": 5,
                     "share": 8.3
+                },
+                {
+                    "name": "Sergei Lavrov",
+                    "count": 24,
+                    "share": 8.1
                 },
                 {
                     "name": "Donald Tusk",
@@ -2132,14 +1057,14 @@
                     "share": 4.0
                 },
                 {
-                    "name": "Rustem Umerov",
+                    "name": "Alexander Lukashenko",
                     "count": 12,
                     "share": 3.9
                 },
                 {
-                    "name": "Alexander Lukashenko",
-                    "count": 12,
-                    "share": 3.9
+                    "name": "Rustem Umerov",
+                    "count": 11,
+                    "share": 3.6
                 },
                 {
                     "name": "Boris Johnson",
@@ -2177,6 +1102,11 @@
                     "share": 1.9
                 },
                 {
+                    "name": "Dmitry Peskov",
+                    "count": 5,
+                    "share": 1.6
+                },
+                {
                     "name": "Sergei Shoigu",
                     "count": 5,
                     "share": 1.6
@@ -2197,17 +1127,7 @@
                     "share": 0.7
                 },
                 {
-                    "name": "Antonio Guterres",
-                    "count": 2,
-                    "share": 0.6
-                },
-                {
                     "name": "Yevgeny Prigozhin",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Andrii Sybiha",
                     "count": 1,
                     "share": 0.3
                 },
@@ -2223,39 +1143,45 @@
         "theme_gaps": [
             {
                 "theme": "russia_regional_implications",
-                "official_share": 1.7,
-                "think_tank_share": 47.7,
-                "gap": 46.0
-            },
-            {
-                "theme": "eu_regional_security",
-                "official_share": 74.1,
-                "think_tank_share": 36.0,
-                "gap": -38.1
+                "official_share": 3.9,
+                "think_tank_share": 71.7,
+                "gap": 67.8
             },
             {
                 "theme": "other_mixed",
-                "official_share": 16.7,
-                "think_tank_share": 8.0,
-                "gap": -8.7
-            },
-            {
-                "theme": "eastern_flank_nato_deterrence",
-                "official_share": 0.6,
-                "think_tank_share": 2.7,
-                "gap": 2.1
+                "official_share": 68.6,
+                "think_tank_share": 16.0,
+                "gap": -52.6
             },
             {
                 "theme": "support_ukraine",
-                "official_share": 5.9,
-                "think_tank_share": 4.3,
-                "gap": -1.6
+                "official_share": 14.2,
+                "think_tank_share": 5.0,
+                "gap": -9.2
+            },
+            {
+                "theme": "eu_regional_security",
+                "official_share": 9.6,
+                "think_tank_share": 4.7,
+                "gap": -4.9
             },
             {
                 "theme": "romania_republic_of_moldova",
-                "official_share": 0.9,
-                "think_tank_share": 1.3,
-                "gap": 0.4
+                "official_share": 2.8,
+                "think_tank_share": 0.0,
+                "gap": -2.8
+            },
+            {
+                "theme": "eastern_flank_nato_deterrence",
+                "official_share": 0.3,
+                "think_tank_share": 2.7,
+                "gap": 2.4
+            },
+            {
+                "theme": "black_sea_regional_security",
+                "official_share": 0.6,
+                "think_tank_share": 0.0,
+                "gap": -0.6
             }
         ],
         "entity_gaps": {
@@ -2269,26 +1195,26 @@
                 {
                     "name": "United States",
                     "official_share": 10.3,
-                    "think_tank_share": 63.8,
-                    "gap": 53.5
+                    "think_tank_share": 63.4,
+                    "gap": 53.1
                 },
                 {
                     "name": "China",
-                    "official_share": 2.6,
-                    "think_tank_share": 55.4,
-                    "gap": 52.8
-                },
-                {
-                    "name": "United Kingdom",
-                    "official_share": 13.0,
-                    "think_tank_share": 58.3,
-                    "gap": 45.3
+                    "official_share": 2.5,
+                    "think_tank_share": 54.8,
+                    "gap": 52.3
                 },
                 {
                     "name": "Ukraine",
                     "official_share": 21.8,
                     "think_tank_share": 66.7,
                     "gap": 44.9
+                },
+                {
+                    "name": "United Kingdom",
+                    "official_share": 13.0,
+                    "think_tank_share": 56.7,
+                    "gap": 43.7
                 },
                 {
                     "name": "Germany",
@@ -2305,14 +1231,14 @@
                 {
                     "name": "France",
                     "official_share": 5.7,
-                    "think_tank_share": 38.9,
-                    "gap": 33.2
+                    "think_tank_share": 38.2,
+                    "gap": 32.5
                 },
                 {
                     "name": "Israel",
                     "official_share": 1.6,
-                    "think_tank_share": 30.2,
-                    "gap": 28.6
+                    "think_tank_share": 29.5,
+                    "gap": 27.9
                 },
                 {
                     "name": "Hungary",
@@ -2324,15 +1250,15 @@
             "organizations": [
                 {
                     "name": "European Union",
-                    "official_share": 47.1,
+                    "official_share": 47.0,
                     "think_tank_share": 7.3,
-                    "gap": -39.8
+                    "gap": -39.7
                 },
                 {
                     "name": "Kremlin",
                     "official_share": 0.6,
-                    "think_tank_share": 38.1,
-                    "gap": 37.5
+                    "think_tank_share": 37.4,
+                    "gap": 36.8
                 },
                 {
                     "name": "European Council on Foreign Relations",
@@ -2349,20 +1275,14 @@
                 {
                     "name": "Armed Forces of the Russian Federation",
                     "official_share": 0.1,
-                    "think_tank_share": 32.4,
-                    "gap": 32.3
-                },
-                {
-                    "name": "SHAPE",
-                    "official_share": 1.7,
-                    "think_tank_share": 26.3,
-                    "gap": 24.6
+                    "think_tank_share": 32.1,
+                    "gap": 32.0
                 },
                 {
                     "name": "Ministry of Defence of the Russian Federation",
                     "official_share": 0.0,
-                    "think_tank_share": 22.3,
-                    "gap": 22.3
+                    "think_tank_share": 21.7,
+                    "gap": 21.7
                 },
                 {
                     "name": "European Council",
@@ -2379,28 +1299,34 @@
                 {
                     "name": "NATO",
                     "official_share": 34.4,
-                    "think_tank_share": 47.9,
-                    "gap": 13.5
+                    "think_tank_share": 47.2,
+                    "gap": 12.8
+                },
+                {
+                    "name": "White House",
+                    "official_share": 0.0,
+                    "think_tank_share": 12.6,
+                    "gap": 12.6
                 }
             ],
             "persons": [
                 {
                     "name": "Donald Trump",
                     "official_share": 0.1,
-                    "think_tank_share": 60.6,
-                    "gap": 60.5
+                    "think_tank_share": 58.4,
+                    "gap": 58.3
                 },
                 {
                     "name": "Vladimir Putin",
                     "official_share": 0.7,
-                    "think_tank_share": 35.7,
-                    "gap": 35.0
+                    "think_tank_share": 33.7,
+                    "gap": 33.0
                 },
                 {
                     "name": "Volodymyr Zelenskyy",
                     "official_share": 2.3,
-                    "think_tank_share": 26.3,
-                    "gap": 24.0
+                    "think_tank_share": 24.4,
+                    "gap": 22.1
                 },
                 {
                     "name": "Joe Biden",
@@ -2423,8 +1349,8 @@
                 {
                     "name": "Emmanuel Macron",
                     "official_share": 1.0,
-                    "think_tank_share": 11.9,
-                    "gap": 10.9
+                    "think_tank_share": 11.6,
+                    "gap": 10.6
                 },
                 {
                     "name": "Mark Rutte",

@@ -10,6 +10,7 @@ from app.processing.normalizer import (
 from app.processing.quality_checks import collect_quality_warnings, build_quality_report
 from app.processing.theme_classifier import classify_document
 from app.processing.entity_extractor import enrich_document_with_entities
+from app.processing.cleaner import clean_document
 from app.processing.trending import compute_trending
 from app.processing.theme_shift import compute_theme_shift
 from app.processing.source_divergence import compute_source_divergence
@@ -60,7 +61,9 @@ def main() -> None:
     deduplicated_documents = deduplicate_documents(normalized_documents)
     sorted_documents = sort_documents_by_date(deduplicated_documents)
 
-    classified_documents = [classify_document(document) for document in sorted_documents]
+    cleaned_documents = [clean_document(document) for document in sorted_documents]
+
+    classified_documents = [classify_document(document) for document in cleaned_documents]
 
     document_with_entities = [
         enrich_document_with_entities(document)

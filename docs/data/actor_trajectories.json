@@ -106,32 +106,14 @@
                 11.43,
                 8.93,
                 10.71,
-                8.93,
-                20.83,
+                5.36,
+                19.05,
                 4.76,
                 11.73,
-                9.76,
+                8.33,
                 8.44,
-                15.04,
+                13.25,
                 11.5
-            ]
-        },
-        "Keir Starmer": {
-            "category": "persons",
-            "default": false,
-            "trajectory": [
-                0.0,
-                4.76,
-                2.04,
-                0.0,
-                0.0,
-                7.14,
-                7.14,
-                0.0,
-                0.6,
-                1.79,
-                15.31,
-                1.43
             ]
         },
         "Alexander Lukashenko": {
@@ -152,22 +134,40 @@
                 5.36
             ]
         },
+        "Keir Starmer": {
+            "category": "persons",
+            "default": false,
+            "trajectory": [
+                0.0,
+                4.76,
+                2.04,
+                0.0,
+                0.0,
+                7.14,
+                7.14,
+                0.0,
+                0.6,
+                1.79,
+                15.31,
+                1.43
+            ]
+        },
         "Vladimir Putin": {
             "category": "persons",
             "default": false,
             "trajectory": [
                 11.9,
-                7.14,
+                5.36,
                 10.71,
                 12.5,
-                11.51,
-                28.57,
+                9.72,
+                25.0,
                 13.49,
-                12.5,
+                10.71,
                 9.76,
                 14.12,
                 8.93,
-                5.57
+                3.78
             ]
         },
         "Donald Trump": {
@@ -177,15 +177,15 @@
                 4.76,
                 5.36,
                 3.57,
-                7.14,
-                25.0,
-                19.64,
-                19.05,
+                5.36,
+                21.43,
+                17.86,
+                17.46,
                 8.93,
                 4.88,
-                28.25,
+                26.46,
                 28.06,
-                10.06
+                8.28
             ]
         },
         "Pete Hegseth": {
@@ -217,8 +217,8 @@
                 0.0,
                 0.0,
                 0.0,
-                1.79,
-                1.43,
+                0.0,
+                0.0,
                 0.0,
                 2.26,
                 2.13
@@ -273,7 +273,7 @@
                 7.14,
                 0.0,
                 0.6,
-                3.57,
+                1.79,
                 0.0,
                 3.57
             ]
@@ -296,24 +296,6 @@
                 0.21
             ]
         },
-        "Rustem Umerov": {
-            "category": "persons",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                1.79,
-                5.36,
-                0.0,
-                3.57,
-                0.0,
-                3.57,
-                1.43,
-                0.0,
-                1.79,
-                1.79
-            ]
-        },
         "Oleksandr Syrskyi": {
             "category": "persons",
             "default": false,
@@ -330,6 +312,24 @@
                 0.0,
                 3.57,
                 0.0
+            ]
+        },
+        "Rustem Umerov": {
+            "category": "persons",
+            "default": false,
+            "trajectory": [
+                0.0,
+                0.0,
+                1.79,
+                3.57,
+                0.0,
+                3.57,
+                0.0,
+                3.57,
+                1.43,
+                0.0,
+                1.79,
+                1.79
             ]
         },
         "Kyrylo Budanov": {
@@ -422,24 +422,6 @@
                 0.21
             ]
         },
-        "Dmitry Peskov": {
-            "category": "persons",
-            "default": false,
-            "trajectory": [
-                4.76,
-                0.0,
-                1.79,
-                5.36,
-                7.14,
-                7.14,
-                4.76,
-                5.36,
-                0.0,
-                1.79,
-                5.36,
-                3.57
-            ]
-        },
         "Sergei Lavrov": {
             "category": "persons",
             "default": false,
@@ -453,7 +435,7 @@
                 4.76,
                 3.57,
                 2.86,
-                6.66,
+                4.87,
                 0.0,
                 1.79
             ]
@@ -476,58 +458,22 @@
                 0.0
             ]
         },
-        "Cyprus": {
-            "category": "countries",
+        "Dmitry Peskov": {
+            "category": "persons",
             "default": false,
             "trajectory": [
                 0.0,
-                2.86,
-                4.08,
-                0.0,
-                3.17,
-                4.76,
-                4.29,
-                4.85,
-                5.95,
-                7.94,
-                5.26,
-                4.42
-            ]
-        },
-        "Liechtenstein": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                7.14,
-                4.29,
-                0.0,
-                4.4,
-                2.38,
-                0.0,
-                2.86,
                 0.0,
                 1.79,
-                2.38,
-                1.5,
-                1.77
-            ]
-        },
-        "Democratic Republic of the Congo": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
+                1.79,
+                1.79,
+                1.79,
+                0.0,
+                1.79,
                 0.0,
                 0.0,
                 0.0,
-                0.0,
-                7.14,
-                0.0,
-                8.73,
-                0.0,
-                0.6,
-                0.0,
-                0.0,
-                1.3
+                0.0
             ]
         },
         "North Macedonia": {
@@ -545,6 +491,24 @@
                 1.79,
                 5.24,
                 1.5,
+                2.61
+            ]
+        },
+        "Albania": {
+            "category": "countries",
+            "default": false,
+            "trajectory": [
+                7.14,
+                5.0,
+                0.0,
+                4.4,
+                2.38,
+                4.76,
+                2.86,
+                1.02,
+                1.79,
+                2.38,
+                2.26,
                 2.61
             ]
         },
@@ -566,40 +530,40 @@
                 30.4
             ]
         },
-        "Mali": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                2.5,
-                1.79,
-                1.79,
-                0.0,
-                1.79,
-                9.52,
-                10.71,
-                0.0,
-                8.93,
-                2.81,
-                0.21
-            ]
-        },
-        "Albania": {
+        "Norway": {
             "category": "countries",
             "default": false,
             "trajectory": [
                 7.14,
-                5.0,
-                0.0,
-                4.4,
-                2.38,
-                4.76,
-                2.86,
-                1.02,
+                4.29,
                 1.79,
-                2.38,
-                2.26,
-                2.61
+                4.4,
+                1.59,
+                11.9,
+                14.6,
+                3.06,
+                1.79,
+                10.32,
+                1.77,
+                4.71
+            ]
+        },
+        "United Kingdom": {
+            "category": "countries",
+            "default": false,
+            "trajectory": [
+                14.29,
+                15.48,
+                13.01,
+                7.14,
+                21.63,
+                23.21,
+                34.92,
+                8.93,
+                7.74,
+                20.76,
+                28.81,
+                20.9
             ]
         },
         "Montenegro": {
@@ -618,42 +582,6 @@
                 2.38,
                 2.26,
                 2.97
-            ]
-        },
-        "United Kingdom": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                14.29,
-                15.48,
-                14.8,
-                7.14,
-                23.41,
-                23.21,
-                34.92,
-                8.93,
-                10.6,
-                20.76,
-                28.81,
-                22.68
-            ]
-        },
-        "Norway": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                7.14,
-                4.29,
-                1.79,
-                4.4,
-                1.59,
-                11.9,
-                14.6,
-                3.06,
-                1.79,
-                10.32,
-                1.77,
-                4.71
             ]
         },
         "Iran": {
@@ -683,31 +611,31 @@
                 7.4,
                 1.79,
                 17.86,
-                21.43,
+                19.64,
                 18.89,
                 0.0,
-                5.71,
-                21.84,
+                4.29,
+                21.05,
                 27.03,
                 14.28
             ]
         },
-        "Cuba": {
+        "Belgium": {
             "category": "countries",
             "default": false,
             "trajectory": [
                 0.0,
+                3.21,
                 0.0,
+                4.76,
                 0.0,
-                0.0,
+                4.76,
+                4.29,
+                2.81,
                 1.79,
-                7.14,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.02,
-                3.08
+                3.08,
+                3.28,
+                0.99
             ]
         },
         "Germany": {
@@ -746,78 +674,6 @@
                 1.43
             ]
         },
-        "Lebanon": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                4.64,
-                2.04,
-                1.79,
-                1.79,
-                0.0,
-                7.14,
-                0.0,
-                0.6,
-                2.6,
-                2.26,
-                4.42
-            ]
-        },
-        "Ireland": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                2.04,
-                0.0,
-                0.0,
-                4.76,
-                14.29,
-                0.0,
-                0.0,
-                2.09,
-                0.75,
-                0.0
-            ]
-        },
-        "Belgium": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                3.21,
-                0.0,
-                4.76,
-                0.0,
-                4.76,
-                4.29,
-                2.81,
-                1.79,
-                3.08,
-                3.28,
-                0.99
-            ]
-        },
-        "Syria": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                6.07,
-                2.04,
-                2.88,
-                1.79,
-                0.0,
-                8.73,
-                0.0,
-                0.0,
-                3.08,
-                5.32,
-                1.51
-            ]
-        },
         "Netherlands": {
             "category": "countries",
             "default": false,
@@ -845,38 +701,20 @@
                 2.04,
                 3.98,
                 4.17,
-                13.69,
+                11.9,
                 15.87,
                 1.79,
-                2.02,
+                0.6,
                 10.03,
                 2.52,
                 2.21
-            ]
-        },
-        "Israel": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                2.38,
-                1.43,
-                5.61,
-                0.0,
-                0.79,
-                14.29,
-                7.14,
-                0.0,
-                2.86,
-                14.61,
-                5.87,
-                10.54
             ]
         },
         "United States": {
             "category": "countries",
             "default": false,
             "trajectory": [
-                9.52,
+                7.14,
                 13.21,
                 5.61,
                 9.34,
@@ -890,22 +728,22 @@
                 11.58
             ]
         },
-        "Jordan": {
+        "Israel": {
             "category": "countries",
             "default": false,
             "trajectory": [
-                0.0,
-                4.29,
+                2.38,
+                1.43,
                 2.04,
-                1.1,
                 0.0,
+                0.79,
+                14.29,
                 7.14,
                 0.0,
-                0.0,
-                0.0,
-                7.47,
-                5.08,
-                1.51
+                2.86,
+                14.61,
+                5.87,
+                10.54
             ]
         },
         "Russia": {
@@ -931,7 +769,7 @@
             "default": false,
             "trajectory": [
                 2.38,
-                9.76,
+                7.98,
                 4.08,
                 2.88,
                 15.08,
@@ -939,27 +777,9 @@
                 17.3,
                 3.57,
                 5.48,
-                18.26,
+                16.48,
                 18.58,
                 8.06
-            ]
-        },
-        "Armenia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                2.86,
-                0.0,
-                0.0,
-                3.17,
-                0.0,
-                2.86,
-                1.02,
-                0.6,
-                0.0,
-                2.26,
-                1.26
             ]
         },
         "Azerbaijan": {
@@ -980,6 +800,24 @@
                 0.21
             ]
         },
+        "Armenia": {
+            "category": "countries",
+            "default": false,
+            "trajectory": [
+                0.0,
+                2.86,
+                0.0,
+                0.0,
+                3.17,
+                0.0,
+                2.86,
+                1.02,
+                0.6,
+                0.0,
+                2.26,
+                1.26
+            ]
+        },
         "Belarus": {
             "category": "countries",
             "default": false,
@@ -996,42 +834,6 @@
                 3.57,
                 2.54,
                 7.92
-            ]
-        },
-        "Nigeria": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.59,
-                0.0,
-                0.0,
-                7.14,
-                1.02,
-                1.3
-            ]
-        },
-        "Indonesia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                2.04,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                14.29,
-                0.75,
-                0.0
             ]
         },
         "Denmark": {
@@ -1088,60 +890,6 @@
                 2.55
             ]
         },
-        "Moldova": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                7.14,
-                6.43,
-                2.04,
-                1.1,
-                5.95,
-                1.79,
-                2.86,
-                2.81,
-                4.64,
-                11.62,
-                7.02,
-                3.24
-            ]
-        },
-        "Iceland": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                7.14,
-                6.79,
-                0.0,
-                4.4,
-                2.38,
-                0.0,
-                2.86,
-                1.02,
-                1.79,
-                4.47,
-                2.26,
-                3.62
-            ]
-        },
-        "Switzerland": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                11.9,
-                0.0,
-                7.14,
-                8.73,
-                3.57,
-                2.62,
-                8.44,
-                0.0,
-                0.42
-            ]
-        },
         "Japan": {
             "category": "countries",
             "default": false,
@@ -1178,22 +926,22 @@
                 1.51
             ]
         },
-        "Afghanistan": {
+        "Spain": {
             "category": "countries",
             "default": false,
             "trajectory": [
                 0.0,
-                0.0,
+                1.79,
                 2.04,
                 1.1,
                 0.79,
+                14.29,
+                18.73,
                 0.0,
-                7.14,
-                0.0,
-                2.02,
-                10.53,
-                1.77,
-                2.6
+                1.19,
+                10.03,
+                2.26,
+                2.21
             ]
         },
         "Hungary": {
@@ -1214,96 +962,6 @@
                 1.87
             ]
         },
-        "Spain": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                1.79,
-                2.04,
-                1.1,
-                0.79,
-                14.29,
-                18.73,
-                0.0,
-                1.19,
-                10.03,
-                2.26,
-                2.21
-            ]
-        },
-        "Bahrain": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                5.66,
-                4.32,
-                1.3
-            ]
-        },
-        "Egypt": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                1.79,
-                2.04,
-                1.79,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.6,
-                2.6,
-                1.5,
-                3.29
-            ]
-        },
-        "Mexico": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                0.0,
-                15.58,
-                2.79,
-                0.21
-            ]
-        },
-        "Saudi Arabia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                1.79,
-                7.14,
-                7.14,
-                7.14,
-                1.79,
-                0.0,
-                11.53,
-                6.11,
-                4.59
-            ]
-        },
         "Turkey": {
             "category": "countries",
             "default": false,
@@ -1322,60 +980,6 @@
                 2.6
             ]
         },
-        "Taiwan": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                8.93,
-                7.14,
-                3.17,
-                0.0,
-                1.43,
-                0.0,
-                15.31,
-                1.3
-            ]
-        },
-        "Brazil": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                4.08,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                17.17,
-                3.56,
-                0.21
-            ]
-        },
-        "South Africa": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                2.04,
-                0.0,
-                7.14,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                2.09,
-                0.75,
-                0.21
-            ]
-        },
         "Poland": {
             "category": "countries",
             "default": false,
@@ -1392,78 +996,6 @@
                 10.53,
                 15.04,
                 0.21
-            ]
-        },
-        "Thailand": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                2.04,
-                1.1,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                1.5,
-                0.21
-            ]
-        },
-        "Morocco": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.79,
-                0.0,
-                0.0,
-                0.0,
-                0.6,
-                3.08,
-                0.0,
-                3.29
-            ]
-        },
-        "Malaysia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                1.02,
-                0.0
-            ]
-        },
-        "United Arab Emirates": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                2.04,
-                8.24,
-                7.14,
-                3.57,
-                8.73,
-                1.79,
-                0.0,
-                15.58,
-                6.86,
-                5.89
             ]
         },
         "North Korea": {
@@ -1520,204 +1052,6 @@
                 0.0
             ]
         },
-        "Portugal": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                5.48,
-                2.04,
-                0.0,
-                0.0,
-                4.76,
-                10.0,
-                2.04,
-                0.6,
-                7.94,
-                1.5,
-                0.78
-            ]
-        },
-        "San Marino": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                1.79,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0
-            ]
-        },
-        "Bosnia and Herzegovina": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                7.14,
-                5.0,
-                0.0,
-                4.4,
-                2.38,
-                0.0,
-                10.0,
-                1.02,
-                1.79,
-                2.38,
-                3.01,
-                2.99
-            ]
-        },
-        "Austria": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.79,
-                7.14,
-                1.43,
-                1.02,
-                0.6,
-                2.6,
-                1.5,
-                0.0
-            ]
-        },
-        "Philippines": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                2.04,
-                1.1,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                0.0,
-                1.77,
-                1.3
-            ]
-        },
-        "Vietnam": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                2.88,
-                1.59,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                10.71,
-                1.77,
-                0.21
-            ]
-        },
-        "Yemen": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                1.3,
-                0.0,
-                3.9
-            ]
-        },
-        "Oman": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.6,
-                2.09,
-                0.75,
-                0.0
-            ]
-        },
-        "Luxembourg": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.79,
-                0.0,
-                1.43,
-                0.0,
-                0.6,
-                0.79,
-                1.5,
-                0.78
-            ]
-        },
-        "Sudan": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                2.04,
-                1.1,
-                0.79,
-                0.0,
-                10.16,
-                0.0,
-                0.6,
-                0.79,
-                0.75,
-                0.78
-            ]
-        },
-        "Australia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                1.1,
-                7.14,
-                7.14,
-                8.73,
-                0.0,
-                0.0,
-                4.69,
-                0.75,
-                3.02
-            ]
-        },
         "Greece": {
             "category": "countries",
             "default": false,
@@ -1746,7 +1080,7 @@
                 1.1,
                 0.0,
                 14.29,
-                10.16,
+                8.57,
                 2.04,
                 1.43,
                 20.27,
@@ -1754,151 +1088,43 @@
                 3.23
             ]
         },
-        "Ecuador": {
+        "Estonia": {
             "category": "countries",
             "default": false,
             "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.77,
-                0.84
-            ]
-        },
-        "Venezuela": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                16.67,
-                7.86,
-                5.36,
-                3.57,
-                0.79,
-                16.07,
-                15.87,
-                0.0,
-                1.43,
-                3.08,
-                4.83,
-                1.51
-            ]
-        },
-        "Colombia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                2.04,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.6,
-                7.14,
-                1.02,
-                0.0
-            ]
-        },
-        "Palestine": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                2.04,
-                0.0,
-                1.59,
-                0.0,
-                7.14,
-                2.04,
-                0.6,
-                2.6,
-                0.0,
-                1.41
-            ]
-        },
-        "Libya": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
+                2.38,
+                2.5,
                 1.79,
-                1.02,
-                1.3
-            ]
-        },
-        "Zimbabwe": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.02,
                 0.0,
                 0.79,
                 0.0,
-                0.57
-            ]
-        },
-        "Ethiopia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
+                10.0,
+                2.04,
+                1.43,
                 7.14,
-                0.0,
-                8.73,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
+                15.04,
                 1.79
             ]
         },
-        "Kenya": {
+        "Finland": {
             "category": "countries",
             "default": false,
             "trajectory": [
+                2.38,
+                2.5,
+                1.79,
+                5.86,
                 0.0,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                2.0
+                10.71,
+                10.0,
+                4.85,
+                3.45,
+                8.44,
+                2.52,
+                4.51
             ]
         },
-        "Ghana": {
+        "Slovenia": {
             "category": "countries",
             "default": false,
             "trajectory": [
@@ -1906,13 +1132,31 @@
                 0.0,
                 0.0,
                 0.0,
+                0.79,
                 0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                0.0,
+                1.43,
                 1.02,
+                0.0,
+                1.3,
+                0.75,
+                0.0
+            ]
+        },
+        "Latvia": {
+            "category": "countries",
+            "default": false,
+            "trajectory": [
+                0.0,
+                2.5,
+                0.0,
+                4.76,
+                0.0,
+                0.0,
+                2.86,
+                1.02,
+                1.43,
+                7.14,
+                0.75,
                 0.0
             ]
         },
@@ -1934,78 +1178,6 @@
                 2.63
             ]
         },
-        "Slovenia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.79,
-                0.0,
-                1.43,
-                1.02,
-                0.0,
-                1.3,
-                0.75,
-                0.0
-            ]
-        },
-        "Finland": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                2.38,
-                2.5,
-                1.79,
-                5.86,
-                0.0,
-                10.71,
-                10.0,
-                4.85,
-                3.45,
-                8.44,
-                2.52,
-                4.51
-            ]
-        },
-        "Latvia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                2.5,
-                0.0,
-                4.76,
-                0.0,
-                0.0,
-                2.86,
-                1.02,
-                1.43,
-                7.14,
-                0.75,
-                0.0
-            ]
-        },
-        "Estonia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                2.38,
-                2.5,
-                1.79,
-                0.0,
-                0.79,
-                0.0,
-                10.0,
-                2.04,
-                1.43,
-                7.14,
-                15.04,
-                1.79
-            ]
-        },
         "Lithuania": {
             "category": "countries",
             "default": false,
@@ -2024,186 +1196,6 @@
                 0.78
             ]
         },
-        "Malta": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.79,
-                0.0,
-                1.43,
-                0.0,
-                0.6,
-                1.79,
-                0.75,
-                0.0
-            ]
-        },
-        "Burkina Faso": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.59,
-                0.0,
-                0.0,
-                7.14,
-                1.02,
-                0.21
-            ]
-        },
-        "Uruguay": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                4.08,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.79,
-                0.0,
-                0.57
-            ]
-        },
-        "Peru": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                0.0,
-                1.77,
-                0.42
-            ]
-        },
-        "Paraguay": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                1.43,
-                6.12,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.79,
-                1.02,
-                0.21
-            ]
-        },
-        "Chile": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                9.74,
-                1.02,
-                0.42
-            ]
-        },
-        "Argentina": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                4.08,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                9.24,
-                1.02,
-                0.42
-            ]
-        },
-        "Liberia": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                1.79,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.3,
-                2.04,
-                0.21
-            ]
-        },
-        "Iraq": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                14.29,
-                7.14,
-                0.0,
-                0.0,
-                3.9,
-                1.77,
-                5.19
-            ]
-        },
-        "Kuwait": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                4.87,
-                4.32,
-                3.29
-            ]
-        },
         "Czech Republic": {
             "category": "countries",
             "default": false,
@@ -2220,24 +1212,6 @@
                 1.3,
                 15.79,
                 0.21
-            ]
-        },
-        "Qatar": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                1.79,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                7.14,
-                0.0,
-                0.0,
-                22.73,
-                5.34,
-                3.08
             ]
         },
         "Bulgaria": {
@@ -2276,42 +1250,6 @@
                 0.57
             ]
         },
-        "Panama": {
-            "category": "countries",
-            "default": false,
-            "trajectory": [
-                0.0,
-                3.57,
-                3.83,
-                1.79,
-                0.0,
-                7.14,
-                8.73,
-                1.02,
-                0.0,
-                3.57,
-                2.04,
-                0.0
-            ]
-        },
-        "SHAPE": {
-            "category": "organizations",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.71,
-                2.04,
-                0.0,
-                15.87,
-                8.93,
-                10.32,
-                3.57,
-                1.43,
-                10.52,
-                14.29,
-                0.84
-            ]
-        },
         "European Council": {
             "category": "organizations",
             "default": false,
@@ -2342,7 +1280,7 @@
                 4.76,
                 18.57,
                 7.91,
-                7.74,
+                7.14,
                 18.67,
                 15.87,
                 18.45
@@ -2359,8 +1297,8 @@
                 3.17,
                 0.0,
                 1.59,
-                1.79,
-                4.05,
+                0.0,
+                2.62,
                 8.55,
                 9.1,
                 6.95
@@ -2378,8 +1316,8 @@
                 28.57,
                 25.71,
                 4.08,
-                4.76,
-                17.46,
+                4.17,
+                16.67,
                 17.29,
                 3.24
             ]
@@ -2432,8 +1370,8 @@
                 16.67,
                 2.86,
                 3.06,
-                5.36,
-                14.5,
+                4.76,
+                13.71,
                 3.76,
                 2.55
             ]
@@ -2456,6 +1394,24 @@
                 1.56
             ]
         },
+        "Parliamentary Assembly of the Council of Europe": {
+            "category": "organizations",
+            "default": false,
+            "trajectory": [
+                2.38,
+                0.71,
+                0.0,
+                1.79,
+                16.07,
+                7.14,
+                17.3,
+                0.0,
+                1.43,
+                7.14,
+                2.04,
+                0.0
+            ]
+        },
         "European Council on Foreign Relations": {
             "category": "organizations",
             "default": false,
@@ -2471,24 +1427,6 @@
                 0.0,
                 15.58,
                 14.29,
-                0.0
-            ]
-        },
-        "Parliamentary Assembly of the Council of Europe": {
-            "category": "organizations",
-            "default": false,
-            "trajectory": [
-                2.38,
-                0.71,
-                1.79,
-                1.79,
-                16.07,
-                7.14,
-                17.3,
-                0.0,
-                1.43,
-                7.14,
-                2.04,
                 0.0
             ]
         },
@@ -2510,24 +1448,6 @@
                 14.29
             ]
         },
-        "Ministry of Defence of the Russian Federation": {
-            "category": "organizations",
-            "default": false,
-            "trajectory": [
-                14.29,
-                10.71,
-                10.71,
-                8.93,
-                8.93,
-                14.29,
-                4.76,
-                8.93,
-                5.71,
-                8.93,
-                7.14,
-                10.71
-            ]
-        },
         "Armed Forces of the Russian Federation": {
             "category": "organizations",
             "default": false,
@@ -2542,26 +1462,8 @@
                 12.5,
                 12.86,
                 14.29,
-                14.29,
+                12.5,
                 14.29
-            ]
-        },
-        "UN Security Council": {
-            "category": "organizations",
-            "default": false,
-            "trajectory": [
-                14.29,
-                4.29,
-                3.83,
-                4.67,
-                3.37,
-                10.71,
-                1.59,
-                4.59,
-                6.9,
-                5.66,
-                4.32,
-                6.35
             ]
         },
         "GRU": {
@@ -2582,21 +1484,57 @@
                 12.5
             ]
         },
+        "UN Security Council": {
+            "category": "organizations",
+            "default": false,
+            "trajectory": [
+                14.29,
+                4.29,
+                3.83,
+                4.67,
+                3.37,
+                10.71,
+                1.59,
+                2.81,
+                5.48,
+                5.66,
+                4.32,
+                6.35
+            ]
+        },
+        "Ministry of Defence of the Russian Federation": {
+            "category": "organizations",
+            "default": false,
+            "trajectory": [
+                14.29,
+                8.93,
+                10.71,
+                8.93,
+                8.93,
+                14.29,
+                4.76,
+                8.93,
+                5.71,
+                8.93,
+                7.14,
+                8.93
+            ]
+        },
         "State Duma": {
             "category": "organizations",
             "default": false,
             "trajectory": [
-                2.38,
+                0.0,
                 3.57,
                 1.79,
                 5.36,
-                7.14,
-                5.36,
-                6.35,
+                3.57,
+                3.57,
+                4.76,
                 5.36,
                 2.86,
                 6.66,
-                5.36,
+                3.57,
                 3.57
             ]
         },
@@ -2604,7 +1542,7 @@
             "category": "organizations",
             "default": false,
             "trajectory": [
-                14.29,
+                11.9,
                 14.29,
                 10.71,
                 14.29,
@@ -2613,7 +1551,7 @@
                 12.7,
                 14.29,
                 14.29,
-                21.43,
+                19.64,
                 25.75,
                 13.28
             ]
@@ -2643,7 +1581,7 @@
                 0.0,
                 0.0,
                 3.57,
-                5.36,
+                3.57,
                 1.79,
                 3.57,
                 1.59,
@@ -2683,8 +1621,8 @@
                 0.0,
                 12.5,
                 7.14,
-                1.79,
-                1.43,
+                0.0,
+                0.0,
                 2.6,
                 1.02,
                 3.08
@@ -2702,9 +1640,9 @@
                 37.5,
                 55.4,
                 24.23,
-                22.86,
+                21.43,
                 35.53,
-                34.18,
+                32.4,
                 19.97
             ]
         },
@@ -2726,24 +1664,6 @@
                 0.84
             ]
         },
-        "U.S. National Security Council": {
-            "category": "organizations",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.79,
-                7.14,
-                0.0,
-                1.79,
-                1.43,
-                0.0,
-                0.0,
-                0.0
-            ]
-        },
         "Ministry of Defence of Ukraine": {
             "category": "organizations",
             "default": false,
@@ -2752,32 +1672,14 @@
                 0.0,
                 0.0,
                 5.36,
-                5.36,
+                3.57,
                 5.36,
                 0.0,
-                5.36,
+                3.57,
                 5.71,
                 1.79,
                 1.79,
                 3.57
-            ]
-        },
-        "OSCE": {
-            "category": "organizations",
-            "default": false,
-            "trajectory": [
-                0.0,
-                0.0,
-                0.0,
-                3.57,
-                0.79,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0
             ]
         },
         "Security Council of the Russian Federation": {
@@ -2807,7 +1709,7 @@
                 3.57,
                 3.57,
                 1.79,
-                1.79,
+                0.0,
                 0.0,
                 1.79,
                 2.86,
@@ -2852,24 +1754,6 @@
                 1.56
             ]
         },
-        "Ministry of Foreign Affairs of the Russian Federation": {
-            "category": "organizations",
-            "default": false,
-            "trajectory": [
-                4.76,
-                3.57,
-                0.0,
-                1.79,
-                3.57,
-                7.14,
-                3.17,
-                3.57,
-                2.86,
-                3.57,
-                1.79,
-                1.79
-            ]
-        },
         "International Criminal Court": {
             "category": "organizations",
             "default": false,
@@ -2910,7 +1794,7 @@
             "category": "organizations",
             "default": false,
             "trajectory": [
-                2.38,
+                0.0,
                 0.0,
                 0.0,
                 1.79,
@@ -2919,45 +1803,45 @@
                 0.0,
                 0.0,
                 1.43,
-                5.36,
+                3.57,
                 1.79,
                 0.0
             ]
         },
-        "eastern_flank_nato_deterrence": {
-            "category": "themes",
+        "Ministry of Foreign Affairs of the Russian Federation": {
+            "category": "organizations",
             "default": false,
             "trajectory": [
-                9.52,
-                6.79,
-                5.61,
-                3.98,
-                18.65,
-                8.93,
-                14.76,
-                4.59,
-                10.12,
-                11.13,
-                21.89,
-                12.08
+                4.76,
+                3.57,
+                0.0,
+                0.0,
+                3.57,
+                5.36,
+                1.59,
+                1.79,
+                2.86,
+                1.79,
+                0.0,
+                0.0
             ]
         },
-        "eu_regional_security": {
+        "other_mixed": {
             "category": "themes",
             "default": false,
             "trajectory": [
-                42.86,
-                26.79,
-                31.55,
-                38.1,
-                44.05,
-                57.14,
-                69.84,
-                39.29,
-                28.57,
-                50.67,
-                67.8,
-                51.87
+                14.29,
+                14.52,
+                22.45,
+                16.12,
+                13.49,
+                23.81,
+                22.86,
+                20.41,
+                16.07,
+                27.42,
+                36.75,
+                27.53
             ]
         },
         "support_ukraine": {
@@ -2965,35 +1849,35 @@
             "default": false,
             "trajectory": [
                 28.57,
-                27.62,
+                24.05,
                 16.33,
-                25.64,
-                34.13,
+                24.54,
+                30.95,
                 42.86,
-                47.14,
-                19.39,
-                24.4,
-                32.68,
-                40.66,
-                30.4
+                44.29,
+                18.37,
+                23.21,
+                27.71,
+                34.85,
+                28.63
             ]
         },
-        "romania_republic_of_moldova": {
+        "eu_regional_security": {
             "category": "themes",
             "default": false,
             "trajectory": [
-                7.14,
-                7.86,
-                11.48,
-                2.2,
-                22.82,
+                0.0,
+                5.0,
+                4.08,
+                4.4,
+                12.7,
+                4.76,
+                4.29,
+                3.06,
                 3.57,
-                33.02,
-                10.2,
-                8.69,
-                27.51,
-                20.52,
-                8.74
+                9.52,
+                3.76,
+                9.8
             ]
         },
         "russia_regional_implications": {
@@ -3001,53 +1885,71 @@
             "default": false,
             "trajectory": [
                 14.29,
-                17.14,
-                16.33,
+                16.43,
+                14.29,
                 20.88,
-                33.33,
+                31.75,
                 33.33,
                 28.57,
-                18.37,
+                17.35,
                 22.62,
-                40.04,
-                38.94,
-                24.64
+                37.45,
+                37.16,
+                21.06
+            ]
+        },
+        "romania_republic_of_moldova": {
+            "category": "themes",
+            "default": false,
+            "trajectory": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                7.14,
+                4.76,
+                1.47
             ]
         },
         "black_sea_regional_security": {
             "category": "themes",
             "default": false,
             "trajectory": [
-                4.76,
-                8.93,
-                5.36,
+                2.38,
                 0.0,
-                2.58,
-                0.0,
-                7.14,
                 1.79,
-                3.45,
-                7.94,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.6,
+                1.79,
                 0.75,
-                5.37
+                0.0
             ]
         },
-        "other_mixed": {
+        "eastern_flank_nato_deterrence": {
             "category": "themes",
             "default": false,
             "trajectory": [
                 0.0,
-                9.52,
-                9.52,
-                4.76,
-                4.76,
-                9.52,
+                0.71,
                 0.0,
                 0.0,
-                9.52,
-                17.68,
-                9.33,
-                12.81
+                0.0,
+                7.14,
+                0.0,
+                0.0,
+                0.0,
+                2.09,
+                0.0,
+                4.47
             ]
         }
     }

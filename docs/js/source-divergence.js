@@ -53,7 +53,7 @@ function buildButterflyRow(name, offShare, ttShare, maxShare) {
     return `
         <div class="sd-butterfly-row">
             <div class="sd-butterfly-left">
-                <span class="sd-bar-label">${offShare > 0 ? offShare + '%' : ''}</span>
+                <span class="sd-bar-label">${offShare > 0 ? offShare + '%' : '0%'}</span>
                 <div class="sd-bar-track">
                     <div class="sd-bar-fill" style="width: ${offWidth}%"></div>
                 </div>
@@ -66,7 +66,7 @@ function buildButterflyRow(name, offShare, ttShare, maxShare) {
                 <div class="sd-bar-track">
                     <div class="sd-bar-fill" style="width: ${ttWidth}%"></div>
                 </div>
-                <span class="sd-bar-label">${ttShare > 0 ? ttShare + '%' : ''}</span>
+                <span class="sd-bar-label">${ttShare > 0 ? ttShare + '%' : '0%'}</span>
             </div>
         </div>
     `;

@@ -9,6 +9,7 @@
     border: 1px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 207, 255, 0.02);
 }
 
 .trending-header {
@@ -42,6 +43,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-primary);
+    text-shadow: 0 0 20px rgba(0, 207, 255, 0.12);
 }
 
 .trending-period {
@@ -110,6 +112,23 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 16px;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    animation: card-fade-in 0.6s ease both;
+}
+
+.trending-category:nth-child(1) { animation-delay: 0.05s; }
+.trending-category:nth-child(2) { animation-delay: 0.12s; }
+.trending-category:nth-child(3) { animation-delay: 0.19s; }
+.trending-category:nth-child(4) { animation-delay: 0.26s; }
+
+@keyframes card-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.trending-category:hover {
+    border-color: rgba(0, 207, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 207, 255, 0.04), inset 0 0 20px rgba(0, 207, 255, 0.02);
 }
 
 .trending-chart-wrap {
@@ -167,8 +186,15 @@
     height: 46px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--border-strong);
+    border: 2px solid rgba(0, 207, 255, 0.3);
     flex-shrink: 0;
+    box-shadow: 0 0 12px rgba(0, 207, 255, 0.15), 0 0 4px rgba(0, 207, 255, 0.1);
+    animation: avatar-glow 3s ease-in-out infinite;
+}
+
+@keyframes avatar-glow {
+    0%, 100% { box-shadow: 0 0 12px rgba(0, 207, 255, 0.15), 0 0 4px rgba(0, 207, 255, 0.1); }
+    50%      { box-shadow: 0 0 18px rgba(0, 207, 255, 0.25), 0 0 6px rgba(0, 207, 255, 0.15); }
 }
 
 .trending-avatar-placeholder {
@@ -176,7 +202,7 @@
     height: 46px;
     border-radius: 50%;
     background: var(--accent-soft);
-    border: 2px solid var(--border-strong);
+    border: 2px solid rgba(0, 207, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -185,6 +211,8 @@
     font-weight: 700;
     color: var(--accent);
     flex-shrink: 0;
+    box-shadow: 0 0 12px rgba(0, 207, 255, 0.15), 0 0 4px rgba(0, 207, 255, 0.1);
+    animation: avatar-glow 3s ease-in-out infinite;
 }
 
 .trending-top-info {
@@ -213,7 +241,8 @@
     font-family: var(--font-mono);
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #e8f4ff;
+    text-shadow: 0 0 10px rgba(0, 207, 255, 0.3), 0 0 3px rgba(0, 207, 255, 0.15);
 }
 
 .trending-pct-label {
@@ -235,7 +264,14 @@
     height: 100%;
     border-radius: 2px;
     background: linear-gradient(to right, var(--accent), rgba(0, 207, 255, 0.5));
-    transition: width 0.6s ease;
+    position: relative;
+    animation: bar-fill-in 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    animation-delay: 0.3s;
+}
+
+@keyframes bar-fill-in {
+    from { transform: scaleX(0); transform-origin: left; }
+    to   { transform: scaleX(1); transform-origin: left; }
 }
 
 /* Runner visibility bar */
@@ -248,8 +284,8 @@
 }
 
 .trending-runner-bar-wrap {
-    height: 2px;
-    background: rgba(255, 255, 255, 0.05);
+    height: 3px;
+    background: rgba(255, 255, 255, 0.04);
     border-radius: 2px;
     overflow: hidden;
 }
@@ -257,8 +293,13 @@
 .trending-runner-bar {
     height: 100%;
     border-radius: 2px;
-    background: rgba(122, 157, 192, 0.35);
-    transition: width 0.6s ease;
+    background: linear-gradient(to right, rgba(0, 207, 255, 0.5), rgba(0, 207, 255, 0.15));
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Second runner-up: slightly dimmer */
+.trending-runner-item + .trending-runner-item .trending-runner-bar {
+    background: linear-gradient(to right, rgba(0, 207, 255, 0.3), rgba(0, 207, 255, 0.08));
 }
 
 /* Trend badges */
@@ -496,13 +537,26 @@
     padding: 8px 12px;
     border-radius: 8px;
     margin-bottom: 4px;
-    transition: background 0.2s;
+    transition: background 0.3s, transform 0.2s;
     gap: 8px;
     border-left: 2px solid transparent;
+    animation: momentum-slide-in 0.4s ease both;
+}
+
+.momentum-item:nth-child(2) { animation-delay: 0.05s; }
+.momentum-item:nth-child(3) { animation-delay: 0.10s; }
+.momentum-item:nth-child(4) { animation-delay: 0.15s; }
+.momentum-item:nth-child(5) { animation-delay: 0.20s; }
+.momentum-item:nth-child(6) { animation-delay: 0.25s; }
+
+@keyframes momentum-slide-in {
+    from { opacity: 0; transform: translateX(-6px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
 .momentum-item:hover {
     background: rgba(255,255,255,0.03);
+    transform: translateX(2px);
 }
 
 /* Rising: gradient green border, strongest at #1 */

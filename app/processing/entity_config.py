@@ -1,3 +1,22 @@
+CORE_COUNTRIES = {
+    # Primary focus
+    "Romania", "Republic of Moldova", "Ukraine", "Russia",
+    # NATO key members
+    "United States", "United Kingdom", "France", "Germany", "Turkey",
+    "Canada", "Poland", "Italy", "Spain", "Netherlands", "Norway", "Belgium",
+    # Eastern flank / regional
+    "Bulgaria", "Hungary", "Czech Republic", "Slovakia",
+    "Estonia", "Latvia", "Lithuania",
+    "Greece", "Croatia", "Slovenia",
+    "Albania", "North Macedonia", "Montenegro",
+    "Finland", "Sweden", "Denmark",
+    # Geopolitically relevant
+    "Belarus", "Georgia", "Serbia",
+    "China", "Iran", "Israel", "India",
+    "Japan", "South Korea", "North Korea",
+    "Azerbaijan", "Armenia", "Kazakhstan",
+}
+
 COUNTRY_KEYWORDS = {
     "Afghanistan": [
         "afghanistan",
@@ -826,8 +845,8 @@ ORGANIZATION_KEYWORDS = {
         "nato parliamentary assembly",
     ],
     "SHAPE": [
-        "shape",
         "supreme headquarters allied powers europe",
+        "s.h.a.p.e.",
     ],
     "Allied Command Operations": [
         "allied command operations",

@@ -61,6 +61,7 @@ export const ENTITY_IMAGES = {
     'Ukraine':                                   'assets/entities/ukraine.png',
     'Russia':                                    'assets/entities/russia.png',
     'United Kingdom':                            'assets/entities/united_kingdom.png',
+    'Iran':                                      'assets/entities/iran.png',
     // Organizations
     'European Union':                            'assets/entities/european_union.png',
     'United Nations':                            'assets/entities/united_nations.png',

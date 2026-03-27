@@ -1,11 +1,12 @@
 import re
 
-from app.processing.theme_config import THEME_KEYWORDS
+from app.processing.theme_config import THEME_KEYWORDS, THEME_ANCHOR_KEYWORDS
 
 TITLE_MATCH_POINTS = 3
 CONTENT_MATCH_POINTS = 1
 TITLE_KEYWORD_CAP = 2
 CONTENT_KEYWORD_CAP = 5
+SECONDARY_THEME_MIN_SCORE = 3
 
 def normalize_text(text: str) -> str:
     normalized = text.lower()
@@ -21,6 +22,21 @@ def count_keyword_matches(text: str, keyword: str, cap: int) -> int:
     count = len(matches)
 
     return min(count, cap)  # cap -> plafon pentru nr cuvinte
+
+
+def has_anchor_keyword(title: str, content: str, theme_key: str) -> bool:
+    if theme_key not in THEME_ANCHOR_KEYWORDS:
+        return True
+
+    combined_text = normalize_text(title + " " + content)
+
+    for anchor in THEME_ANCHOR_KEYWORDS[theme_key]:
+        normalized_anchor = normalize_text(anchor)
+        pattern = r"\b" + re.escape(normalized_anchor) + r"\b"
+        if re.search(pattern, combined_text):
+            return True
+
+    return False
 
 
 def compute_theme_scores(title: str, content: str) -> dict[str, int]:
@@ -51,9 +67,14 @@ def classify_document(document: dict) -> dict:
     classified_document = document.copy()
 
     title = document.get("title", "")
-    content = document.get("content", "")
+    content = document.get("content_clean", document.get("content", ""))
 
     theme_scores = compute_theme_scores(title, content)
+
+    # Zero out themes that fail the anchor keyword check
+    for theme_key in list(theme_scores.keys()):
+        if theme_scores[theme_key] > 0 and not has_anchor_keyword(title, content, theme_key):
+            theme_scores[theme_key] = 0
 
     if not theme_scores:
         main_theme = "other_mixed"
@@ -74,7 +95,7 @@ def classify_document(document: dict) -> dict:
                     key=lambda item: item[1],
                     reverse=True
                 )
-                if theme_key != main_theme and score > 0
+                if theme_key != main_theme and score >= SECONDARY_THEME_MIN_SCORE
             ]
 
     classified_document["theme_scores"] = theme_scores

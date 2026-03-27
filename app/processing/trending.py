@@ -259,6 +259,9 @@ def _build_sparkline(documents, entity_or_theme, category, period_days, active_s
     return sparkline
 
 
+TOP_ENTITY_MIN_MENTIONS = 3
+
+
 def _build_category_result(documents, norm_freq, raw_freq, category, period_days, prev_norm_freq, num_sources, active_sources):
     """
     Build the final result structure for a category (top + runners-up).
@@ -276,7 +279,13 @@ def _build_category_result(documents, norm_freq, raw_freq, category, period_days
     if not norm_freq:
         return {"top": None, "runners_up": []}
 
-    top_3 = list(norm_freq.items())[:3]
+    # Filter out entities with too few raw mentions to avoid noise from rate normalization
+    filtered_norm = {
+        entity: rate for entity, rate in norm_freq.items()
+        if raw_freq.get(entity, 0) >= TOP_ENTITY_MIN_MENTIONS
+    }
+
+    top_3 = list(filtered_norm.items())[:3]
 
     if not top_3:
         return {"top": None, "runners_up": []}
