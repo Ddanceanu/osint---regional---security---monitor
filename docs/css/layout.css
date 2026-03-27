@@ -128,16 +128,21 @@
 .ts-badge {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     background: rgba(59,123,255,.07);
     border: 1px solid rgba(59,123,255,.18);
     border-radius: 8px;
-    padding: 5px 11px;
+    padding: .5rem 1rem;
     font-family: var(--font-mono);
-    font-size: .625rem;
+    font-size: .82rem;
     color: #5B95FF;
     white-space: nowrap;
     flex-shrink: 0;
+}
+
+.ts-label {
+    color: rgba(91, 149, 255, 0.55);
+    font-weight: 400;
 }
 
 .ts-dot {

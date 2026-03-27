@@ -48,6 +48,14 @@
     line-height: 1.4;
 }
 
+.theme-shift-period {
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    color: rgba(255, 255, 255, 0.28);
+    letter-spacing: .02em;
+    margin-top: 3px;
+}
+
 .theme-shift-controls {
     flex-shrink: 0;
 }

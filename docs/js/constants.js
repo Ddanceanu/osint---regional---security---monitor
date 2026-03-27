@@ -53,17 +53,28 @@ export const THEME_SHIFT_COLORS = {
 
 export const ENTITY_IMAGES = {
     // Persons
-    'Donald Trump':        'assets/entities/donald_trump.png',
-    'Volodymyr Zelenskyy': 'assets/entities/volodymyr_zelenskyy.png',
-    'Kaja Kallas':         'assets/entities/kaja_kallas.png',
+    'Donald Trump':                              'assets/entities/donald_trump.png',
+    'Volodymyr Zelenskyy':                       'assets/entities/volodymyr_zelenskyy.png',
+    'Kaja Kallas':                               'assets/entities/kaja_kallas.png',
+    'Mark Rutte':                                'assets/entities/mark_rutte.png',
     // Countries
-    'Ukraine':             'assets/entities/ukraine.png',
-    'Russia':              'assets/entities/russia.png',
-    'United Kingdom':      'assets/entities/united_kingdom.png',
+    'Ukraine':                                   'assets/entities/ukraine.png',
+    'Russia':                                    'assets/entities/russia.png',
+    'United Kingdom':                            'assets/entities/united_kingdom.png',
     // Organizations
-    'European Union':      'assets/entities/european_union.png',
-    'United Nations':      'assets/entities/united_nations.png',
-    'European Council':    'assets/entities/european_council.png',
+    'European Union':                            'assets/entities/european_union.png',
+    'United Nations':                            'assets/entities/united_nations.png',
+    'European Council':                          'assets/entities/european_council.png',
+    'NATO':                                      'assets/entities/nato.png',
+    'Armed Forces of the Russian Federation':    'assets/entities/armed_forces_of_the_russian_federation.png',
+    // Themes
+    'support_ukraine':                           'assets/entities/support_ukraine.png',
+    'eastern_flank_nato_deterrence':             'assets/entities/eastern_flank_nato_deterrence.png',
+    'romania_republic_of_moldova':               'assets/entities/romania_republic_of_moldova.png',
+    'russia_regional_implications':              'assets/entities/russia_regional_implications.png',
+    'eu_regional_security':                      'assets/entities/eu_regional_security.png',
+    'black_sea_regional_security':               'assets/entities/black_sea_regional_security.png',
+    'other_mixed':                               'assets/entities/other_mixed.png',
 };
 
 export const CATEGORY_LABELS = {

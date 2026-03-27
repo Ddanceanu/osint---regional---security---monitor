@@ -9,7 +9,7 @@ console.log('[SD] Source divergence module v2 loaded');
 let cachedData = null;
 let activeEntityTab = 'countries';
 
-const MAX_ENTITIES = 7;
+const MAX_ENTITIES = 5;
 
 // ════════════════════════════════════════
 // DATA

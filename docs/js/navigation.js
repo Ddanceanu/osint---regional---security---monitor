@@ -23,9 +23,14 @@ export function initNavigation() {
     });
 }
 
-export function updateTimestamp() {
-    const now = new Date();
-    const formatted = now.toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+export async function updateTimestamp() {
     const ts = document.getElementById('explorer-timestamp');
-    if (ts) ts.textContent = formatted;
+    if (!ts) return;
+    try {
+        const res  = await fetch('data/trending.json');
+        const data = await res.json();
+        ts.textContent = data.period_end;
+    } catch {
+        ts.textContent = new Date().toISOString().slice(0, 10);
+    }
 }

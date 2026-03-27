@@ -91,13 +91,14 @@ def _compute_theme_distribution(documents):
     return distribution
 
 
-def _compute_top_entities(documents, category, top_n=10):
+def _compute_top_entities(documents, category):
     """
-    Compute source-normalized entity frequency.
+    Compute source-normalized entity frequency for all entities in the category.
 
     For each source:
       - entity_rate = docs_mentioning_entity / total_docs_from_source
     Then average across all sources in the group.
+    Returns all entities sorted by rate descending (frontend handles top-N filtering).
     """
     source_groups = _group_by_source(documents)
     num_sources = len(source_groups)
@@ -139,7 +140,7 @@ def _compute_top_entities(documents, category, top_n=10):
     sorted_entities = sorted(avg_rates.items(), key=lambda x: x[1], reverse=True)
 
     result = []
-    for name, avg_rate in sorted_entities[:top_n]:
+    for name, avg_rate in sorted_entities:
         share = round(avg_rate * 100, 1)
         # Raw count for reference
         raw_count = 0

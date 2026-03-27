@@ -21,7 +21,24 @@ export function renderTrending() {
                 const prevStart = new Date(currStart);
                 prevStart.setDate(prevStart.getDate() - data.period_days);
                 const prevStartStr = prevStart.toISOString().slice(0, 10);
-                periodEl.textContent = `${prevStartStr} → ${data.period_end}  ·  28 days  ·  ${data.total_documents_in_period} docs (current 14d)`;
+                const fmt = d => {
+                    const dt = new Date(d + 'T00:00:00');
+                    return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+                };
+                const prevEndDate = new Date(currStart);
+                prevEndDate.setDate(prevEndDate.getDate() - 1);
+                const prevEndStr = prevEndDate.toISOString().slice(0, 10);
+                periodEl.innerHTML =
+                    `<span class="tp-block">` +
+                        `<span class="tp-block-label">baseline</span>` +
+                        `<span class="tp-block-dates">${fmt(prevStartStr)} – ${fmt(prevEndStr)}</span>` +
+                    `</span>` +
+                    `<span class="tp-arrow">→</span>` +
+                    `<span class="tp-block tp-block-current">` +
+                        `<span class="tp-block-label">current</span>` +
+                        `<span class="tp-block-dates">${fmt(data.period_start)} – ${fmt(data.period_end)}</span>` +
+                    `</span>` +
+                    `<span class="tp-docs">${data.total_documents_in_period} docs · 14d windows</span>`;
             }
 
             // Render each category
@@ -29,12 +46,6 @@ export function renderTrending() {
             renderTrendingCategory('trending-countries', data.categories.countries);
             renderTrendingCategory('trending-organizations', data.categories.organizations);
             renderTrendingCategory('trending-themes', data.categories.themes, true);
-
-            // Draw line charts for each category
-            drawTrendingChart('chart-trending-persons', data.categories.persons, data.period_days, data.period_start);
-            drawTrendingChart('chart-trending-countries', data.categories.countries, data.period_days, data.period_start);
-            drawTrendingChart('chart-trending-organizations', data.categories.organizations, data.period_days, data.period_start);
-            drawTrendingChart('chart-trending-themes', data.categories.themes, data.period_days, data.period_start, true);
 
             // Render momentum board
             if (data.momentum_board) {
@@ -55,9 +66,9 @@ function renderTrendingCategory(containerId, categoryData, isTheme = false) {
     const topEl = container.querySelector('.trending-top');
     const runnersEl = container.querySelector('.trending-runners');
 
-    // Render top item
     const top = categoryData.top;
     const topDisplayName = isTheme ? (THEME_LABELS[top.name] || top.name) : top.name;
+    const topPct = top.percentage;
 
     topEl.innerHTML = `
         <div class="trending-top-item">
@@ -65,41 +76,36 @@ function renderTrendingCategory(containerId, categoryData, isTheme = false) {
             <div class="trending-top-info">
                 <div class="trending-top-name">${topDisplayName}</div>
                 <div class="trending-top-stats">
-                    <span class="trending-pct">${top.percentage}% visibility</span>
+                    <span class="trending-pct">${topPct}%</span>
+                    <span class="trending-pct-label">visibility</span>
                 </div>
-            </div>
-            <div class="trending-right">
-                ${buildLeadBadge(top.lead)}
-                <canvas class="trending-spark" id="spark-${containerId}-top"></canvas>
+                <div class="trending-vis-bar">
+                    <div class="trending-vis-fill" style="width:100%"></div>
+                </div>
             </div>
         </div>
     `;
 
-    drawSparkline(`spark-${containerId}-top`, top.sparkline);
-
-    // Render runners-up
     runnersEl.innerHTML = '';
-    (categoryData.runners_up || []).forEach((runner, idx) => {
+    (categoryData.runners_up || []).forEach((runner) => {
         const runnerDisplayName = isTheme ? (THEME_LABELS[runner.name] || runner.name) : runner.name;
+        const relWidth = topPct > 0 ? ((runner.percentage / topPct) * 100).toFixed(1) : 0;
 
         const div = document.createElement('div');
         div.className = 'trending-runner-item';
         div.innerHTML = `
             ${buildAvatar(runner.name, runnerDisplayName, true)}
             <div class="trending-runner-info">
-                <div class="trending-runner-name">${runnerDisplayName}</div>
-                <div class="trending-runner-stats">
-                    <span class="trending-runner-pct">${runner.percentage}% visibility</span>
+                <div class="trending-runner-name-row">
+                    <span class="trending-runner-name">${runnerDisplayName}</span>
+                    <span class="trending-runner-pct">${runner.percentage}%</span>
                 </div>
-            </div>
-            <div class="trending-right-small">
-                ${buildLeadBadge(runner.lead)}
-                <canvas class="trending-runner-spark" id="spark-${containerId}-r${idx}"></canvas>
+                <div class="trending-runner-bar-wrap">
+                    <div class="trending-runner-bar" style="width:${relWidth}%"></div>
+                </div>
             </div>
         `;
         runnersEl.appendChild(div);
-
-        drawSparkline(`spark-${containerId}-r${idx}`, runner.sparkline);
     });
 }
 
@@ -139,8 +145,8 @@ function renderMomentumBoard(board) {
                 <span class="momentum-rank">${rank}.</span>
                 <div class="momentum-name-group">
                     <span class="momentum-item-name" title="${displayName}">${displayName}</span>
-                    <span class="momentum-item-category">${catLabel}</span>
                 </div>
+                <span class="momentum-item-category">${catLabel}</span>
                 <span class="momentum-rate-shift" title="Source-normalized visibility: previous 14 days → current 14 days">${rateShift}</span>
                 <span class="momentum-score-badge ${changeClass}" title="Absolute change in percentage points">${ppDisplay}</span>
                 <div class="momentum-sources" title="${entry.source_diversity} of ${maxSources} sources">${dotsHtml}</div>
@@ -152,6 +158,7 @@ function renderMomentumBoard(board) {
         <div class="momentum-col-headers">
             <span class="mch-rank">#</span>
             <span class="mch-name">ENTITY</span>
+            <span class="mch-cat">TYPE</span>
             <span class="mch-rate" title="Source-normalized visibility: previous 14 days → current 14 days">PREV → NOW</span>
             <span class="mch-score" title="Absolute change in percentage points">CHANGE</span>
             <span class="mch-sources">SOURCES</span>
@@ -211,25 +218,11 @@ function buildTrendBadge(trend) {
 
 function buildLeadBadge(lead) {
     if (lead == null) return '';
-
     const leadDisplay = lead.toFixed(1);
-
-    if (lead >= 5) {
-        return `<div class="lead-badge lead-strong" title="+${leadDisplay}pp ahead of next">
-            <span class="lead-value">+${leadDisplay}pp</span>
-            <span class="lead-context">lead</span>
-        </div>`;
-    } else if (lead >= 1) {
-        return `<div class="lead-badge lead-moderate" title="+${leadDisplay}pp ahead of next">
-            <span class="lead-value">+${leadDisplay}pp</span>
-            <span class="lead-context">lead</span>
-        </div>`;
-    } else {
-        return `<div class="lead-badge lead-tight" title="+${leadDisplay}pp ahead of next">
-            <span class="lead-value">+${leadDisplay}pp</span>
-            <span class="lead-context">lead</span>
-        </div>`;
-    }
+    return `<div class="lead-badge" title="+${leadDisplay}pp ahead of next">
+        <span class="lead-value">+${leadDisplay}pp</span>
+        <span class="lead-context">lead</span>
+    </div>`;
 }
 
 function buildAvatar(entityName, displayName, isSmall) {

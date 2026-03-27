@@ -70,6 +70,16 @@ export async function renderThemeEvolutionChart() {
     const weeks = data.weeks.filter(w => w.total >= MIN_DOCS);
     if (!weeks.length) return;
 
+    // Populate period line
+    const periodEl = document.getElementById('theme-shift-period');
+    if (periodEl && weeks.length) {
+        const { weekStart } = parseWeekDates(weeks[0].week);
+        const { weekEnd } = parseWeekDates(weeks[weeks.length - 1].week);
+        const fmt = d => d.toISOString().slice(0, 10);
+        const totalDocs = data.weeks.reduce((s, w) => s + (w.total || 0), 0);
+        periodEl.textContent = `Analysis period: ${fmt(weekStart)} → ${fmt(weekEnd)}  ·  ${totalDocs} documents`;
+    }
+
     const themes = data.themes;
     const isShare = themeShiftMode === 'share';
 

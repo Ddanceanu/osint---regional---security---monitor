@@ -39,7 +39,7 @@
                         <button class="nav-tab" data-page="themes">Themes</button>
                         <button class="nav-tab" data-page="entities">Entities</button>
                     </div>
-                    <div class="ts-badge"><span class="ts-dot"></span><span id="explorer-timestamp"></span></div>
+                    <div class="ts-badge"><span class="ts-dot"></span><span class="ts-label">Data as of</span><span id="explorer-timestamp"></span></div>
                 </div>
             </div>
         </div>
@@ -136,6 +136,7 @@
                     </div>
                     <div class="trending-period" id="trending-period">Last 14 days</div>
                 </div>
+                <div class="trending-desc">Source-normalized entity visibility — top-ranked persons, countries, organizations and themes by mention rate, comparing two consecutive 14-day windows</div>
 
                 <div class="trending-grid">
                     <!-- Persons -->
@@ -143,9 +144,6 @@
                         <div class="trending-cat-label">Top Person</div>
                         <div class="trending-top"></div>
                         <div class="trending-runners"></div>
-                        <div class="trending-chart-wrap">
-                            <canvas id="chart-trending-persons"></canvas>
-                        </div>
                     </div>
 
                     <!-- Countries -->
@@ -153,9 +151,6 @@
                         <div class="trending-cat-label">Top Country</div>
                         <div class="trending-top"></div>
                         <div class="trending-runners"></div>
-                        <div class="trending-chart-wrap">
-                            <canvas id="chart-trending-countries"></canvas>
-                        </div>
                     </div>
 
                     <!-- Organizations -->
@@ -163,9 +158,6 @@
                         <div class="trending-cat-label">Top Organization</div>
                         <div class="trending-top"></div>
                         <div class="trending-runners"></div>
-                        <div class="trending-chart-wrap">
-                            <canvas id="chart-trending-organizations"></canvas>
-                        </div>
                     </div>
 
                     <!-- Themes -->
@@ -173,9 +165,6 @@
                         <div class="trending-cat-label">Top Theme</div>
                         <div class="trending-top"></div>
                         <div class="trending-runners"></div>
-                        <div class="trending-chart-wrap">
-                            <canvas id="chart-trending-themes"></canvas>
-                        </div>
                     </div>
                 </div>
 
@@ -207,6 +196,7 @@
                         <div>
                             <h2 class="theme-shift-title">Thematic Shift</h2>
                             <div class="theme-shift-sub">Weekly distribution of primary themes — how the analytical focus evolved over time</div>
+                            <div class="theme-shift-period" id="theme-shift-period"></div>
                         </div>
                     </div>
                     <div class="theme-shift-controls">

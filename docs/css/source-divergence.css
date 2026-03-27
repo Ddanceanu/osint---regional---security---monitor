@@ -243,6 +243,11 @@
     text-align: left;
 }
 
+.sd-bar-label-zero {
+    color: rgba(255, 255, 255, 0.2) !important;
+    font-style: italic;
+}
+
 .sd-butterfly-right .sd-bar-track {
     flex: 1;
     height: 12px;
