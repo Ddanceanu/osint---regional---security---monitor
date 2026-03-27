@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/strategic-pulse.css">
     <link rel="stylesheet" href="css/theme-shift.css">
     <link rel="stylesheet" href="css/source-divergence.css">
+    <link rel="stylesheet" href="css/actor-trajectories.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -267,6 +268,44 @@
                     </div>
                 </div>
                 <div class="sd-butterfly" id="sd-butterfly-entities"></div>
+            </div>
+
+            <!-- Actor Trajectories (analytical panel #4) -->
+            <div class="at-panel" id="actor-trajectories-panel">
+                <div class="at-header">
+                    <div class="at-title-block">
+                        <h2 class="at-title">Actor Trajectories</h2>
+                        <div class="at-sub">Source-normalized visibility · last 8 weeks · weekly aggregation</div>
+                    </div>
+                    <div class="at-period" id="at-period"></div>
+                </div>
+
+                <!-- Selected actor chips -->
+                <div class="at-selected-bar" id="at-selected-bar"></div>
+
+                <!-- Body: chart + sidebar -->
+                <div class="at-body">
+                    <div class="at-chart-wrap">
+                        <canvas id="at-chart"></canvas>
+                    </div>
+                    <div class="at-sidebar">
+                        <div class="at-sidebar-hd">
+                            <span class="at-sidebar-label">Actors</span>
+                            <span class="at-sidebar-count" id="at-sidebar-count">0 / 8</span>
+                        </div>
+                        <div class="at-cat-tabs" id="at-cat-tabs">
+                            <button class="at-cat-tab active" data-cat="countries">Countries</button>
+                            <button class="at-cat-tab" data-cat="persons">Persons</button>
+                            <button class="at-cat-tab" data-cat="organizations">Orgs</button>
+                            <button class="at-cat-tab" data-cat="themes">Themes</button>
+                        </div>
+                        <div class="at-sidebar-search-wrap">
+                            <span class="at-sidebar-search-icon">⌕</span>
+                            <input class="at-search" id="at-search" type="text" placeholder="Search…" autocomplete="off">
+                        </div>
+                        <div class="at-sidebar-list" id="at-dropdown-list"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Corpus summary strip -->

@@ -13,6 +13,7 @@ from app.processing.entity_extractor import enrich_document_with_entities
 from app.processing.trending import compute_trending
 from app.processing.theme_shift import compute_theme_shift
 from app.processing.source_divergence import compute_source_divergence
+from app.processing.actor_trajectories import compute_actor_trajectories
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -124,6 +125,17 @@ def main() -> None:
     print(f"  Official: {divergence_data['official']['total_documents']} docs from {len(divergence_data['official']['sources'])} sources")
     print(f"  Think tank: {divergence_data['think_tank']['total_documents']} docs from {len(divergence_data['think_tank']['sources'])} sources")
     print(f"  Theme gaps computed: {len(divergence_data['divergence']['theme_gaps'])}")
+
+    trajectories_data = compute_actor_trajectories(document_with_entities)
+
+    trajectories_output_path = project_root / "docs" / "data" / "actor_trajectories.json"
+    with open(trajectories_output_path, "w", encoding="utf-8") as trajectories_file:
+        json.dump(trajectories_data, trajectories_file, ensure_ascii=False, indent=4)
+
+    print(f"Actor trajectories saved to: {trajectories_output_path}")
+    print(f"  Window: {trajectories_data['period_start']} to {trajectories_data['period_end']}")
+    print(f"  Weeks: {trajectories_data['num_weeks']}")
+    print(f"  Actors tracked: {len(trajectories_data['actors'])}")
 
 
 if __name__ == "__main__":

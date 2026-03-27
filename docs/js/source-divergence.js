@@ -39,15 +39,15 @@ function buildButterflyRow(name, offShare, ttShare, maxShare) {
     const absGap = Math.abs(gap);
     let gapClass, gapText;
 
-    if (absGap < 1) {
-        gapClass = 'gap-neutral';
-        gapText = '≈';
-    } else if (gap > 0) {
+    if (gap > 0) {
         gapClass = 'gap-thinktank';
-        gapText = `+${absGap}`;
-    } else {
+        gapText = `+${absGap}pp`;
+    } else if (gap < 0) {
         gapClass = 'gap-official';
-        gapText = `+${absGap}`;
+        gapText = `+${absGap}pp`;
+    } else {
+        gapClass = 'gap-neutral';
+        gapText = `0pp`;
     }
 
     return `
