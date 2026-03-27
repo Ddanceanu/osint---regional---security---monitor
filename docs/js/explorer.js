@@ -25,7 +25,7 @@ export function initFilters() {
     const dates = appState.allDocuments.map(d => d.publication_date_iso).filter(Boolean).sort();
     if (dates.length) {
         appState.dateFrom = dates[0];
-        appState.dateTo   = dates[dates.length - 1];
+        appState.dateTo   = new Date().toISOString().slice(0, 10);
         document.getElementById('date-from').value = appState.dateFrom;
         document.getElementById('date-to').value   = appState.dateTo;
     }
@@ -113,7 +113,7 @@ export function resetFilters() {
     const dates = appState.allDocuments.map(d => d.publication_date_iso).filter(Boolean).sort();
     if (dates.length) {
         appState.dateFrom = dates[0];
-        appState.dateTo   = dates[dates.length - 1];
+        appState.dateTo   = new Date().toISOString().slice(0, 10);
     }
 
     document.getElementById('search-input').value = '';

@@ -55,13 +55,17 @@
 
 .entity-pill {
     display: inline-block;
-    font-size: .775rem;
+    font-size: .7rem;
     font-weight: 500;
     color: #B8D0E8;
     background: #111F32;
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: .175rem .4375rem;
+    padding: .125rem .35rem;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .entity-more {

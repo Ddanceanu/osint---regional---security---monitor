@@ -81,7 +81,8 @@ def normalize_publication_date(publication_date: str, source_key: str) -> str:
             return parsed_date.strftime("%Y-%m-%d")
 
         if source_key == "ecfr":
-            parsed_date = datetime.strptime(publication_date, "%d %B %Y")
+            date_part = publication_date.split(" ")[0]
+            parsed_date = datetime.strptime(date_part, "%Y-%m-%d")
             return parsed_date.strftime("%Y-%m-%d")
 
         if source_key == "isw":

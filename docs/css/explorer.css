@@ -3,8 +3,8 @@
 ════════════════════════════════════════ */
 .explorer-body {
     display: grid;
-    grid-template-columns: 286px 1fr;
-    gap: 1.25rem;
+    grid-template-columns: 220px 1fr;
+    gap: 1rem;
     align-items: stretch;
 }
 
@@ -15,7 +15,7 @@
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 1.25rem;
+    padding: .875rem;
     align-self: stretch;
     overflow-y: auto;
     display: flex;
@@ -107,7 +107,7 @@
     border: none;
     color: var(--text-primary);
     font-family: var(--font-base);
-    font-size: .92rem;
+    font-size: .8rem;
     outline: none;
     width: 100%;
 }
@@ -129,11 +129,11 @@
 .check-item {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: .2rem .35rem;
+    gap: 5px;
+    padding: .15rem .3rem;
     border-radius: 4px;
     cursor: pointer;
-    font-size: .8625rem;
+    font-size: .775rem;
     color: #9AB5D4;
     transition: background .1s ease;
     user-select: none;
@@ -240,24 +240,24 @@
 .doc-table thead th {
     background: #08111E;
     color: var(--text-secondary);
-    font-size: .79rem;
+    font-size: .7rem;
     font-weight: 600;
-    letter-spacing: .12em;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    padding: .75rem .875rem;
+    padding: .55rem .65rem;
     text-align: left;
     border-bottom: 1px solid var(--border-strong);
     white-space: nowrap;
 }
 
-.col-date      { width: 80px; }
-.col-source    { width: 75px; }
-.col-title     { width: 250px; }
-.col-theme     { width: 125px; }
-.col-secondary { width: 105px; }
-.col-countries { width: 90px; }
-.col-orgs      { width: 100px; }
-.col-preview   { width: 210px; }
+.col-date      { width: 70px; }
+.col-source    { width: 68px; }
+.col-title     { width: 220px; }
+.col-theme     { width: 115px; }
+.col-secondary { width: 100px; }
+.col-countries { width: 88px; }
+.col-orgs      { width: 95px; }
+.col-preview   { width: 190px; }
 
 .doc-row     { background: var(--bg-secondary); transition: background .12s ease; cursor: pointer; }
 .doc-row-alt { background: var(--surface-alt); }
@@ -265,13 +265,13 @@
 .doc-row.expanded { background: var(--surface-expanded) !important; }
 
 .doc-table tbody td {
-    padding: .75rem .875rem;
+    padding: .55rem .65rem;
     color: #D4E3F3;
-    font-size: .935rem;
-    line-height: 1.45;
+    font-size: .825rem;
+    line-height: 1.4;
     vertical-align: top;
     border-bottom: 1px solid #162033;
-    word-break: break-word;
+    overflow: hidden;
 }
 
 .date-mono {
@@ -297,7 +297,7 @@
 .title-text {
     font-weight: 500;
     color: var(--text-primary);
-    font-size: .935rem;
+    font-size: .825rem;
     line-height: 1.4;
     display: block;
 }
@@ -317,7 +317,7 @@
 }
 
 .preview-text {
-    font-size: .835rem;
+    font-size: .75rem;
     color: #C8D8EA;
     line-height: 1.5;
     display: -webkit-box;
