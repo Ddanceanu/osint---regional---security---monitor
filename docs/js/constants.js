@@ -66,6 +66,7 @@ export const ENTITY_IMAGES = {
     'European Union':                            'assets/entities/european_union.png',
     'United Nations':                            'assets/entities/united_nations.png',
     'European Council':                          'assets/entities/european_council.png',
+    'European Commission':                       'assets/entities/european_commission.png',
     'NATO':                                      'assets/entities/nato.png',
     'Armed Forces of the Russian Federation':    'assets/entities/armed_forces_of_the_russian_federation.png',
     // Themes

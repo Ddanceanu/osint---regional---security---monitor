@@ -11,6 +11,7 @@ import { renderThemeEvolutionChart, initThemeShiftToggle } from './theme-shift.j
 import { renderSourceDivergence, initDivergenceTabs } from './source-divergence.js';
 import { renderActorTrajectories } from './actor-trajectories.js';
 import { renderThemesPage } from './themes.js';
+import { renderEntitiesPage } from './entities.js';
 
 // ════════════════════════════════════════
 // EXPOSE GLOBALS (needed for onclick handlers in HTML)
@@ -50,6 +51,7 @@ async function loadDocuments() {
         renderSourceDivergence();
         renderActorTrajectories();
         renderThemesPage();
+        renderEntitiesPage();
 
     } catch (error) {
         console.error('Failed to load documents:', error);

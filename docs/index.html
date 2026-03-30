@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/source-divergence.css">
     <link rel="stylesheet" href="css/actor-trajectories.css">
     <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/entities.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 
@@ -442,11 +443,75 @@
 
         <!-- PAGE: Entities -->
         <div class="page" id="page-entities">
-            <div class="coming-soon">
-                <div class="coming-soon-icon">🌍</div>
-                <div class="coming-soon-title">Entities</div>
-                <div class="coming-soon-sub">Country, organization, person and location frequency analysis — coming soon.</div>
+
+            <!-- ═══ Section 1: Entity Explorer ═══ -->
+            <div class="en-explorer-panel">
+                <div class="en-panel-header">
+                    <div class="en-title-row">
+                        <div class="en-icon-bar"></div>
+                        <div>
+                            <h2 class="en-panel-title">Entity Explorer</h2>
+                            <div class="en-panel-sub">Browse entities by category and select one to explore its mention timeline, thematic context, and source coverage</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category tabs + search -->
+                <div class="en-controls">
+                    <div class="en-cat-tabs" id="en-cat-tabs">
+                        <button class="en-cat-tab active" data-cat="persons">Persons</button>
+                        <button class="en-cat-tab" data-cat="countries">Countries</button>
+                        <button class="en-cat-tab" data-cat="organizations">Organizations</button>
+                        <button class="en-cat-tab" data-cat="locations">Locations</button>
+                    </div>
+                    <div class="en-search-wrap">
+                        <span class="en-search-icon">⌕</span>
+                        <input type="text" id="en-search" class="en-search-input" placeholder="Search entities…" autocomplete="off">
+                    </div>
+                </div>
+
+                <!-- Two-column body: list + profile -->
+                <div class="en-explorer-body">
+                    <div class="en-entity-list" id="en-entity-list"></div>
+                    <div class="en-profile" id="en-profile">
+                        <div class="en-profile-placeholder">Select an entity from the list</div>
+                    </div>
+                </div>
             </div>
+
+            <!-- ═══ Section 2: Entity-Source Coverage Matrix ═══ -->
+            <div class="en-coverage-panel">
+                <div class="en-panel-header">
+                    <div class="en-title-row">
+                        <div class="en-icon-bar en-icon-bar-coverage"></div>
+                        <div>
+                            <h2 class="en-panel-title">Source Coverage Matrix</h2>
+                            <div class="en-panel-sub">How many documents from each source mention each of the top entities — reveals blind spots and editorial focus per source</div>
+                        </div>
+                    </div>
+                    <div class="en-coverage-cat-tabs" id="en-coverage-cat-tabs">
+                        <button class="en-cov-tab active" data-cat="persons">Persons</button>
+                        <button class="en-cov-tab" data-cat="countries">Countries</button>
+                        <button class="en-cov-tab" data-cat="organizations">Organizations</button>
+                    </div>
+                </div>
+                <div class="en-coverage-wrap" id="en-coverage-wrap"></div>
+            </div>
+
+            <!-- ═══ Section 3: Top Entity Pairs ═══ -->
+            <div class="en-pairs-panel">
+                <div class="en-panel-header">
+                    <div class="en-title-row">
+                        <div class="en-icon-bar en-icon-bar-pairs"></div>
+                        <div>
+                            <h2 class="en-panel-title">Top Entity Pairs</h2>
+                            <div class="en-panel-sub">Entities that appear most frequently in the same documents — co-occurrence signals thematic and narrative association</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="en-pairs-body" id="en-pairs-body"></div>
+            </div>
+
         </div>
 
     </main>

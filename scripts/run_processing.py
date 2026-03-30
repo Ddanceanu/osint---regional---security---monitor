@@ -16,6 +16,7 @@ from app.processing.theme_shift import compute_theme_shift
 from app.processing.source_divergence import compute_source_divergence
 from app.processing.actor_trajectories import compute_actor_trajectories
 from app.processing.theme_analysis import compute_theme_analysis
+from app.processing.entity_analysis import compute_entity_analysis
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -151,6 +152,16 @@ def main() -> None:
     print(f"  Themes profiled: {len(theme_analysis_data['themes'])}")
     print(f"  Co-occurrence max: {theme_analysis_data['cooccurrence']['max_value']}")
     print(f"  Sources analyzed: {len(theme_analysis_data['concentration'])}")
+
+    entity_analysis_data = compute_entity_analysis(document_with_entities)
+
+    entity_analysis_output_path = project_root / "docs" / "data" / "entity_analysis.json"
+    with open(entity_analysis_output_path, "w", encoding="utf-8") as entity_analysis_file:
+        json.dump(entity_analysis_data, entity_analysis_file, ensure_ascii=False, indent=4)
+
+    print(f"Entity analysis saved to: {entity_analysis_output_path}")
+    print(f"  Category counts: {entity_analysis_data['category_counts']}")
+    print(f"  Top pairs computed: {len(entity_analysis_data['entity_pairs'])}")
 
 
 if __name__ == "__main__":
