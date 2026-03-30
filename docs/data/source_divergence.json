@@ -1,9 +1,9 @@
 {
-    "period_start": "2025-12-28",
-    "period_end": "2026-03-27",
-    "total_documents": 552,
+    "period_start": "2025-12-30",
+    "period_end": "2026-03-29",
+    "total_documents": 555,
     "official": {
-        "total_documents": 389,
+        "total_documents": 390,
         "num_sources": 4,
         "sources": [
             "EEAS",
@@ -12,46 +12,46 @@
             "NATO"
         ],
         "theme_distribution": {
-            "support_ukraine": {
-                "count": 76,
-                "share": 14.2
+            "russia_regional_implications": {
+                "count": 28,
+                "share": 3.9
+            },
+            "other_mixed": {
+                "count": 198,
+                "share": 68.7
+            },
+            "eu_regional_security": {
+                "count": 67,
+                "share": 9.6
             },
             "eastern_flank_nato_deterrence": {
                 "count": 2,
                 "share": 0.3
             },
-            "other_mixed": {
-                "count": 197,
-                "share": 68.6
+            "support_ukraine": {
+                "count": 76,
+                "share": 14.2
             },
             "black_sea_regional_security": {
                 "count": 4,
                 "share": 0.6
             },
-            "russia_regional_implications": {
-                "count": 28,
-                "share": 3.9
-            },
             "romania_republic_of_moldova": {
                 "count": 15,
                 "share": 2.8
-            },
-            "eu_regional_security": {
-                "count": 67,
-                "share": 9.6
             }
         },
         "top_entities": {
             "countries": [
                 {
                     "name": "Romania",
-                    "count": 14,
-                    "share": 27.0
+                    "count": 15,
+                    "share": 27.2
                 },
                 {
                     "name": "Ukraine",
                     "count": 130,
-                    "share": 21.8
+                    "share": 21.7
                 },
                 {
                     "name": "United Kingdom",
@@ -61,7 +61,7 @@
                 {
                     "name": "Netherlands",
                     "count": 15,
-                    "share": 11.8
+                    "share": 11.7
                 },
                 {
                     "name": "Poland",
@@ -156,7 +156,7 @@
                 {
                     "name": "Finland",
                     "count": 13,
-                    "share": 2.8
+                    "share": 2.7
                 },
                 {
                     "name": "China",
@@ -170,8 +170,8 @@
                 },
                 {
                     "name": "Bulgaria",
-                    "count": 10,
-                    "share": 2.3
+                    "count": 11,
+                    "share": 2.5
                 },
                 {
                     "name": "Denmark",
@@ -268,7 +268,7 @@
                 {
                     "name": "European Union",
                     "count": 211,
-                    "share": 47.0
+                    "share": 46.9
                 },
                 {
                     "name": "NATO",
@@ -298,12 +298,7 @@
                 {
                     "name": "European Council",
                     "count": 62,
-                    "share": 8.5
-                },
-                {
-                    "name": "Ministry of Foreign Affairs of Romania",
-                    "count": 1,
-                    "share": 8.3
+                    "share": 8.4
                 },
                 {
                     "name": "Government of Romania",
@@ -312,6 +307,11 @@
                 },
                 {
                     "name": "U.S. Department of State",
+                    "count": 1,
+                    "share": 8.3
+                },
+                {
+                    "name": "Ministry of Foreign Affairs of Romania",
                     "count": 1,
                     "share": 8.3
                 },
@@ -366,12 +366,12 @@
                     "share": 0.8
                 },
                 {
-                    "name": "Kremlin",
+                    "name": "Center for European Policy Analysis",
                     "count": 4,
                     "share": 0.6
                 },
                 {
-                    "name": "Center for European Policy Analysis",
+                    "name": "Kremlin",
                     "count": 4,
                     "share": 0.6
                 },
@@ -433,6 +433,11 @@
                     "share": 12.1
                 },
                 {
+                    "name": "Marco Rubio",
+                    "count": 1,
+                    "share": 8.3
+                },
+                {
                     "name": "Yvette Cooper",
                     "count": 1,
                     "share": 8.3
@@ -443,14 +448,9 @@
                     "share": 8.3
                 },
                 {
-                    "name": "Marco Rubio",
-                    "count": 1,
-                    "share": 8.3
-                },
-                {
                     "name": "Antonio Costa",
                     "count": 55,
-                    "share": 7.5
+                    "share": 7.4
                 },
                 {
                     "name": "Ursula von der Leyen",
@@ -508,12 +508,12 @@
                     "share": 0.3
                 },
                 {
-                    "name": "Denys Shmyhal",
+                    "name": "Dmytro Kuleba",
                     "count": 1,
                     "share": 0.2
                 },
                 {
-                    "name": "Dmytro Kuleba",
+                    "name": "Denys Shmyhal",
                     "count": 1,
                     "share": 0.2
                 },
@@ -531,7 +531,7 @@
         }
     },
     "think_tank": {
-        "total_documents": 163,
+        "total_documents": 165,
         "num_sources": 3,
         "sources": [
             "Chatham House",
@@ -539,25 +539,25 @@
             "ISW"
         ],
         "theme_distribution": {
-            "support_ukraine": {
-                "count": 8,
-                "share": 5.0
+            "russia_regional_implications": {
+                "count": 123,
+                "share": 68.1
+            },
+            "other_mixed": {
+                "count": 25,
+                "share": 16.7
+            },
+            "eu_regional_security": {
+                "count": 3,
+                "share": 4.1
             },
             "eastern_flank_nato_deterrence": {
                 "count": 4,
                 "share": 2.7
             },
-            "other_mixed": {
-                "count": 24,
-                "share": 16.0
-            },
-            "russia_regional_implications": {
-                "count": 124,
-                "share": 71.7
-            },
-            "eu_regional_security": {
-                "count": 3,
-                "share": 4.7
+            "support_ukraine": {
+                "count": 10,
+                "share": 8.4
             }
         },
         "top_entities": {
@@ -565,208 +565,208 @@
                 {
                     "name": "Russia",
                     "count": 132,
-                    "share": 79.3
+                    "share": 78.0
                 },
                 {
                     "name": "Ukraine",
-                    "count": 125,
-                    "share": 66.7
+                    "count": 126,
+                    "share": 67.7
                 },
                 {
                     "name": "United States",
-                    "count": 85,
-                    "share": 63.4
+                    "count": 86,
+                    "share": 62.8
                 },
                 {
                     "name": "United Kingdom",
-                    "count": 87,
-                    "share": 56.7
+                    "count": 88,
+                    "share": 55.0
                 },
                 {
                     "name": "China",
-                    "count": 53,
+                    "count": 55,
                     "share": 54.8
                 },
                 {
                     "name": "Iran",
-                    "count": 56,
-                    "share": 41.4
+                    "count": 59,
+                    "share": 42.1
                 },
                 {
                     "name": "Germany",
-                    "count": 30,
-                    "share": 41.2
+                    "count": 31,
+                    "share": 40.5
                 },
                 {
                     "name": "France",
-                    "count": 28,
-                    "share": 38.2
-                },
-                {
-                    "name": "Israel",
-                    "count": 35,
-                    "share": 29.5
+                    "count": 27,
+                    "share": 35.0
                 },
                 {
                     "name": "Poland",
                     "count": 21,
-                    "share": 25.5
+                    "share": 26.8
+                },
+                {
+                    "name": "Israel",
+                    "count": 34,
+                    "share": 26.7
+                },
+                {
+                    "name": "Hungary",
+                    "count": 11,
+                    "share": 26.0
                 },
                 {
                     "name": "Canada",
                     "count": 14,
-                    "share": 25.0
+                    "share": 23.8
                 },
                 {
-                    "name": "Hungary",
-                    "count": 10,
-                    "share": 25.0
+                    "name": "Turkey",
+                    "count": 15,
+                    "share": 23.4
                 },
                 {
                     "name": "Denmark",
                     "count": 12,
-                    "share": 23.3
+                    "share": 22.1
                 },
                 {
                     "name": "Spain",
                     "count": 10,
-                    "share": 21.6
-                },
-                {
-                    "name": "Turkey",
-                    "count": 14,
-                    "share": 21.3
+                    "share": 20.4
                 },
                 {
                     "name": "Italy",
                     "count": 11,
-                    "share": 19.3
-                },
-                {
-                    "name": "Belarus",
-                    "count": 42,
-                    "share": 16.6
+                    "share": 18.6
                 },
                 {
                     "name": "India",
-                    "count": 11,
-                    "share": 16.3
+                    "count": 12,
+                    "share": 16.8
+                },
+                {
+                    "name": "Belarus",
+                    "count": 41,
+                    "share": 15.7
                 },
                 {
                     "name": "Finland",
                     "count": 15,
-                    "share": 14.9
-                },
-                {
-                    "name": "Sweden",
-                    "count": 13,
-                    "share": 13.9
-                },
-                {
-                    "name": "Netherlands",
-                    "count": 10,
-                    "share": 13.3
+                    "share": 15.4
                 },
                 {
                     "name": "Japan",
-                    "count": 8,
-                    "share": 13.0
+                    "count": 9,
+                    "share": 14.1
+                },
+                {
+                    "name": "Sweden",
+                    "count": 12,
+                    "share": 13.7
                 },
                 {
                     "name": "Norway",
-                    "count": 8,
-                    "share": 12.3
+                    "count": 9,
+                    "share": 13.4
                 },
                 {
                     "name": "Estonia",
-                    "count": 8,
-                    "share": 11.6
+                    "count": 10,
+                    "share": 13.1
                 },
                 {
                     "name": "North Korea",
                     "count": 15,
-                    "share": 11.6
+                    "share": 10.4
+                },
+                {
+                    "name": "Netherlands",
+                    "count": 8,
+                    "share": 10.3
+                },
+                {
+                    "name": "Bulgaria",
+                    "count": 4,
+                    "share": 8.7
                 },
                 {
                     "name": "Slovakia",
-                    "count": 5,
-                    "share": 11.0
-                },
-                {
-                    "name": "Czech Republic",
                     "count": 4,
-                    "share": 7.7
-                },
-                {
-                    "name": "Greece",
-                    "count": 4,
-                    "share": 7.3
-                },
-                {
-                    "name": "Lithuania",
-                    "count": 13,
-                    "share": 7.2
+                    "share": 8.7
                 },
                 {
                     "name": "South Korea",
-                    "count": 4,
-                    "share": 5.3
+                    "count": 5,
+                    "share": 7.6
                 },
                 {
                     "name": "Romania",
                     "count": 6,
-                    "share": 5.3
+                    "share": 6.9
+                },
+                {
+                    "name": "Lithuania",
+                    "count": 13,
+                    "share": 6.7
                 },
                 {
                     "name": "Georgia",
                     "count": 3,
-                    "share": 4.7
+                    "share": 6.2
                 },
                 {
-                    "name": "Latvia",
+                    "name": "Greece",
+                    "count": 4,
+                    "share": 6.2
+                },
+                {
+                    "name": "Czech Republic",
                     "count": 3,
-                    "share": 4.0
-                },
-                {
-                    "name": "Bulgaria",
-                    "count": 2,
-                    "share": 3.7
+                    "share": 5.9
                 },
                 {
                     "name": "Azerbaijan",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Belgium",
-                    "count": 5,
-                    "share": 2.3
+                    "count": 2,
+                    "share": 5.6
                 },
                 {
                     "name": "Kazakhstan",
-                    "count": 3,
-                    "share": 1.3
+                    "count": 4,
+                    "share": 4.1
                 },
                 {
-                    "name": "Slovenia",
+                    "name": "Latvia",
+                    "count": 4,
+                    "share": 3.7
+                },
+                {
+                    "name": "Serbia",
                     "count": 1,
-                    "share": 0.7
+                    "share": 2.8
+                },
+                {
+                    "name": "Belgium",
+                    "count": 4,
+                    "share": 1.6
                 }
             ],
             "organizations": [
                 {
                     "name": "NATO",
-                    "count": 63,
-                    "share": 47.2
+                    "count": 62,
+                    "share": 44.9
                 },
                 {
                     "name": "Kremlin",
                     "count": 96,
-                    "share": 37.4
+                    "share": 36.3
                 },
                 {
                     "name": "European Council on Foreign Relations",
-                    "count": 11,
+                    "count": 13,
                     "share": 34.0
                 },
                 {
@@ -781,13 +781,13 @@
                 },
                 {
                     "name": "European Council",
-                    "count": 11,
-                    "share": 28.3
+                    "count": 12,
+                    "share": 28.8
                 },
                 {
                     "name": "European Commission",
-                    "count": 10,
-                    "share": 27.3
+                    "count": 11,
+                    "share": 25.6
                 },
                 {
                     "name": "Ministry of Defence of the Russian Federation",
@@ -797,7 +797,7 @@
                 {
                     "name": "Parliamentary Assembly of the Council of Europe",
                     "count": 14,
-                    "share": 20.3
+                    "share": 19.9
                 },
                 {
                     "name": "GRU",
@@ -807,22 +807,22 @@
                 {
                     "name": "White House",
                     "count": 14,
-                    "share": 12.6
+                    "share": 13.6
                 },
                 {
                     "name": "Chatham House",
-                    "count": 17,
-                    "share": 11.3
+                    "count": 18,
+                    "share": 12.0
                 },
                 {
                     "name": "European Parliament",
-                    "count": 5,
-                    "share": 11.3
+                    "count": 4,
+                    "share": 11.1
                 },
                 {
                     "name": "UN Security Council",
-                    "count": 23,
-                    "share": 10.8
+                    "count": 22,
+                    "share": 9.6
                 },
                 {
                     "name": "State Duma",
@@ -831,8 +831,8 @@
                 },
                 {
                     "name": "Security Service of Ukraine",
-                    "count": 26,
-                    "share": 8.4
+                    "count": 27,
+                    "share": 8.7
                 },
                 {
                     "name": "Federal Security Service",
@@ -840,24 +840,24 @@
                     "share": 7.5
                 },
                 {
-                    "name": "European Union",
-                    "count": 10,
-                    "share": 7.3
-                },
-                {
-                    "name": "EEAS",
-                    "count": 2,
-                    "share": 6.7
-                },
-                {
                     "name": "Ministry of Defence of Ukraine",
                     "count": 20,
                     "share": 6.5
                 },
                 {
+                    "name": "European Union",
+                    "count": 9,
+                    "share": 6.1
+                },
+                {
+                    "name": "EEAS",
+                    "count": 2,
+                    "share": 5.6
+                },
+                {
                     "name": "U.S. Department of Defense",
                     "count": 6,
-                    "share": 6.0
+                    "share": 5.4
                 },
                 {
                     "name": "Security Council of the Russian Federation",
@@ -865,44 +865,59 @@
                     "share": 4.9
                 },
                 {
-                    "name": "Ministry of Foreign Affairs of the Russian Federation",
-                    "count": 14,
-                    "share": 4.5
-                },
-                {
                     "name": "United Nations",
                     "count": 10,
                     "share": 4.3
                 },
                 {
-                    "name": "Verkhovna Rada",
+                    "name": "Ministry of Foreign Affairs of the Russian Federation",
                     "count": 13,
                     "share": 4.2
                 },
                 {
+                    "name": "Verkhovna Rada",
+                    "count": 12,
+                    "share": 3.9
+                },
+                {
+                    "name": "Commonwealth of Independent States",
+                    "count": 3,
+                    "share": 3.4
+                },
+                {
+                    "name": "Eurasian Economic Union",
+                    "count": 2,
+                    "share": 3.1
+                },
+                {
                     "name": "U.S. Department of State",
                     "count": 2,
-                    "share": 3.7
+                    "share": 3.1
                 },
                 {
-                    "name": "U.S. National Security Council",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Venice Commission",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Frontex",
-                    "count": 1,
-                    "share": 3.3
+                    "name": "CSTO",
+                    "count": 2,
+                    "share": 3.1
                 },
                 {
                     "name": "Atlantic Council",
                     "count": 1,
-                    "share": 3.3
+                    "share": 2.8
+                },
+                {
+                    "name": "U.S. National Security Council",
+                    "count": 1,
+                    "share": 2.8
+                },
+                {
+                    "name": "Venice Commission",
+                    "count": 1,
+                    "share": 2.8
+                },
+                {
+                    "name": "Frontex",
+                    "count": 1,
+                    "share": 2.8
                 },
                 {
                     "name": "Bucharest Nine",
@@ -910,19 +925,9 @@
                     "share": 1.6
                 },
                 {
-                    "name": "UN General Assembly",
-                    "count": 2,
-                    "share": 1.3
-                },
-                {
-                    "name": "Main Directorate of Intelligence of Ukraine",
-                    "count": 4,
-                    "share": 1.3
-                },
-                {
                     "name": "IAEA",
-                    "count": 4,
-                    "share": 1.3
+                    "count": 3,
+                    "share": 1.0
                 },
                 {
                     "name": "Foreign Intelligence Service of Russia",
@@ -935,24 +940,14 @@
                     "share": 1.0
                 },
                 {
-                    "name": "Council of the European Union",
+                    "name": "Main Directorate of Intelligence of Ukraine",
+                    "count": 3,
+                    "share": 1.0
+                },
+                {
+                    "name": "UN General Assembly",
                     "count": 1,
                     "share": 0.7
-                },
-                {
-                    "name": "Commonwealth of Independent States",
-                    "count": 2,
-                    "share": 0.6
-                },
-                {
-                    "name": "CSTO",
-                    "count": 1,
-                    "share": 0.3
-                },
-                {
-                    "name": "Rosgvardiya",
-                    "count": 1,
-                    "share": 0.3
                 },
                 {
                     "name": "OSCE",
@@ -960,7 +955,7 @@
                     "share": 0.3
                 },
                 {
-                    "name": "Eurasian Economic Union",
+                    "name": "Rosgvardiya",
                     "count": 1,
                     "share": 0.3
                 }
@@ -968,93 +963,88 @@
             "persons": [
                 {
                     "name": "Donald Trump",
-                    "count": 67,
-                    "share": 58.4
+                    "count": 65,
+                    "share": 57.0
                 },
                 {
                     "name": "Vladimir Putin",
-                    "count": 71,
-                    "share": 33.7
+                    "count": 68,
+                    "share": 32.9
                 },
                 {
                     "name": "Volodymyr Zelenskyy",
-                    "count": 65,
-                    "share": 24.4
+                    "count": 66,
+                    "share": 24.5
                 },
                 {
                     "name": "Joe Biden",
-                    "count": 6,
+                    "count": 7,
                     "share": 17.3
                 },
                 {
                     "name": "Viktor Orban",
-                    "count": 6,
-                    "share": 14.7
+                    "count": 5,
+                    "share": 11.8
+                },
+                {
+                    "name": "J.D. Vance",
+                    "count": 4,
+                    "share": 11.1
                 },
                 {
                     "name": "Keir Starmer",
                     "count": 7,
-                    "share": 12.0
+                    "share": 10.3
                 },
                 {
                     "name": "Emmanuel Macron",
-                    "count": 8,
-                    "share": 11.6
+                    "count": 7,
+                    "share": 9.6
                 },
                 {
-                    "name": "J.D. Vance",
-                    "count": 3,
-                    "share": 10.0
+                    "name": "Sergei Lavrov",
+                    "count": 22,
+                    "share": 7.5
                 },
                 {
                     "name": "Mark Rutte",
                     "count": 5,
-                    "share": 8.3
-                },
-                {
-                    "name": "Sergei Lavrov",
-                    "count": 24,
-                    "share": 8.1
+                    "share": 7.2
                 },
                 {
                     "name": "Donald Tusk",
                     "count": 3,
-                    "share": 7.3
+                    "share": 6.2
                 },
                 {
                     "name": "Ursula von der Leyen",
                     "count": 3,
-                    "share": 7.0
+                    "share": 5.9
                 },
                 {
                     "name": "Marco Rubio",
-                    "count": 9,
-                    "share": 7.0
+                    "count": 8,
+                    "share": 5.7
                 },
                 {
                     "name": "Pete Hegseth",
                     "count": 6,
-                    "share": 6.0
+                    "share": 5.4
                 },
                 {
                     "name": "Valery Gerasimov",
-                    "count": 17,
-                    "share": 5.5
-                },
-                {
-                    "name": "Dmitry Medvedev",
                     "count": 14,
                     "share": 4.5
                 },
                 {
-                    "name": "Oleksandr Syrskyi",
+                    "name": "Dmitry Medvedev",
                     "count": 13,
                     "share": 4.2
                 },
                 {
-                    "name": "Recep Tayyip Erdogan",
-                    "count": 2,
-                    "share": 4.0
+                    "name": "Oleksandr Syrskyi",
+                    "count": 12,
+                    "share": 3.9
                 },
                 {
                     "name": "Alexander Lukashenko",
@@ -1067,24 +1057,9 @@
                     "share": 3.6
                 },
                 {
-                    "name": "Boris Johnson",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Kaja Kallas",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Nicu Popescu",
-                    "count": 1,
-                    "share": 3.3
-                },
-                {
-                    "name": "Olaf Scholz",
-                    "count": 1,
-                    "share": 3.3
+                    "name": "Recep Tayyip Erdogan",
+                    "count": 2,
+                    "share": 3.4
                 },
                 {
                     "name": "Dmytro Kuleba",
@@ -1092,9 +1067,29 @@
                     "share": 2.9
                 },
                 {
-                    "name": "Denys Shmyhal",
-                    "count": 6,
-                    "share": 1.9
+                    "name": "Kaja Kallas",
+                    "count": 1,
+                    "share": 2.8
+                },
+                {
+                    "name": "Olaf Scholz",
+                    "count": 1,
+                    "share": 2.8
+                },
+                {
+                    "name": "Boris Johnson",
+                    "count": 1,
+                    "share": 2.8
+                },
+                {
+                    "name": "Antony Blinken",
+                    "count": 1,
+                    "share": 2.8
+                },
+                {
+                    "name": "Nicu Popescu",
+                    "count": 1,
+                    "share": 2.8
                 },
                 {
                     "name": "Kyrylo Budanov",
@@ -1102,9 +1097,14 @@
                     "share": 1.9
                 },
                 {
+                    "name": "Denys Shmyhal",
+                    "count": 6,
+                    "share": 1.9
+                },
+                {
                     "name": "Dmitry Peskov",
-                    "count": 5,
-                    "share": 1.6
+                    "count": 6,
+                    "share": 1.9
                 },
                 {
                     "name": "Sergei Shoigu",
@@ -1117,12 +1117,12 @@
                     "share": 1.0
                 },
                 {
-                    "name": "Jens Stoltenberg",
+                    "name": "David Lammy",
                     "count": 1,
                     "share": 0.7
                 },
                 {
-                    "name": "David Lammy",
+                    "name": "Jens Stoltenberg",
                     "count": 1,
                     "share": 0.7
                 },
@@ -1144,26 +1144,26 @@
             {
                 "theme": "russia_regional_implications",
                 "official_share": 3.9,
-                "think_tank_share": 71.7,
-                "gap": 67.8
+                "think_tank_share": 68.1,
+                "gap": 64.2
             },
             {
                 "theme": "other_mixed",
-                "official_share": 68.6,
-                "think_tank_share": 16.0,
-                "gap": -52.6
+                "official_share": 68.7,
+                "think_tank_share": 16.7,
+                "gap": -52.0
             },
             {
                 "theme": "support_ukraine",
                 "official_share": 14.2,
-                "think_tank_share": 5.0,
-                "gap": -9.2
+                "think_tank_share": 8.4,
+                "gap": -5.8
             },
             {
                 "theme": "eu_regional_security",
                 "official_share": 9.6,
-                "think_tank_share": 4.7,
-                "gap": -4.9
+                "think_tank_share": 4.1,
+                "gap": -5.5
             },
             {
                 "theme": "romania_republic_of_moldova",
@@ -1189,14 +1189,14 @@
                 {
                     "name": "Russia",
                     "official_share": 10.2,
-                    "think_tank_share": 79.3,
-                    "gap": 69.1
+                    "think_tank_share": 78.0,
+                    "gap": 67.8
                 },
                 {
                     "name": "United States",
                     "official_share": 10.3,
-                    "think_tank_share": 63.4,
-                    "gap": 53.1
+                    "think_tank_share": 62.8,
+                    "gap": 52.5
                 },
                 {
                     "name": "China",
@@ -1206,59 +1206,59 @@
                 },
                 {
                     "name": "Ukraine",
-                    "official_share": 21.8,
-                    "think_tank_share": 66.7,
-                    "gap": 44.9
+                    "official_share": 21.7,
+                    "think_tank_share": 67.7,
+                    "gap": 46.0
                 },
                 {
                     "name": "United Kingdom",
                     "official_share": 13.0,
-                    "think_tank_share": 56.7,
-                    "gap": 43.7
-                },
-                {
-                    "name": "Germany",
-                    "official_share": 4.9,
-                    "think_tank_share": 41.2,
-                    "gap": 36.3
+                    "think_tank_share": 55.0,
+                    "gap": 42.0
                 },
                 {
                     "name": "Iran",
                     "official_share": 5.5,
-                    "think_tank_share": 41.4,
-                    "gap": 35.9
+                    "think_tank_share": 42.1,
+                    "gap": 36.6
+                },
+                {
+                    "name": "Germany",
+                    "official_share": 4.9,
+                    "think_tank_share": 40.5,
+                    "gap": 35.6
                 },
                 {
                     "name": "France",
                     "official_share": 5.7,
-                    "think_tank_share": 38.2,
-                    "gap": 32.5
-                },
-                {
-                    "name": "Israel",
-                    "official_share": 1.6,
-                    "think_tank_share": 29.5,
-                    "gap": 27.9
+                    "think_tank_share": 35.0,
+                    "gap": 29.3
                 },
                 {
                     "name": "Hungary",
                     "official_share": 0.7,
-                    "think_tank_share": 25.0,
-                    "gap": 24.3
+                    "think_tank_share": 26.0,
+                    "gap": 25.3
+                },
+                {
+                    "name": "Israel",
+                    "official_share": 1.6,
+                    "think_tank_share": 26.7,
+                    "gap": 25.1
                 }
             ],
             "organizations": [
                 {
                     "name": "European Union",
-                    "official_share": 47.0,
-                    "think_tank_share": 7.3,
-                    "gap": -39.7
+                    "official_share": 46.9,
+                    "think_tank_share": 6.1,
+                    "gap": -40.8
                 },
                 {
                     "name": "Kremlin",
                     "official_share": 0.6,
-                    "think_tank_share": 37.4,
-                    "gap": 36.8
+                    "think_tank_share": 36.3,
+                    "gap": 35.7
                 },
                 {
                     "name": "European Council on Foreign Relations",
@@ -1286,9 +1286,9 @@
                 },
                 {
                     "name": "European Council",
-                    "official_share": 8.5,
-                    "think_tank_share": 28.3,
-                    "gap": 19.8
+                    "official_share": 8.4,
+                    "think_tank_share": 28.8,
+                    "gap": 20.4
                 },
                 {
                     "name": "GRU",
@@ -1297,36 +1297,36 @@
                     "gap": 18.4
                 },
                 {
-                    "name": "NATO",
-                    "official_share": 34.4,
-                    "think_tank_share": 47.2,
-                    "gap": 12.8
-                },
-                {
                     "name": "White House",
                     "official_share": 0.0,
-                    "think_tank_share": 12.6,
-                    "gap": 12.6
+                    "think_tank_share": 13.6,
+                    "gap": 13.6
+                },
+                {
+                    "name": "Chatham House",
+                    "official_share": 0.0,
+                    "think_tank_share": 12.0,
+                    "gap": 12.0
                 }
             ],
             "persons": [
                 {
                     "name": "Donald Trump",
                     "official_share": 0.1,
-                    "think_tank_share": 58.4,
-                    "gap": 58.3
+                    "think_tank_share": 57.0,
+                    "gap": 56.9
                 },
                 {
                     "name": "Vladimir Putin",
                     "official_share": 0.7,
-                    "think_tank_share": 33.7,
-                    "gap": 33.0
+                    "think_tank_share": 32.9,
+                    "gap": 32.2
                 },
                 {
                     "name": "Volodymyr Zelenskyy",
                     "official_share": 2.3,
-                    "think_tank_share": 24.4,
-                    "gap": 22.1
+                    "think_tank_share": 24.5,
+                    "gap": 22.2
                 },
                 {
                     "name": "Joe Biden",
@@ -1343,32 +1343,32 @@
                 {
                     "name": "Viktor Orban",
                     "official_share": 0.0,
-                    "think_tank_share": 14.7,
-                    "gap": 14.7
-                },
-                {
-                    "name": "Emmanuel Macron",
-                    "official_share": 1.0,
-                    "think_tank_share": 11.6,
-                    "gap": 10.6
+                    "think_tank_share": 11.8,
+                    "gap": 11.8
                 },
                 {
                     "name": "Mark Rutte",
                     "official_share": 18.9,
-                    "think_tank_share": 8.3,
-                    "gap": -10.6
-                },
-                {
-                    "name": "Keir Starmer",
-                    "official_share": 1.5,
-                    "think_tank_share": 12.0,
-                    "gap": 10.5
+                    "think_tank_share": 7.2,
+                    "gap": -11.7
                 },
                 {
                     "name": "Kaja Kallas",
                     "official_share": 12.1,
-                    "think_tank_share": 3.3,
-                    "gap": -8.8
+                    "think_tank_share": 2.8,
+                    "gap": -9.3
+                },
+                {
+                    "name": "Keir Starmer",
+                    "official_share": 1.5,
+                    "think_tank_share": 10.3,
+                    "gap": 8.8
+                },
+                {
+                    "name": "Emmanuel Macron",
+                    "official_share": 1.0,
+                    "think_tank_share": 9.6,
+                    "gap": 8.6
                 }
             ]
         }

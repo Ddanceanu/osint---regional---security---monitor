@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/theme-shift.css">
     <link rel="stylesheet" href="css/source-divergence.css">
     <link rel="stylesheet" href="css/actor-trajectories.css">
+    <link rel="stylesheet" href="css/themes.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 
@@ -386,11 +387,57 @@
 
         <!-- PAGE: Themes -->
         <div class="page" id="page-themes">
-            <div class="coming-soon">
-                <div class="coming-soon-icon">🏷️</div>
-                <div class="coming-soon-title">Themes</div>
-                <div class="coming-soon-sub">Thematic classification breakdown and source comparison — coming soon.</div>
+
+            <!-- ═══ Section 1: Theme Explorer ═══ -->
+            <div class="th-explorer-panel">
+                <div class="th-panel-header">
+                    <div class="th-title-row">
+                        <div class="th-icon-bar"></div>
+                        <div>
+                            <h2 class="th-panel-title">Theme Explorer</h2>
+                            <div class="th-panel-sub">Select a theme to explore its timeline, key entities, source composition and recent documents</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme selector buttons -->
+                <div class="th-selector" id="th-selector"></div>
+
+                <!-- Theme detail area (populated by JS) -->
+                <div class="th-detail" id="th-detail">
+                    <div class="th-detail-placeholder">Select a theme above to begin exploration</div>
+                </div>
             </div>
+
+            <!-- ═══ Section 2: Co-occurrence Matrix ═══ -->
+            <div class="th-cooccurrence-panel">
+                <div class="th-panel-header">
+                    <div class="th-title-row">
+                        <div class="th-icon-bar th-icon-bar-matrix"></div>
+                        <div>
+                            <h2 class="th-panel-title">Theme Co-occurrence</h2>
+                            <div class="th-panel-sub">How often themes appear together — rows show the primary theme, columns show which secondary themes accompany it</div>
+                        </div>
+                    </div>
+                    <div class="th-cooccurrence-meta" id="th-cooccurrence-meta"></div>
+                </div>
+                <div class="th-matrix-wrap" id="th-matrix-wrap"></div>
+            </div>
+
+            <!-- ═══ Section 3: Theme Concentration by Source ═══ -->
+            <div class="th-concentration-panel">
+                <div class="th-panel-header">
+                    <div class="th-title-row">
+                        <div class="th-icon-bar th-icon-bar-conc"></div>
+                        <div>
+                            <h2 class="th-panel-title">Source Thematic Profile</h2>
+                            <div class="th-panel-sub">How concentrated or diversified each source is across themes — diversity index counts themes with more than 5% share</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="th-concentration-grid" id="th-concentration-grid"></div>
+            </div>
+
         </div>
 
         <!-- PAGE: Entities -->

@@ -10,6 +10,7 @@ import { renderTrending } from './strategic-pulse.js';
 import { renderThemeEvolutionChart, initThemeShiftToggle } from './theme-shift.js';
 import { renderSourceDivergence, initDivergenceTabs } from './source-divergence.js';
 import { renderActorTrajectories } from './actor-trajectories.js';
+import { renderThemesPage } from './themes.js';
 
 // ════════════════════════════════════════
 // EXPOSE GLOBALS (needed for onclick handlers in HTML)
@@ -48,6 +49,7 @@ async function loadDocuments() {
         renderThemeEvolutionChart();
         renderSourceDivergence();
         renderActorTrajectories();
+        renderThemesPage();
 
     } catch (error) {
         console.error('Failed to load documents:', error);

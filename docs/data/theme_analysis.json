@@ -1,0 +1,1864 @@
+{
+    "generated_at": "2026-03-30 08:36",
+    "total_documents": 555,
+    "themes": {
+        "support_ukraine": {
+            "label": "Support for Ukraine",
+            "document_count": 86,
+            "percentage": 15.5,
+            "timeline": [
+                {
+                    "week": "2026-W01",
+                    "week_label": "Dec 29 — Jan 04",
+                    "count": 2
+                },
+                {
+                    "week": "2026-W02",
+                    "week_label": "Jan 05 — Jan 11",
+                    "count": 7
+                },
+                {
+                    "week": "2026-W03",
+                    "week_label": "Jan 12 — Jan 18",
+                    "count": 2
+                },
+                {
+                    "week": "2026-W04",
+                    "week_label": "Jan 19 — Jan 25",
+                    "count": 2
+                },
+                {
+                    "week": "2026-W05",
+                    "week_label": "Jan 26 — Feb 01",
+                    "count": 5
+                },
+                {
+                    "week": "2026-W06",
+                    "week_label": "Feb 02 — Feb 08",
+                    "count": 3
+                },
+                {
+                    "week": "2026-W07",
+                    "week_label": "Feb 09 — Feb 15",
+                    "count": 2
+                },
+                {
+                    "week": "2026-W08",
+                    "week_label": "Feb 16 — Feb 22",
+                    "count": 5
+                },
+                {
+                    "week": "2026-W09",
+                    "week_label": "Feb 23 — Mar 01",
+                    "count": 8
+                },
+                {
+                    "week": "2026-W10",
+                    "week_label": "Mar 02 — Mar 08",
+                    "count": 3
+                },
+                {
+                    "week": "2026-W11",
+                    "week_label": "Mar 09 — Mar 15",
+                    "count": 6
+                },
+                {
+                    "week": "2026-W12",
+                    "week_label": "Mar 16 — Mar 22",
+                    "count": 19
+                },
+                {
+                    "week": "2026-W13",
+                    "week_label": "Mar 23 — Mar 29",
+                    "count": 22
+                }
+            ],
+            "top_entities": {
+                "persons": [
+                    {
+                        "name": "Antonio Costa",
+                        "count": 24
+                    },
+                    {
+                        "name": "Ursula von der Leyen",
+                        "count": 14
+                    },
+                    {
+                        "name": "Volodymyr Zelenskyy",
+                        "count": 9
+                    },
+                    {
+                        "name": "Mark Rutte",
+                        "count": 7
+                    },
+                    {
+                        "name": "Donald Trump",
+                        "count": 6
+                    }
+                ],
+                "countries": [
+                    {
+                        "name": "Ukraine",
+                        "count": 86
+                    },
+                    {
+                        "name": "Russia",
+                        "count": 40
+                    },
+                    {
+                        "name": "Iran",
+                        "count": 19
+                    },
+                    {
+                        "name": "Albania",
+                        "count": 15
+                    },
+                    {
+                        "name": "Montenegro",
+                        "count": 15
+                    }
+                ],
+                "organizations": [
+                    {
+                        "name": "European Union",
+                        "count": 49
+                    },
+                    {
+                        "name": "United Nations",
+                        "count": 27
+                    },
+                    {
+                        "name": "European Council",
+                        "count": 25
+                    },
+                    {
+                        "name": "European Commission",
+                        "count": 19
+                    },
+                    {
+                        "name": "NATO",
+                        "count": 15
+                    }
+                ]
+            },
+            "source_breakdown": [
+                {
+                    "source_key": "eu_council",
+                    "source_name": "EU Council",
+                    "source_type": "official",
+                    "count": 43,
+                    "percentage": 50.0
+                },
+                {
+                    "source_key": "eeas",
+                    "source_name": "EEAS",
+                    "source_type": "official",
+                    "count": 26,
+                    "percentage": 30.2
+                },
+                {
+                    "source_key": "chatham_house",
+                    "source_name": "Chatham House",
+                    "source_type": "think_tank",
+                    "count": 8,
+                    "percentage": 9.3
+                },
+                {
+                    "source_key": "nato",
+                    "source_name": "NATO",
+                    "source_type": "official",
+                    "count": 7,
+                    "percentage": 8.1
+                },
+                {
+                    "source_key": "isw",
+                    "source_name": "ISW",
+                    "source_type": "think_tank",
+                    "count": 1,
+                    "percentage": 1.2
+                },
+                {
+                    "source_key": "ecfr",
+                    "source_name": "ECFR",
+                    "source_type": "think_tank",
+                    "count": 1,
+                    "percentage": 1.2
+                }
+            ],
+            "recent_documents": [
+                {
+                    "title": "HRC61 - EU Statement - Item 10",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-27",
+                    "url": "https://www.eeas.europa.eu/delegations/un-geneva/hrc61-eu-statement-item-10_en"
+                },
+                {
+                    "title": "ILO Governing Body, 356th session  - EU Statement - Review of the modalities of recurrent discussions under the follow-up to the ILO Declaration on Social Justice for a Fair Globalization (2008), as amended in 2022",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-27",
+                    "url": "https://www.eeas.europa.eu/delegations/un-geneva/ilo-governing-body-356th-session-eu-statement-review-modalities-recurrent-discussions-under-follow_en"
+                },
+                {
+                    "title": "Sudan’s volunteer-led aid network receives 2025 Chatham House Prize",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-27",
+                    "url": "https://www.chathamhouse.org/2026/03/sudans-volunteer-led-aid-network-receives-2025-chatham-house-prize"
+                },
+                {
+                    "title": "Justice for Ukraine: Supporting survivors of war crimes and building international solidarity",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-27",
+                    "url": "https://www.chathamhouse.org/events/all/standard-event/justice-ukraine-supporting-survivors-war-crimes-and-building"
+                },
+                {
+                    "title": "First ever EU-Armenia summit to take place on 4 and 5 May 2026",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-03-26",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/26/first-ever-eu-armenia-summit-to-take-place-on-4-and-5-may-2026/"
+                },
+                {
+                    "title": "HRC61 - EU Statement - Interactive dialogue with the High Commissioner on Ukraine",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/delegations/un-geneva/hrc61-eu-statement-interactive-dialogue-high-commissioner-ukraine_en"
+                },
+                {
+                    "title": "Commission launches process for the EU to become founding member of the Special Tribunal for the Crime of Aggression against Ukraine",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/delegations/ukraine/commission-launches-process-eu-become-founding-member-special-tribunal-crime-aggression-against_en"
+                },
+                {
+                    "title": "First ever EU-Armenia summit to take place on 4 and 5 May 2026",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/delegations/armenia/first-ever-eu-armenia-summit-take-place-4-and-5-may-2026_en"
+                }
+            ]
+        },
+        "eastern_flank_nato_deterrence": {
+            "label": "Eastern Flank / NATO Deterrence",
+            "document_count": 6,
+            "percentage": 1.1,
+            "timeline": [
+                {
+                    "week": "2026-W01",
+                    "week_label": "Dec 29 — Jan 04",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W02",
+                    "week_label": "Jan 05 — Jan 11",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W03",
+                    "week_label": "Jan 12 — Jan 18",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W04",
+                    "week_label": "Jan 19 — Jan 25",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W05",
+                    "week_label": "Jan 26 — Feb 01",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W06",
+                    "week_label": "Feb 02 — Feb 08",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W07",
+                    "week_label": "Feb 09 — Feb 15",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W08",
+                    "week_label": "Feb 16 — Feb 22",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W09",
+                    "week_label": "Feb 23 — Mar 01",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W10",
+                    "week_label": "Mar 02 — Mar 08",
+                    "count": 2
+                },
+                {
+                    "week": "2026-W11",
+                    "week_label": "Mar 09 — Mar 15",
+                    "count": 1
+                },
+                {
+                    "week": "2026-W12",
+                    "week_label": "Mar 16 — Mar 22",
+                    "count": 3
+                },
+                {
+                    "week": "2026-W13",
+                    "week_label": "Mar 23 — Mar 29",
+                    "count": 0
+                }
+            ],
+            "top_entities": {
+                "persons": [
+                    {
+                        "name": "Donald Trump",
+                        "count": 4
+                    },
+                    {
+                        "name": "Pete Hegseth",
+                        "count": 1
+                    },
+                    {
+                        "name": "Kaja Kallas",
+                        "count": 1
+                    }
+                ],
+                "countries": [
+                    {
+                        "name": "Iran",
+                        "count": 5
+                    },
+                    {
+                        "name": "China",
+                        "count": 3
+                    },
+                    {
+                        "name": "Israel",
+                        "count": 2
+                    },
+                    {
+                        "name": "United States",
+                        "count": 2
+                    },
+                    {
+                        "name": "Japan",
+                        "count": 2
+                    }
+                ],
+                "organizations": [
+                    {
+                        "name": "United Nations",
+                        "count": 2
+                    },
+                    {
+                        "name": "NATO",
+                        "count": 1
+                    },
+                    {
+                        "name": "U.S. Department of Defense",
+                        "count": 1
+                    },
+                    {
+                        "name": "EEAS",
+                        "count": 1
+                    },
+                    {
+                        "name": "White House",
+                        "count": 1
+                    }
+                ]
+            },
+            "source_breakdown": [
+                {
+                    "source_key": "chatham_house",
+                    "source_name": "Chatham House",
+                    "source_type": "think_tank",
+                    "count": 4,
+                    "percentage": 66.7
+                },
+                {
+                    "source_key": "eu_council",
+                    "source_name": "EU Council",
+                    "source_type": "official",
+                    "count": 2,
+                    "percentage": 33.3
+                }
+            ],
+            "recent_documents": [
+                {
+                    "title": "Should the Gulf Arab states join the war against Iran?",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-19",
+                    "url": "https://www.chathamhouse.org/2026/03/should-gulf-arab-states-join-war-against-iran"
+                },
+                {
+                    "title": "The Iran war should boost security cooperation by US Pacific allies like Japan, the Philippines and South Korea",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-18",
+                    "url": "https://www.chathamhouse.org/2026/03/iran-war-should-boost-security-cooperation-us-pacific-allies-japan-philippines-and-south"
+                },
+                {
+                    "title": "Disarmament: Council adopts decision supporting African capacities towards a mine-free continent",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-03-16",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/16/disarmament-council-adopts-decision-supporting-african-capacities-towards-a-mine-free-continent/"
+                },
+                {
+                    "title": "Takaichi takes on Trump",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-15",
+                    "url": "https://www.chathamhouse.org/2026/03/takaichi-takes-trump"
+                },
+                {
+                    "title": "How Iran’s ‘forward defence’ became a strategic boomerang",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-06",
+                    "url": "https://www.chathamhouse.org/publications/the-world-today/2026-03/how-irans-forward-defence-became-strategic-boomerang"
+                },
+                {
+                    "title": "Joint statement by GCC-EU Ministers’ meeting on recent developments in the Middle East: Iran’s attacks against GCC states",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-03-05",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/05/joint-statement-by-gcc-eu-ministers-meeting-on-recent-developments-in-the-middle-east-iran-s-attacks-against-gcc-states/"
+                }
+            ]
+        },
+        "romania_republic_of_moldova": {
+            "label": "Romania - Republic of Moldova",
+            "document_count": 15,
+            "percentage": 2.7,
+            "timeline": [
+                {
+                    "week": "2026-W01",
+                    "week_label": "Dec 29 — Jan 04",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W02",
+                    "week_label": "Jan 05 — Jan 11",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W03",
+                    "week_label": "Jan 12 — Jan 18",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W04",
+                    "week_label": "Jan 19 — Jan 25",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W05",
+                    "week_label": "Jan 26 — Feb 01",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W06",
+                    "week_label": "Feb 02 — Feb 08",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W07",
+                    "week_label": "Feb 09 — Feb 15",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W08",
+                    "week_label": "Feb 16 — Feb 22",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W09",
+                    "week_label": "Feb 23 — Mar 01",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W10",
+                    "week_label": "Mar 02 — Mar 08",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W11",
+                    "week_label": "Mar 09 — Mar 15",
+                    "count": 1
+                },
+                {
+                    "week": "2026-W12",
+                    "week_label": "Mar 16 — Mar 22",
+                    "count": 6
+                },
+                {
+                    "week": "2026-W13",
+                    "week_label": "Mar 23 — Mar 29",
+                    "count": 8
+                }
+            ],
+            "top_entities": {
+                "persons": [
+                    {
+                        "name": "Mark Rutte",
+                        "count": 1
+                    },
+                    {
+                        "name": "Mihai Popsoi",
+                        "count": 1
+                    }
+                ],
+                "countries": [
+                    {
+                        "name": "Montenegro",
+                        "count": 12
+                    },
+                    {
+                        "name": "Albania",
+                        "count": 11
+                    },
+                    {
+                        "name": "North Macedonia",
+                        "count": 10
+                    },
+                    {
+                        "name": "Serbia",
+                        "count": 9
+                    },
+                    {
+                        "name": "Ukraine",
+                        "count": 8
+                    }
+                ],
+                "organizations": [
+                    {
+                        "name": "European Union",
+                        "count": 11
+                    },
+                    {
+                        "name": "UN General Assembly",
+                        "count": 4
+                    },
+                    {
+                        "name": "OSCE",
+                        "count": 1
+                    },
+                    {
+                        "name": "European Council",
+                        "count": 1
+                    },
+                    {
+                        "name": "Council of the European Union",
+                        "count": 1
+                    }
+                ]
+            },
+            "source_breakdown": [
+                {
+                    "source_key": "eeas",
+                    "source_name": "EEAS",
+                    "source_type": "official",
+                    "count": 14,
+                    "percentage": 93.3
+                },
+                {
+                    "source_key": "nato",
+                    "source_name": "NATO",
+                    "source_type": "official",
+                    "count": 1,
+                    "percentage": 6.7
+                }
+            ],
+            "recent_documents": [
+                {
+                    "title": "ILO Governing Body, 356th session - EU statement - ILO Development Cooperation Strategy 2026-29",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/delegations/un-geneva/ilo-governing-body-356th-session-eu-statement-ilo-development-cooperation-strategy-2026-29_en"
+                },
+                {
+                    "title": "ILO Governing Body, 356th session - EU statement - Possible initiatives that complement the body of international labour standards to ensure decent work in supply chains",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/delegations/un-geneva/ilo-governing-body-356th-session-eu-statement-possible-initiatives-complement-body-international_en"
+                },
+                {
+                    "title": "EU Explanation of Vote – UN General Assembly: Action on A/80/L.48 - Declaration of the Trafficking of Enslaved Africans and Racialized Chattel Enslavement of Africans as the Gravest Crime Against Humanity",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-25",
+                    "url": "https://www.eeas.europa.eu/delegations/un-new-york/eu-explanation-vote-%E2%80%93-un-general-assembly-action-a80l48-declaration-trafficking-enslaved-africans_en"
+                },
+                {
+                    "title": "EU Statement – UN General Assembly: International Day for Remembrance of the Victims of Slavery and the Transatlantic Slave Trade",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-25",
+                    "url": "https://www.eeas.europa.eu/delegations/un-new-york/eu-statement-%E2%80%93-un-general-assembly-international-day-remembrance-victims-slavery-and-transatlantic_en"
+                },
+                {
+                    "title": "ILO Governing Body, 356th session - EU statement - The ILO in a changing multilateral environment: Towards better effectiveness and efficiency",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-25",
+                    "url": "https://www.eeas.europa.eu/delegations/un-geneva/ilo-governing-body-356th-session-eu-statement-ilo-changing-multilateral-environment-towards-better_en"
+                },
+                {
+                    "title": "ILO Governing Body, 356th session - EU statement - Other financial matters",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-25",
+                    "url": "https://www.eeas.europa.eu/delegations/un-geneva/ilo-governing-body-356th-session-eu-statement-other-financial-matters_en"
+                },
+                {
+                    "title": "EU Statement – UN General Assembly: International Day for the Elimination of Racial Discrimination",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-23",
+                    "url": "https://www.eeas.europa.eu/delegations/un-new-york/eu-statement-%E2%80%93-un-general-assembly-international-day-elimination-racial-discrimination-0_en"
+                },
+                {
+                    "title": "EU Statement on the AOB raised by Republic of Moldova: On the commemoration of the victims of the armed conflict on the Nistru River",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-23",
+                    "url": "https://www.eeas.europa.eu/delegations/vienna-international-organisations/eu-statement-aob-raised-republic-moldova-commemoration-victims-armed-conflict-nistru-river_en"
+                }
+            ]
+        },
+        "russia_regional_implications": {
+            "label": "Russia: Actions, Positioning, and Regional Implications",
+            "document_count": 151,
+            "percentage": 27.2,
+            "timeline": [
+                {
+                    "week": "2026-W01",
+                    "week_label": "Dec 29 — Jan 04",
+                    "count": 4
+                },
+                {
+                    "week": "2026-W02",
+                    "week_label": "Jan 05 — Jan 11",
+                    "count": 8
+                },
+                {
+                    "week": "2026-W03",
+                    "week_label": "Jan 12 — Jan 18",
+                    "count": 9
+                },
+                {
+                    "week": "2026-W04",
+                    "week_label": "Jan 19 — Jan 25",
+                    "count": 11
+                },
+                {
+                    "week": "2026-W05",
+                    "week_label": "Jan 26 — Feb 01",
+                    "count": 14
+                },
+                {
+                    "week": "2026-W06",
+                    "week_label": "Feb 02 — Feb 08",
+                    "count": 10
+                },
+                {
+                    "week": "2026-W07",
+                    "week_label": "Feb 09 — Feb 15",
+                    "count": 11
+                },
+                {
+                    "week": "2026-W08",
+                    "week_label": "Feb 16 — Feb 22",
+                    "count": 8
+                },
+                {
+                    "week": "2026-W09",
+                    "week_label": "Feb 23 — Mar 01",
+                    "count": 12
+                },
+                {
+                    "week": "2026-W10",
+                    "week_label": "Mar 02 — Mar 08",
+                    "count": 14
+                },
+                {
+                    "week": "2026-W11",
+                    "week_label": "Mar 09 — Mar 15",
+                    "count": 17
+                },
+                {
+                    "week": "2026-W12",
+                    "week_label": "Mar 16 — Mar 22",
+                    "count": 19
+                },
+                {
+                    "week": "2026-W13",
+                    "week_label": "Mar 23 — Mar 29",
+                    "count": 14
+                }
+            ],
+            "top_entities": {
+                "persons": [
+                    {
+                        "name": "Vladimir Putin",
+                        "count": 68
+                    },
+                    {
+                        "name": "Volodymyr Zelenskyy",
+                        "count": 67
+                    },
+                    {
+                        "name": "Donald Trump",
+                        "count": 48
+                    },
+                    {
+                        "name": "Sergei Lavrov",
+                        "count": 22
+                    },
+                    {
+                        "name": "Valery Gerasimov",
+                        "count": 14
+                    }
+                ],
+                "countries": [
+                    {
+                        "name": "Russia",
+                        "count": 151
+                    },
+                    {
+                        "name": "Ukraine",
+                        "count": 141
+                    },
+                    {
+                        "name": "United Kingdom",
+                        "count": 78
+                    },
+                    {
+                        "name": "United States",
+                        "count": 76
+                    },
+                    {
+                        "name": "Iran",
+                        "count": 49
+                    }
+                ],
+                "organizations": [
+                    {
+                        "name": "Institute for the Study of War",
+                        "count": 102
+                    },
+                    {
+                        "name": "Armed Forces of the Russian Federation",
+                        "count": 99
+                    },
+                    {
+                        "name": "Kremlin",
+                        "count": 98
+                    },
+                    {
+                        "name": "Ministry of Defence of the Russian Federation",
+                        "count": 67
+                    },
+                    {
+                        "name": "GRU",
+                        "count": 57
+                    }
+                ]
+            },
+            "source_breakdown": [
+                {
+                    "source_key": "isw",
+                    "source_name": "ISW",
+                    "source_type": "think_tank",
+                    "count": 102,
+                    "percentage": 67.5
+                },
+                {
+                    "source_key": "eu_council",
+                    "source_name": "EU Council",
+                    "source_type": "official",
+                    "count": 21,
+                    "percentage": 13.9
+                },
+                {
+                    "source_key": "chatham_house",
+                    "source_name": "Chatham House",
+                    "source_type": "think_tank",
+                    "count": 11,
+                    "percentage": 7.3
+                },
+                {
+                    "source_key": "ecfr",
+                    "source_name": "ECFR",
+                    "source_type": "think_tank",
+                    "count": 10,
+                    "percentage": 6.6
+                },
+                {
+                    "source_key": "eeas",
+                    "source_name": "EEAS",
+                    "source_type": "official",
+                    "count": 7,
+                    "percentage": 4.6
+                }
+            ],
+            "recent_documents": [
+                {
+                    "title": "Russian Offensive Campaign Assessment, March 29, 2026",
+                    "source_name": "ISW",
+                    "source_key": "isw",
+                    "date": "2026-03-29",
+                    "url": "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-march-29-2026/"
+                },
+                {
+                    "title": "Russian Offensive Campaign Assessment, March 28, 2026",
+                    "source_name": "ISW",
+                    "source_key": "isw",
+                    "date": "2026-03-28",
+                    "url": "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-march-28-2026/"
+                },
+                {
+                    "title": "Russian Offensive Campaign Assessment, March 27, 2026",
+                    "source_name": "ISW",
+                    "source_key": "isw",
+                    "date": "2026-03-27",
+                    "url": "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-march-27-2026/"
+                },
+                {
+                    "title": "Council conclusions at the start of the 14th Ministerial Conference of the World Trade Organization",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-03-26",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/26/council-conclusions-at-the-start-of-the-14th-ministerial-conference-of-the-world-trade-organization/"
+                },
+                {
+                    "title": "Russian Offensive Campaign Assessment, March 26, 2026",
+                    "source_name": "ISW",
+                    "source_key": "isw",
+                    "date": "2026-03-26",
+                    "url": "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-march-26-2026/"
+                },
+                {
+                    "title": "Russian Occupation Update, March 26, 2026",
+                    "source_name": "ISW",
+                    "source_key": "isw",
+                    "date": "2026-03-26",
+                    "url": "https://understandingwar.org/research/russia-ukraine/russian-occupation-update-march-26-2026/"
+                },
+                {
+                    "title": "Moscow internet blackouts: the Kremlin tightens its grip on Russia’s digital space",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-26",
+                    "url": "https://www.chathamhouse.org/2026/03/moscow-internet-blackouts-kremlin-tightens-its-grip-russias-digital-space"
+                },
+                {
+                    "title": "Iran war: regional shock or global crisis? Independent Thinking podcast",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-26",
+                    "url": "https://www.chathamhouse.org/2026/03/iran-war-regional-shock-or-global-crisis-independent-thinking-podcast"
+                }
+            ]
+        },
+        "eu_regional_security": {
+            "label": "EU and Regional Security",
+            "document_count": 70,
+            "percentage": 12.6,
+            "timeline": [
+                {
+                    "week": "2026-W01",
+                    "week_label": "Dec 29 — Jan 04",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W02",
+                    "week_label": "Jan 05 — Jan 11",
+                    "count": 7
+                },
+                {
+                    "week": "2026-W03",
+                    "week_label": "Jan 12 — Jan 18",
+                    "count": 2
+                },
+                {
+                    "week": "2026-W04",
+                    "week_label": "Jan 19 — Jan 25",
+                    "count": 3
+                },
+                {
+                    "week": "2026-W05",
+                    "week_label": "Jan 26 — Feb 01",
+                    "count": 5
+                },
+                {
+                    "week": "2026-W06",
+                    "week_label": "Feb 02 — Feb 08",
+                    "count": 1
+                },
+                {
+                    "week": "2026-W07",
+                    "week_label": "Feb 09 — Feb 15",
+                    "count": 3
+                },
+                {
+                    "week": "2026-W08",
+                    "week_label": "Feb 16 — Feb 22",
+                    "count": 3
+                },
+                {
+                    "week": "2026-W09",
+                    "week_label": "Feb 23 — Mar 01",
+                    "count": 4
+                },
+                {
+                    "week": "2026-W10",
+                    "week_label": "Mar 02 — Mar 08",
+                    "count": 3
+                },
+                {
+                    "week": "2026-W11",
+                    "week_label": "Mar 09 — Mar 15",
+                    "count": 4
+                },
+                {
+                    "week": "2026-W12",
+                    "week_label": "Mar 16 — Mar 22",
+                    "count": 21
+                },
+                {
+                    "week": "2026-W13",
+                    "week_label": "Mar 23 — Mar 29",
+                    "count": 14
+                }
+            ],
+            "top_entities": {
+                "persons": [
+                    {
+                        "name": "Kaja Kallas",
+                        "count": 16
+                    },
+                    {
+                        "name": "Antonio Costa",
+                        "count": 5
+                    },
+                    {
+                        "name": "Joe Biden",
+                        "count": 1
+                    },
+                    {
+                        "name": "Donald Trump",
+                        "count": 1
+                    },
+                    {
+                        "name": "Keir Starmer",
+                        "count": 1
+                    }
+                ],
+                "countries": [
+                    {
+                        "name": "Montenegro",
+                        "count": 22
+                    },
+                    {
+                        "name": "Albania",
+                        "count": 20
+                    },
+                    {
+                        "name": "North Macedonia",
+                        "count": 20
+                    },
+                    {
+                        "name": "Ukraine",
+                        "count": 20
+                    },
+                    {
+                        "name": "Norway",
+                        "count": 16
+                    }
+                ],
+                "organizations": [
+                    {
+                        "name": "European Union",
+                        "count": 57
+                    },
+                    {
+                        "name": "EEAS",
+                        "count": 26
+                    },
+                    {
+                        "name": "European Council",
+                        "count": 7
+                    },
+                    {
+                        "name": "European Parliament",
+                        "count": 6
+                    },
+                    {
+                        "name": "European Commission",
+                        "count": 4
+                    }
+                ]
+            },
+            "source_breakdown": [
+                {
+                    "source_key": "eu_council",
+                    "source_name": "EU Council",
+                    "source_type": "official",
+                    "count": 40,
+                    "percentage": 57.1
+                },
+                {
+                    "source_key": "eeas",
+                    "source_name": "EEAS",
+                    "source_type": "official",
+                    "count": 27,
+                    "percentage": 38.6
+                },
+                {
+                    "source_key": "chatham_house",
+                    "source_name": "Chatham House",
+                    "source_type": "think_tank",
+                    "count": 2,
+                    "percentage": 2.9
+                },
+                {
+                    "source_key": "ecfr",
+                    "source_name": "ECFR",
+                    "source_type": "think_tank",
+                    "count": 1,
+                    "percentage": 1.4
+                }
+            ],
+            "recent_documents": [
+                {
+                    "title": "HRC61 - EU Statement - Urgent Debate called by Iran, China and Cuba",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-27",
+                    "url": "https://www.eeas.europa.eu/delegations/un-geneva/hrc61-eu-statement-urgent-debate-called-iran-china-and-cuba_en"
+                },
+                {
+                    "title": "MEPs travel to China for first visit in eight years to focus on digital economy",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/delegations/china/meps-travel-china-first-visit-eight-years-focus-digital-economy_en"
+                },
+                {
+                    "title": "Japan: High Representative/Vice-President Kallas holds third EU-Japan Strategic Dialogue with Foreign Minister Motegi",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/eeas/japan-high-representativevice-president-kallas-holds-third-eu-japan-strategic-dialogue-foreign_en"
+                },
+                {
+                    "title": "G7 Foreign Affairs Ministers meeting: press remarks High Representative / Vice-President Kaja Kallas",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/eeas/g7-foreign-affairs-ministers-meeting-press-remarks-high-representative-vice-president-kaja-kallas_en"
+                },
+                {
+                    "title": "Media advisory: HR/VP Kallas attends G7 Foreign Affairs Ministers’ Meeting in France",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-26",
+                    "url": "https://www.eeas.europa.eu/eeas/media-advisory-hrvp-kallas-attends-g7-foreign-affairs-ministers%E2%80%99-meeting-france_en"
+                },
+                {
+                    "title": "EV endgame: Stalling China’s export surge in Europe’s southern neighbourhood",
+                    "source_name": "ECFR",
+                    "source_key": "ecfr",
+                    "date": "2026-03-26",
+                    "url": "https://ecfr.eu/publication/ev-endgame-stalling-chinas-export-surge-in-europes-southern-neighbourhood/"
+                },
+                {
+                    "title": "Security and Defence: The European Union and China hold their 15th consultations",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-25",
+                    "url": "https://www.eeas.europa.eu/eeas/security-and-defence-european-union-and-china-hold-their-15th-consultations_en"
+                },
+                {
+                    "title": "Starmer’s handling of Trump and Iran reflects public opinion, but shows the limits of UK power",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-25",
+                    "url": "https://www.chathamhouse.org/2026/03/starmers-handling-trump-and-iran-reflects-public-opinion-shows-limits-uk-power"
+                }
+            ]
+        },
+        "black_sea_regional_security": {
+            "label": "Black Sea and Regional Security",
+            "document_count": 4,
+            "percentage": 0.7,
+            "timeline": [
+                {
+                    "week": "2026-W01",
+                    "week_label": "Dec 29 — Jan 04",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W02",
+                    "week_label": "Jan 05 — Jan 11",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W03",
+                    "week_label": "Jan 12 — Jan 18",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W04",
+                    "week_label": "Jan 19 — Jan 25",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W05",
+                    "week_label": "Jan 26 — Feb 01",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W06",
+                    "week_label": "Feb 02 — Feb 08",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W07",
+                    "week_label": "Feb 09 — Feb 15",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W08",
+                    "week_label": "Feb 16 — Feb 22",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W09",
+                    "week_label": "Feb 23 — Mar 01",
+                    "count": 1
+                },
+                {
+                    "week": "2026-W10",
+                    "week_label": "Mar 02 — Mar 08",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W11",
+                    "week_label": "Mar 09 — Mar 15",
+                    "count": 1
+                },
+                {
+                    "week": "2026-W12",
+                    "week_label": "Mar 16 — Mar 22",
+                    "count": 0
+                },
+                {
+                    "week": "2026-W13",
+                    "week_label": "Mar 23 — Mar 29",
+                    "count": 2
+                }
+            ],
+            "top_entities": {
+                "persons": [
+                    {
+                        "name": "Kaja Kallas",
+                        "count": 1
+                    },
+                    {
+                        "name": "Ursula von der Leyen",
+                        "count": 1
+                    },
+                    {
+                        "name": "Antonio Costa",
+                        "count": 1
+                    }
+                ],
+                "countries": [
+                    {
+                        "name": "India",
+                        "count": 2
+                    },
+                    {
+                        "name": "France",
+                        "count": 1
+                    },
+                    {
+                        "name": "Germany",
+                        "count": 1
+                    },
+                    {
+                        "name": "Japan",
+                        "count": 1
+                    },
+                    {
+                        "name": "Romania",
+                        "count": 1
+                    }
+                ],
+                "organizations": [
+                    {
+                        "name": "European Union",
+                        "count": 3
+                    },
+                    {
+                        "name": "EEAS",
+                        "count": 2
+                    },
+                    {
+                        "name": "European Commission",
+                        "count": 2
+                    },
+                    {
+                        "name": "U.S. National Security Council",
+                        "count": 1
+                    },
+                    {
+                        "name": "UN Security Council",
+                        "count": 1
+                    }
+                ]
+            },
+            "source_breakdown": [
+                {
+                    "source_key": "eeas",
+                    "source_name": "EEAS",
+                    "source_type": "official",
+                    "count": 2,
+                    "percentage": 50.0
+                },
+                {
+                    "source_key": "eu_council",
+                    "source_name": "EU Council",
+                    "source_type": "official",
+                    "count": 2,
+                    "percentage": 50.0
+                }
+            ],
+            "recent_documents": [
+                {
+                    "title": "EU-Thailand-Japan regional seminar explores how to strengthen cyber resilience of maritime supply chains",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-25",
+                    "url": "https://www.eeas.europa.eu/delegations/thailand/eu-thailand-japan-regional-seminar-explores-how-strengthen-cyber-resilience-maritime-supply-chains_en"
+                },
+                {
+                    "title": "EU and Australia strengthen relations with Security and Defence Partnership and Trade Agreement",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-24",
+                    "url": "https://www.eeas.europa.eu/delegations/australia/eu-and-australia-strengthen-relations-security-and-defence-partnership-and-trade-agreement_en"
+                },
+                {
+                    "title": "Joint press statement by President of the European Council, António Costa, and President of the Republic of Azerbaijan, Ilham Aliyev",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-03-11",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/11/joint-press-statement-by-president-of-the-european-council-antonio-costa-and-president-of-the-republic-of-azerbaijan-ilham-aliyev/"
+                },
+                {
+                    "title": "Red Sea: Council extends the mandate of Operation ASPIDES to safeguard freedom of navigation",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-02-23",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/02/23/red-sea-council-extends-the-mandate-of-operation-aspides-to-safeguard-freedom-of-navigation/"
+                }
+            ]
+        },
+        "other_mixed": {
+            "label": "Other / Mixed",
+            "document_count": 223,
+            "percentage": 40.2,
+            "timeline": [
+                {
+                    "week": "2026-W01",
+                    "week_label": "Dec 29 — Jan 04",
+                    "count": 1
+                },
+                {
+                    "week": "2026-W02",
+                    "week_label": "Jan 05 — Jan 11",
+                    "count": 9
+                },
+                {
+                    "week": "2026-W03",
+                    "week_label": "Jan 12 — Jan 18",
+                    "count": 8
+                },
+                {
+                    "week": "2026-W04",
+                    "week_label": "Jan 19 — Jan 25",
+                    "count": 8
+                },
+                {
+                    "week": "2026-W05",
+                    "week_label": "Jan 26 — Feb 01",
+                    "count": 6
+                },
+                {
+                    "week": "2026-W06",
+                    "week_label": "Feb 02 — Feb 08",
+                    "count": 3
+                },
+                {
+                    "week": "2026-W07",
+                    "week_label": "Feb 09 — Feb 15",
+                    "count": 7
+                },
+                {
+                    "week": "2026-W08",
+                    "week_label": "Feb 16 — Feb 22",
+                    "count": 7
+                },
+                {
+                    "week": "2026-W09",
+                    "week_label": "Feb 23 — Mar 01",
+                    "count": 13
+                },
+                {
+                    "week": "2026-W10",
+                    "week_label": "Mar 02 — Mar 08",
+                    "count": 18
+                },
+                {
+                    "week": "2026-W11",
+                    "week_label": "Mar 09 — Mar 15",
+                    "count": 34
+                },
+                {
+                    "week": "2026-W12",
+                    "week_label": "Mar 16 — Mar 22",
+                    "count": 52
+                },
+                {
+                    "week": "2026-W13",
+                    "week_label": "Mar 23 — Mar 29",
+                    "count": 57
+                }
+            ],
+            "top_entities": {
+                "persons": [
+                    {
+                        "name": "Mark Rutte",
+                        "count": 24
+                    },
+                    {
+                        "name": "Antonio Costa",
+                        "count": 20
+                    },
+                    {
+                        "name": "Ursula von der Leyen",
+                        "count": 16
+                    },
+                    {
+                        "name": "Donald Trump",
+                        "count": 7
+                    },
+                    {
+                        "name": "Kaja Kallas",
+                        "count": 4
+                    }
+                ],
+                "countries": [
+                    {
+                        "name": "Germany",
+                        "count": 17
+                    },
+                    {
+                        "name": "France",
+                        "count": 15
+                    },
+                    {
+                        "name": "Iran",
+                        "count": 14
+                    },
+                    {
+                        "name": "Belgium",
+                        "count": 13
+                    },
+                    {
+                        "name": "Netherlands",
+                        "count": 13
+                    }
+                ],
+                "organizations": [
+                    {
+                        "name": "European Union",
+                        "count": 72
+                    },
+                    {
+                        "name": "NATO",
+                        "count": 37
+                    },
+                    {
+                        "name": "European Commission",
+                        "count": 32
+                    },
+                    {
+                        "name": "European Parliament",
+                        "count": 31
+                    },
+                    {
+                        "name": "European Council",
+                        "count": 21
+                    }
+                ]
+            },
+            "source_breakdown": [
+                {
+                    "source_key": "eeas",
+                    "source_name": "EEAS",
+                    "source_type": "official",
+                    "count": 85,
+                    "percentage": 38.1
+                },
+                {
+                    "source_key": "eu_council",
+                    "source_name": "EU Council",
+                    "source_type": "official",
+                    "count": 78,
+                    "percentage": 35.0
+                },
+                {
+                    "source_key": "nato",
+                    "source_name": "NATO",
+                    "source_type": "official",
+                    "count": 32,
+                    "percentage": 14.3
+                },
+                {
+                    "source_key": "chatham_house",
+                    "source_name": "Chatham House",
+                    "source_type": "think_tank",
+                    "count": 25,
+                    "percentage": 11.2
+                },
+                {
+                    "source_key": "mae",
+                    "source_name": "MAE Romania",
+                    "source_type": "official",
+                    "count": 3,
+                    "percentage": 1.3
+                }
+            ],
+            "recent_documents": [
+                {
+                    "title": "Analysis: What do Houthi attacks on Israel mean for the Iran war?",
+                    "source_name": "Chatham House",
+                    "source_key": "chatham_house",
+                    "date": "2026-03-28",
+                    "url": "https://www.chathamhouse.org/2026/03/analysis-what-do-houthi-attacks-israel-mean-iran-war"
+                },
+                {
+                    "title": "Forward look: 30 March - 12 April 2026",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-03-27",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/27/forward-look-2026/"
+                },
+                {
+                    "title": "Media advisory - Agriculture and Fisheries Council of 30 March 2026",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-03-27",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/27/media-advisory-agriculture-and-fisheries-council-of-30-march-2026/"
+                },
+                {
+                    "title": "Remarks by Kyriakos Pierrakakis following the Eurogroup meeting of 27 March 2026",
+                    "source_name": "EU Council",
+                    "source_key": "eu_council",
+                    "date": "2026-03-27",
+                    "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/27/remarks-by-kyriakos-pierrakakis-following-the-eurogroup-meeting-of-27-march-2026/"
+                },
+                {
+                    "title": "Media Bootcamp Empowers Youth in Kyrgyzstan with Media Literacy and Content Creation Skills",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-27",
+                    "url": "https://www.eeas.europa.eu/delegations/kyrgyz-republic/media-bootcamp-empowers-youth-kyrgyzstan-media-literacy-and-content-creation-skills_en"
+                },
+                {
+                    "title": "Commission scales up its humanitarian response in Lebanon to address urgent needs",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-27",
+                    "url": "https://www.eeas.europa.eu/delegations/lebanon/commission-scales-its-humanitarian-response-lebanon-address-urgent-needs_en"
+                },
+                {
+                    "title": "EU support brings urgent aid to families forced to flee their homes in Lebanon",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-27",
+                    "url": "https://www.eeas.europa.eu/delegations/lebanon/eu-support-brings-urgent-aid-families-forced-flee-their-homes-lebanon_en"
+                },
+                {
+                    "title": "Joint Press Release Team Europe announces EUR 2 million for establishing a National Agricultural Laboratory and Launches Three Agribusiness Support Projects",
+                    "source_name": "EEAS",
+                    "source_key": "eeas",
+                    "date": "2026-03-27",
+                    "url": "https://www.eeas.europa.eu/delegations/cambodia/joint-press-release-team-europe-announces-eur-2-million-establishing-national-agricultural_en"
+                }
+            ]
+        }
+    },
+    "cooccurrence": {
+        "keys": [
+            "support_ukraine",
+            "eastern_flank_nato_deterrence",
+            "romania_republic_of_moldova",
+            "russia_regional_implications",
+            "eu_regional_security",
+            "black_sea_regional_security"
+        ],
+        "labels": [
+            "Support for Ukraine",
+            "Eastern Flank / NATO Deterrence",
+            "Romania - Republic of Moldova",
+            "Russia: Actions, Positioning, and Regional Implications",
+            "EU and Regional Security",
+            "Black Sea and Regional Security"
+        ],
+        "matrix": [
+            [
+                null,
+                1,
+                2,
+                25,
+                2,
+                0
+            ],
+            [
+                0,
+                null,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                null,
+                0,
+                0,
+                0
+            ],
+            [
+                127,
+                1,
+                1,
+                null,
+                11,
+                4
+            ],
+            [
+                4,
+                0,
+                0,
+                6,
+                null,
+                0
+            ],
+            [
+                0,
+                0,
+                0,
+                0,
+                0,
+                null
+            ]
+        ],
+        "max_value": 127,
+        "total_with_secondary": 162,
+        "total_documents": 555
+    },
+    "concentration": [
+        {
+            "source_key": "eu_council",
+            "source_name": "EU Council",
+            "source_type": "official",
+            "total_docs": 186,
+            "theme_distribution": {
+                "support_ukraine": {
+                    "count": 43,
+                    "share": 23.1
+                },
+                "eastern_flank_nato_deterrence": {
+                    "count": 2,
+                    "share": 1.1
+                },
+                "romania_republic_of_moldova": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "russia_regional_implications": {
+                    "count": 21,
+                    "share": 11.3
+                },
+                "eu_regional_security": {
+                    "count": 40,
+                    "share": 21.5
+                },
+                "black_sea_regional_security": {
+                    "count": 2,
+                    "share": 1.1
+                },
+                "other_mixed": {
+                    "count": 78,
+                    "share": 41.9
+                }
+            },
+            "diversity_index": 4,
+            "dominant_theme": "other_mixed",
+            "dominant_share": 41.9
+        },
+        {
+            "source_key": "eeas",
+            "source_name": "EEAS",
+            "source_type": "official",
+            "total_docs": 161,
+            "theme_distribution": {
+                "support_ukraine": {
+                    "count": 26,
+                    "share": 16.1
+                },
+                "eastern_flank_nato_deterrence": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "romania_republic_of_moldova": {
+                    "count": 14,
+                    "share": 8.7
+                },
+                "russia_regional_implications": {
+                    "count": 7,
+                    "share": 4.3
+                },
+                "eu_regional_security": {
+                    "count": 27,
+                    "share": 16.8
+                },
+                "black_sea_regional_security": {
+                    "count": 2,
+                    "share": 1.2
+                },
+                "other_mixed": {
+                    "count": 85,
+                    "share": 52.8
+                }
+            },
+            "diversity_index": 4,
+            "dominant_theme": "other_mixed",
+            "dominant_share": 52.8
+        },
+        {
+            "source_key": "nato",
+            "source_name": "NATO",
+            "source_type": "official",
+            "total_docs": 40,
+            "theme_distribution": {
+                "support_ukraine": {
+                    "count": 7,
+                    "share": 17.5
+                },
+                "eastern_flank_nato_deterrence": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "romania_republic_of_moldova": {
+                    "count": 1,
+                    "share": 2.5
+                },
+                "russia_regional_implications": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "eu_regional_security": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "black_sea_regional_security": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "other_mixed": {
+                    "count": 32,
+                    "share": 80.0
+                }
+            },
+            "diversity_index": 2,
+            "dominant_theme": "other_mixed",
+            "dominant_share": 80.0
+        },
+        {
+            "source_key": "mae",
+            "source_name": "MAE Romania",
+            "source_type": "official",
+            "total_docs": 3,
+            "theme_distribution": {
+                "support_ukraine": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "eastern_flank_nato_deterrence": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "romania_republic_of_moldova": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "russia_regional_implications": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "eu_regional_security": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "black_sea_regional_security": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "other_mixed": {
+                    "count": 3,
+                    "share": 100.0
+                }
+            },
+            "diversity_index": 1,
+            "dominant_theme": "other_mixed",
+            "dominant_share": 100.0
+        },
+        {
+            "source_key": "isw",
+            "source_name": "ISW",
+            "source_type": "think_tank",
+            "total_docs": 103,
+            "theme_distribution": {
+                "support_ukraine": {
+                    "count": 1,
+                    "share": 1.0
+                },
+                "eastern_flank_nato_deterrence": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "romania_republic_of_moldova": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "russia_regional_implications": {
+                    "count": 102,
+                    "share": 99.0
+                },
+                "eu_regional_security": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "black_sea_regional_security": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "other_mixed": {
+                    "count": 0,
+                    "share": 0.0
+                }
+            },
+            "diversity_index": 1,
+            "dominant_theme": "russia_regional_implications",
+            "dominant_share": 99.0
+        },
+        {
+            "source_key": "chatham_house",
+            "source_name": "Chatham House",
+            "source_type": "think_tank",
+            "total_docs": 50,
+            "theme_distribution": {
+                "support_ukraine": {
+                    "count": 8,
+                    "share": 16.0
+                },
+                "eastern_flank_nato_deterrence": {
+                    "count": 4,
+                    "share": 8.0
+                },
+                "romania_republic_of_moldova": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "russia_regional_implications": {
+                    "count": 11,
+                    "share": 22.0
+                },
+                "eu_regional_security": {
+                    "count": 2,
+                    "share": 4.0
+                },
+                "black_sea_regional_security": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "other_mixed": {
+                    "count": 25,
+                    "share": 50.0
+                }
+            },
+            "diversity_index": 4,
+            "dominant_theme": "other_mixed",
+            "dominant_share": 50.0
+        },
+        {
+            "source_key": "ecfr",
+            "source_name": "ECFR",
+            "source_type": "think_tank",
+            "total_docs": 12,
+            "theme_distribution": {
+                "support_ukraine": {
+                    "count": 1,
+                    "share": 8.3
+                },
+                "eastern_flank_nato_deterrence": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "romania_republic_of_moldova": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "russia_regional_implications": {
+                    "count": 10,
+                    "share": 83.3
+                },
+                "eu_regional_security": {
+                    "count": 1,
+                    "share": 8.3
+                },
+                "black_sea_regional_security": {
+                    "count": 0,
+                    "share": 0.0
+                },
+                "other_mixed": {
+                    "count": 0,
+                    "share": 0.0
+                }
+            },
+            "diversity_index": 3,
+            "dominant_theme": "russia_regional_implications",
+            "dominant_share": 83.3
+        }
+    ]
+}

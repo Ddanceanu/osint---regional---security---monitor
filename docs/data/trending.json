@@ -1,23 +1,20 @@
 {
     "period_days": 14,
-    "period_start": "2026-03-14",
-    "period_end": "2026-03-27",
-    "total_documents_in_period": 234,
+    "period_start": "2026-03-17",
+    "period_end": "2026-03-30",
+    "total_documents_in_period": 204,
     "categories": {
         "persons": {
             "top": {
                 "name": "Volodymyr Zelenskyy",
-                "mentions": 2.2,
-                "percentage": 13.38,
-                "lead": 2.27,
+                "mentions": 2.5,
+                "percentage": 16.26,
+                "lead": 1.97,
                 "sparkline": [
-                    0.0,
-                    0.0,
-                    16.67,
                     16.67,
                     16.67,
                     8.33,
-                    1.52,
+                    2.08,
                     0.0,
                     16.67,
                     16.67,
@@ -38,38 +35,38 @@
                     0.0,
                     16.67,
                     8.33,
+                    20.83,
+                    16.67,
+                    16.67,
                     0.0
                 ],
                 "trend": {
                     "direction": "up",
-                    "change_pct": 16.1,
-                    "current_rate": 13.38,
-                    "previous_rate": 11.52
+                    "change_pct": 29.3,
+                    "current_rate": 16.26,
+                    "previous_rate": 12.58
                 },
                 "source_diversity": 4,
-                "momentum_score": 1.86
+                "momentum_score": 3.68
             },
             "runners_up": [
                 {
                     "name": "Mark Rutte",
-                    "mentions": 1.3,
-                    "percentage": 11.11,
-                    "lead": 3.33,
+                    "mentions": 1.0,
+                    "percentage": 14.29,
+                    "lead": 7.62,
                     "sparkline": [
+                        16.67,
+                        8.33,
+                        0.0,
+                        18.75,
+                        0.0,
                         0.0,
                         0.0,
                         16.67,
                         16.67,
                         8.33,
                         0.0,
-                        18.18,
-                        0.0,
-                        0.0,
-                        0.0,
-                        16.67,
-                        16.67,
-                        8.33,
-                        16.67,
                         0.0,
                         0.0,
                         8.33,
@@ -81,32 +78,32 @@
                         0.0,
                         0.0,
                         16.67,
+                        0.0,
+                        16.67,
+                        0.0,
                         0.0,
                         0.0,
                         0.0
                     ],
                     "trend": {
-                        "direction": "down",
-                        "change_pct": -30.2,
-                        "current_rate": 11.11,
-                        "previous_rate": 15.92
+                        "direction": "up",
+                        "change_pct": 13.8,
+                        "current_rate": 14.29,
+                        "previous_rate": 12.56
                     },
                     "source_diversity": 2,
-                    "momentum_score": -4.81
+                    "momentum_score": 1.73
                 },
                 {
                     "name": "Donald Trump",
-                    "mentions": 1.8,
-                    "percentage": 7.78,
+                    "mentions": 1.7,
+                    "percentage": 6.67,
                     "lead": null,
                     "sparkline": [
                         16.67,
                         0.0,
-                        0.0,
-                        16.67,
-                        0.0,
                         8.33,
-                        28.79,
+                        29.17,
                         0.0,
                         0.0,
                         27.78,
@@ -127,33 +124,33 @@
                         8.33,
                         5.56,
                         12.5,
+                        0.0,
+                        0.0,
+                        0.0,
                         0.0
                     ],
                     "trend": {
                         "direction": "down",
-                        "change_pct": -76.3,
-                        "current_rate": 7.78,
-                        "previous_rate": 32.83
+                        "change_pct": -79.2,
+                        "current_rate": 6.67,
+                        "previous_rate": 32.11
                     },
                     "source_diversity": 3,
-                    "momentum_score": -25.05
+                    "momentum_score": -25.44
                 }
             ]
         },
         "countries": {
             "top": {
                 "name": "Russia",
-                "mentions": 9.0,
-                "percentage": 45.8,
-                "lead": 8.37,
+                "mentions": 7.8,
+                "percentage": 44.39,
+                "lead": 6.39,
                 "sparkline": [
-                    16.67,
-                    16.67,
-                    16.67,
                     33.33,
                     16.67,
                     22.22,
-                    48.11,
+                    47.92,
                     16.67,
                     16.67,
                     35.71,
@@ -167,38 +164,38 @@
                     32.5,
                     25.93,
                     22.71,
-                    30.16,
+                    30.71,
                     16.67,
                     16.67,
                     37.96,
                     22.22,
                     27.22,
                     51.13,
-                    8.33
+                    20.83,
+                    16.67,
+                    16.67,
+                    0.0
                 ],
                 "trend": {
                     "direction": "stable",
-                    "change_pct": -1.0,
-                    "current_rate": 45.8,
-                    "previous_rate": 46.26
+                    "change_pct": -5.7,
+                    "current_rate": 44.39,
+                    "previous_rate": 47.08
                 },
                 "source_diversity": 5,
-                "momentum_score": -0.46
+                "momentum_score": -2.69
             },
             "runners_up": [
                 {
                     "name": "United Kingdom",
-                    "mentions": 5.5,
-                    "percentage": 37.43,
-                    "lead": 1.41,
+                    "mentions": 5.3,
+                    "percentage": 38.0,
+                    "lead": 1.05,
                     "sparkline": [
-                        0.0,
-                        16.67,
-                        16.67,
                         16.67,
                         16.67,
                         0.0,
-                        42.05,
+                        41.67,
                         0.0,
                         16.67,
                         33.33,
@@ -219,30 +216,30 @@
                         38.89,
                         10.0,
                         26.96,
-                        2.08
+                        22.92,
+                        16.67,
+                        16.67,
+                        0.0
                     ],
                     "trend": {
                         "direction": "up",
-                        "change_pct": 41.8,
-                        "current_rate": 37.43,
-                        "previous_rate": 26.4
+                        "change_pct": 35.2,
+                        "current_rate": 38.0,
+                        "previous_rate": 28.11
                     },
                     "source_diversity": 6,
-                    "momentum_score": 11.03
+                    "momentum_score": 9.89
                 },
                 {
                     "name": "Iran",
-                    "mentions": 6.7,
-                    "percentage": 36.02,
+                    "mentions": 6.2,
+                    "percentage": 36.95,
                     "lead": null,
                     "sparkline": [
-                        25.0,
-                        33.33,
-                        16.67,
                         16.67,
                         3.33,
                         11.11,
-                        40.53,
+                        39.58,
                         16.67,
                         16.67,
                         24.6,
@@ -256,40 +253,40 @@
                         28.33,
                         26.85,
                         23.81,
-                        27.78,
+                        28.33,
                         0.0,
                         0.0,
                         6.48,
                         7.64,
                         21.67,
                         41.67,
-                        10.42
+                        22.92,
+                        33.33,
+                        0.0,
+                        0.0
                     ],
                     "trend": {
                         "direction": "up",
-                        "change_pct": 26.7,
-                        "current_rate": 36.02,
-                        "previous_rate": 28.44
+                        "change_pct": 38.4,
+                        "current_rate": 36.95,
+                        "previous_rate": 26.7
                     },
                     "source_diversity": 5,
-                    "momentum_score": 7.58
+                    "momentum_score": 10.25
                 }
             ]
         },
         "organizations": {
             "top": {
                 "name": "European Council",
-                "mentions": 4.0,
-                "percentage": 25.14,
-                "lead": 2.47,
+                "mentions": 3.3,
+                "percentage": 25.03,
+                "lead": 2.56,
                 "sparkline": [
-                    0.0,
-                    0.0,
-                    0.0,
                     16.67,
                     6.67,
                     2.78,
-                    28.03,
+                    27.08,
                     0.0,
                     0.0,
                     16.67,
@@ -303,45 +300,45 @@
                     5.83,
                     16.67,
                     10.81,
-                    10.71,
+                    9.05,
                     0.0,
                     0.0,
                     0.0,
                     5.56,
                     8.33,
                     24.31,
-                    16.67
+                    11.11,
+                    0.0,
+                    0.0,
+                    0.0
                 ],
                 "trend": {
-                    "direction": "up",
-                    "change_pct": 10.2,
-                    "current_rate": 25.14,
-                    "previous_rate": 22.82
+                    "direction": "stable",
+                    "change_pct": 7.1,
+                    "current_rate": 25.03,
+                    "previous_rate": 23.37
                 },
                 "source_diversity": 4,
-                "momentum_score": 2.32
+                "momentum_score": 1.66
             },
             "runners_up": [
                 {
                     "name": "NATO",
-                    "mentions": 3.2,
-                    "percentage": 22.67,
-                    "lead": 0.93,
+                    "mentions": 2.3,
+                    "percentage": 22.47,
+                    "lead": 0.74,
                     "sparkline": [
-                        0.0,
-                        0.0,
-                        16.67,
                         33.33,
                         33.33,
                         8.33,
-                        40.53,
+                        41.67,
                         0.0,
                         0.0,
                         16.67,
                         20.83,
                         16.67,
                         16.67,
-                        16.67,
+                        0.0,
                         0.0,
                         0.0,
                         33.33,
@@ -354,123 +351,123 @@
                         16.67,
                         16.67,
                         0.0,
-                        4.17,
+                        20.83,
+                        16.67,
+                        0.0,
+                        0.0,
                         0.0
                     ],
                     "trend": {
                         "direction": "down",
-                        "change_pct": -42.7,
-                        "current_rate": 22.67,
-                        "previous_rate": 39.56
+                        "change_pct": -44.9,
+                        "current_rate": 22.47,
+                        "previous_rate": 40.8
                     },
                     "source_diversity": 5,
-                    "momentum_score": -16.89
+                    "momentum_score": -18.33
                 },
                 {
-                    "name": "European Union",
-                    "mentions": 20.5,
-                    "percentage": 21.74,
+                    "name": "European Commission",
+                    "mentions": 4.0,
+                    "percentage": 21.73,
                     "lead": null,
                     "sparkline": [
-                        8.33,
-                        33.33,
-                        0.0,
-                        8.33,
-                        3.33,
-                        11.11,
-                        28.03,
-                        0.0,
-                        0.0,
-                        26.19,
                         16.67,
-                        13.33,
-                        27.08,
-                        20.0,
+                        3.33,
+                        5.56,
+                        16.67,
                         0.0,
                         0.0,
-                        25.56,
-                        17.5,
-                        20.37,
-                        23.26,
-                        17.46,
+                        21.43,
+                        16.67,
+                        0.0,
+                        2.08,
                         0.0,
                         0.0,
-                        26.85,
-                        18.06,
-                        28.89,
-                        21.76,
-                        31.25
+                        0.0,
+                        2.5,
+                        4.17,
+                        12.04,
+                        2.56,
+                        2.38,
+                        0.0,
+                        0.0,
+                        0.93,
+                        8.68,
+                        10.56,
+                        22.94,
+                        4.17,
+                        0.0,
+                        0.0,
+                        0.0
                     ],
                     "trend": {
                         "direction": "stable",
-                        "change_pct": -5.9,
-                        "current_rate": 21.74,
-                        "previous_rate": 23.11
+                        "change_pct": 4.7,
+                        "current_rate": 21.73,
+                        "previous_rate": 20.76
                     },
-                    "source_diversity": 5,
-                    "momentum_score": -1.37
+                    "source_diversity": 3,
+                    "momentum_score": 0.97
                 }
             ]
         },
         "themes": {
             "top": {
                 "name": "other_mixed",
-                "mentions": 17.7,
-                "percentage": 36.59,
-                "lead": 4.58,
+                "mentions": 15.3,
+                "percentage": 37.66,
+                "lead": 4.63,
                 "sparkline": [
-                    8.33,
-                    0.0,
-                    16.67,
                     25.0,
                     26.67,
                     8.33,
-                    35.23,
+                    35.42,
                     0.0,
                     0.0,
                     28.57,
                     8.33,
                     40.0,
                     12.5,
-                    57.78,
+                    41.11,
                     16.67,
                     0.0,
                     25.83,
                     25.28,
                     15.74,
                     12.64,
-                    42.06,
+                    40.95,
                     0.0,
                     0.0,
                     25.0,
                     53.82,
                     23.89,
-                    17.84,
-                    35.42
+                    34.51,
+                    35.42,
+                    16.67,
+                    0.0,
+                    0.0
                 ],
                 "trend": {
                     "direction": "down",
-                    "change_pct": -18.7,
-                    "current_rate": 36.59,
-                    "previous_rate": 44.98
+                    "change_pct": -11.6,
+                    "current_rate": 37.66,
+                    "previous_rate": 42.62
                 },
                 "source_diversity": 4,
-                "momentum_score": -8.39
+                "momentum_score": -4.96
             },
             "runners_up": [
                 {
                     "name": "support_ukraine",
-                    "mentions": 6.8,
-                    "percentage": 32.01,
-                    "lead": 6.36,
+                    "mentions": 6.5,
+                    "percentage": 33.03,
+                    "lead": 9.13,
                     "sparkline": [
-                        25.0,
-                        33.33,
-                        16.67,
                         16.67,
                         20.0,
                         16.67,
-                        42.05,
+                        41.67,
                         16.67,
                         16.67,
                         38.1,
@@ -484,67 +481,70 @@
                         36.39,
                         20.37,
                         32.23,
-                        38.89,
+                        40.0,
                         16.67,
                         16.67,
                         21.3,
                         23.26,
                         30.56,
                         31.27,
-                        12.5
+                        29.17,
+                        16.67,
+                        16.67,
+                        0.0
+                    ],
+                    "trend": {
+                        "direction": "stable",
+                        "change_pct": -8.5,
+                        "current_rate": 33.03,
+                        "previous_rate": 36.09
+                    },
+                    "source_diversity": 6,
+                    "momentum_score": -3.06
+                },
+                {
+                    "name": "russia_regional_implications",
+                    "mentions": 4.5,
+                    "percentage": 23.9,
+                    "lead": null,
+                    "sparkline": [
+                        33.33,
+                        16.67,
+                        22.22,
+                        43.75,
+                        16.67,
+                        16.67,
+                        33.33,
+                        37.5,
+                        20.0,
+                        40.97,
+                        23.89,
+                        33.33,
+                        16.67,
+                        27.5,
+                        29.17,
+                        25.93,
+                        21.43,
+                        16.67,
+                        16.67,
+                        16.67,
+                        37.04,
+                        16.67,
+                        18.89,
+                        34.46,
+                        16.67,
+                        16.67,
+                        16.67,
+                        0.0
                     ],
                     "trend": {
                         "direction": "down",
-                        "change_pct": -10.6,
-                        "current_rate": 32.01,
-                        "previous_rate": 35.81
+                        "change_pct": -46.3,
+                        "current_rate": 23.9,
+                        "previous_rate": 44.51
                     },
-                    "source_diversity": 6,
-                    "momentum_score": -3.8
-                },
-                {
-                    "name": "eu_regional_security",
-                    "mentions": 5.8,
-                    "percentage": 25.65,
-                    "lead": null,
-                    "sparkline": [
-                        0.0,
-                        0.0,
-                        0.0,
-                        8.33,
-                        3.33,
-                        2.78,
-                        16.67,
-                        0.0,
-                        0.0,
-                        0.0,
-                        0.0,
-                        3.33,
-                        11.11,
-                        1.67,
-                        16.67,
-                        0.0,
-                        16.11,
-                        18.33,
-                        12.96,
-                        6.04,
-                        0.0,
-                        0.0,
-                        0.0,
-                        0.93,
-                        5.21,
-                        6.67,
-                        20.59,
-                        2.08
-                    ],
-                    "trend": {
-                        "direction": "up",
-                        "change_pct": 181.6,
-                        "current_rate": 25.65,
-                        "previous_rate": 9.11
-                    },
-                    "source_diversity": 4,
-                    "momentum_score": 16.54
+                    "source_diversity": 5,
+                    "momentum_score": -20.61
                 }
             ]
         }
@@ -552,96 +552,96 @@
     "momentum_board": {
         "risers": [
             {
-                "name": "eu_regional_security",
-                "category": "themes",
-                "pp_change": 16.54,
-                "change_pct": 181.6,
-                "current_rate": 25.65,
-                "previous_rate": 9.11,
-                "source_diversity": 4
-            },
-            {
                 "name": "Israel",
                 "category": "countries",
-                "pp_change": 15.79,
-                "change_pct": 121.5,
-                "current_rate": 28.79,
-                "previous_rate": 13.0,
+                "pp_change": 19.17,
+                "change_pct": 197.8,
+                "current_rate": 28.86,
+                "previous_rate": 9.69,
                 "source_diversity": 5
             },
             {
                 "name": "Netherlands",
                 "category": "countries",
-                "pp_change": 11.96,
-                "change_pct": 169.9,
-                "current_rate": 19.0,
-                "previous_rate": 7.04,
+                "pp_change": 14.37,
+                "change_pct": 304.4,
+                "current_rate": 19.09,
+                "previous_rate": 4.72,
                 "source_diversity": 4
-            },
-            {
-                "name": "United Kingdom",
-                "category": "countries",
-                "pp_change": 11.03,
-                "change_pct": 41.8,
-                "current_rate": 37.43,
-                "previous_rate": 26.4,
-                "source_diversity": 6
             },
             {
                 "name": "Spain",
                 "category": "countries",
-                "pp_change": 11.02,
-                "change_pct": 130.9,
-                "current_rate": 19.44,
-                "previous_rate": 8.42,
+                "pp_change": 11.64,
+                "change_pct": 146.0,
+                "current_rate": 19.61,
+                "previous_rate": 7.97,
                 "source_diversity": 4
+            },
+            {
+                "name": "eu_regional_security",
+                "category": "themes",
+                "pp_change": 10.6,
+                "change_pct": 82.1,
+                "current_rate": 23.51,
+                "previous_rate": 12.91,
+                "source_diversity": 4
+            },
+            {
+                "name": "Iran",
+                "category": "countries",
+                "pp_change": 10.25,
+                "change_pct": 38.4,
+                "current_rate": 36.95,
+                "previous_rate": 26.7,
+                "source_diversity": 5
             }
         ],
         "fallers": [
             {
                 "name": "Donald Trump",
                 "category": "persons",
-                "pp_change": -25.05,
-                "change_pct": -76.3,
-                "current_rate": 7.78,
-                "previous_rate": 32.83,
+                "pp_change": -25.44,
+                "change_pct": -79.2,
+                "current_rate": 6.67,
+                "previous_rate": 32.11,
                 "source_diversity": 2
-            },
-            {
-                "name": "Canada",
-                "category": "countries",
-                "pp_change": -18.76,
-                "change_pct": -89.8,
-                "current_rate": 2.12,
-                "previous_rate": 20.88,
-                "source_diversity": 3
             },
             {
                 "name": "russia_regional_implications",
                 "category": "themes",
-                "pp_change": -18.35,
-                "change_pct": -41.9,
-                "current_rate": 25.47,
-                "previous_rate": 43.82,
+                "pp_change": -20.61,
+                "change_pct": -46.3,
+                "current_rate": 23.9,
+                "previous_rate": 44.51,
                 "source_diversity": 4
+            },
+            {
+                "name": "Canada",
+                "category": "countries",
+                "pp_change": -20.1,
+                "change_pct": -93.4,
+                "current_rate": 1.41,
+                "previous_rate": 21.51,
+                "source_diversity": 3
             },
             {
                 "name": "NATO",
                 "category": "organizations",
-                "pp_change": -16.89,
-                "change_pct": -42.7,
-                "current_rate": 22.67,
-                "previous_rate": 39.56,
+                "pp_change": -18.33,
+                "change_pct": -44.9,
+                "current_rate": 22.47,
+                "previous_rate": 40.8,
                 "source_diversity": 3
             },
             {
-                "name": "United States",
+                "name": "Greece",
                 "category": "countries",
-                "pp_change": -12.15,
-                "change_pct": -30.5,
-                "current_rate": 27.67,
-                "previous_rate": 39.82,
-                "source_diversity": 5
+                "pp_change": -11.52,
+                "change_pct": -90.7,
+                "current_rate": 1.18,
+                "previous_rate": 12.7,
+                "source_diversity": 2
             }
         ]
     }

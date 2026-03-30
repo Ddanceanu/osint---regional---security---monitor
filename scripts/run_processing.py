@@ -15,6 +15,7 @@ from app.processing.trending import compute_trending
 from app.processing.theme_shift import compute_theme_shift
 from app.processing.source_divergence import compute_source_divergence
 from app.processing.actor_trajectories import compute_actor_trajectories
+from app.processing.theme_analysis import compute_theme_analysis
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
@@ -139,6 +140,17 @@ def main() -> None:
     print(f"  Window: {trajectories_data['period_start']} to {trajectories_data['period_end']}")
     print(f"  Weeks: {trajectories_data['num_weeks']}")
     print(f"  Actors tracked: {len(trajectories_data['actors'])}")
+
+    theme_analysis_data = compute_theme_analysis(document_with_entities)
+
+    theme_analysis_output_path = project_root / "docs" / "data" / "theme_analysis.json"
+    with open(theme_analysis_output_path, "w", encoding="utf-8") as theme_analysis_file:
+        json.dump(theme_analysis_data, theme_analysis_file, ensure_ascii=False, indent=4)
+
+    print(f"Theme analysis saved to: {theme_analysis_output_path}")
+    print(f"  Themes profiled: {len(theme_analysis_data['themes'])}")
+    print(f"  Co-occurrence max: {theme_analysis_data['cooccurrence']['max_value']}")
+    print(f"  Sources analyzed: {len(theme_analysis_data['concentration'])}")
 
 
 if __name__ == "__main__":
