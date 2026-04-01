@@ -60,6 +60,7 @@ export const ENTITY_IMAGES = {
     // Countries
     'Ukraine':                                   'assets/entities/ukraine.png',
     'Russia':                                    'assets/entities/russia.png',
+    'United States':                             'assets/entities/usa.png',
     'United Kingdom':                            'assets/entities/united_kingdom.png',
     'Iran':                                      'assets/entities/iran.png',
     // Organizations
